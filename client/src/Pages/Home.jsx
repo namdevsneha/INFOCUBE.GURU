@@ -1,11 +1,15 @@
 import React from "react";
 import Video from "../Components/Home/Video";
+import Expertise from "../Components/Home/Expertise";
 
 export default function Home(){
     return (
-        <div> Home 
-        <Video/>
+        <div>
+            <Video/>
+        <Expertise/>
+     
 
         </div>
+        
     )
 } 
