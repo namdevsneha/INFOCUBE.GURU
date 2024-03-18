@@ -1,7 +1,12 @@
 import React from "react";
+import Expertise from '../Components/Home/Expertise';
 
 export default function Home(){
     return (
-        <div> Home </div>
+        <div>
+            Home
+            <Expertise/> 
+        </div>
+        
     )
 } 
