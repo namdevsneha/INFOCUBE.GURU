@@ -1,20 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Career from './Pages/Career';
+import Alumini from './Pages/Alumini';
+import Feedback from './Pages/Feedback';
+import Help from './Pages/Help';
+import Privacy from './Pages/Privacy';
+import SignUp from './Pages/SignUp';
+import Terms from './Pages/Terms';
 
-export default function App() {
-  return (
-    <div>
-       <h1 className='text-red-500'>
-      app
-    </h1>
-      sun eaksec ruk
-      welcome Mr. Utkarsh Saxena..
-      server nhi start ho rha?
-      ha 
-      nahi
-      toh ab kya karna ?
-      try karte hai kuch toh hoga chalna toh chahiye
-    </div>
+
+function App() {
+  return( <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/Career' element={<Career/>}/>
+      <Route path='/Alumini' element={<Alumini/>}/>
+      <Route path='/Feedback' element={<Feedback/>}/>
+      <Route path='/Help' element={<Help/>}/>
+      <Route path='/Privacy' element={<Privacy/>}/>
+      <Route path='/Signup' element={<SignUp/>}/>
+      <Route path='/Terms' element={<Terms/>}/>
+      
     
-   
-  )
-}
+      
+    </Routes>
+    </BrowserRouter>)
+  }
+
+export default App;
