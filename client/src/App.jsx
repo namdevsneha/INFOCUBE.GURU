@@ -8,10 +8,12 @@ import Help from './Pages/Help';
 import Privacy from './Pages/Privacy';
 import SignUp from './Pages/SignUp';
 import Terms from './Pages/Terms';
+import Header from './Components/Header';
 
 
 function App() {
   return( <BrowserRouter>
+    <Header/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/Career' element={<Career/>}/>
