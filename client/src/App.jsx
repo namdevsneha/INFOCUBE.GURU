@@ -9,6 +9,7 @@ import Privacy from './Pages/Privacy';
 import SignUp from './Pages/SignUp';
 import Terms from './Pages/Terms';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -23,10 +24,8 @@ function App() {
       <Route path='/Privacy' element={<Privacy/>}/>
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
-      
-    
-      
     </Routes>
+    <Footer/>
     </BrowserRouter>)
   }
 
