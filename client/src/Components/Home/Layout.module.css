@@ -1,0 +1,148 @@
+.subheading {
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+}
+.heading {
+    align-self: stretch;
+    position: relative;
+    line-height: 120%;
+}
+.text {
+    align-self: stretch;
+    position: relative;
+    font-size: 18px;
+    line-height: 150%;
+}
+.content2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 23.999998092651367px;
+    text-align: left;
+    font-size: 48px;
+}
+.sectionTitle {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.text1 {
+    align-self: stretch;
+    position: relative;
+    font-size: 16px;
+    line-height: 150%;
+}
+.listItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.list {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 0px;
+    gap: 23.999998092651367px;
+    text-align: left;
+    font-size: 46px;
+}
+.content1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+}
+.join {
+    position: relative;
+    line-height: 150%;
+}
+.button {
+    width: 105px;
+    border-radius: 43px;
+    background-color: #255652;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 11.999999046325684px 23.999998092651367px;
+}
+.iconChevronRight {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.button1 {
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #000;
+}
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0px 0px;
+    gap: 23.999998092651367px;
+    text-align: left;
+    color: #fff;
+}
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 23.999998092651367px;
+}
+.icon {
+    width: 666px;
+    position: relative;
+    height: 666px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 79px;
+}
+.layout3 {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 59.99999237060547px 64px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    font-family: Roboto;
+}
+
