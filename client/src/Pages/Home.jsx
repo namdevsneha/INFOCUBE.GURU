@@ -4,9 +4,8 @@ import Expertise from "../Components/Home/Expertise";
 
 export default function Home(){
     return (
-        <div>
+        <div className="" >
             <Video/>
-        <Expertise/>
      
 
         </div>
