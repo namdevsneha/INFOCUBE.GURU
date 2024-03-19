@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpertiseImage from '../../Assets/Images/Expertise.svg'
+import ExpertiseImage from '../../Assets/Images/expertise.svg'
 import RightArrow from '../../Assets/Images/RightArrow.svg'
 
 export default function Expertise(){
@@ -32,7 +32,7 @@ export default function Expertise(){
 		</div>
 		<div className="h-[2.25rem] flex flex-row items-center justify-center gap-[0.5rem] text-black">
 		<div className="relative leading-[150%]">Learn More</div>
-		<img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={RigthArrow} />
+		<img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={RightArrow} />
 		</div>
 		</div>
 		</div>

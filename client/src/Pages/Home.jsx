@@ -1,20 +1,22 @@
 import React from "react";
-import Video from "../Components/Home/Form.jsx";
+import Form from "../Components/Home/Form.jsx";
 import Expertise from "../Components/Home/Expertise.jsx";
-import Checkfunction from "../Components/Home/Check.jsx";
+import Check from "../Components/Home/Check.jsx";
 import Join from "../Components/Home/Join.jsx";
 import Journey from "../Components/Home/Journey.jsx";
 import Image from "../Components/Home/Image.jsx";
+import Team from "../Components/Home/Team.jsx";
 
 export default function Home(){
     return (
         <div className="" >
-            {/* <Form/> */}
-            {/* <Expertise/> */}
-            {/* <Check/>
+            <Form/>
+            <Expertise/>
+            <Check/>
             <Join/>
-            <Journey/>
-            <Image/> */}
+            <Team/>
+            {/* <Journey/> */}
+            <Image/>
         </div>
         
     )

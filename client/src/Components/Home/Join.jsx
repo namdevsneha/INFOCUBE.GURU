@@ -1,4 +1,5 @@
 import React from 'react'
+import RightArrow from '../../Assets/Images/RightArrow.svg'
 
 export default function Join() {
   return (
@@ -40,7 +41,7 @@ export default function Join() {
     </div>
     <div className="flex flex-row items-center justify-center gap-[0.5rem] text-black">
     <div className="relative leading-[150%]">Learn More</div>
-    <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src="Icon / Chevron Right.svg" />
+    <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={RightArrow} />
     </div>
     </div>
     </div>
