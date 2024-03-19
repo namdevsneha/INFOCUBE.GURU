@@ -1,5 +1,5 @@
-import styles from './Layout.module.css'
-
+import styles from './styles/Expertise.module.css'
+import React from 'react';
 
 export default function Expertise(){
   	return (

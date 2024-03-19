@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Layout.module.css';
+import styles from './styles/Check.module.css';
 export default function Checkfunction(){
     return (
         <div className={styles.layout2}>
