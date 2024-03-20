@@ -7,43 +7,63 @@ import Feedback from '../Pages/Feedback';
 import Help from '../Pages/Help';
 import SignUp from '../Pages/SignUp';
 import Home from '../Pages/Home';
+import downArrow from '../Assets/Images/downArrow.svg';
 
 export default function Header() {
   return (
-    <header>
-        <div className='flex justify-between items-center'>
+   
+   <div className="w-full relative box-border h-[4.5rem] overflow-hidden flex flex-col items-center justify-center py-[0rem] px-[2.5rem] text-left text-[1rem] text-black font-roboto ">
+   <div className="w-[87.5rem] relative h-[2.563rem]">
+   <div className="absolute top-[0rem] left-[0rem] w-[16.375rem] h-[2.563rem]" />
 
+
+   <div className="absolute top-[0.031rem] left-[37.875rem] flex flex-row items-center justify-center gap-[2rem]">
+   <div className="overflow-hidden flex flex-row items-start justify-start gap-[2rem]">
+      <Link to={Alumini}>
+   <div className="relative leading-[150%] font-medium">ALUMNI</div>
+      </Link>
+      <Link to={Career}>
+   <div className="relative leading-[150%] font-medium">CAREER PATHS</div>
+      </Link>
+      <Link to={Feedback}>
+   <div className="relative leading-[150%] font-medium">FEEDBACK</div>
+      </Link>
+      <Link to={Help}>
+   <div className="flex flex-row items-center justify-center gap-[0.25rem]">
+   <div className="relative leading-[150%] font-medium">HELP AND SUPPORT</div>
+   <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={downArrow} />
+   </div>
+     </Link>
+   </div>
+   
+   <Link to={SignUp}>
+   <div className="flex flex-row items-center justify-center gap-[1rem]">
+   {/* <div className="rounded-xl flex flex-row items-center justify-center py-[0.5rem] px-[1.25rem] border-[1px] border-solid border-black">
+   <div className="relative leading-[150%] font-medium">Sign UP</div>
+   </div> */}
+
+   <div className="w-[8.125rem] rounded-xl bg-darkslategray box-border flex flex-row items-center justify-center py-[0.5rem]  text-white border-[1px] border-solid border-darkslategray">
+   <div className="relative leading-[150%] font-medium">Login/Sign Up</div>
+   </div>
+   </div>
+   </Link>
+
+   </div>
             <Link to={Home}>
-             <div className=''>
-                <img src={logo}/>
-             </div> 
-             </Link>
-             <ul className='flex items-center justify-items-end gap-4 '>
-                <Link to={Alumini}>
-                <li className='font-roboto'>ALUMNI</li>
-                </Link>
+            <div className="absolute top-[-0.969rem] left-[1.438rem] w-[16.75rem] h-[4.905rem]  ">
 
-                <Link to={Career}>
-                <li className='font-roboto'>CAREER PATH</li>
-                </Link>
+            <img className="absolute  object-cover" alt="" src={logo} />
 
-                <Link to={Feedback}>
-                <li className='font-roboto'>FEEDBACK</li>
-                </Link>
+            </div>
+            </Link>
 
-                <Link to={Help}>
-                <li className='font-roboto'>HELP AND SUPPORT</li>
-                </Link>
+   </div>
+   </div>
 
-             </ul>
-
-             <Link to={SignUp}>
-             <div className=" rounded-[44px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem]">
-             <div className="relative leading-[150%] text-white">Login/Sign Up</div>
-             </div>
-             </Link>
-
-             </div>         
-        </header>
   )
 }
+
+
+
+
+

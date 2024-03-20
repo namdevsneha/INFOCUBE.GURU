@@ -7,6 +7,9 @@ export default {
   theme: {
     colors:{
       buttonColor:'#255652',
+      black: "#000",
+      darkslategray: "#255652",
+      white: "#fff",
     },
     extend: {
       fontFamily: {
@@ -52,3 +55,7 @@ export default {
       }
       },
 }
+
+
+  
+          
