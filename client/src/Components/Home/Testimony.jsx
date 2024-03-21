@@ -8,9 +8,10 @@ export default function Testimonial(){
     const contentRef = useRef(null);
 
     const scrollLeft = () => {
+        const containerWidth = contentRef.current.offsetWidth
       if (contentRef.current) {
         contentRef.current.scrollBy({
-          left: -320, 
+          left: -containerWidth, 
           behavior: 'smooth',
         });
       }
@@ -18,12 +19,13 @@ export default function Testimonial(){
   
     const scrollRight = () => {
       if (contentRef.current) {
+        const containerWidth = contentRef.current.offsetWidth;
         contentRef.current.scrollBy({
-          left: 320,
+          left: containerWidth,
           behavior: 'smooth',
         });
       }
-    };
+          };
 
     return (
         <div className="w-full relative h-[27.681rem] overflow-hidden text-center text-[1.5rem] text-black font-roboto">
