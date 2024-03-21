@@ -19,16 +19,16 @@ export default function Header() {
 
    <div className="absolute top-[0.031rem] left-[37.875rem] flex flex-row items-center justify-center gap-[2rem]">
    <div className="overflow-hidden flex flex-row items-start justify-start gap-[2rem]">
-      <Link to={Alumini}>
+      <Link to="/Alumini">
    <div className="relative leading-[150%] font-medium">ALUMNI</div>
       </Link>
-      <Link to={Career}>
+      <Link to="/Career">
    <div className="relative leading-[150%] font-medium">CAREER PATHS</div>
       </Link>
-      <Link to={Feedback}>
+      <Link to="/Feedback">
    <div className="relative leading-[150%] font-medium">FEEDBACK</div>
       </Link>
-      <Link to={Help}>
+      <Link to="/Help">
    <div className="flex flex-row items-center justify-center gap-[0.25rem]">
    <div className="relative leading-[150%] font-medium">HELP AND SUPPORT</div>
    <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={downArrow} />
@@ -36,7 +36,7 @@ export default function Header() {
      </Link>
    </div>
    
-   <Link to={SignUp}>
+   <Link to="/SignUp">
    <div className="flex flex-row items-center justify-center gap-[1rem]">
    <div className="rounded-xl flex flex-row items-center justify-center py-[0.5rem] px-[1.25rem] border-[1px] border-solid border-black">
    <div className="relative leading-[150%] font-medium">Sign UP</div>
@@ -49,7 +49,7 @@ export default function Header() {
    </Link>
 
    </div>
-            <Link to={Home}>
+            <Link to="/">
             <div className="absolute top-[-0.969rem] left-[1.438rem] w-[16.75rem] h-[4.905rem]  ">
 
             <img className="absolute  object-cover" alt="" src={logo} />
