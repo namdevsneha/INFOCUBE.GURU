@@ -16,8 +16,9 @@ export default function Team() {
 
   const scrollLeft = () => {
     if (contentRef.current) {
+      const containerWidth = contentRef.current.offsetWidth;
       contentRef.current.scrollBy({
-        left: -320, 
+        left: -containerWidth/4, 
         behavior: 'smooth',
       });
     }
@@ -25,8 +26,9 @@ export default function Team() {
 
   const scrollRight = () => {
     if (contentRef.current) {
+      const containerWidth = contentRef.current.offsetWidth;
       contentRef.current.scrollBy({
-        left: 320,
+        left: containerWidth/4,
         behavior: 'smooth',
       });
     }
