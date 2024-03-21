@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  	@apply leading-[normal] m-0;
+}
+*, ::before, ::after { border-width: 0; }
+/* Custom scrollbar hide styles */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for webkit (Chrome, Safari, etc.) */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
