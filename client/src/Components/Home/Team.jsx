@@ -17,7 +17,7 @@ export default function Team() {
   const scrollLeft = () => {
     if (contentRef.current) {
       contentRef.current.scrollBy({
-        left: -200, 
+        left: -320, 
         behavior: 'smooth',
       });
     }
@@ -26,7 +26,7 @@ export default function Team() {
   const scrollRight = () => {
     if (contentRef.current) {
       contentRef.current.scrollBy({
-        left: 200,
+        left: 320,
         behavior: 'smooth',
       });
     }
