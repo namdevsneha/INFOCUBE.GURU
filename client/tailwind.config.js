@@ -10,6 +10,7 @@ export default {
       black: "#000",
       darkslategray: "#255652",
       white: "#fff",
+      gray: "#1e1e1e",
     },
     extend: {
       fontFamily: {

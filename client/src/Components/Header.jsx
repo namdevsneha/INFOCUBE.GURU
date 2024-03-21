@@ -38,12 +38,12 @@ export default function Header() {
    
    <Link to={SignUp}>
    <div className="flex flex-row items-center justify-center gap-[1rem]">
-   {/* <div className="rounded-xl flex flex-row items-center justify-center py-[0.5rem] px-[1.25rem] border-[1px] border-solid border-black">
+   <div className="rounded-xl flex flex-row items-center justify-center py-[0.5rem] px-[1.25rem] border-[1px] border-solid border-black">
    <div className="relative leading-[150%] font-medium">Sign UP</div>
-   </div> */}
+   </div>
 
-   <div className="w-[8.125rem] rounded-xl bg-darkslategray box-border flex flex-row items-center justify-center py-[0.5rem]  text-white border-[1px] border-solid border-darkslategray">
-   <div className="relative leading-[150%] font-medium">Login/Sign Up</div>
+   <div className="w-[6.125rem] rounded-xl bg-darkslategray box-border flex flex-row items-center justify-center py-[0.5rem]  text-white border-[1px] border-solid border-darkslategray">
+   <div className="relative leading-[150%] font-medium">Login</div>
    </div>
    </div>
    </Link>
