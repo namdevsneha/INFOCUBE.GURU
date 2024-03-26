@@ -17,7 +17,7 @@ export default function Home(){
             <Check/>
             <Join/>
             <Team/>
-            {/* <Journey/> */}
+            <Journey/>
             <Image/>
             <Testimonial/>
         </div>
