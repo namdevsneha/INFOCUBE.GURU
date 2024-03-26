@@ -24,9 +24,7 @@ export default function Journey(){
         <div className="relative leading-[150%]">Login</div>
         </div>
         </div>
-
         </div>
-
         </div>
     )
 } 
