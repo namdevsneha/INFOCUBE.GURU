@@ -3,8 +3,8 @@ import bg from '../../Assets/Images/bg.svg';
 
 export default function Journey(){
     return (
-        <div className='relative'>    
-                <img  src={bg}/>
+        <div className='relative w-full'>   
+                <img  className='w-full' src={bg}/>
 
         <div className="absolute left-0 top-0 w-full h-full flex flex-col items-center justify-center text-[3rem] text-center text-black font-roboto bg-local">
 
