@@ -12,9 +12,7 @@ import Parthiv from '../../../Assets/Images/Parthiv.png'
 import Vaishnavi from '../../../Assets/Images/Vaishnavi.png'
 import Sneha from '../../../Assets/Images/Sneha.png'
 
-
-
-
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
 
 
 export default function Team() {
@@ -59,8 +57,7 @@ return (
 justify-start pt-[3.125rem] px-[1.25rem] pb-[3.75rem] box-border gap-[2.562rem] text-left text-[3.125rem] text-black font-roboto-slab">
 <b className="relative">OUR TEAM</b>
 
-
-{/* <div className=" w-[81.188rem] items-center justify-start gap-[2rem] text-center text-[1.5rem] font-roboto">
+<div className=" w-[81.188rem] items-center justify-start gap-[2rem] text-center text-[1.5rem] font-roboto">
 <Slider {...settings} >
 <div className='pb-8 '>
   <div className="w-[18.25rem]  overflow-hidden shrink-0 flex flex-col items-start justify-start">
@@ -170,5 +167,5 @@ justify-start pt-[3.125rem] px-[1.25rem] pb-[3.75rem] box-border gap-[2.562rem] 
 </div>
 </div>
 
-</Slider></div> */}
+</Slider></div>
 </div>)}
