@@ -1,8 +1,8 @@
 import React,{useRef} from "react";
-import Star from "../../Assets/Images/Star.svg"
-import ImagePlaceHolder from "../../Assets/Images/ImagePlaceholder.png";
-import RightArrowBtn from "../../Assets/Images/RightArrowBtn2.svg";
-import LeftArrowBtn from "../../Assets/Images/LeftArrowBtn2.svg";
+import Star from "../../../Assets/Images/Star.svg"
+import ImagePlaceHolder from "../../../Assets/Images/ImagePlaceholder.png";
+import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.svg";
+import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.svg";
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';

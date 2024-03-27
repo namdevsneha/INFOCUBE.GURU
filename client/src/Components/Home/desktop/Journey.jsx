@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../../Assets/Images/bg.svg';
+import bg from '../../../Assets/Images/bg.svg';
 
 export default function Journey(){
     return (
@@ -24,9 +24,7 @@ export default function Journey(){
         <div className="relative leading-[150%]">Login</div>
         </div>
         </div>
-
         </div>
-
         </div>
     )
 } 

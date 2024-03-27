@@ -1,5 +1,5 @@
 import React from 'react'
-import RightArrow from '../../Assets/Images/RightArrow.svg'
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
 
 export default function Join() {
   return (

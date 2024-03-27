@@ -1,6 +1,6 @@
 import React from 'react';
-import ExpertiseImage from '../../Assets/Images/expertise.svg'
-import RightArrow from '../../Assets/Images/RightArrow.svg'
+import ExpertiseImage from '../../../Assets/Images/expertise.svg'
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
 
 export default function Expertise(){
   	return (

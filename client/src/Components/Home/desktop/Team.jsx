@@ -1,13 +1,13 @@
 import React,{useRef} from 'react'
-import RightArrow from '../../Assets/Images/RightArrow.svg'
-import Divyansh from '../../Assets/Images/Divyansh.png'
-import Utkarsh from '../../Assets/Images/Utkarsh.png'
-import Shivam from '../../Assets/Images/Shivam.png'
-import Parthiv from '../../Assets/Images/Parthiv.png'
-import Vaishnavi from '../../Assets/Images/Vaishnavi.png'
-import Sneha from '../../Assets/Images/Sneha.png'
-import RigthArrowBtn from '../../Assets/Images/RightArrowBtn.svg';
-import LeftArrowBtn from '../../Assets/Images/LeftArrowBtn.svg';
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import Divyansh from '../../../Assets/Images/Divyansh.png'
+import Utkarsh from '../../../Assets/Images/Utkarsh.png'
+import Shivam from '../../../Assets/Images/Shivam.png'
+import Parthiv from '../../../Assets/Images/Parthiv.png'
+import Vaishnavi from '../../../Assets/Images/Vaishnavi.png'
+import Sneha from '../../../Assets/Images/Sneha.png'
+import RigthArrowBtn from '../../../Assets/Images/RightArrowBtn.svg';
+import LeftArrowBtn from '../../../Assets/Images/LeftArrowBtn.svg';
 
 
 export default function Team() {

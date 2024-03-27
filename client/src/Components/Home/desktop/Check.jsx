@@ -1,7 +1,7 @@
 import React,{useState,useRef}  from "react";
-import video from '../../Assets/Videos/newvideo.mp4';
-import PlayBtn from "../../Assets/Images/PlayBtn.svg";
-import PauseBtn from "../../Assets/Images/PauseBtn.svg";
+import video from '../../../Assets/Videos/newvideo.mp4';
+import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
+import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
 
 
 export default function Check(){
