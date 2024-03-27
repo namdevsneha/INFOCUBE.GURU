@@ -1,8 +1,26 @@
-.slide-container {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Set transition duration and easing */
-  }
-  
-  .slide-container.visible {
-    opacity: 1;
-  }
+
+
+.item{
+  padding: 5px 5px;
+
+}
+
+.title{
+  display :flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.content{
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.content.show{
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1,0,1,0);
+
+}
