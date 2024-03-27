@@ -1,16 +1,43 @@
-import React from "react";
-import Form from "../Components/Home/Form.jsx";
-import Expertise from "../Components/Home/Expertise.jsx";
-import Check from "../Components/Home/Check.jsx";
-import Join from "../Components/Home/Join.jsx";
-import Journey from "../Components/Home/Journey.jsx";
-import Image from "../Components/Home/Image.jsx";
-import Team from "../Components/Home/Team.jsx";
-import Video from '../Components/Home/Video.jsx'
-import Testimonial from "../Components/Home/Testimony.jsx";
-export default function Home(){
-    return (
-        <div className="" >
+import React, { useState, useEffect } from "react";
+
+// desktop components
+import Form from "../Components/Home/desktop/Form.jsx";
+import Expertise from "../Components/Home/desktop/Expertise.jsx";
+import Check from "../Components/Home/desktop/Check.jsx";
+import Join from "../Components/Home/desktop/Join.jsx";
+import Journey from "../Components/Home/desktop/Journey.jsx";
+import Image from "../Components/Home/desktop/Image.jsx";
+import Team from "../Components/Home/desktop/Team.jsx";
+import Video from '../Components/Home/desktop/Video.jsx'
+import Testimonial from "../Components/Home/desktop/Testimony.jsx";
+
+// mobile components
+import VideoMobile from "../Components/Home/mobile/Video.jsx";
+import TeamMobile from "../Components/Home/mobile/Team.jsx";
+import JoinMobile from "../Components/Home/mobile/Join.jsx";
+import ExpertiseMobile from "../Components/Home/mobile/Expertise.jsx";
+import CheckMobile from "../Components/Home/mobile/Check.jsx";
+import HeaderMobile from "../Components/Home/mobile/Header.jsx";
+
+// mobile function
+export function Mobile() {
+  return (
+    <div>
+      <VideoMobile/>
+      <TeamMobile/>
+      <JoinMobile/>
+      <ExpertiseMobile/>
+      <CheckMobile/>
+      {/* <HeaderMobile/> */}
+    </div>
+  )
+}
+
+
+// desktop function
+export function Desktop() {
+  return (
+    <div>
             <Video/>
             <Form/>
             <Expertise/>
@@ -20,7 +47,70 @@ export default function Home(){
             <Journey/>
             <Image/>
             <Testimonial/>
-        </div>
-        
-    )
-} 
+    </div>
+  )
+}
+
+// app funtion
+// function Responsive() {
+//   const [isMobile, setIsMobile] = useState(false);
+
+//   useEffect(() => {
+//     function handleResize() {
+//       setIsMobile(window.innerWidth < 768); // Change the threshold according to your needs
+//     }
+
+//     // Initial call to set initial state
+//     handleResize();
+
+//     // Event listener for window resize
+//     window.addEventListener('resize', handleResize);
+
+//     // Cleanup function
+//     return () => window.removeEventListener('resize', handleResize);
+//     {isMobile ? <VideoMobile /> : <Video />}
+//   }, []);
+
+// }
+
+// export default function Home(){
+//     return (
+//         <div className="" >
+//           {/* {isMobile ? <VideoMobile /> : <Video />} */}
+//             {/* <Video/>
+//             <Form/>
+//             <Expertise/>
+//             <Check/>
+//             <Join/>
+//             <Team/>
+//             <Journey/>
+//             <Image/>
+//             <Testimonial/> */}
+//         </div> 
+//     )
+// } 
+
+
+// main function
+export default function Home(){
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768); // Change the threshold according to your needs
+    }
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div className="">
+      {isMobile ? <Mobile /> : <Desktop />}
+    </div>
+  );
+}
+

@@ -1,13 +1,13 @@
 import React from 'react'
-import logo from '../Assets/Images/logo.svg';
+import logo from '../../Assets/Images/logo.svg';
 import {Link} from 'react-router-dom';
-import Alumini from '../Pages/Alumini';
-import Career from '../Pages/Career';
-import Feedback from '../Pages/Feedback';
-import Help from '../Pages/Help';
-import SignUp from '../Pages/SignUp';
-import Home from '../Pages/Home';
-import downArrow from '../Assets/Images/downArrow.svg';
+import Alumini from '../../Pages/Alumini';
+import Career from '../../Pages/Career';
+import Feedback from '../../Pages/Feedback';
+import Help from '../../Pages/Help';
+import SignUp from '../../Pages/SignUp';
+import Home from '../../Pages/Home';
+import downArrow from '../../Assets/Images/downArrow.svg';
 
 export default function Header() {
   return (

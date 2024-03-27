@@ -1,8 +1,8 @@
 import React from 'react';
-import Image1 from "../../Assets/Images/Image1.png";
-import Image2 from "../../Assets/Images/Image2.png";
-import Image3 from "../../Assets/Images/Image3.png";
-import Image4 from "../../Assets/Images/Image4.png";
+import Image1 from "../../../Assets/Images/Image1.png";
+import Image2 from "../../../Assets/Images/Image2.png";
+import Image3 from "../../../Assets/Images/Image3.png";
+import Image4 from "../../../Assets/Images/Image4.png";
 
 export default function ImageComponent(){
     return (

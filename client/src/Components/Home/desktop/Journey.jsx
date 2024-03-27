@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../../Assets/Images/bg.svg';
+import bg from '../../../Assets/Images/bg.svg';
 
 export default function Journey(){
     return (
