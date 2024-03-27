@@ -1,0 +1,8 @@
+.slide-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Set transition duration and easing */
+  }
+  
+  .slide-container.visible {
+    opacity: 1;
+  }
