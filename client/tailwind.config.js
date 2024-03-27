@@ -33,6 +33,8 @@ export default {
       },
       "spacing": {},
       "fontFamily": {
+      "times-new-roman": "'Times New Roman'",
+      "im-fell-double-pica": "'IM FELL Double Pica'",
       "roboto": "Roboto",
       "roboto-slab": "'Roboto Slab'",
       "iceland": "Iceland"
@@ -44,6 +46,8 @@ export default {
       }
       },
       "fontSize": {
+      "16xl-1": "2.194rem",
+      "46xl": "4.063rem",
       "base": "1rem",
       "5xl": "1.5rem",
       "lg": "1.125rem",
