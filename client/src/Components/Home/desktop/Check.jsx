@@ -29,9 +29,9 @@ export default function Check(){
 
     return (
         <div className="w-full relative overflow-hidden flex flex-col items-center justify-center 
-        py-[3.75rem] px-[4rem] box-border text-left text-[3rem] text-black font-roboto">
+        lg:py-[3.75rem] md:py-[2rem] px-[4rem] box-border text-left text-[3rem] text-black font-roboto">
                 <div className="flex flex-row items-center justify-start gap-[5rem]">
-                        <div className="justify-center h-[45rem] w-[45rem] overflow-hidden shrink" 
+                        <div className="item-center justify-center lg:h-[45rem] md:h-[30rem] lg:w-[45rem] md:w-[30rem] overflow-hidden shrink" 
                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <video ref={videoRef} id="video-player"  autoPlay muted loop>
                                         <source src={video} type="video/mp4" />
@@ -44,12 +44,12 @@ export default function Check(){
                                 <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
                         </button> }
                         </div>
-                        <div className="w-[38.5rem] flex flex-col items-start justify-center gap-[1.5rem]">
+                        <div className="w-auto flex-1 flex-col items-start justify-center gap-[1.5rem]">
                                 <div className="self-stretch flex flex-col items-start justify-start">
-                                <div className="w-[5rem] relative h-[5rem] overflow-hidden shrink-0" />
+                                <div className="w-[5rem] relative  overflow-hidden shrink-0" />
                                         <div className="self-stretch flex flex-col items-start justify-start gap-[1.5rem]">
-                                                <b className="self-stretch relative leading-[120%]">Stay Updated with the Latest News and Reminders in Your Field</b>
-                                                <div className="self-stretch relative text-[1.125rem] leading-[150%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                                <b className="self-stretch relative leading-[120%] lg:text-[3.5rem] md:text-[2rem]">Stay Updated with the Latest News and Reminders in Your Field</b>
+                                                <div className="self-stretch relative lg:text-[1.125rem] md:text-[1rem] leading-[150%] ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                                 Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo 
                                                 diam libero vitae erat.
                                                 </div>

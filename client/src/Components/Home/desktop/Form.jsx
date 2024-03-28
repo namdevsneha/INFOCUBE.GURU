@@ -2,13 +2,15 @@ import React from "react";
 
 export default function Form(){
     return (
-        <div className="w-full relative overflow-hidden flex flex-row items-start justify-start py-[3.75rem] px-[4rem] 
-        box-border gap-[5rem] text-justify text-[1.125rem] text-black font-roboto">
-            <div className="flex-1 flex flex-col items-start justify-start gap-[1.5rem]">
-                <div className="self-stretch relative leading-[150%]">We are trying to bridge the gap of information and 
+        <div className=" relative overflow-hidden flex flex-row justify-between lg:py-[3.75rem] md:py-[2rem] px-[4rem] px-[4rem] 
+        box-border gap-[5rem] text-justify lg:text-[1.125rem] md:text-[1rem] text-black font-roboto">
+            <div className="flex-1 flex flex-col justify-between gap-[1.5rem]">
+                
+                <div>We are trying to bridge the gap of information and 
                 guidance between and your potential and opportunities. We provide narrowed road maps and detailed career paths, 
                 personalized guidance from alumni and mentors, and a supportive community to help you succeed.</div>
-                <div className="w-[32.063rem] flex flex-col items-start justify-start pt-[1rem] px-[0rem] pb-[0rem] 
+
+                <div className="w-[32.063rem] flex flex-col items-start justify-starta
                 box-border gap-[1rem] text-left text-[1rem] text-neutral-dark-gray">
                     <div className="self-stretch flex flex-row items-start justify-start gap-[1rem]">
                         <div className="flex-1 bg-gray flex flex-row items-center justify-start p-[0.75rem] border-[1px] border-solid border-black">
@@ -25,7 +27,8 @@ export default function Form(){
                     </div>
                 </div>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start text-left text-[3.5rem]">
+
+            <div className="flex-1 flex flex-col items-start justify-between text-left lg:text-[3.5rem] md:text-[2.5rem]">
                 <b className="self-stretch relative leading-[120%]">Unlock Your Potential with Personalized Career Guidance</b>
             </div>
         </div>

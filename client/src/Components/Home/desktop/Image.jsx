@@ -13,14 +13,14 @@ export default function ImageComponent(){
             <div className="self-stretch relative text-[1.125rem] leading-[150%]">Capturing Moments of Community Events and Interactions</div>
         </div>
         <div className="w-full relative flex flex-row items-start justify-start gap-[2rem]">
-            <div className="flex flex-col items-start justify-start gap-[2rem]">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[2rem]">
                 <img alt="first" src={Image1} />
                 <img alt="Second" src={Image2} />
             </div>
-        <div className="flex-1 flex flex-col items-start justify-start gap-[2rem]">
-            <img  alt="Third" src={Image3} />
-            <img  alt="Fourth" src={Image4} />
-        </div>
+            <div className="flex-1 flex flex-col items-start justify-start gap-[2rem]">
+                <img  alt="Third" src={Image3} />
+                <img  alt="Fourth" src={Image4} />
+            </div>
         </div>
     </div>)
 }
