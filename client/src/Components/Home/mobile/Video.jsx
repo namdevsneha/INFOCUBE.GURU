@@ -1,29 +1,12 @@
-import React from 'react'
+import React,{useState,useRef} from "react";
+import Video from "../../../Assets/Videos/startvideo.mp4";
+import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
+import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
+
+
 
 export default function Video() {
   return (
-//     <div className="w-full relative h-[21.25rem] text-left text-[3.05rem] text-black font-khand">
-// <b className="absolute top-[0rem] left-[calc(50%_-_178.5px)] leading-[120%] inline-block w-[22.313rem] h-[10.75rem]">
-// <p className="m-0">
-// <span className="text-[1.95rem]">Unlock Your</span>
-// <span className="text-[2.5rem]">{` `}</span>
-// <span className="text-[2.694rem]">Potential</span>
-// <span className="text-[2.5rem]">{` `}</span>
-// <span className="text-[1.95rem]">with</span>
-// <span className="text-[2.5rem]">{` `}</span>
-// <span>Personalized</span>
-// <span className="text-[2.5rem]">{` `}</span>
-// </p>
-// <p className="m-0 text-[3.094rem]">
-// <span className="text-[2.463rem]">Career</span>
-// <span className="text-[2.5rem]">{` `}</span>
-// <span>Guidance</span>
-// </p>
-// </b>
-// <div className="absolute top-[12.25rem] left-[calc(50%_-_181.5px)] text-[1rem] leading-[150%] font-roboto text-justify inline-block w-[22.688rem]">We are trying to bridge the gap of information and guidance between and your potential and opportunities. We provide narrowed road maps and detailed career paths, personalized guidance from alumni and mentors, and a supportive community to help you succeed.</div>
-// </div>
-
-
 
 <div className="relative w-full flex flex-col items-center justify-start gap-[2.25rem] text-left text-[3.05rem] text-black font-khand">
 <div className="flex flex-col items-center justify-start gap-[1.5rem]">

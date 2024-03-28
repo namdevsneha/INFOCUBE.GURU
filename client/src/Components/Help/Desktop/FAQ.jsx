@@ -12,7 +12,9 @@ export default function FAQ(){
     }
     return (
         <div className='m-4 w-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
-                <img className=" w-[37rem] h-[23.875rem] object-cover" alt="" src={FAQImg} />
+            <div className='flex justify-center'>
+                <img className="center w-[37rem] h-[23.875rem] object-cover" alt="" src={FAQImg} />
+                </div>
         			<div className='m-8'>
                     {data.map((item,i)=>(
                     <div className='item'>

@@ -22,6 +22,7 @@ export default function Team() {
     dots: true,
     infinite: true,
     speed: 2000,
+    centerMode: false, 
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true, // Enable autoplay
@@ -32,18 +33,28 @@ export default function Team() {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1400,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 1100,
         settings: {
-          slidesToShow: 1,
+          centerMode:true,
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          centerMode:true,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1
         }
@@ -57,7 +68,7 @@ return (
 justify-start pt-[3.125rem] px-[1.25rem] pb-[3.75rem] box-border gap-[2.562rem] text-left text-[3.125rem] text-black font-roboto-slab">
 <b className="relative">OUR TEAM</b>
 
-<div className=" w-[81.188rem] items-center justify-start gap-[2rem] text-center text-[1.5rem] font-roboto">
+<div className=" px-[4rem]  w-full items-center justify-start gap-[2rem] text-center text-[1.5rem] font-roboto">
 <Slider {...settings} >
 <div className='pb-8 '>
   <div className="w-[18.25rem]  overflow-hidden shrink-0 flex flex-col items-start justify-start">

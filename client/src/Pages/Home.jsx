@@ -12,23 +12,32 @@ import Video from '../Components/Home/desktop/Video.jsx'
 import Testimonial from "../Components/Home/desktop/Testimony.jsx";
 
 // mobile components
-import VideoMobile from "../Components/Home/mobile/Video.jsx";
-import TeamMobile from "../Components/Home/mobile/Team.jsx";
-import JoinMobile from "../Components/Home/mobile/Join.jsx";
+
+import FormMobile from "../Components/Home/mobile/Form.jsx"
 import ExpertiseMobile from "../Components/Home/mobile/Expertise.jsx";
 import CheckMobile from "../Components/Home/mobile/Check.jsx";
-import HeaderMobile from "../Components/Home/mobile/Header.jsx";
+import JoinMobile from "../Components/Home/mobile/Join.jsx";
+import JourneyMobile from "../Components/Home/mobile/Journey.jsx";
+import ImageMobile from "../Components/Home/mobile/Image.jsx";
+import TeamMobile from "../Components/Home/mobile/Team.jsx";
+// import VideoMobile from "../Components/Home/mobile/Video.jsx";
+import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
+
+
 
 // mobile function
 export function Mobile() {
   return (
     <div>
-      <VideoMobile/>
-      <TeamMobile/>
-      <JoinMobile/>
-      <ExpertiseMobile/>
-      <CheckMobile/>
-      {/* <HeaderMobile/> */}
+      {/* <VideoMobile/> */}
+            <FormMobile/>
+            <ExpertiseMobile/>
+            <CheckMobile/>
+            <JoinMobile/>
+            <TeamMobile/>
+            <JourneyMobile/>
+            <ImageMobile/>
+            <TestimonialMobile/>
     </div>
   )
 }

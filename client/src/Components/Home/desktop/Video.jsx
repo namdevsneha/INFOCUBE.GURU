@@ -29,7 +29,7 @@ export default function StartingVideo() {
     };
 
     return (
-      <div className="relative w-full max-w-full overflow-hidden h-[32rem] shrink-0" 
+      <div className="relative w-full max-w-full overflow-hidden lg:h-[32rem] md:h-[20rem] shrink-0" 
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
         <video ref={videoRef} id="video-player" className="w-full h-full object-cover" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
