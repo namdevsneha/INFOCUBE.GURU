@@ -1,8 +1,12 @@
 import React from 'react'
+import ExpertiseImage from '../../../Assets/Images/expertise.svg'
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
+
 
 export default function Expertise() {
   return (
-    <div className="w-full relative h-[53.192rem] text-center text-[1rem] text-black font-roboto">
+    <div className='px-[15px] py-[20px]'>
+      <div className="w-full relative h-[53.192rem] text-center text-[1rem] text-black font-roboto">
 <div className="absolute top-[22.625rem] left-[0rem] w-[22.688rem] flex flex-col items-start justify-start gap-[0.96rem]">
 <div className="self-stretch flex flex-col items-start justify-start gap-[1.28rem]">
 <div className="self-stretch flex flex-col items-start justify-start gap-[0.64rem]">
@@ -29,11 +33,13 @@ export default function Expertise() {
 </div>
 <div className="h-[1.441rem] flex flex-row items-center justify-center gap-[0.32rem] text-[0.688rem] text-black">
 <div className="relative leading-[150%]">Learn More</div>
-<img className="w-[0.961rem] relative h-[0.961rem] overflow-hidden shrink-0" alt="" src="Icon / Chevron Right.svg" />
+<img className="w-[0.961rem] relative h-[0.961rem] overflow-hidden shrink-0" alt="" src={RightArrow} />
 </div>
 </div>
 </div>
-<img className="absolute top-[0rem] left-[calc(50%_-_178.5px)] w-[22.375rem] h-[20.125rem] overflow-hidden" alt="" src="10819567_4574120 1.svg" />
+<img className="absolute top-[0rem] left-[calc(50%_-_178.5px)] w-[22.375rem] h-[20.125rem] overflow-hidden" alt="" src={ExpertiseImage} />
 </div>
+
+    </div>
   )
 }

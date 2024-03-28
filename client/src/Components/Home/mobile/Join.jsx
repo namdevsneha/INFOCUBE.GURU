@@ -1,8 +1,10 @@
 import React from 'react'
+import RightArrow from '../../../Assets/Images/RightArrow.svg'
 
 export default function Join() {
   return (
-    <div className="relative w-full flex flex-col items-start justify-start gap-[2.5rem] text-center text-[0.875rem] text-black font-roboto">
+    <div className='px-[15px] py-[20px]'>
+        <div className="relative w-full h-[62.188rem] flex flex-col items-start justify-start gap-[2.5rem] text-center text-[0.875rem] text-black font-roboto">
 <div className="w-[22.688rem] flex flex-col items-center justify-start gap-[1rem]">
 <div className="relative leading-[150%] font-semibold">Career Counselling And Coaching</div>
 <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem] text-[2rem]">
@@ -37,10 +39,11 @@ export default function Join() {
 </div>
 <div className="flex flex-row items-center justify-center gap-[0.5rem] text-[0.688rem] text-black">
 <div className="relative leading-[150%]">Learn More</div>
-<img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src="Icon / Chevron Right.svg" />
+<img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="hi" src={RightArrow}/>
 </div>
 </div>
 </div>
 </div>
+    </div>
   )
 }
