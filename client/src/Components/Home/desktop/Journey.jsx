@@ -3,14 +3,13 @@ import bg from '../../../Assets/Images/bg.svg';
 
 export default function Journey(){
     return (
-        <div className='relative w-full'>    
-                <img className='w-full' src={bg}/>
+        <div className="relative h-full w-full bg-cover"  style={{backgroundImage: `url(${bg})`}} >    
 
-        <div className="absolute left-0 top-0 w-full h-full flex flex-col items-center justify-center text-[3rem] text-center text-black font-roboto bg-local">
+        <div className="px-4 py-8  w-full h-full flex flex-col items-center justify-center text-[3rem] text-center text-black font-roboto bg-local">
 
         <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem]">
     
-        <h1 className="self-stretch relative leading-[120%]">Start Your Journey</h1>
+        <h1 className="self-stretch relative font-bold leading-[120%]">Start Your Journey</h1>
 
         <div className="self-stretch relative text-[1.125rem] leading-[150%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</div>
         </div>

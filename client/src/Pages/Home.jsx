@@ -60,46 +60,6 @@ export function Desktop() {
   )
 }
 
-// app funtion
-// function Responsive() {
-//   const [isMobile, setIsMobile] = useState(false);
-
-//   useEffect(() => {
-//     function handleResize() {
-//       setIsMobile(window.innerWidth < 768); // Change the threshold according to your needs
-//     }
-
-//     // Initial call to set initial state
-//     handleResize();
-
-//     // Event listener for window resize
-//     window.addEventListener('resize', handleResize);
-
-//     // Cleanup function
-//     return () => window.removeEventListener('resize', handleResize);
-//     {isMobile ? <VideoMobile /> : <Video />}
-//   }, []);
-
-// }
-
-// export default function Home(){
-//     return (
-//         <div className="" >
-//           {/* {isMobile ? <VideoMobile /> : <Video />} */}
-//             {/* <Video/>
-//             <Form/>
-//             <Expertise/>
-//             <Check/>
-//             <Join/>
-//             <Team/>
-//             <Journey/>
-//             <Image/>
-//             <Testimonial/> */}
-//         </div> 
-//     )
-// } 
-
-
 // main function
 export default function Home(){
   const [isMobile, setIsMobile] = useState(false);

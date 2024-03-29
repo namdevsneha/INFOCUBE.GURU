@@ -47,13 +47,13 @@ export default function Testimonial(){
         <div className="px-[4rem] w-auto relative lg:h-[27.681rem] md:h[35rem] overflow-hidden text-center lg:text-[1.5rem] md:text-[1rem] text-black font-roboto">
 
 <div className="   w-auto grid lg:grid-cols-12 md:grid-cols-10  ">
-  <button className="col-span-1 place-self-center "
+  <button className= " col-span-1 place-self-center "
   onClick={() => slider?.current?.slickPrev()}>
     <img src={LeftArrowBtn}/>
     </button>          
 <div className=" lg:col-span-10 md:col-span-8 h-[18rem]">
 
-<Slider centerMode={true} ref={slider} {...settings} >
+<Slider  ref={slider} {...settings} >
       <div className="pb-8">
             <div className="overflow-hidden shrink-0 flex flex-col items-center justify-start gap-[2rem]">
       <div className="overflow-hidden flex flex-row items-start justify-start gap-[0.25rem]">

@@ -11,18 +11,18 @@ export default function FAQ(){
         setSelected(i)
     }
     return (
-        <div className='m-4 w-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
+        <div className='w-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
             <div className='flex justify-center'>
                 <img className="center w-[37rem] h-[23.875rem] object-cover" alt="" src={FAQImg} />
                 </div>
-        			<div className='m-8'>
+        			<div >
                     {data.map((item,i)=>(
                     <div className='item'>
-                        <div className='title' onClick={()=>toggle(i)} >
+                        <div className='title mx-[64px]' onClick={()=>toggle(i)} >
                             <h2>{item.question}</h2>
-                            <img className={selected==i ?"rotate-180":"+"}  alt="" src={Arrow} />
+                            <img className={selected==i ?"rotate-180":" "}  alt="" src={Arrow} />
                             </div> 
-                        <div className={selected==i ?"content show":"content"}>{item.answer}</div>
+                        <div className={selected==i ?"content show mx-[64px]":"content mx-[64px]"}>{item.answer}</div>
 
                     </div>
                 ))}
