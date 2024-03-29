@@ -5,7 +5,7 @@ export default function Help(){
     return (
         <div>
             <FAQ/>
-            {/* <Body/> */}
+            <Body/>
         </div>
     )
 } 

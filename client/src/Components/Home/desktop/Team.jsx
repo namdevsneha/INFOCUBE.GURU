@@ -51,10 +51,19 @@ export default function Team() {
         }
       },
       {
-        breakpoint: 950,
+        breakpoint: 1000,
         settings: {
           centerMode:true,
           slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 850,
+        settings: {
+          centerMode:true,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
           initialSlide: 1
         }

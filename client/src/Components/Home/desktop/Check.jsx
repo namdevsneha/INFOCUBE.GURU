@@ -31,7 +31,7 @@ export default function Check(){
         <div className="w-full relative overflow-hidden flex flex-col items-center justify-center 
         lg:py-[3.75rem] md:py-[2rem] px-[4rem] box-border text-left text-[3rem] text-black font-roboto">
                 <div className="flex flex-row items-center justify-start gap-[5rem]">
-                        <div className="item-center justify-center lg:h-[45rem] md:h-[30rem] lg:w-[45rem] md:w-[30rem] overflow-hidden shrink" 
+                        <div className="item-center justify-center h-auto w-auto overflow-hidden" 
                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <video ref={videoRef} id="video-player"  autoPlay muted loop>
                                         <source src={video} type="video/mp4" />

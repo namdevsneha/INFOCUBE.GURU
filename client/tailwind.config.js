@@ -37,7 +37,8 @@ export default {
       "im-fell-double-pica": "'IM FELL Double Pica'",
       "roboto": "Roboto",
       "roboto-slab": "'Roboto Slab'",
-      "iceland": "Iceland"
+      "iceland": "Iceland",
+      "khand": "Khand"
       },
       "borderRadius": {
       "31xl": "50px",
@@ -54,8 +55,12 @@ export default {
       "29xl": "3rem",
       "sm": "0.875rem",
       "13xl": "2rem",
+      "21xl": "2.5rem",
+      "12xl-2": "1.95rem",
       "27xl": "2.875rem",
       "37xl": "3.5rem",
+      "83xl": "6.375rem",
+      "57xl": "4.75rem",
       "inherit": "inherit"
       }
       },
