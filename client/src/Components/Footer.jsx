@@ -1,10 +1,10 @@
 import React from 'react'
-import infocube from '../../Assets/Images/infocube.svg';
-import facebook from '../../Assets/Images/facebook.svg';
-import Instagram from '../../Assets/Images/Instagram.svg';
-import X from '../../Assets/Images/X.svg';
-import LinkedIn from '../../Assets/Images/LinkedIn.svg';
-import Youtube from '../../Assets/Images/Youtube.svg';
+import infocube from '../Assets/Images/infocube.svg';
+import facebook from '../Assets/Images/facebook.svg';
+import Instagram from '../Assets/Images/Instagram.svg';
+import X from '../Assets/Images/X.svg';
+import LinkedIn from '../Assets/Images/LinkedIn.svg';
+import Youtube from '../Assets/Images/Youtube.svg';
 
 
 export default function Footer() {

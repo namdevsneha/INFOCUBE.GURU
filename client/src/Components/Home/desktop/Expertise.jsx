@@ -10,7 +10,7 @@ export default function Expertise(){
 				<div className="flex-1 flex flex-col items-start justify-start gap-[1.5rem]">
 					<div className="self-stretch flex flex-col items-start justify-start gap-[2rem]">
 						<div className="self-stretch flex flex-col items-start justify-start gap-[1rem]">
-							<div className="relative leading-[150%] font-semibold">Alumini Center</div>
+							<div className="relative leading-[150%] font-semibold">Alumni Center</div>
 							<div className="self-stretch flex flex-col items-start justify-start gap-[1.5rem] text-left lg:text-[3rem] md:text-[2rem]">
 								<b className="self-stretch relative leading-[120%]">Personalized Guidance from Experienced Alumni and Mentors</b>
 								<div className="self-stretch relative lg:text-[1.125rem] md:text-[1rem] leading-[150%]">

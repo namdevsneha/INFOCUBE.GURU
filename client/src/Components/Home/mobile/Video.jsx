@@ -1,53 +1,66 @@
 import React,{useState,useRef} from "react";
-import Video from "../../../Assets/Videos/startvideo.mp4";
+import Video from "../../../Assets/Videos/startvideoMobile.mp4";
 import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
 import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
 
 
 
-export default function Video() {
-  return (
+export default function StartingVideo() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const videoRef = useRef(null);
+    
+    const togglePlay = () => {
+      const video = videoRef.current;
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+      setIsPlaying(!isPlaying);
+    };
+  
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+    };
+    
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
 
-<div className="relative w-full flex flex-col items-center justify-start gap-[2.25rem] text-left text-[3.05rem] text-black font-khand">
-  <div className="flex flex-col items-center justify-start gap-[1.5rem]">
-    <b className="w-[22.313rem] relative leading-[120%] inline-block h-[10.75rem] shrink-0">
-      <p className="m-0">
-        <span className="text-[1.95rem]">Unlock Your</span>
-        <span className="text-[2.5rem]">{` `}</span>
-        <span className="text-[2.694rem]">Potential</span>
-        <span className="text-[2.5rem]">{` `}</span>
-        <span className="text-[1.95rem]">with</span>
-        <span className="text-[2.5rem]">{` `}</span>
-        <span>Personalized</span>
-        <span className="text-[2.5rem]">{` `}</span>
-      </p>
-      <p className="m-0 text-[3.094rem]">
-        <span className="text-[2.463rem]">Career</span>
-        <span className="text-[2.5rem]">{` `}</span>
-        <span>Guidance</span>
-      </p>
-    </b>
-    <div className="w-[22.688rem] relative text-[1rem] leading-[150%] font-roboto text-justify inline-block">We are trying to bridge the 
-    gap of information and guidance between and your potential and opportunities. We provide narrowed road maps and detailed career paths, 
-    personalized guidance from alumni and mentors, and a supportive community to help you succeed.
-    </div>
-  </div>
-  <div className="w-[22.25rem] h-[3.563rem] flex flex-col items-start justify-start gap-[0.694rem] text-[0.694rem] text-neutral-dark-gray
-   font-roboto">
-    <div className="self-stretch flex flex-row items-start justify-start gap-[0.694rem]">
-      <div className="flex-1 bg-gray flex flex-row items-center justify-start p-[0.521rem] border-[0.7px] border-solid border-black">
-        <div className="flex-1 relative leading-[150%]">Enter your email</div>
+    return (
+      <div className=" w-auto h-full object-cover overflow-hidden shrink-0  h-[10rem]
+      text-left text-white font-khand" >
+      {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
+        <video ref={videoRef} style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-auto h-full object-cover" height="100%" autoPlay loop muted>
+          <source src={Video} type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        {/* {isHovered && 
+          <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white 
+          px-4 py-2 rounded-md opacity-50 hover:opacity-100 transition-opacity duration-300" onClick={togglePlay}>
+            {videoRef.current && videoRef.current.paused ? 
+              <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
+          </button> }  */}
+          
+          <b className="absolute px-[15px] py-[20px] top-[20px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
+                        <p className="m-0">
+                            <span className="text-[1.95rem]">Unlock Your</span>
+                            <span className="text-[2.5rem]">{` `}</span>
+                            <span className="text-[2.694rem]">Potential</span>
+                            <span className="text-[2.5rem]">{` `}</span>
+                            <span className="text-[1.95rem]">with</span>
+                            <span className="text-[2.5rem]">{` `}</span>
+                            <span>Personalized</span>
+                            <span className="text-[2.5rem]">{` `}</span>
+                        </p>
+                        <p className="m-0 text-[3.094rem]">
+                            <span className="text-[2.463rem]">Career</span>
+                            <span className="text-[2.5rem]">{` `}</span>
+                            <span>Guidance</span>
+                        </p>
+                    </b>
       </div>
-      <div className="rounded-[20.14px] bg-darkslategray flex flex-row items-center justify-center py-[0.521rem] px-[1.042rem] text-white 
-      border-[0.7px] border-solid border-darkslategray">
-        <div className="relative leading-[150%]">Sign up</div>
-      </div>
-    </div>
-    <div className="self-stretch relative text-[0.521rem] leading-[150%] text-black">{`By clicking Sign Up you're confirming that you agree 
-    with our `}
-      <span className="[text-decoration:underline]">Terms and Conditions</span>.
-    </div>
-  </div>
-</div>
-  )
-}
+  
+    );
+  }

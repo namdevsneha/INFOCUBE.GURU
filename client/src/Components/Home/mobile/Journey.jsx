@@ -1,5 +1,7 @@
 import React from "react";
 import bg from '../../../Assets/Images/bg.svg';
+import {Link} from "react-router-dom";
+import SignUp from "../../../Pages/SignUp";
 
 export default function Journey(){
     return (
@@ -16,13 +18,17 @@ export default function Journey(){
         </div>
 
         <div className="flex flex-row items-start justify-start pt-[1rem] px-[0rem] pb-[0rem] gap-[.5rem] text-left text-[1rem]">
-
+        <Link to="/SignUp">
         <div className="rounded-[17.95px] bg-darkslategray flex flex-row items-center justify-center py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-darkslategray">
+        
         <div className="relative leading-[150%] text-[1rem] text-white">Sign Up</div>
         </div>
+        </Link>
+        <Link to="/SignUp">
         <div className="rounded-[17.95px] flex flex-row items-center justify-center  py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-black text-black">
         <div className="relative leading-[150%]">Login</div>
         </div>
+        </Link>
         </div>
         </div>
         </div>
