@@ -23,8 +23,8 @@ export default function Nav() {
  
   return (
     <>
-    <nav className=' flex  items-center justify-end overflow-hidden font-roboto text-xs md:text-base'>
-        <div className="hidden w-full justify-end items-center md:flex md:gap-4 sm:gap-1 text-xs md:text-base">
+    <nav className=' flex  items-center justify-end overflow-hidden  font-roboto text-xs md:text-base'>
+        <div className="hidden w-full  justify-end items-center md:flex md:gap-4 sm:gap-1 text-xs md:text-base">
           <Navlink />
             <Link to='SignUp'>
             <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-sm md:text-base'>Sign UP</button>
