@@ -4,12 +4,14 @@ import SignUp from "../../../Pages/SignUp";
 
 
 export default function Form(){
+    
+
     return (
         <div className='px-[15px] py-[20px]'>
             <div className="relative w-auto flex flex-col items-center justify-start gap-[2.25rem] text-left 
             text-[3.05rem] text-black font-khand">
                 <div className="flex flex-col items-center justify-start gap-[1.5rem]">
-                    <b className="w-auto relative leading-[120%] inline-block h-auto shrink-0">
+                    <b className="relative leading-[100%] inline-block  h-[11.375rem] text-[3.363rem] font-khand ">
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>

@@ -14,18 +14,18 @@ export default function Journey(){
     
         <h1 className="self-stretch relative font-bold leading-[120%]">Start Your Journey</h1>
 
-        <div className="self-stretch relative text-[1rem] leading-[150%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</div>
+        {/* <div className="self-stretch relative text-[1rem] leading-[150%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</div> */}
         </div>
 
-        <div className="flex flex-row items-start justify-start pt-[1rem] px-[0rem] pb-[0rem] gap-[.5rem] text-left text-[1rem]">
+        <div className="mt-[10px] flex flex-row items-start justify-start pt-[1rem] px-[0rem] pb-[0rem] gap-[.5rem] text-left text-[1rem]">
         <Link to="/SignUp">
-        <div className="rounded-[17.95px] bg-darkslategray flex flex-row items-center justify-center py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-darkslategray">
+        <div className="mr-[5px] rounded-[17.95px] bg-darkslategray flex flex-row items-center justify-center py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-darkslategray">
         
-        <div className="relative leading-[150%] text-[1rem] text-white">Sign Up</div>
+        <div className=" relative leading-[150%] text-[1rem] text-white">Sign Up</div>
         </div>
         </Link>
         <Link to="/SignUp">
-        <div className="rounded-[17.95px] flex flex-row items-center justify-center  py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-black text-black">
+        <div className=" rounded-[17.95px] flex flex-row items-center justify-center  py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-black text-black">
         <div className="relative leading-[150%]">Login</div>
         </div>
         </Link>

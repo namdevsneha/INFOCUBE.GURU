@@ -31,7 +31,7 @@ export default function Check(){
         <div className="w-full relative overflow-hidden flex flex-col items-center justify-center 
         lg:py-[3.75rem] md:py-[2rem] px-[4rem] box-border text-left text-[3rem] text-black font-roboto">
                 <div className="flex flex-row items-center justify-start gap-[5rem]">
-                        <div className="item-center justify-center h-auto w-auto overflow-hidden" 
+                        <div className="flex-1 item-center justify-center h-auto w-auto overflow-hidden" 
                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <video ref={videoRef} id="video-player"  autoPlay muted loop>
                                         <source src={video} type="video/mp4" />
@@ -49,9 +49,9 @@ export default function Check(){
                                 <div className="w-[5rem] relative  overflow-hidden shrink-0" />
                                         <div className="self-stretch flex flex-col items-start justify-start gap-[1.5rem]">
                                                 <b className="self-stretch relative leading-[120%] lg:text-[3.5rem] md:text-[2rem]">Stay Updated with the Latest News and Reminders in Your Field</b>
-                                                <div className="self-stretch relative lg:text-[1.125rem] md:text-[1rem] leading-[150%] ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                                Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo 
-                                                diam libero vitae erat.
+                                                <div className="self-stretch relative lg:text-[1.125rem] md:text-[1rem] leading-[150%] ">Stay informed with real-time updates and timely reminders 
+                                        tailored to your specific field. Explore the latest news, trends, and insights to keep ahead in your industry. Welcome to our comprehensive section dedicated to keeping
+                                         you informed and up-to-date with the latest news and reminders relevant to your field.
                                                 </div>
                                         </div>
                                 </div>

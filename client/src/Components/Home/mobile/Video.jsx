@@ -9,6 +9,23 @@ export default function StartingVideo() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const videoRef = useRef(null);
+
+    const divRef = useRef(null);
+
+  const handleScroll = (event) => {
+    const deltaY = event.deltaY;
+    const div = divRef.current;
+
+    if (div && deltaY !== 0) {
+      const currentScrollPosition = div.scrollTop;
+      const newScrollPosition = currentScrollPosition + deltaY;
+
+      div.scrollTo({
+        top: newScrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
     
     const togglePlay = () => {
       const video = videoRef.current;
@@ -29,7 +46,8 @@ export default function StartingVideo() {
     };
 
     return (
-      <div className=" w-auto h-full object-cover overflow-hidden shrink-0  h-[10rem]
+      <div ref={divRef} onScroll={handleScroll}
+      style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover overflow-hidden shrink-0  h-[10rem]
       text-left text-white font-khand" >
       {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
         <video ref={videoRef} style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-auto h-full object-cover" height="100%" autoPlay loop muted>
@@ -43,7 +61,7 @@ export default function StartingVideo() {
               <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
           </button> }  */}
           
-          <b className="absolute px-[15px] py-[20px] top-[20px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
+          <b className="fixed px-[15px] py-[20px] top-[20px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>
