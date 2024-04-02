@@ -38,7 +38,7 @@ export default function Join() {
             <div className="self-stretch flex flex-col items-start justify-start gap-[1.5rem]">
               <b className="self-stretch relative leading-[130%]">Stay Connected with a Supportive Community</b>
               <div className="self-stretch relative text-[1rem] leading-[150%]">Join our community of like-minded individuals 
-              who are always available to help and support you on your journey.</div>
+              who are always available to help and support you in your journey.</div>
             </div>
           </div>
         </div>

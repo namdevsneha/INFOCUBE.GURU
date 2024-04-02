@@ -20,7 +20,7 @@ import JoinMobile from "../Components/Home/mobile/Join.jsx";
 import JourneyMobile from "../Components/Home/mobile/Journey.jsx";
 import ImageMobile from "../Components/Home/mobile/Image.jsx";
 import TeamMobile from "../Components/Home/mobile/Team.jsx";
-// import VideoMobile from "../Components/Home/mobile/Video.jsx";
+import VideoMobile from "../Components/Home/mobile/Video.jsx";
 import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
 
 
@@ -29,7 +29,7 @@ import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
 export function Mobile() {
   return (
     <div>
-      {/* <VideoMobile/> */}
+      <VideoMobile/>
             <FormMobile/>
             <ExpertiseMobile/>
             <CheckMobile/>

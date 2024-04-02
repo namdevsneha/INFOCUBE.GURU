@@ -1,12 +1,17 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import SignUp from "../../../Pages/SignUp";
+
 
 export default function Form(){
+    
+
     return (
         <div className='px-[15px] py-[20px]'>
             <div className="relative w-auto flex flex-col items-center justify-start gap-[2.25rem] text-left 
             text-[3.05rem] text-black font-khand">
                 <div className="flex flex-col items-center justify-start gap-[1.5rem]">
-                    <b className="w-auto relative leading-[120%] inline-block h-auto shrink-0">
+                    <b className="relative leading-[100%] inline-block  h-[11.375rem] text-[3.363rem] font-khand ">
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>
@@ -24,9 +29,7 @@ export default function Form(){
                         </p>
                     </b>
                     <div className="w-auto relative text-[1rem] leading-[150%] font-roboto text-justify inline-block">
-                        We are trying to bridge the gap of information and guidance between and your potential and opportunities.
-                         We provide narrowed road maps and detailed career paths, personalized guidance from alumni and mentors, 
-                         and a supportive community to help you succeed.
+                    We aim to bridge the gap between  potential and opportunities. Our approach involves offering tailored roadmaps and comprehensive career paths, along with personalized advice from our trusted alumni and mentors. We foster a supportive community dedicated to empowering your journey towards success.
                     </div>
                 </div>
                 <div className="w-full h-[3.563rem] flex flex-col items-start justify-start gap-[0.694rem] text-[0.694rem] 
@@ -38,7 +41,9 @@ export default function Form(){
                         </div>
                         <div className="rounded-[20.14px] bg-darkslategray flex flex-row items-center justify-center py-[0.521rem] 
                         px-[1.042rem] text-white border-[0.7px] border-solid border-darkslategray">
+                            <Link to="/SignUp">
                             <div className="relative leading-[150%]">Sign up</div>
+                            </Link>
                         </div>
                     </div>
                     <div className="self-stretch relative text-[0.521rem] leading-[150%] text-black">{`By clicking Sign Up you're confirming
