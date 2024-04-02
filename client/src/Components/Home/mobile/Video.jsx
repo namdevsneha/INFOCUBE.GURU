@@ -47,9 +47,9 @@ export default function StartingVideo() {
 
     return (
       <div ref={divRef} onScroll={handleScroll}
-      style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover overflow-hidden shrink-0  h-[10rem]
+      style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
-      {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
+      // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} 
         <video ref={videoRef} style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-auto h-full object-cover" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
@@ -61,7 +61,7 @@ export default function StartingVideo() {
               <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
           </button> }  */}
           
-          <b className="fixed px-[15px] py-[20px] top-[20px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
+          {/* <b className="fixed px-[15px] py-[20px] top-[20px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>
@@ -77,7 +77,7 @@ export default function StartingVideo() {
                             <span className="text-[2.5rem]">{` `}</span>
                             <span>Guidance</span>
                         </p>
-                    </b>
+                    </b> */}
       </div>
   
     );
