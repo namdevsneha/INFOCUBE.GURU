@@ -10,7 +10,7 @@ export default function Expertise() {
         <img className="w-auto h-auto " alt="" src={ExpertiseImage} />
         <div className=" w-auto flex flex-col items-start justify-start gap-[0.96rem]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[0.64rem]">
-            <div className="relative leading-[150%] font-semibold">Alumini Center</div>
+            <div className="relative leading-[150%] font-semibold">Alumni Center</div>
             <div className="self-stretch flex flex-col items-start justify-start gap-[1.28rem]">
               <div className="self-stretch flex flex-col items-start justify-start gap-[0.96rem] text-left text-[2rem]">
                 <b className="self-stretch relative leading-[120%]">Personalized Guidance from Experienced Alumni and Mentors</b>

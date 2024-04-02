@@ -8,8 +8,8 @@ import Help from './Pages/Help';
 import Privacy from './Pages/Privacy';
 import SignUp from './Pages/SignUp';
 import Terms from './Pages/Terms';
-import Header from './Components/Home/Header';
-import Footer from './Components/Home/Footer';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 
 function App() {

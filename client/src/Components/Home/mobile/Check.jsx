@@ -51,9 +51,9 @@ export default function Check() {
                                         <b className="self-stretch relative leading-[120%]">Stay Updated with the Latest News and Reminders in 
                                         Your Field
                                         </b>
-                                        <div className="self-stretch relative text-[1rem] leading-[150%]">Lorem ipsum dolor sit amet, 
-                                        consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, 
-                                        mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                                        <div className="self-stretch relative text-[1rem] leading-[150%]">Stay informed with real-time updates and timely reminders 
+                                        tailored to your specific field. Explore the latest news, trends, and insights to keep ahead in your industry. Welcome to our comprehensive section dedicated to keeping
+                                         you informed and up-to-date with the latest news and reminders relevant to your field.
                                         </div>
                                 </div>
                         </div>

@@ -2,6 +2,9 @@ import React,{useRef} from "react";
 import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.svg";
 import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.svg";
 import Image2 from "../../../Assets/Images/Image2.png";
+import seminar from "../../../Assets/Images/seminar.jpg";
+import seminar2 from "../../../Assets/Images/seminar2.jpg";
+import seminar3 from "../../../Assets/Images/seminar3.jpg";
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -47,13 +50,13 @@ export default function Image(){
             <div className=" col-span-6 items-center  justify-start  h-[14rem]">
               <Slider ref={slider} {...settings} >
                   <div className=" w-full items-center ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image2} />
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar} />
                   </div>
                   <div className=" ">
-                      <img className=" m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image2} />
+                      <img className=" m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar2} />
                   </div>
                   <div className=" ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image2} />
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar3} />
                   </div>
               </Slider>
             </div>

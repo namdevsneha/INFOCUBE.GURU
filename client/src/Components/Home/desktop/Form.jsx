@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import SignUp from "../../../Pages/SignUp";
 
 export default function Form(){
     return (
@@ -6,9 +8,7 @@ export default function Form(){
         box-border gap-[5rem] text-justify lg:text-[1.125rem] md:text-[1rem] text-black font-roboto">
             <div className="flex-1 flex flex-col justify-between gap-[1.5rem]">
                 
-                <div>We are trying to bridge the gap of information and 
-                guidance between and your potential and opportunities. We provide narrowed road maps and detailed career paths, 
-                personalized guidance from alumni and mentors, and a supportive community to help you succeed.</div>
+                <div>We aim to bridge the gap between  potential and opportunities. Our approach involves offering tailored roadmaps and comprehensive career paths, along with personalized advice from our trusted alumni and mentors. We foster a supportive community dedicated to empowering your journey towards success.</div>
 
                 
             </div>
@@ -22,7 +22,9 @@ export default function Form(){
                         </div>
                         <div className="rounded-[29px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem] 
                         text-white border-[1px] border-solid border-darkslategray">
+                            <Link to="/SignUp">
                             <div className="relative leading-[150%]">Sign up</div>
+                            </Link>
                         </div>
                     </div>
                     <div className="self-stretch relative text-[0.75rem] leading-[150%] text-black">{`By clicking Sign Up you're confirming that you 

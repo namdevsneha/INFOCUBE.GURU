@@ -32,16 +32,16 @@ export default function StartingVideo() {
       <div className="relative w-full max-w-full overflow-hidden lg:h-[38.688rem] md:h-[25rem] shrink-0 
       text-left lg:text-[8rem] md:text-[5rem] text-white font-khand" 
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-        <video ref={videoRef} id="video-player" className="w-full h-full object-cover" autoPlay loop muted>
+        <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="w-full h-full object-cover" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
-        {isHovered && 
+        {/* {isHovered && 
           <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white 
           px-4 py-2 rounded-md opacity-50 hover:opacity-100 transition-opacity duration-300" onClick={togglePlay}>
             {videoRef.current && videoRef.current.paused ? 
               <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
-          </button> } 
+          </button> }  */}
           
           <b className="absolute lg:top-[1.5rem] lg:left-[2.125rem] md:top-[1.1rem] md:left-[1.5rem] leading-[100%] inline-block  h-auto">
             <p className="m-0">
