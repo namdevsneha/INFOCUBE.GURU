@@ -1,5 +1,6 @@
 import React from 'react'
 import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import Image from "../../../Assets/Images/JoinImage.png"
 
 export default function Join() {
   return (
@@ -18,7 +19,7 @@ export default function Join() {
             </div>
           </div>
         </div>
-        <div className="w-auto flex flex-col items-center justify-start gap-[0.938rem] text-[2rem]">
+        {/* <div className="w-auto flex flex-col items-center justify-start gap-[0.938rem] text-[2rem]">
           <div className="self-stretch flex flex-col items-center justify-start gap-[0.938rem]">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch flex flex-col items-start justify-start gap-[0.938rem]">
@@ -45,8 +46,14 @@ export default function Join() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-start pt-[1rem] px-[0rem] pb-[0rem] gap-[1.5rem] text-left
+        </div> */}
+        <div className=' m-auto'> 
+            <img src={Image}/>
+          </div>
+
+          <div className="m-auto flex flex-row items-center justify-start pt-[1rem] px-[0rem] pb-[0rem] gap-[1.5rem] text-left
           text-[1rem] text-white">
+            
             <div className="w-[6.438rem] rounded-[38px] bg-darkslategray box-border h-[2.375rem] flex flex-row items-center 
             justify-center py-[0.5rem] px-[0.938rem] border-[1px] border-solid border-darkslategray">
               <div className="relative leading-[150%]">Join
@@ -57,7 +64,6 @@ export default function Join() {
               <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="hi" src={RightArrow}/>
             </div>
           </div>
-        </div>
       </div>
     </div>
   )

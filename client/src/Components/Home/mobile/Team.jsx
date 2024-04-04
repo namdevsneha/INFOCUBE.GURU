@@ -68,9 +68,9 @@
       ]
     };
     return (
-      <div className='px-[15px] py-[20px]'>
+      <div className=' py-[20px]'>
         <div className="w-full relative  h-[29rem] overflow-hidden flex flex-col items-center justify-start py-[0rem] 
-        pr-[1.25rem] pl-[0.438rem] box-border gap-[0.938rem] text-left text-[2rem] text-black font-roboto-slab">
+        box-border gap-[0.938rem] text-left text-[2rem] text-black font-roboto-slab">
           <b className="relative">OUR TEAM</b>
           <div className=" w-full items-center justify-start gap-[1.292rem] text-center text-[1rem] font-roboto">
             <Slider {...settings} >
@@ -96,8 +96,8 @@
                 </div>
               </div>
               <div className='pb-4'>
-                <div className="w-[11.794rem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
-                <img className="w-[11.834rem] relative h-[13.333rem] object-cover max-w-[12.117rem]" alt="" src={Utkarsh} />
+                <div className="w-[11.813rem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
+                <img className="w-[11.762rem] relative h-[13.333rem] object-cover max-w-[12.117rem]" alt="" src={Utkarsh} />
                 <div className="w-[11.834rem] flex flex-col items-center justify-start gap-[0.938rem]">
                 <div className="self-stretch flex flex-col items-center justify-start gap-[0.969rem]">
                 <b className="self-stretch relative leading-[140%]">Utkarsh Saxena</b>
@@ -109,7 +109,7 @@
                 </div>
                 <div className="self-stretch flex flex-col items-center justify-start text-left text-[0.688rem]">
                 <div className="flex flex-row items-center justify-center gap-[0.323rem]">
-                <div className="relative leading-[150%]">About HIm</div>
+                <div className="relative leading-[150%]">About Him</div>
                 <img className="w-[0.969rem] relative h-[0.969rem] overflow-hidden shrink-0" alt="" src={RightArrow} />
                 </div>
                 </div>
@@ -117,8 +117,8 @@
                 </div>
               </div>
               <div className='pb-4'>
-                <div className="w-[11.794rem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
-                <img className="w-[11.834rem] relative h-[13.333rem] object-cover max-w-[12.117rem]" alt="" src={Shivam} />
+                <div className="w-[11.813rem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
+                <img className="w-[11.762rem] relative h-[13.333rem] object-cover max-w-[12.117rem]" alt="" src={Shivam} />
                 <div className="self-stretch flex flex-col items-center justify-start gap-[0.938rem]">
                 <div className="self-stretch flex flex-col items-center justify-start gap-[0.969rem]">
                 <b className="self-stretch relative leading-[140%]">Shivam Kumar</b>

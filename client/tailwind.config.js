@@ -9,6 +9,7 @@ export default {
       buttonColor:'#255652',
       black: "#000",
       darkslategray: "#255652",
+      
       white: "#fff",
       gray: "#1e1e1e",
     },
@@ -25,6 +26,7 @@ export default {
       "neutral-gray": "#8d8d8d",
       "black": "#000",
       "darkslategray": "#255652",
+      "darkslategray2":"#4a4a4a",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)"
