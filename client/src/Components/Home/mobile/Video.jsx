@@ -49,7 +49,7 @@ export default function StartingVideo() {
       <div ref={divRef} onScroll={handleScroll}
       style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
-      // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} 
+      {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
         <video ref={videoRef} style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-auto h-full object-cover" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.

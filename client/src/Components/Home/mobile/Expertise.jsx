@@ -5,7 +5,7 @@ import RightArrow from '../../../Assets/Images/RightArrow.svg'
 
 export default function Expertise() {
   return (
-    <div className='px-[15px] py-[20px]'>
+    <div className='px-[15px] py-[20px]' id='Alumni'>
       <div className="w-full relative h-full text-center text-[1rem] text-black font-roboto">
         <img className="w-auto h-auto " alt="" src={ExpertiseImage} />
         <div className=" w-auto flex flex-col items-start justify-start gap-[0.96rem]">

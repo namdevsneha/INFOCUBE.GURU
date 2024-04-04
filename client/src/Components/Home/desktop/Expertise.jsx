@@ -5,7 +5,7 @@ import RightArrow from '../../../Assets/Images/RightArrow.svg'
 export default function Expertise(){
   	return (
 		<div className="w-full relative overflow-hidden flex flex-col items-start 
-		justify-start lg:py-[3.75rem] md:py-[1rem] px-[4rem] box-border text-center text-[1rem] text-black font-roboto">
+		justify-start lg:py-[3.75rem] md:py-[1rem] px-[4rem] box-border text-center text-[1rem] text-black font-roboto " id='Alumni'>
 			<div className="self-stretch flex flex-row items-center justify-start gap-[4.938rem]">
 				<div className="flex-1 flex flex-col items-start justify-start gap-[1.5rem]">
 					<div className="self-stretch flex flex-col items-start justify-start gap-[2rem]">
