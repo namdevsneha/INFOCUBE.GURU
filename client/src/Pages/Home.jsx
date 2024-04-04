@@ -29,7 +29,7 @@ import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
 export function Mobile() {
   return (
     <div>
-      <VideoMobile/>
+            <VideoMobile/>
             <FormMobile/>
             <ExpertiseMobile/>
             <CheckMobile/>

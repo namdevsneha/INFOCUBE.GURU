@@ -4,7 +4,7 @@ import RightArrow from '../../../Assets/Images/RightArrow.svg'
 export default function Join() {
   return (
     <div className="w-full relative overflow-hidden flex flex-col items-center justify-start py-[3.75rem] px-[4rem] 
-    box-border gap-[3.75rem] text-center text-[1rem] text-black font-roboto">
+    box-border gap-[3.75rem] text-center text-[1rem] text-black font-roboto" id='About'>
       <div className="w-[48rem] flex flex-col items-center justify-start gap-[1rem]">
         <div className="relative leading-[150%] font-semibold">Career Counselling And Coaching</div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem] text-[3rem]">

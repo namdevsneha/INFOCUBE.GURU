@@ -4,11 +4,11 @@ import Image from "../../../Assets/Images/JoinImage.png"
 
 export default function Join() {
   return (
-    <div className='px-[15px] py-[20px]'>
+    <div className='px-[15px] py-[20px]' id='About'> 
       <div className="relative w-full h-full flex flex-col items-start justify-start gap-[2.5rem] text-center
         text-[0.875rem] text-black font-roboto">
         <div className="w-auto flex flex-col items-center justify-start gap-[1rem]">
-          <div className="relative leading-[150%] font-semibold">Career Counselling And Coaching
+          <div className="relative leading-[150%] font-semibold" >Career Counselling And Coaching
           </div>
           <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem] text-[2rem]">
             <b className="self-stretch relative leading-[120%]">Unlock Your Potential with Personalized Guidance</b>
