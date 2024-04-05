@@ -10,8 +10,8 @@ const Navlink = () => {
     return(
         <>
           
-            <Link to='About' spy={true} smooth={true} offset={100} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans' >ABOUT US</Link>
-            <Link to='Alumni' spy={true} smooth={true} offset={100} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans'>ALUMNI</Link>
+            <Link to='About' spy={true} smooth={true} duration={1000} offset={10} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans' >ABOUT US</Link>
+            <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans'>ALUMNI</Link>
             <KLink to='Career' className=' text-[10px] md:text-[14px] lg:text-[16px] font-sans'>CAREER PATH</KLink>
             <KLink to='Help' className='cursor-help text-[10px] md:text-[14px] lg:text-[16px] font-sans'>HELP & SUPPORT</KLink>
           
@@ -43,7 +43,7 @@ export default function Nav() {
         <div className="flex  justify-between md:hidden">
           <button onClick={toggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
           <Link to='SignUp'>
-            <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
+            <button className=' text-white font-roboto border-[1px] py-1 px-1  md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[13px] md:text-[14px] lg:text-[16px]'>Login</button> 
           </Link>
         </div>
     </nav>
