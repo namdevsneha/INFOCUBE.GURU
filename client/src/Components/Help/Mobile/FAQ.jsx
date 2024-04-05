@@ -11,24 +11,24 @@ export default function FAQ(){
         setSelected(i)
     }
     return (
-        <div className='w-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
+        <div className='w-full relative bg-white text-left text-[1rem] text-black font-roboto'>
             <div className='flex justify-center'>
-                <img className="center w-[37rem] h-auto object-cover" alt="" src={FAQImg} />
+                <img className="center w-[25rem] h-auto object-cover" alt="" src={FAQImg} />
                 </div>
         			<div >
                     {data.map((item,i)=>(
                     <div className='item'>
-                        <div className='title mx-[64px]' onClick={()=>toggle(i)} >
-                            <h2>{item.question}</h2>
-                            <img className={selected==i ?"rotate-180":" "}  alt="" src={Arrow} />
+                        <div className='title mx-[32px]' onClick={()=>toggle(i)} >
+                            <h6>{item.question}</h6>
+                            <img className={ selected==i ?"rotate-180 w-[16px]":"w-[16px] "}  alt="" src={Arrow} />
                             </div> 
-                        <div className={selected==i ?"content show mx-[86px] text-[1.3rem]":" text-[1.3rem] content mx-[86px]"}>
-                        <div className='flex flex-row'>
+
+                            <div className={selected == i ? "content show mx-[40px] text-[.9rem]" : "content mx-[40px] text-[.9rem]"}>
+  <div className='flex flex-row'>
     <span>•</span>
     <div className='flex flex-row'>{item.answer}</div>
-    
-    </div>
-    </div>
+  </div>
+</div>
 
                     </div>
                 ))}

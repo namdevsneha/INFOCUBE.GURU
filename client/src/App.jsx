@@ -14,7 +14,21 @@ import Preloader from './Components/PreLoader';
 
 
 function App() {
-  return( <BrowserRouter>
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time, you can replace this with your actual loading logic
+    const timer = setTimeout(() => {
+      setLoading(false);
+      document.body.style.overflow = 'none';
+    }, 0);
+
+    // Clean up timer on unmount
+    return () => clearTimeout(timer);
+  }, []);
+  
+  return(
+    <div> {loading?<Preloader/>: <BrowserRouter>
     <Header/>
     <Routes>
       <Route path='/' element={<Home/>}/>
@@ -27,7 +41,8 @@ function App() {
       <Route path='/Terms' element={<Terms/>}/>
     </Routes>
     <Footer/>
-    </BrowserRouter>)
+    </BrowserRouter>}
+    </div>)
   }
 
 export default App;
