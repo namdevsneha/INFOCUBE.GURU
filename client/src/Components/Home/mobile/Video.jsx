@@ -2,7 +2,7 @@ import React,{useState,useRef} from "react";
 import Video from "../../../Assets/Videos/startvideoMobile.mp4";
 import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
 import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
-
+import {Link} from 'react-scroll';
 
 
 export default function StartingVideo() {
@@ -12,20 +12,6 @@ export default function StartingVideo() {
 
     const divRef = useRef(null);
 
-  const handleScroll = (event) => {
-    const deltaY = event.deltaY;
-    const div = divRef.current;
-
-    if (div && deltaY !== 0) {
-      const currentScrollPosition = div.scrollTop;
-      const newScrollPosition = currentScrollPosition + deltaY;
-
-      div.scrollTo({
-        top: newScrollPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
     
     const togglePlay = () => {
       const video = videoRef.current;
@@ -45,8 +31,12 @@ export default function StartingVideo() {
       setIsHovered(false);
     };
 
+   
+
     return (
-      <div ref={divRef} onScroll={handleScroll}
+      
+      <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
+      <div ref={divRef} 
       style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
       {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
@@ -61,7 +51,7 @@ export default function StartingVideo() {
               <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
           </button> }  */}
           
-          <b className="fixed px-[15px] py-[20px] top-[50px] leading-[100%] inline-block  h-auto font-khand text-white text-left h-[11.375rem] text-[3.363rem]">
+          <b className="fixed px-[15px] py-[20px] top-[50px] leading-[100%] inline-block  h-auto font-khand text-white text-left text-[3.363rem]">
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>
@@ -79,6 +69,6 @@ export default function StartingVideo() {
                         </p>
                     </b>
       </div>
-  
+      </Link>
     );
   }

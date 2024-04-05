@@ -7,7 +7,7 @@ export default function Form(){
     
 
     return (
-        <div className='px-[15px] py-[20px]'>
+        <div className='px-[15px] py-[20px]' id="form">
             <div className="relative w-auto flex flex-col items-center justify-start gap-[2.25rem] text-left 
             text-[3.05rem] text-black font-khand">
                 <div className="flex flex-col items-center justify-start gap-[1.5rem]">
