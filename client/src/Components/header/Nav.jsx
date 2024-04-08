@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from "react";
 import { X ,ChevronDown} from "lucide-react";
 // import { Link } from 'react-router-dom';
 // import {Link as ScrollLink} from 'react-scroll';

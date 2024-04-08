@@ -29,7 +29,7 @@ export default function Preloader () {
     <div className='h-screen w-screen   '>
       <div className='h-full w-full  overflow-hidden   '>
       <div className='absolute top-[50%] left-[50%] z-[3]'>
-    <img className={`object-cover   ${zoomed ? 'zoom-in ' : radial?' ':' scale-[3] opacity-[1]'} }`}  src={image} alt="Your Image" />
+    <img className={`object-cover   ${zoomed ? 'zoom-in ' : radial?' ':' scale-[3] opacity-[1]'}`}  src={image} alt="Your Image" />
 
       </div>
       <div className='absolute'>

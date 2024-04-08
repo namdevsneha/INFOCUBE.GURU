@@ -7,6 +7,21 @@ import Instagram from '../Assets/Images/Instagram.svg';
 import X from '../Assets/Images/X.svg';
 import Youtube from '../Assets/Images/Youtube.svg';
 
+import {Link} from 'react-scroll';
+import {Link as KLink} from 'react-router-dom';
+
+const Navlink = () => {
+  return(
+      <>
+        
+          <Link to='About' spy={true} smooth={true} duration={1000} offset={10} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans' >ABOUT US</Link>
+          <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans'>ALUMNI</Link>
+          <KLink to='Career' className=' text-[10px] md:text-[14px] lg:text-[16px] font-sans'>CAREER PATH</KLink>
+          <KLink to='Help' className='cursor-help text-[10px] md:text-[14px] lg:text-[16px] font-sans'>HELP & SUPPORT</KLink>
+        
+      </>
+  )
+}
 
 export default function Footer() {
   return (
@@ -114,9 +129,14 @@ export default function Footer() {
   <div className='col-span-1 m-auto p-auto'> </div>
 
   <div className="col-span-1 overflow-hidden justify-items-end  md:text-[1rem]">
-  <div className="flex-1 flex flex-col  justify-end md:gap-[0.75rem]">
+
+  <div className="flex-1 flex flex-col  justify-end md:gap-[0.75rem] pt-[2rem] pr-[5rem]">
+    <Link to='About' spy={true} smooth={true} duration={1000} offset={10}>
   <div className="self-stretch relative leading-[150%] font-semibold">About Us</div>
+  </Link>
+  <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} >
   <div className="self-stretch relative leading-[150%] font-semibold">Alumini</div>
+  </Link>
   <div className="self-stretch relative leading-[150%] font-semibold">Career Path</div>
   <div className="self-stretch relative leading-[150%] font-semibold">Help & Support</div>
   </div>
