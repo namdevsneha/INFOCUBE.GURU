@@ -1,57 +1,63 @@
 import React,{useState,useRef} from "react";
 import Video from "../../../Assets/Videos/startvideoMobile.mp4";
-import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
-import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
 import {Link} from 'react-scroll';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleNavbar,closeNav } from '../../IsOpenSlice';
 
 
 export default function StartingVideo() {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
-    const videoRef = useRef(null);
+    const isOpen = useSelector((state) => state.navbar.isOpen);
 
-    const divRef = useRef(null);
+    const baseClass = 'fixed px-[15px] py-[20px] leading-[100%] font-khand text-white text-left text-[3.363rem]';
+    const conditionalClass = isOpen ? 'top-[110px] h-auto' : 'top-[40px]';
 
-    
-    const togglePlay = () => {
-      const video = videoRef.current;
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-      setIsPlaying(!isPlaying);
-    };
+    // Combine base class and conditional class based on isOpen
+    const combinedClass = `${baseClass} ${conditionalClass}`;
+
+    const dispatch = useDispatch();
   
-    const handleMouseEnter = () => {
-      setIsHovered(true);
+    const closeNavbar = () => {
+      
+    }; // Optional: Use smooth scrolling
+
+    const handleWheelScroll = (e,height) => {
+      dispatch(closeNav());
+      // Prevent default behavior to avoid sudden jumps on wheel scroll
+      e.preventDefault();
+      
+      // Determine the direction of the scroll
+      const deltaY = e.deltaY;
+      const scrollSpeed = window.innerHeight+100; // Adjust scroll speed as needed
+  
+      // Calculate the distance to scroll based on scroll speed and direction
+      const scrollDistance = deltaY > 0 ? scrollSpeed : -scrollSpeed;
+  
+      // Get the current scroll position
+      const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+  
+      // Smoothly scroll to the new position
+      window.scrollTo({
+        top: currentPosition + scrollDistance,
+        behavior: 'smooth',
+      });
     };
     
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-    };
-
-   
+    
 
     return (
+   
       
       <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
-      <div ref={divRef} 
-      style={{ touchAction: 'pan-y' }} className=" w-auto h-full object-cover  overflow-hidden shrink-0 
+      <div  onWheel={handleWheelScroll} onScrollCapture={print}
+      style={{ touchAction: 'pan-y' }} className=" w-screen h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
-      {/* // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}  */}
-        <video ref={videoRef} style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-auto h-full object-cover" height="100%" autoPlay loop muted>
+        <video style={{ filter: 'brightness(0.3)' }} id="video-player" className=" w-screen h-screen object-fill" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
-        {/* {isHovered && 
-          <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white 
-          px-4 py-2 rounded-md opacity-50 hover:opacity-100 transition-opacity duration-300" onClick={togglePlay}>
-            {videoRef.current && videoRef.current.paused ? 
-              <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
-          </button> }  */}
+        
           
-          <b className="fixed px-[15px] py-[20px] top-[50px] leading-[100%] inline-block  h-auto font-khand text-white text-left text-[3.363rem]">
+          <b className={combinedClass}>
                         <p className="m-0">
                             <span className="text-[1.95rem]">Unlock Your</span>
                             <span className="text-[2.5rem]">{` `}</span>

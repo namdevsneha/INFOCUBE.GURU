@@ -6,6 +6,9 @@ import { X ,ChevronDown} from "lucide-react";
 import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleNavbar,closeNav } from '../IsOpenSlice';
+
 const Navlink = () => {
     return(
         <>
@@ -20,12 +23,15 @@ const Navlink = () => {
 }
 
 export default function Nav() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleNavbar = () => {
-        setIsOpen(!isOpen);
-      };
- 
+    const isOpen = useSelector((state) => state.navbar.isOpen);
+    const dispatch = useDispatch();
+  
+    const handleToggleNavbar = () => {
+      dispatch(toggleNavbar());
+    };
+    const closeNavbar = () => {
+      dispatch(closeNav());
+    };
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden text-xs md:text-base'>
@@ -41,7 +47,7 @@ export default function Nav() {
         </div>
 
         <div className="flex  justify-between md:hidden">
-          <button onClick={toggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
+          <button onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
           <Link to='SignUp'>
             <button className=' text-white font-roboto border-[1px] py-1 px-1  md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[13px] md:text-[14px] lg:text-[16px]'>Login</button> 
           </Link>
@@ -49,7 +55,7 @@ export default function Nav() {
     </nav>
 
     {isOpen && (
-            <div className='flex gap-1 flex-col items-center basis-full'>
+            <div onWheelCapture={closeNavbar} className=' flex gap-1 flex-col items-center basis-full'>
                 <Navlink/>
             </div>
     )}

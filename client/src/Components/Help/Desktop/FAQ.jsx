@@ -13,7 +13,7 @@ export default function FAQ(){
     return (
         <div className='w-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
             <div className='flex justify-center'>
-                <img className="center w-[37rem] h-[23.875rem] object-cover" alt="" src={FAQImg} />
+                <img className="center w-[37rem] h-auto object-cover" alt="" src={FAQImg} />
                 </div>
         			<div >
                     {data.map((item,i)=>(
@@ -22,7 +22,13 @@ export default function FAQ(){
                             <h2>{item.question}</h2>
                             <img className={selected==i ?"rotate-180":" "}  alt="" src={Arrow} />
                             </div> 
-                        <div className={selected==i ?"content show mx-[64px]":"content mx-[64px]"}>{item.answer}</div>
+                        <div className={selected==i ?"content show mx-[86px] text-[1.3rem]":" text-[1.3rem] content mx-[86px]"}>
+                        <div className='flex flex-row'>
+    <span>•</span>
+    <div className='flex flex-row'>{item.answer}</div>
+    
+    </div>
+    </div>
 
                     </div>
                 ))}

@@ -70,7 +70,7 @@ export default function Footer() {
     
     <div className="lg:py-[4rem] md:py-[2rem] md:px-[3rem] md:gap-[1rem] lg:gap-[2rem] md:text-[0.875rem] relative bg-gray w-full  flex flex-col items-center justify-start  box-border text-left text-black font-roboto bg-black">
 
-  <div className="md:p-2 w-full  bg-white flex flex-row items-start justify-start box-border grid-cols-3 ">
+  <div className="p-2 w-full  bg-white flex flex-row items-start justify-start box-border grid-cols-3 ">
 
   <div className="  flex col-span-1 flex-col items-start justify-start ">
 
@@ -90,21 +90,21 @@ export default function Footer() {
 
   <div className="self-stretch flex flex-col items-start justify-start md:gap-[0.25rem]">
   <div className="self-stretch relative leading-[150%] font-semibold">Contact:</div>
-  <div className="self-stretch relative [text-decoration:underline] leading-[150%]">
-  <p className="m-0">123456789</p>
+  <div className="self-stretch relative leading-[150%]">
+  <p className="m-0">7067778515</p>
   <p className="m-0">infocube.ed@gmail.com</p>
   </div>
   </div>
 
 
-  <div className="md:w-[12.5rem] flex flex-row items-start justify-start md:gap-[1.187rem]">
-  <img className="md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={facebook} />
+  <div className="w-auto flex flex-row items-start justify-start md:gap-[1.187rem]">
+  <img className="lg:h-[2rem] lg:w-[2rem] md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={facebook} />
   <a href="https://www.instagram.com/infocube.ed?utm_source=qr&igsh=b3k0NGN1MHIxY3cw">
-  <img className="md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={Instagram} /></a>
-  <img className="md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={X} />
+  <img className="lg:h-[2rem] lg:w-[2rem] md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={Instagram} /></a>
+  <img className="lg:h-[2rem] lg:w-[2rem] md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={X} />
   <a href='https://www.linkedin.com/company/infocube-ed/'>
-  <img className="md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={LinkedIn} /></a>
-  <img className="md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={Youtube} />
+  <img className="lg:h-[2rem] lg:w-[2rem] md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={LinkedIn} /></a>
+  <img className="lg:h-[2rem] lg:w-[2rem] md:w-[1.5rem] relative md:h-[1.5rem] overflow-hidden shrink-0" alt="" src={Youtube} />
   </div>
 
 
@@ -115,11 +115,10 @@ export default function Footer() {
 
   <div className="col-span-1 overflow-hidden justify-items-end  md:text-[1rem]">
   <div className="flex-1 flex flex-col  justify-end md:gap-[0.75rem]">
-  <div className="self-stretch relative leading-[150%] font-semibold">Link One</div>
-  <div className="self-stretch relative leading-[150%] font-semibold">Link Two</div>
-  <div className="self-stretch relative leading-[150%] font-semibold">Link Three</div>
-  <div className="self-stretch relative leading-[150%] font-semibold">Link Four</div>
-  <div className="self-stretch relative leading-[150%] font-semibold">Link Five</div>
+  <div className="self-stretch relative leading-[150%] font-semibold">About Us</div>
+  <div className="self-stretch relative leading-[150%] font-semibold">Alumini</div>
+  <div className="self-stretch relative leading-[150%] font-semibold">Career Path</div>
+  <div className="self-stretch relative leading-[150%] font-semibold">Help & Support</div>
   </div>
   </div>
 
