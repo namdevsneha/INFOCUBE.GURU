@@ -1,8 +1,8 @@
 
 
  .zoom-in {
-  transition: transform 6s ease-in, opacity 3s ease-in; /* Adjust the duration and easing as needed */
-    transform: scale(3000); /* Adjust the scale factor for the desired zoom level */
+  transition: transform 2.5s ease-in, opacity 2s ease-in; /* Adjust the duration and easing as needed */
+    transform: scale(5000); /* Adjust the scale factor for the desired zoom level */
     transform-origin:50% 57%;
     opacity: 0;
   }
@@ -12,7 +12,30 @@
     transform: scale(0); /* Opacity when zoomed */
 }
 
+.zoom-invideo {
+  transition: opacity 1.5s ease-out; /* Adjust the duration and easing as needed */
+  opacity: 1; /* Start with opacity 0 */
+}
+
+.zoom-invideo.zoomed {
+  opacity: 0; /* Transition to opacity 1 when zoomed class is added */
+}
+
   body {
     overflow: none;
 }
   
+
+@keyframes radialVibe {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.radial-vibe {
+  animation: radialVibe 1s linear forwards;;
+  scale:3; 
+  opacity:1; /* Adjust animation duration and timing as needed */
+}
