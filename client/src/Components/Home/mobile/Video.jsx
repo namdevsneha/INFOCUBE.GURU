@@ -6,6 +6,7 @@ import { toggleNavbar,closeNav } from '../../IsOpenSlice';
 
 
 export default function StartingVideo() {
+    
     const isOpen = useSelector((state) => state.navbar.isOpen);
 
     const baseClass = 'fixed px-[15px] py-[20px] leading-[100%] font-khand text-white text-left text-[3.363rem]';
@@ -23,23 +24,25 @@ export default function StartingVideo() {
     const handleWheelScroll = (e,height) => {
       dispatch(closeNav());
       // Prevent default behavior to avoid sudden jumps on wheel scroll
-      e.preventDefault();
+      // e.preventDefault();
       
-      // Determine the direction of the scroll
-      const deltaY = e.deltaY;
-      const scrollSpeed = window.innerHeight+100; // Adjust scroll speed as needed
+      // // Determine the direction of the scroll
+      // const deltaY = e.deltaY;
+      // const scrollSpeed = window.innerHeight+100; // Adjust scroll speed as needed
   
-      // Calculate the distance to scroll based on scroll speed and direction
-      const scrollDistance = deltaY > 0 ? scrollSpeed : -scrollSpeed;
+      // // Calculate the distance to scroll based on scroll speed and direction
+      // const scrollDistance = deltaY > 0 ? scrollSpeed : -scrollSpeed;
   
-      // Get the current scroll position
-      const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+      // // Get the current scroll position
+      // const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
   
-      // Smoothly scroll to the new position
-      window.scrollTo({
-        top: currentPosition + scrollDistance,
-        behavior: 'smooth',
-      });
+      // // Smoothly scroll to the new position
+      // window.scrollTo({
+      //   top: currentPosition + scrollDistance,
+      //   behavior: 'smooth',
+      // });
+
+
     };
     
     
@@ -48,7 +51,7 @@ export default function StartingVideo() {
    
       
       <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
-      <div  onWheel={handleWheelScroll} onTouchMove={handleWheelScroll} onTouchStart={handleWheelScroll}  onScrollCapture={print}
+      <div onWheel={handleWheelScroll} 
       style={{ touchAction: 'pan-y' }} className=" w-screen h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
         <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
