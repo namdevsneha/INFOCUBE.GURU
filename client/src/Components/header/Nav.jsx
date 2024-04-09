@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from "react";
 import { X ,ChevronDown} from "lucide-react";
 // import { Link } from 'react-router-dom';
 // import {Link as ScrollLink} from 'react-scroll';
@@ -7,7 +6,7 @@ import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleNavbar,closeNav } from '../IsOpenSlice';
+import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 
 const Navlink = () => {
     return(
@@ -37,9 +36,9 @@ export default function Nav() {
     <nav className=' flex shrink items-center overflow-hidden text-xs md:text-base'>
         <div className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 text-xs md:text-base">
             <Navlink />
-            <Link to='SignUp'>
+            <KLink to='SignUp'>
             <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
-            </Link>
+            </KLink>
             <Link to='SignUp'>
             <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
             </Link>
