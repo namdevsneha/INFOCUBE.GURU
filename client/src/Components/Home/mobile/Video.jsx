@@ -2,7 +2,7 @@ import React,{useState,useRef} from "react";
 import Video from "../../../Assets/Videos/startvideoMobile.mp4";
 import {Link} from 'react-scroll';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleNavbar,closeNav } from '../../IsOpenSlice';
+import { toggleNavbar,closeNav } from '../../../Redux/IsOpenSlice';
 
 
 export default function StartingVideo() {
@@ -23,25 +23,7 @@ export default function StartingVideo() {
 
     const handleWheelScroll = (e,height) => {
       dispatch(closeNav());
-      // Prevent default behavior to avoid sudden jumps on wheel scroll
-      // e.preventDefault();
-      
-      // // Determine the direction of the scroll
-      // const deltaY = e.deltaY;
-      // const scrollSpeed = window.innerHeight+100; // Adjust scroll speed as needed
-  
-      // // Calculate the distance to scroll based on scroll speed and direction
-      // const scrollDistance = deltaY > 0 ? scrollSpeed : -scrollSpeed;
-  
-      // // Get the current scroll position
-      // const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
-  
-      // // Smoothly scroll to the new position
-      // window.scrollTo({
-      //   top: currentPosition + scrollDistance,
-      //   behavior: 'smooth',
-      // });
-
+    
 
     };
     

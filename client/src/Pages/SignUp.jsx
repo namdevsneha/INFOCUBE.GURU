@@ -1,11 +1,13 @@
 import React,{useState} from "react";
 import {Link,useNavigate} from "react-router-dom";
+import {useSelector,useDispatch} from 'react-redux';
+import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
 
 export default function SignUp(){
     const [formData,setFormData]=useState({});
-    const [error,setError]=useState(null);
-    const [isloading,setIsLoading]=useState(false);
+    const {loading,error}=useSelector((state)=>state.user);
     const navigate=useNavigate();
+    const dispatch=useDispatch();
    const handleChange=(e)=>{
         setFormData({
             ...formData,
@@ -15,7 +17,7 @@ export default function SignUp(){
     const handleSubmit=async (e)=>{
         e.preventDefault();
         try {
-         setIsLoading(true);
+         dispatch(signInStart());
          const res=await fetch('/api/auth/signin',{
              method:'POST',
              headers:{
@@ -26,18 +28,15 @@ export default function SignUp(){
          const data= await res.json();
          console.log(data);
          if(data.success===false){
-            setIsLoading(false);
-            setError(data.message);
+            dispatch(signInFailure(data.message));
             return;
           
         }
-        setIsLoading(false);
-        setError(null);
+        dispatch(signInStart(data));
         navigate('/');
 
         } catch (error) {
-         setIsLoading(false);
-         setError(error.message);
+         dispatch(signInFailure(error.message));
         }
         
          
@@ -85,7 +84,7 @@ export default function SignUp(){
             </div>
          </div>
          <div class="w-full md:w-full px-3 mb-6">
-            <button disabled={isloading} class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">{isloading?"Loading":"Sign in"}</button>
+            <button disabled={loading} class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">{loading?"Loading":"Sign in"}</button>
          </div>
          <div class="mx-auto -mb-6 pb-1">
             <span class="text-center text-xs text-gray-700">or sign up with</span>

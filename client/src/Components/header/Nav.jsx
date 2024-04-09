@@ -6,7 +6,7 @@ import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleNavbar,closeNav } from '../IsOpenSlice';
+import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 
 const Navlink = () => {
     return(
