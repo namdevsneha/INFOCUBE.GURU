@@ -146,7 +146,7 @@ justify-start pt-[3.125rem] pb-[3.75rem] box-border gap-[2.562rem] text-left tex
 
 <div className='pb-8 '>
   <div className="w-[18.313rrem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
-  <img className="w-[18.313rem] relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Parthiv} />
+  <img className="w-auto relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Parthiv} />
   <div className="w-[18.313rem] flex flex-col items-center justify-start gap-[1.5rem]">
     <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem]">
       <b className="self-stretch relative leading-[140%]">Parthiv Singh Tiwari</b>
@@ -168,7 +168,7 @@ justify-start pt-[3.125rem] pb-[3.75rem] box-border gap-[2.562rem] text-left tex
 
 <div className='pb-8 '>
   <div className="w-[18.313rrem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
-  <img className="w-[18.313rem] relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Vaishnavi} />
+  <img className="w-auto relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Vaishnavi} />
   <div className="w-[18.313rem] flex flex-col items-center justify-start gap-[1.5rem]">
     <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem]">
       <b className="self-stretch relative leading-[140%]">Vaishnavi Dubey</b>
@@ -190,7 +190,7 @@ justify-start pt-[3.125rem] pb-[3.75rem] box-border gap-[2.562rem] text-left tex
 
 <div className='pb-8 '>
   <div className="w-[18.313rrem] overflow-hidden shrink-0 flex flex-col items-start justify-start">
-  <img className="w-[18.313rem] relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Sneha} />
+  <img className="w-full relative h-[20.632rem] object-cover max-w-[18.75rem]" alt="" src={Sneha} />
   <div className="w-[18.313rem] flex flex-col items-center justify-start gap-[1.5rem]">
     <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem]">
       <b className="self-stretch relative leading-[140%]">Sneha Namdev</b>
