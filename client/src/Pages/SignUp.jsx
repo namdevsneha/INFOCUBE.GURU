@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import {Link,useNavigate} from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux';
 import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
+import OAuth from "../Components/OAuth.jsx";
 
 export default function SignUp(){
     const [formData,setFormData]=useState({});
@@ -18,7 +19,7 @@ export default function SignUp(){
         e.preventDefault();
         try {
          dispatch(signInStart());
-         const res=await fetch('/api/auth/signin',{
+         const res=await fetch('/api/auth/signup',{
              method:'POST',
              headers:{
                  'Content-Type':'application/json',
@@ -32,7 +33,7 @@ export default function SignUp(){
             return;
           
         }
-        dispatch(signInStart(data));
+        dispatch(signInSuccess(data));
         navigate('/');
 
         } catch (error) {
@@ -85,6 +86,7 @@ export default function SignUp(){
          </div>
          <div class="w-full md:w-full px-3 mb-6">
             <button disabled={loading} class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">{loading?"Loading":"Sign in"}</button>
+            <OAuth/>
          </div>
          <div class="mx-auto -mb-6 pb-1">
             <span class="text-center text-xs text-gray-700">or sign up with</span>
