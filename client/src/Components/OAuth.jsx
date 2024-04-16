@@ -4,6 +4,7 @@ import {app} from '../firebase';
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {signInSuccess} from '../Redux/userSlice/userSlice.js'
+import GoogleImg from '../Assets/Images/GoogleColour.svg'
 
 export default function OAuth(){
     const dispatch=useDispatch();
@@ -33,9 +34,8 @@ export default function OAuth(){
     }
     return (
         <div>
-            <button onClick={handleGoogleClick} type='button' class="mt-[15px] appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 
-            rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">
-                Sign in with Google</button>
+            <button onClick={handleGoogleClick}>    
+                            <img className='w-auto h-[36px] md:h-[36px]  lg:h-12' src={GoogleImg}/></button>
         </div>
     )
 }

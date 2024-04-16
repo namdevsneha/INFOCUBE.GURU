@@ -1,11 +1,16 @@
 import { configureStore,combineReducers } from '@reduxjs/toolkit';
 import {persistReducer,persistStore} from 'redux-persist';
 import navbarReducer from './IsOpenSlice.js';
+import showHeaderSlice from './userSlice/loginSlice.js'
 import userReducer from './userSlice/userSlice.js';
 import storage from 'redux-persist/lib/storage'
+import deviceTypeReducer from './userSlice/deviceTypeSlice.js'
+import { showHeader } from './userSlice/loginSlice.js';
 
 const rootReducer= combineReducers({navbar: navbarReducer,
-  user:userReducer,})
+  user:userReducer,
+  showHeader:showHeaderSlice,
+  deviceType:deviceTypeReducer})
 
 const persistConfig={key:'root',storage,version:1}
 

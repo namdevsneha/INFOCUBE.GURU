@@ -1,6 +1,7 @@
 import React from 'react';
 import ExpertiseImage from '../../../Assets/Images/expertise.svg'
 import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import {Link } from 'react-router-dom';
 
 export default function Expertise(){
   	return (
@@ -35,7 +36,10 @@ export default function Expertise(){
 					<div className="flex flex-row items-center justify-center pt-[1rem] px-[0rem] pb-[0rem] gap-[1.5rem] text-left text-white">
 						<div className="w-[6.563rem] rounded-[43px] bg-darkslategray box-border flex flex-row items-center justify-center 
 						py-[0.75rem] px-[1.5rem] border-[1px] border-solid border-black">
-							<div className="relative leading-[150%]">Join</div>
+							<Link to='Login'>
+							<button >
+							<div className="relative leading-[150%]">Join</div> </button>
+							</Link>
 						</div>
 						<div className="h-[2.25rem] flex flex-row items-center justify-center gap-[0.5rem] text-black">
 							<div className="relative leading-[150%]">Learn More</div>

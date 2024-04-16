@@ -17,9 +17,7 @@ export default function StartingVideo() {
 
     const dispatch = useDispatch();
   
-    const closeNavbar = () => {
-      
-    }; // Optional: Use smooth scrolling
+ // Optional: Use smooth scrolling
 
     const handleWheelScroll = (e,height) => {
       dispatch(closeNav());
