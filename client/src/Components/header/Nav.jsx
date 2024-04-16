@@ -39,9 +39,9 @@ export default function Nav() {
             <KLink to='SignUp'>
             <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
             </KLink>
-            <Link to='SignUp'>
+            <KLink to='Login'>
             <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
-            </Link>
+            </KLink>
             
         </div>
 

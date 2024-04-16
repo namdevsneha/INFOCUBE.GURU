@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import {showHeader} from "../Redux/userSlice/loginSlice.js";
+import { useSelector, useDispatch } from 'react-redux';
 // desktop components
 import Form from "../Components/Home/desktop/Form.jsx";
 import Expertise from "../Components/Home/desktop/Expertise.jsx";
@@ -63,8 +64,10 @@ export function Desktop() {
 // main function
 export default function Home(){
   const [isMobile, setIsMobile] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(showHeader());
+    
     function handleResize() {
       setIsMobile(window.innerWidth < 768); // Change the threshold according to your needs
     }
@@ -72,7 +75,6 @@ export default function Home(){
     handleResize();
 
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

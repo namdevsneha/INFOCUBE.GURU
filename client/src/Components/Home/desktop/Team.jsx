@@ -26,6 +26,7 @@ export default function Team() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplaySpeed: 100,
+    autoplay:true,
     pauseOnFocus: true,
     pauseOnDotsHover: true,
     swipeToSlide:true,

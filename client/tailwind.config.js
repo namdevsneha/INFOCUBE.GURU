@@ -27,6 +27,8 @@ export default {
       "black": "#000",
       "darkslategray": "#255652",
       "darkslategray2":"#4a4a4a",
+      "slateblue": "#003bac",
+      "dimgray": "#585858",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)"
@@ -39,6 +41,7 @@ export default {
       "im-fell-double-pica": "'IM FELL Double Pica'",
       "roboto": "Roboto",
       "roboto-slab": "'Roboto Slab'",
+      "inter": "Inter",
       "iceland": "Iceland",
       "khand": "Khand"
       },

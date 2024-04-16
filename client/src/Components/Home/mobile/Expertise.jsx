@@ -1,6 +1,7 @@
 import React from 'react'
 import ExpertiseImage from '../../../Assets/Images/expertise.svg'
 import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import {Link } from 'react-router-dom';
 
 
 export default function Expertise() {
@@ -40,7 +41,9 @@ export default function Expertise() {
           text-white">
             <div className="w-[4.201rem] rounded-[27.53px] bg-darkslategray box-border flex flex-row items-center justify-center py-[0.5rem] 
             px-[0.938rem] border-[0.6px] border-solid border-black">
+              <Link to='Login'>
               <div className="relative leading-[150%]">Join</div>
+              </Link>
             </div>
             <div className="h-[1.441rem] flex flex-row items-center justify-center gap-[0.32rem] text-[0.688rem] text-black">
               <div className="relative leading-[150%]">Learn More</div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import RightArrow from '../../../Assets/Images/RightArrow.svg'
 import Image from "../../../Assets/Images/JoinImage.png"
+import {Link } from 'react-router-dom';
 
 export default function Join() {
   return (
@@ -56,8 +57,9 @@ export default function Join() {
             
             <div className="w-[6.438rem] rounded-[38px] bg-darkslategray box-border h-[2.375rem] flex flex-row items-center 
             justify-center py-[0.5rem] px-[0.938rem] border-[1px] border-solid border-darkslategray">
+              <Link to='Login'>
               <div className="relative leading-[150%]">Join
-              </div>
+              </div></Link>
             </div>
             <div className="flex flex-row items-center justify-center gap-[0.5rem] text-[0.688rem] text-black">
               <div className="relative leading-[150%]">Learn More</div>

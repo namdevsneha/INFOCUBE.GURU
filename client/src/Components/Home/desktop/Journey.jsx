@@ -22,7 +22,7 @@ export default function Journey(){
         
         <div className="relative leading-[150%] text-white">Sign Up</div>
         </div></Link>
-        <Link to="/SignUp">
+        <Link to="/Login">
         <div className="rounded-23xl flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem] border-[1px] bg-darkslategray2 border-solid border-darkslategray2 text-white">
         <div className="relative leading-[150%]">Login</div>
         

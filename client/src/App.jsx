@@ -1,5 +1,8 @@
 import React, { useState, useEffect }  from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { showHeader,hideHeader } from './Redux/userSlice/loginSlice.js';
+
 import Home from './Pages/Home';
 // import Career from './Pages/Career';
 // import Alumini from './Pages/Alumini';
@@ -11,10 +14,12 @@ import Terms from './Pages/Terms';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Preloader from './Components/PreLoader';
-
+import Login from './Pages/Login';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
+  const showHeader = useSelector((state) => state.showHeader.showheader);
+
 
   useEffect(() => {
     // Simulate loading time, you can replace this with your actual loading logic
@@ -29,7 +34,7 @@ function App() {
   
   return(
     <div> {loading?<Preloader/>: <BrowserRouter>
-    <Header/>
+    {showHeader?<Header/>:""}
     <Routes>
       <Route path='/' element={<Home/>}/>
       {/* <Route path='/Career' element={<Career/>}/> */}
@@ -39,8 +44,9 @@ function App() {
       <Route path='/Privacy' element={<Privacy/>}/>
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
+      <Route path='/Login' element={<Login/>}/>
     </Routes>
-    <Footer/>
+    {showHeader?<Footer/>:""}
     </BrowserRouter>}
     </div>)
   }
