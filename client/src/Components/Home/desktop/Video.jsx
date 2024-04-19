@@ -36,6 +36,7 @@ export default function StartingVideo() {
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
+        
         {/* {isHovered && 
           <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white 
           px-4 py-2 rounded-md opacity-50 hover:opacity-100 transition-opacity duration-300" onClick={togglePlay}>
