@@ -5,12 +5,9 @@ import jwt from "jsonwebtoken";
 
 
 export const signup= async(req,res,next)=>{
-  console.log("hee")
    const{username,email,password}= req.body;
    const hashedPassword=bcryptjs.hashSync(password,10);
-    console.log("he")
    const newUser= new User({username,email,password:hashedPassword});
-   console.log("he2")
    try{
     await newUser.save();
     res.status(201).json("user created successfully.");

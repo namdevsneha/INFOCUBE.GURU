@@ -57,7 +57,6 @@ export default function Signup(){
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(formData);
         try {
          dispatch(signInStart());
          const res=await fetch('/api/auth/signup',{
@@ -68,7 +67,6 @@ export default function Signup(){
              body: JSON.stringify(formData),
          });
          const data= await res.json();
-         console.log(data);
          if(data.success===false){
             dispatch(signInFailure(data.message));
             return;
