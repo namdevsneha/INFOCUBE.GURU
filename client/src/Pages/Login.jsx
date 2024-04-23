@@ -61,10 +61,12 @@ export default function Login(){
          console.log(data);
          if(data.success===false){
             dispatch(signInFailure(data.message));
+            console.log("Sign in failed")
             return;
           
         }
         dispatch(signInSuccess(data));
+        console.log("Success")
         navigate('/');
 
         } catch (error) {
@@ -104,8 +106,8 @@ export default function Login(){
                         </div>
                         <div className="mb-1 rounded-[104px] flex flex-rows items-center relative w-full">
                             <input onChange={handleChange} id="password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]
-                            text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass?"text":"password"} placeholder="Password"/>
-                            <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword}>{showPass?"Hide":"Show"}</p>
+                            text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass?"password":"text"} placeholder="Password"/>
+                            <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword}>{showPass?"Show":"Hide"}</p>
                         </div>
                         <p className="ml-4 text-[.7rem]  lg:text-[0.8rem] text-slateblue font-roboto font-medium"> <a href="/">Forgot Password?</a></p>
                         {error&&<p className="ml-4 text-[.7rem]  lg:text-[0.8rem]  text-red-500 font-roboto ">{error}</p>}
