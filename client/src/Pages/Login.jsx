@@ -7,7 +7,7 @@ import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
 import OAuth from "../Components/OAuth.jsx";
 import FacebookImg from '../Assets/Images/FacebookColour.svg';
-import InfoCube from '../Assets/Images/infocube.svg';
+import InfoCube from '../Assets/Images/infocubeblack.svg';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.svg';
 import LoginMain from '../Assets/Images/LoginMain.png';
 
