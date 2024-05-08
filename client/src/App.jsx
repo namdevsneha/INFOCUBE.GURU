@@ -15,6 +15,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Preloader from './Components/PreLoader';
 import Login from './Pages/Login';
+import Profile from './Pages/Profile-sneha.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true); 
@@ -45,6 +46,7 @@ function App() {
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
       <Route path='/Login' element={<Login/>}/>
+      <Route path='/Profile' element={<Profile/>}/>
     </Routes>
     {showHeader?<Footer/>:""}
     </BrowserRouter>}

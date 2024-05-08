@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontWeight:{
+      thin:'50',
+    },
     colors:{
       buttonColor:'#255652',
       black: "#000",
@@ -16,6 +19,7 @@ export default {
     extend: {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
+        gotham: ['Gotham', 'sans-serif'],
       }
     },
   },
@@ -29,6 +33,9 @@ export default {
       "darkslategray2":"#4a4a4a",
       "slateblue": "#003bac",
       "dimgray": "#585858",
+      "purple":"#B190B6",
+      "purplefont": "rgba(138, 49, 200, 0.71)",
+      "grey": "rgba(0, 0, 0, 0.5)",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)"
@@ -43,6 +50,7 @@ export default {
       "roboto-slab": "'Roboto Slab'",
       "inter": "Inter",
       "iceland": "Iceland",
+      "lato": "'Lato', 'sans-serif'",
       "khand": "Khand"
       },
       "borderRadius": {
