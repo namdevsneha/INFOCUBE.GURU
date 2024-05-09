@@ -26,7 +26,36 @@ const userSchema=new mongoose.Schema({
     education:{
         type:String,
         default:"Select Education"
-    }
+    },
+    // country:{
+    //     type:String,
+    //     default:"India"
+    // },
+    // state:{
+    //     type:String,
+    //     default:"--Select--"
+    // },
+    // city:{
+    //     type:String,
+    //     default:"--Select--"
+    // },
+    // number:{
+    //     type:Number,
+    //     default:1111111111
+    // },
+    // gender:{
+    //     type:String,
+    //     default:"--Select--"
+    // },
+    // dob:{
+    //     type:Date,
+    //     default:""
+    // },
+    // field:{
+    //     type:Array<String>(5),
+    //     default:{}
+    // }
+
 },{timestamps:true});
 
 const User = mongoose.model('User',userSchema);
