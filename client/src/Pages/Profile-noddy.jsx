@@ -3,19 +3,21 @@ import { useRef,useState,useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
+import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
+import { useDispatch } from 'react-redux';
 export default function Profile_noddy() {
     const fileRef=useRef(null);
-    const {currentUser}=useSelector((state)=>state.user);
+    const {currentUser,loading,error}=useSelector((state)=>state.user);
     const [file,setFile]=useState(undefined);
     const [filePerc,setFilePerc]=useState(0);
     const [fileUploadError,setFileUploadError]=useState(false);
     const [formData,setFormData]=useState(0);
-    console.log(formData);
+    const [updateSuccess,setUpdateSuccess]=useState(false);
+    const dispatch=useDispatch();
     const onImgClick=()=>{
         console.log("heool")
         fileRef.current.click()
     }
-    console.log(filePerc); 
 
     useEffect(()=>{
       if(file){
@@ -45,21 +47,72 @@ export default function Profile_noddy() {
     ) 
     }
     
+    const handleChange=(e)=>{
+      setFormData({...formData,[e.target.id]:e.target.value})
+
+    }
+    const handleSubmit=async (e)=>{
+      e.preventDefault();
+      try{
+        dispatch(updateUserStart());
+        const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
+          'Content-Type':'application/json',
+        },
+      body:JSON.stringify(formData)});
+      const data=await res.json()
+      if(data.success===false){
+         dispatch(updateUserFailure(data.message));
+         return;
+      }
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+
+      }catch(error){
+        
+        dispatch(updateUserFailure(error.message));
+      }
+
+    }
+    const handleSignOut=async()=>{
+      try{
+        dispatch(signOutUserStart());
+        const res=await fetch('/api/auth/signOut');
+        const data=res.json();
+        if(data.success===false){
+          dispatch(signOutUserFailure(data.message));
+          return;
+        }
+        dispatch(signOutUserSuccess(data));
+      }catch(error){
+        dispatch(signOutUserFailure(error.message))
+      }
+    }
+    console.log(currentUser)
+    console.log(formData)
     console.log(file);
   return (
     <div>
+    <form onSubmit={handleSubmit}>
         <input 
         onChange={(e)=>setFile(e.target.files[0])} 
         type='file' 
         ref={fileRef} 
         hidden accept='image/*'/>
-        <img onClick={onImgClick} src={formData.avatar || currentUser.avatar}/>
+        <img className='w-auto h-64 '  onClick={onImgClick} src={formData.avatar || currentUser.avatar}/>
         <p>
           {fileUploadError?(<span className='text-red-700'>Error in Uploading image</span>):
           filePerc>0 && filePerc<100?(<span>{`uploading ${filePerc}`}</span>):
           filePerc===100?(<span>File Uploaded Successfully</span>):<></>}
         </p>
       Profile
+        <input type='text' placeholder='Name' defaultValue={currentUser.username} id='username'
+        onChange={handleChange}
+        className='border p-3 rounded-lg'/>
+        <button disabled={loading} className="text-black px-[24px] text-[1rem] leading-tight font-roboto">{loading?"loading...":"Update"}</button>
+        <span>{error?error:""}</span>
+        <span>{updateSuccess?"user updated successfully":"  "}</span>
+        <button onClick={handleSignOut}>Sign Out</button>
+      </form>
     </div>
   )
 }
