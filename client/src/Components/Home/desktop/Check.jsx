@@ -29,7 +29,7 @@ export default function Check(){
 
     return (
         <div className="w-full relative overflow-hidden flex flex-col items-center justify-center 
-        lg:py-[3.75rem] md:py-[2rem] px-[4rem] box-border text-left text-[3rem] text-black font-roboto">
+        lg:py-[3.75rem] md:py-[2rem] md:px-[5rem] lg:px-[10rem] box-border text-left text-[3rem] text-black font-roboto">
                 <div className="flex flex-row items-center justify-start gap-[5rem]">
                         <div className="flex-1 item-center justify-center h-auto w-auto overflow-hidden" 
                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

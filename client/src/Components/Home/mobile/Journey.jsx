@@ -6,7 +6,7 @@ import SignUp from "../../../Pages/SignUp";
 export default function Journey(){
     return (
         <div>
-            <div className="relative h-full w-full bg-cover"  style={{backgroundImage: `url(${bg})`}} >    
+            <div className="relative h-auto w-full bg-fill"  style={{backgroundImage: `url(${bg})`}} >    
 
         <div className="px-4 py-4 w-full h-full flex flex-col  items-center justify-center text-[1.5rem] text-center text-black font-roboto bg-local">
 

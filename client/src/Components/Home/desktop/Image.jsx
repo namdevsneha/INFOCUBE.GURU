@@ -7,7 +7,7 @@ import Image4 from "../../../Assets/Images/Image4.png";
 export default function ImageComponent(){
     return (
 
-    <div className="w-full relative overflow-hidden flex flex-col items-center justify-start py-[3.75rem] px-[4rem] box-border gap-[2.813rem] text-center text-[3rem] text-black font-roboto">
+    <div className="w-full relative overflow-hidden flex flex-col items-center justify-start py-[3.75rem] md:px-[5rem] lg:px-[10rem] box-border gap-[2.813rem] text-center text-[3rem] text-black font-roboto">
         <div className="w-[48rem] flex flex-col items-center justify-start gap-[1.5rem]">
             <b className="self-stretch relative leading-[120%]">Image Gallery</b>
             <div className="self-stretch relative text-[1.125rem] leading-[150%]">Capturing Moments of Community Events and Interactions</div>
