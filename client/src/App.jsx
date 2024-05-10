@@ -15,9 +15,14 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Preloader from './Components/PreLoader';
 import Login from './Pages/Login';
+import Profile from './Pages/Profile-sneha.jsx';
+import Verification from "./Pages/Verification.jsx";
+import Profile_noddy from './Pages/Profile-noddy.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
+
 
 function App() {
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(false); 
   const showHeader = useSelector((state) => state.showHeader.showheader);
 
 
@@ -45,6 +50,11 @@ function App() {
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
       <Route path='/Login' element={<Login/>}/>
+      <Route path='/Profile' element={<Profile/>}/>
+      <Route path='/Verification' element={<Verification/>}/>
+      <Route element={<PrivateRoute/>}>
+      <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
+      </Route>
     </Routes>
     {showHeader?<Footer/>:""}
     </BrowserRouter>}
