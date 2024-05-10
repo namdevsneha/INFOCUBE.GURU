@@ -29,7 +29,7 @@ export default function Footer() {
 
       <a href='https://youtube.com/@infocube.education?si=sBMz4Pf2w_D57seO'><img className="w-[1.481rem] md:w-[3.588rem] relative h-[1.481rem] md:h-[3.588rem] overflow-hidden shrink-0" alt="" src={Youtube} /></a>
 
-      <a href=''><img className="w-[1.480rem] md:w-[3.586rem] relative h-[1.480rem] md:h-[3.586rem] overflow-hidden shrink-0" alt="" src={Whatsapp}/></a>
+      <a href=''><img className="w-[1.481rem] md:w-[3.588rem] relative h-[1.481rem] md:h-[3.588rem] overflow-hidden shrink-0" alt="" src={Whatsapp}/></a>
       </div>
 
       <div className="w-full flex flex-col items-start justify-start gap-1">

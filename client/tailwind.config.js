@@ -7,6 +7,8 @@ export default {
   theme: {
     fontWeight:{
       thin:'50',
+      thin2:'100',
+      thin3:'200',
     },
     colors:{
       buttonColor:'#255652',
@@ -20,6 +22,7 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         gotham: ['Gotham', 'sans-serif'],
+        lato:['Lato',"sans-serif"]
       }
     },
   },
@@ -50,7 +53,7 @@ export default {
       "roboto-slab": "'Roboto Slab'",
       "inter": "Inter",
       "iceland": "Iceland",
-      "lato": "'Lato', 'sans-serif'",
+      "lato": "Lato",
       "khand": "Khand"
       },
       "borderRadius": {
