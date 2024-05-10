@@ -5,8 +5,8 @@ import {Link } from 'react-router-dom';
 
 export default function Expertise(){
   	return (
-		<div className="w-full relative overflow-hidden flex flex-col items-start 
-		justify-start lg:py-[3.75rem] md:py-[1rem] px-[4rem] box-border text-center text-[1rem] text-black font-roboto " id='Alumni'>
+		<div className="w-auto relative overflow-hidden flex flex-col items-start 
+		justify-start lg:py-[3.75rem] md:py-[1rem] md:px-[5rem] lg:px-[10rem] box-border text-center text-[1rem] text-black font-roboto " id='Alumni'>
 			<div className="self-stretch flex flex-row items-center justify-start gap-[4.938rem]">
 				<div className="flex-1 flex flex-col items-start justify-start gap-[1.5rem]">
 					<div className="self-stretch flex flex-col items-start justify-start gap-[2rem]">
@@ -47,7 +47,7 @@ export default function Expertise(){
 						</div>
 					</div>
 				</div>
-				<img className="flex-1 w-[41.625rem] relative h-[41.625rem] overflow-hidden shrink-0" alt="" src={ExpertiseImage} />
+				<img className="flex-1 w-[41.625rem] h-[41.625rem] overflow-hidden " alt="" src={ExpertiseImage} />
 			</div>
 		</div>);
 };

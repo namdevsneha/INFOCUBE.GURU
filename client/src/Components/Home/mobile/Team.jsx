@@ -20,7 +20,7 @@
       infinite: true,
       speed: 2000,
       centerMode: true, 
-      slidesToShow: 2.2,
+      slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true, // Enable autoplay
       autoplaySpeed: 100,
@@ -28,6 +28,15 @@
       pauseOnDotsHover: true,
 
       responsive: [
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2.5,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
         {
           breakpoint: 600,
           settings: {
@@ -38,18 +47,9 @@
           }
         },
         {
-          breakpoint: 515,
+          breakpoint: 500,
           settings: {
-            slidesToShow: 1.6,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 450,
-          settings: {
-            slidesToShow: 1.2,
+            slidesToShow: 1.5,
             slidesToScroll: 1,
             infinite: true,
             dots: true
@@ -57,6 +57,15 @@
         },
         {
           breakpoint: 400,
+          settings: {
+            slidesToShow: 1.25,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 300,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,

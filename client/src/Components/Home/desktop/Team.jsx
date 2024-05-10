@@ -23,7 +23,7 @@ export default function Team() {
     infinite: true,
     speed: 2000,
     centerMode: false, 
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplaySpeed: 100,
     autoplay:true,
@@ -33,7 +33,35 @@ export default function Team() {
 
     responsive: [
       {
+        breakpoint: 1700,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
         breakpoint: 1400,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1250,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -54,16 +82,16 @@ export default function Team() {
         breakpoint: 1000,
         settings: {
           centerMode:true,
-          slidesToShow: 2,
+          slidesToShow: 2.25,
           slidesToScroll: 1,
           initialSlide: 1
         }
       },
       {
-        breakpoint: 850,
+        breakpoint: 900,
         settings: {
           centerMode:true,
-          slidesToShow: 1.5,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1
         }

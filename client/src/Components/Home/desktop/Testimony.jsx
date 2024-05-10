@@ -44,7 +44,7 @@ export default function Testimonial(){
           };
 
     return (
-        <div className="px-[4rem] w-auto relative lg:h-[27.681rem] md:h[35rem] overflow-hidden text-center lg:text-[1.5rem] md:text-[1rem] text-black font-roboto">
+        <div className="md:px-[5rem] lg:px-[10rem] w-auto relative lg:h-[27.681rem] md:h[35rem] overflow-hidden text-center lg:text-[1.5rem] md:text-[1rem] text-black font-roboto">
 
 <div className="   w-auto grid lg:grid-cols-12 md:grid-cols-10  ">
   <button className= " col-span-1 place-self-center "
