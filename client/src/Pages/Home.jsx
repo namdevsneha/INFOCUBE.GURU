@@ -11,7 +11,6 @@ import Image from "../Components/Home/desktop/Image.jsx";
 import Team from "../Components/Home/desktop/Team.jsx";
 import Video from '../Components/Home/desktop/Video.jsx'
 import Testimonial from "../Components/Home/desktop/Testimony.jsx";
-
 // mobile components
 
 import FormMobile from "../Components/Home/mobile/Form.jsx"
