@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 
 const Navlink = () => {
+  
     return(
         <>
           
@@ -24,32 +25,50 @@ const Navlink = () => {
 export default function Nav() {
     const isOpen = useSelector((state) => state.navbar.isOpen);
     const dispatch = useDispatch();
-  
+    const {currentUser}=useSelector((state)=>state.user)
     const handleToggleNavbar = () => {
       dispatch(toggleNavbar());
     };
     const closeNavbar = () => {
       dispatch(closeNav());
     };
+    console.log(currentUser)
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden text-xs md:text-base'>
         <div className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 text-xs md:text-base">
             <Navlink />
-            <KLink to='SignUp'>
-            <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
-            </KLink>
-            <KLink to='Login'>
-            <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
-            </KLink>
+            {currentUser?(
+               <div>
+               <KLink to="ProfileNoddy">
+                <img className='rounded-full h-[3rem] w-[3rem]' src={currentUser.avatar}/>
+                </KLink>
+             </div>
+            ):(
+              <div>
+                <KLink to='SignUp'>
+                <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
+                </KLink>
+                <KLink to='Login'>
+                <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
+                </KLink>
+              </div>
+            )
+            }
+            
             
         </div>
 
         <div className="flex  justify-between md:hidden">
           <button onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
-          <Link to='SignUp'>
+          {
+            currentUser?
+            (<img className='h-[2rem] w-[2rem]' src={currentUser.avatar}/>):
+            (<Link to='SignUp'>
             <button className=' text-white font-roboto border-[1px] py-1 px-1  md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[13px] md:text-[14px] lg:text-[16px]'>Login</button> 
-          </Link>
+          </Link>)
+          }
+          
         </div>
     </nav>
 
