@@ -11,14 +11,15 @@ import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 const Navlink = () => {
   
     return(
-        <>
-          
-            <Link to='About' spy={true} smooth={true} duration={1000} offset={10} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans' >ABOUT US</Link>
-            <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} className='cursor-pointer text-[10px] md:text-[14px] lg:text-[16px] font-sans'>ALUMNI</Link>
-            <KLink to='Career' className=' text-[10px] md:text-[14px] lg:text-[16px] font-sans'>CAREER PATH</KLink>
-            <KLink to='Help' className='cursor-help text-[10px] md:text-[14px] lg:text-[16px] font-sans'>HELP & SUPPORT</KLink>
-          
-        </>
+      <div className="text-[.75rem] md:text-[.8rem] lg:text-[1rem] font-sans items-center ml-[10px]">
+      <Link to='About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px]">ABOUT US</Link>
+      
+      <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px]">ALUMNI</Link>
+      
+      <KLink to='Career' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">CAREER PATH</KLink>
+      
+      <KLink to='Help' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">HELP & SUPPORT</KLink>
+    </div>
     )
 }
 
@@ -32,7 +33,6 @@ export default function Nav() {
     const closeNavbar = () => {
       dispatch(closeNav());
     };
-    console.log(currentUser)
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden text-xs md:text-base'>
@@ -41,16 +41,19 @@ export default function Nav() {
             {currentUser?(
                <div>
                <KLink to="ProfileNoddy">
-                <img className='rounded-full h-[3rem] w-[3rem]' src={currentUser.avatar}/>
+                <img className='rounded-full h-[2.5rem] ' src={currentUser.avatar}/>
                 </KLink>
              </div>
             ):(
               <div>
                 <KLink to='SignUp'>
-                <button className='rounded-xl font-roboto border-[1px] p-1 md:p-2  border-solid border-black text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
+                <button className='rounded-xl py-[.4rem] px-[1rem] lg:py-[.5rem] lg:px-[1.25rem] font-roboto mr-[10px] lg:mr-[16px] border-[1px]
+                   border-solid border-black
+                 text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
                 </KLink>
                 <KLink to='Login'>
-                <button className=' text-white font-roboto border-[1px] p-1 md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[10px] md:text-[14px] lg:text-[16px]'>Login</button> 
+                <button className=' text-white font-roboto border-[1px] py-[.4rem] px-[1rem] lg:py-[.5rem] lg:px-[1.25rem]  border-solid border-darkslategray rounded-xl 
+                bg-graybutton box-border items-center justify-center md:text-[14px] lg:text-[16px]'>Login</button> 
                 </KLink>
               </div>
             )
@@ -60,13 +63,14 @@ export default function Nav() {
         </div>
 
         <div className="flex  justify-between md:hidden">
-          <button onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
+          <button className='h-[1.5rem] mt-[.25rem]' onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
           {
             currentUser?
-            (<img className='h-[2rem] w-[2rem]' src={currentUser.avatar}/>):
-            (<Link to='SignUp'>
-            <button className=' text-white font-roboto border-[1px] py-1 px-1  md:py-2 md:px-4 border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center text-[13px] md:text-[14px] lg:text-[16px]'>Login</button> 
-          </Link>)
+            (<img className='h-[1.875rem] w-[1.875rem]' src={currentUser.avatar}/>):
+            (<KLink to='Login'>
+            <button className='h-[1.5rem] text-white font-normal font-roboto border-[1px] my-[0.1rem] py-[0.262rem] px-[1rem] text-left text-[0.525rem]
+             border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center  '>Login</button> 
+          </KLink>)
           }
           
         </div>

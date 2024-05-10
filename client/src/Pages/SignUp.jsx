@@ -135,7 +135,9 @@ export default function Signup(){
                     <div className="mb-4 w-64 relative box-border h-[0.125rem] border-t-[2.25px] border-solid border-black" />
                     <p className="text-[.7rem] lg:text-[0.8rem] ">
                         <span className="text-dimgray">Already have an account? </span>
-                        <Link to='../Login'><span className="text-slateblue font-medium">Sign In</span></Link>
+                        <Link to='../Login'><span className="text-slateblue font-medium">Sign In </span></Link>
+                        | 
+                        <Link to='../ '><span className="text-slateblue font-medium"> Home</span></Link>
                     </p>
                 </div>
                 </div>

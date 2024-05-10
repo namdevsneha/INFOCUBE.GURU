@@ -8,9 +8,9 @@ export default function Logo() {
   
   return (
     <Link to='/' className=''>
-        <div className='flex flex-row gap-[10px] mg:gap-[15px] lg:gap-[20px] items-center'> 
-        <img className='basis-1/4 w-auto h-8 md:w-auto md:h-9 lg:w-auto lg:h-12' src={infocubeLogo}/>
-        <img className='basis-3/4 w-auto h-5 md:w-auto md:h-6 lg:w-auto lg:h-7' src={Infocube}/>
+        <div className='flex flex-row gap-[4.5px] md:gap-[6px] lg:gap-[8px] items-center'> 
+        <img className='basis-1/4 w-auto h-[1.406rem]  md:h-[1.9em]  lg:h-[2.5rem]' src={infocubeLogo}/>
+        <img className='basis-3/4 w-auto h-[0.706rem]  md:h-[0.90rem] lg:h-[1.25rem]' src={Infocube}/>
           </div>
     </Link>
   )

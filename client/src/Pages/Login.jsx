@@ -73,6 +73,7 @@ export default function Login(){
          dispatch(signInFailure(error.message));
         }
     }
+    console.log(deviceType);
     console.log(formData);
     return (
         <div className={`grid ${deviceType==='lg'?"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
@@ -119,7 +120,9 @@ export default function Login(){
                     <div className="mb-4 w-64 relative box-border h-[0.125rem] border-t-[2.25px] border-solid border-black" />
                     <p className="text-[.7rem] lg:text-[0.8rem] ">
                         <span className="text-dimgray">Do not have an account? </span>
-                        <Link to='../Signup'><span className="text-slateblue font-medium">Create New</span></Link>
+                        <Link to='../Signup'><span className="text-slateblue font-medium">Create New </span></Link>
+                         | 
+                        <Link to='../ '><span className="text-slateblue font-medium"> Home</span></Link>
                     </p>
                 </div>
                 </div>

@@ -36,6 +36,7 @@ export default {
       "purple":"#B190B6",
       "purplefont": "rgba(138, 49, 200, 0.71)",
       "grey": "rgba(0, 0, 0, 0.5)",
+      'graybutton':"#032127",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)"
