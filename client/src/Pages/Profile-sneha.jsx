@@ -5,6 +5,7 @@ import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/stor
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
 import avatar from '../Assets/Images/avatar.svg';
+import avatarhover from '../Assets/Images/avatarHover.svg';
 import polygon from '../Assets/Images/polygon.svg';
 import edit from '../Assets/Images/edit.svg';
 
@@ -115,6 +116,8 @@ export default function Profile() {
   console.log(formData)
   console.log(file);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
     <div className={'px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
@@ -144,8 +147,22 @@ export default function Profile() {
         </div>
 
           <div className='flex items-center'>
-          <div className=' object-cover overflow-hidden rounded-full  bg-purple' style={{height:windowsSize<1300?windowsSize<1100?"13rem":("14rem"):"18rem",width:windowsSize<1300?windowsSize<1100?"13rem":"14rem":"18rem"}}>
-          <img className='' alt='Profile' src={avatar}/>
+          <div className='relative object-cover overflow-hidden rounded-full  bg-purple' style={{height:windowsSize<1300?windowsSize<1100?"13rem":("14rem"):"18rem",width:windowsSize<1300?windowsSize<1100?"13rem":"14rem":"18rem"}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+
+          <img
+            src={avatar}
+            alt="Profile"
+            className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+            style={{ opacity: isHovered ? 0.5 : 1 }}
+          />
+          {isHovered && (
+            <img
+              src={avatarhover}
+              alt="Profile"
+              className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+            />
+          )}
+        
           </div>
           </div>
 
