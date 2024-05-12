@@ -38,7 +38,7 @@ function App() {
   }, []);
   
   return(
-    <div> {loading?<Preloader/>: <BrowserRouter>
+    <div className="overflow-x-hidden" > {loading?<Preloader/>: <BrowserRouter>
     {showHeader?<Header/>:""}
     <Routes>
       <Route path='/' element={<Home/>}/>
@@ -50,10 +50,10 @@ function App() {
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
       <Route path='/Login' element={<Login/>}/>
-      <Route path='/Profile' element={<Profile/>}/>
+      <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
       <Route path='/Verification' element={<Verification/>}/>
       <Route element={<PrivateRoute/>}>
-      <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
+      <Route path='/Profile' element={<Profile/>}/>
       </Route>
     </Routes>
     {showHeader?<Footer/>:""}
