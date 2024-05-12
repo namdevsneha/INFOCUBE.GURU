@@ -13,7 +13,8 @@ import LoginMain from '../Assets/Images/LoginMain.png';
 
 export default function Login(){
     const [formData,setFormData]=useState({});
-    const [windowsSize,setWindowsSize]=useState({});
+    const [windowsWidth,setwindowsWidth]=useState({});
+    const [windowsHeight,setwindowsHeight]=useState({});
     const {loading,error}=useSelector((state)=>state.user);
     const [showPass,setShowPass]=useState({showPass:false});
     const deviceType = useSelector((state) => state.deviceType.deviceType);
@@ -26,7 +27,8 @@ export default function Login(){
 
         const handleResize = () => {
           dispatch(changeDevice());
-          setWindowsSize(window.innerWidth) 
+          setwindowsWidth(window.innerWidth) 
+          setwindowsHeight(window.innerHeight)
         };
     
         handleResize(); // Call initially
@@ -34,7 +36,7 @@ export default function Login(){
         return () => {
           window.removeEventListener('resize', handleResize);
         };
-      }, [dispatch,setWindowsSize]);
+      }, [dispatch,setwindowsWidth,setwindowsHeight]);
 
     const showPassword=()=>{
         setShowPass(!showPass);
@@ -73,20 +75,19 @@ export default function Login(){
          dispatch(signInFailure(error.message));
         }
     }
-    console.log(deviceType);
-    console.log(formData);
+
     return (
         <div className={`grid ${deviceType==='lg'?"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className="col-span-3 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
                 className="w-full h-full object-cover object-left"
                 src={LoginMain}
-                style={{ clipPath: `circle(65% at ${(0.03422)*windowsSize -15.68}% 50%)`  }}
+                style={{ clipPath:windowsHeight>800?`circle(75% at ${(0.03422)*windowsWidth -60.68}% 50%)` :`circle(65% at ${(0.03422)*windowsWidth -15.68}% 50%)`  }}
                 alt="Login Main"
                 />
             </div>:""}
 
-            <div className="col-span-2 flex h-full w-auto flex-1 flex-col   items-center justify-center">
+            <div className="col-span-2  flex h-full w-auto flex-1 flex-col   items-center justify-center">
                 <div className="text-[.65rem]  lg:text-[0.75rem] ">
                         Sign In to
                 </div>

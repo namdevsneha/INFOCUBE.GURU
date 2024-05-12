@@ -66,7 +66,7 @@ export default function Nav() {
           <button className='h-[1.5rem] mt-[.25rem]' onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
           {
             currentUser?
-            (<KLink to="Profile"><img className='h-[1.875rem] w-[1.875rem]' src={currentUser.avatar}/>
+            (<KLink to="Profile"><img className='rounded-full h-[1.875rem] w-[1.875rem]' src={currentUser.avatar}/>
             </KLink>):
             (<KLink to='Login'>
             <button className='h-[1.5rem] text-white font-normal font-roboto border-[1px] my-[0.1rem] py-[0.262rem] px-[1rem] text-left text-[0.525rem]

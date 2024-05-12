@@ -5,9 +5,9 @@ import SignUp from "../../../Pages/SignUp";
 
 export default function Journey(){
     return (
-        <div className="relative h-[37.5rem] w-full bg-cover"  style={{backgroundImage: `url(${bg})`}} >    
+        <div className="relative h-auto w-full bg-center bg-cover bg-no-repeat"  style={{backgroundImage: `url(${bg})`}} >    
 
-        <div className="md:px-[5rem] lg:px-[10rem] py-8  w-full h-full flex flex-col items-center justify-center text-[3rem] text-center text-black font-roboto bg-local">
+        <div className=" md:px-[5rem] lg:px-[10rem] md:py-[2rem] lg:py-[4rem]  w-full h-full flex flex-col items-center justify-center text-[3rem] text-center text-black font-roboto bg-local">
 
         <div className="self-stretch flex flex-col items-center justify-start gap-[1.5rem]">
     

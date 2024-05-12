@@ -14,7 +14,8 @@ import bcryptjs from "bcryptjs";
 export default function Signup(){
     const [formData,setFormData]=useState({});
 
-    const [windowsSize,setWindowsSize]=useState({});
+    const [windowsWidth,setwindowsWidth]=useState({});
+    const [windowsHeight,setwindowsHeight]=useState({});
     const {loading,error}=useSelector((state)=>state.user);
     const [showPass,setShowPass]=useState({showPass:true});
     const [showPass2,setShowPass2]=useState({showPass2:true});
@@ -29,7 +30,8 @@ export default function Signup(){
 
         const handleResize = () => {
           dispatch(changeDevice());
-          setWindowsSize(window.innerWidth)
+          setwindowsWidth(window.innerWidth)
+          setwindowsHeight(window.innerHeight)
         
         };
         
@@ -38,7 +40,7 @@ export default function Signup(){
         return () => {
           window.removeEventListener('resize', handleResize);
         };
-      }, [dispatch,setWindowsSize]);
+      }, [dispatch,setwindowsWidth,setwindowsHeight]);
 
     const showPassword=()=>{
         setShowPass(!showPass);
@@ -89,7 +91,7 @@ export default function Signup(){
                 <img
                 className="w-full h-full object-cover object-left"
                 src={LoginMain}
-                style={{ clipPath: `circle(65% at ${(0.03422)*windowsSize -15.68}% 50%)`  }}
+                style={{ clipPath:windowsHeight>800?`circle(75% at ${(0.03422)*windowsWidth -60.68}% 50%)` :`circle(65% at ${(0.03422)*windowsWidth -15.68}% 50%)`  }}
                 alt="Login Main"
                 />
             </div>:""}
