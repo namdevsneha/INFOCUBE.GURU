@@ -1,10 +1,9 @@
 import React from 'react'
 import { useRef,useState,useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
-import { useDispatch } from 'react-redux';
 
 export default function Profile_noddy() {
     const fileRef=useRef(null);

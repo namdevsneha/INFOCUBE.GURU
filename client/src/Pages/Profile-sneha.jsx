@@ -1,7 +1,9 @@
-import React,{useState,useEffect} from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React,{useState,useEffect,useRef} from "react";
+import { useSelector,useDispatch } from "react-redux";
 import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js';
+import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
+import { app } from '../firebase';
+import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
 import avatar from '../Assets/Images/avatar.svg';
 import polygon from '../Assets/Images/polygon.svg';
 import edit from '../Assets/Images/edit.svg';
@@ -9,23 +11,110 @@ import edit from '../Assets/Images/edit.svg';
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
   const deviceType = useSelector((state) => state.deviceType.deviceType);
+
+  //Code for backend
+  const fileRef=useRef(null);
+    const {currentUser,loading,error}=useSelector((state)=>state.user);
+    const [file,setFile]=useState(undefined);
+    const [filePerc,setFilePerc]=useState(0);
+    const [fileUploadError,setFileUploadError]=useState(false);
+    const [formData,setFormData]=useState(0);
+    const [updateSuccess,setUpdateSuccess]=useState(false);
+    const onImgClick=()=>{
+        console.log("heool")
+        fileRef.current.click()
+    }
+  //  
   const dispatch=useDispatch();
 
 
   useEffect(() => {
-
     const handleResize = () => {
       dispatch(changeDevice());
       setWindowsSize(window.innerWidth) 
     };
+
+    if(file){
+      handleUploadFile(file)
+    }
 
     handleResize(); // Call initially
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  },[dispatch,setWindowsSize]);
+  },[dispatch,setWindowsSize,file]);
   console.log(deviceType)
+
+
+  //Functions to handle editing details
+
+  const handleUploadFile=(file)=>{
+    const storage =getStorage(app);
+    const fileName=new Date().getTime()+ file.name;
+    const storageRef=ref(storage,fileName);
+    const uploadTask=uploadBytesResumable(storageRef,file);
+
+    uploadTask.on('state_changed',
+  (snapshot)=>{
+    const progress=  (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    setFilePerc(Math.round(progress));
+  },
+  (error)=>{
+    setFileUploadError(true);
+  },
+  ()=>{
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl)=>{
+      setFormData({...formData,avatar:downloadUrl})
+    })
+  }
+  ) 
+  }
+  
+  const handleChange=(e)=>{
+    setFormData({...formData,[e.target.id]:e.target.value})
+
+  }
+  const handleSubmit=async (e)=>{
+    e.preventDefault();
+    try{
+      dispatch(updateUserStart());
+      const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
+        'Content-Type':'application/json',
+      },
+    body:JSON.stringify(formData)});
+    const data=await res.json()
+    if(data.success===false){
+       dispatch(updateUserFailure(data.message));
+       return;
+    }
+    dispatch(updateUserSuccess(data));
+    setUpdateSuccess(true);
+
+    }catch(error){
+      
+      dispatch(updateUserFailure(error.message));
+    }
+
+  }
+  const handleSignOut=async()=>{
+    try{
+      dispatch(signOutUserStart());
+      const res=await fetch('/api/auth/signOut');
+      const data=res.json();
+      if(data.success===false){
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+    }catch(error){
+      dispatch(signOutUserFailure(error.message))
+    }
+  }
+  console.log(currentUser)
+  console.log(formData)
+  console.log(file);
+
   return (
     <>
     <div className={'px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'
@@ -38,7 +127,7 @@ export default function Profile() {
           <div>
           <span className='' >Hey,</span>
           <span>{' '}</span>
-          <span className=' font-bold' style={{fontSize:windowsSize<1300?"4.5rem":"6rem"}}>Divyansh</span>
+          <span className=' font-bold' style={{fontSize:windowsSize<1300?"4.5rem":"6rem"}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}</span>
           </div>
 
           <div>
@@ -68,7 +157,7 @@ export default function Profile() {
           <div>
           <span className=''>Hey,</span>
           <span>{' '}</span>
-          <span className='text-[1.75rem] md:text-[4rem] font-bold'>Divyansh</span>
+          <span className='text-[1.75rem] md:text-[4rem] font-bold'>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}</span>
           </div>
 
           <div>

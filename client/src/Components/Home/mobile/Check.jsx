@@ -29,8 +29,8 @@ export default function Check() {
   return (
     <div className='px-[15px] py-[20px]'>
       <div className="relative w-full flex flex-col items-start justify-start gap-[0.625rem] text-left text-[1rem] text-black font-roboto">
-        <b className="relative text-[1.2rem] leading-[120%]">Updates Center</b>
-                <div className="item-center justify-center h-[auto] w-auto overflow-hidden shrink" 
+        <b className="px-4 relative text-[1.2rem] leading-[120%]">Updates Center</b>
+                <div className="px-4 item-center justify-center h-auto object-contain object-center w-auto overflow-hidden shrink" 
                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <video ref={videoRef} id="video-player"  autoPlay muted loop>
                                 <source src={video} type="video/mp4" />
