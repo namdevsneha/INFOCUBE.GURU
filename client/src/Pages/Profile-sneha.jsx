@@ -8,6 +8,8 @@ import avatar from '../Assets/Images/avatar.svg';
 import avatarhover from '../Assets/Images/avatarHover.svg';
 import polygon from '../Assets/Images/polygon.svg';
 import edit from '../Assets/Images/edit.svg';
+import crossEdit from '../Assets/Images/crossEdit.svg';
+import saveEdit from '../Assets/Images/saveEdit.svg';
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
@@ -74,7 +76,10 @@ export default function Profile() {
   
   const handleChange=(e)=>{
     setFormData({...formData,[e.target.id]:e.target.value})
-
+    console.log('hi2')
+  }
+  const handleChange2=(e)=>{
+    console.log('hi')
   }
   const handleSubmit=async (e)=>{
     e.preventDefault();
@@ -103,6 +108,48 @@ export default function Profile() {
   console.log(file);
   console.log(currentUser)
   const [isHovered, setIsHovered] = useState(false);
+
+// for edit 1
+  const [editing, setEditing] = useState(false);
+  const handleEditClick = () => {
+    setEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    setEditing(false);
+  };
+
+  const handleCancelClick = () => {
+    setEditing(false);
+  };
+
+  // for edit 2
+  const [editing2, setEditing2] = useState(false);
+  const handleEditClick2 = () => {
+    setEditing2(true);
+  };
+
+  const handleSaveClick2 = () => {
+    setEditing2(false);
+  };
+
+  const handleCancelClick2 = () => {
+    setEditing2(false);
+  };
+
+  // for edit 3
+  const [editing3, setEditing3] = useState(false);
+  const handleEditClick3 = () => {
+    setEditing3(true);
+  };
+
+  const handleSaveClick3 = () => {
+    setEditing3(false);
+  };
+
+  const handleCancelClick3 = () => {
+    setEditing3(false);
+  };
 
   return (
     <>
@@ -174,113 +221,202 @@ export default function Profile() {
         </div>
 
 
-        <div className="my-auto">  <div className=' object-cover overflow-hidden rounded-full h-[6.61rem] w-[6.61rem]  md:h-[10rem] md:w-[10rem] bg-purple'>
-          <img className='' alt='Profile' src={avatar}/>
+        <div className="my-auto">  <div className='relative object-cover overflow-hidden rounded-full h-[6.61rem] w-[6.61rem]  md:h-[10rem] md:w-[10rem] bg-purple ' onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <img
+            src={avatar}
+            alt="Profile"
+            className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+            style={{ opacity: isHovered ? 0.5 : 1 }}
+          />
+          {isHovered && (
+            <img
+              src={avatarhover}
+              alt="Profile"
+              className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+            />
+          )}
+          
           </div></div>
 
         </div>}
 
       <div className="grid grid-cols-1 gap-[2rem] md:gap-[3rem] lg:gap-[4rem] lg:grid-cols-5 w-full mb-[2rem] md:mb-[3rem] lg:mb-[4rem]">
-      <div className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
-        <div className='flex justify-between text-dimgray px-4 border-solid border-b-[1px] border-grey content-center'>
+      <form className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
+        <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
         <div>Personal Info</div>
-        <div className='flex items-end'>
-        <img src={edit}/>
-        </div>
+        {editing ? (
+            <>
+              <div className="flex flex-row ">
+              <button 
+                onClick={handleSaveClick}
+              >
+                <img src={saveEdit} />
+              </button>
+              <button 
+                onClick={handleCancelClick}
+              >
+                <img src={crossEdit} />
+              </button>
+              </div>
+            </>
+          ) : (
+            <button 
+              onClick={handleEditClick}
+            >
+              <img src={edit} />
+            </button>
+          )}
         </div>
 
         <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
           
           <div className=''>
-            <div className='text-dimgray'>Name</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>Divyansh Nigam</div>
+            <label htmlFor="Name" className='text-dimgray'>Name</label>
+            <input className='pt-2 font-bold text-[1.1rem]' readOnly onChange={handleChange2} id="Name" type="text" placeholder="User Name"/>
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>Divyansh Nigam</div> */}
           </div>
           <div>
-            <div className='text-dimgray'>Gender</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>Male</div>
+            <label htmlFor="Gender" className='text-dimgray'>Gender</label>
+            <input className='pt-2 font-bold text-[1.1rem]' readOnly onChange={handleChange2} id="Gender" type="text" placeholder="Gender"/>
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>Male</div> */}
           </div>
           <div>
-            <div className='text-dimgray'>Date of Birth</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>10/05/2004</div>
+            <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label>
+            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="DOB" type="date" placeholder="MM/DD/YYYY" />
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>10/05/2004</div> */}
           </div>
           <div>
-            <div className='text-dimgray'>Country</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>India</div>
+            <label htmlFor="Country" className='text-dimgray'>Country</label>
+            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="Country" type="text" placeholder="India"/>
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>India</div> */}
           </div>
           <div>
-            <div className='text-dimgray'>State</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>Madhya Pradesh</div>
+            <label className='text-dimgray'>State</label>
+            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="state" type="text" placeholder="Madhya Pradesh"/>
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>Madhya Pradesh</div> */}
           </div>
           <div>
-            <div className='text-dimgray'>City</div>
-            <div className='pt-2 font-bold text-[1.1rem]'>Bhopal</div>
+            <label htmlFor="City" className='text-dimgray'>City</label>
+            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="city" type="text" placeholder="Bhopal"/>
+            {/* <div className='pt-2 font-bold text-[1.1rem]'>Bhopal</div> */}
           </div>
         </div>
-      </div>
+      </form>
       </div>
 
       
       <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[4rem] lg:grid-cols-5   mb-[6rem]  '>
-        <div className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
-          <div className='flex justify-between text-dimgray px-4 border-solid border-b-[1px] border-grey content-center'>
+        <form className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
+          <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Education</div>
-          <div className='flex items-end'>
-          <img src={edit}/>
-          </div>
+          {editing2 ? (
+            <>
+              <div className="flex flex-row ">
+              <button 
+                onClick={handleSaveClick2}
+              >
+                <img src={saveEdit} />
+              </button>
+              <button 
+                onClick={handleCancelClick2}
+              >
+                <img src={crossEdit} />
+              </button>
+              </div>
+            </>
+          ) : (
+            <button 
+              onClick={handleEditClick2}
+            >
+              <img src={edit} />
+            </button>
+          )}
           </div>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
             <div>
-              <div className='text-dimgray'>Profession</div>
-              <div className='pt-2 font-bold text-[1.1rem]'>Student</div>
+              <label htmlFor="Profession" className='text-dimgray'>Profession</label>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="Profession" type="text" placeholder="Student"/>
+              {/* <div className='pt-2 font-bold text-[1.1rem]'>Student</div> */}
             </div>
             <div>
-              <div className='text-dimgray'>Current Education</div>
-              <div className='pt-2 font-bold text-[1.1rem]'>Under Graduate</div>
+              <label htmlFor="Current Education" className='text-dimgray'>Current Education</label>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="eduation" type="text" placeholder="B.tech"/>
+              {/* <div className='pt-2 font-bold text-[1.1rem]'>Under Graduate</div> */}
             </div>
             <div>
-              <div className='text-dimgray'>Course(if applicable)</div>
-              <div className='pt-2 font-bold text-[1.1rem]'>B.tech</div>
+              <label className='text-dimgray'>Course(if applicable)</label>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="course" type="text" placeholder="course"/>
+              {/* <div className='pt-2 font-bold text-[1.1rem]'>B.tech</div> */}
             </div>
             <div>
-              <div className='text-dimgray'>Stream</div>
-              <div className=' pt-2 font-bold text-[1.1rem]'>PCM</div>
+              <label htmlFor="Stream" className='text-dimgray'>Stream</label>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="stream" type="text" placeholder="Stream"/>
+              {/* <div className=' pt-2 font-bold text-[1.1rem]'>PCM</div> */}
             </div>
             
 
             <div className='text-dimgray'>Fields Of Interest</div>
           </div>
 
-        </div>
-
-        <div className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem]   ' >
-          <div className='flex justify-between text-dimgray px-4 border-solid border-b-[1px] border-grey content-center'>
+        </form>
+        
+     
+        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem]   ' >
+        
+          <div className='flex justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Contact Info</div>
-          <div className='flex items-end'>
-          <img src={edit}/>
-          </div>
+
+            {editing3 ? (
+            <>
+              <div className="flex flex-row ">
+              <button 
+                onClick={handleSaveClick3}
+              >
+                <img src={saveEdit} />
+              </button>
+              <button 
+                onClick={handleCancelClick3}
+              >
+                <img src={crossEdit} />
+              </button>
+              </div>
+            </>
+          ) : (
+            <button 
+              onClick={handleEditClick3}
+            >
+              <img src={edit} />
+            </button>
+          )}
+
           </div>
 
           <div className='flex flex-col justify-start pt-[2rem] lg:pt-[3rem]'>
           <div>
-              <div className='text-dimgray'>Email</div>
-              <div className='text-[1.1rem] pt-2 font-bold'>nigamdivyansh2004@gmail.com</div>
+              <label htmlFor="Email" className='text-dimgray'>Email</label>
+               <input className='text-[1.1rem]  pt-2 font-bold w-full' readOnly  onChange={handleChange2}  id='Email' type='email' placeholder="username@gmail.com"/>
+              {/* <div className='text-[1.1rem] pt-2 font-bold'>nigamdivyansh2004@gmail.com</div> */}
           </div>
 
           <div className='flex flex-col lg:flex-row gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem] justify-between '>
           <div>
-              <div className='text-dimgray'>Contact</div>
-              <div className='font-bold text-[1.1rem] pt-2 '>9098652348</div>
+              <label htmlFor="Contact" className='text-dimgray'>Contact</label>
+              <input className='font-bold text-[1.1rem] pt-2' readOnly onChange={handleChange2} id='Contact' type='tel' placeholder='XXXXXXXXXX'/>
+               {/* <div className='font-bold text-[1.1rem] pt-2 '>9098652348</div> */}
           </div>
 
           <div>
-              <div className='text-dimgray'>Linked In</div>
-              <div className='font-bold text-[1.1rem] pt-2 '>http://linked.com</div>
+              <label htmlFor="Linked In" className='text-dimgray'>Linked In</label>
+              <input className="font-bold text-[1.1rem] pt-2" readOnly onChange={handleChange2} id="Linked In" type="email" placeholder="http://linked.com"/>
+              {/* <div className='font-bold text-[1.1rem] pt-2 '>http://linked.com</div> */}
           </div>
           </div>
 
           </div>
-          </div>
+          </form>
+
+          
       </div>
       </div>
     </>
