@@ -21,14 +21,23 @@ export default function Profile() {
     const [file,setFile]=useState(undefined);
     const [filePerc,setFilePerc]=useState(0);
     const [fileUploadError,setFileUploadError]=useState(false);
-    const [formData,setFormData]=useState(0);
+    const [formData1,setFormData1]=useState(currentUser);
+    const [formData2,setFormData2]=useState(currentUser);
+    const [formData3,setFormData3]=useState(currentUser);
     const [updateSuccess,setUpdateSuccess]=useState(false);
+  const [editing, setEditing] = useState(false);
+    const [editing2, setEditing2] = useState(false);
+  const [editing3, setEditing3] = useState(false);
+
+
+  const dispatch=useDispatch();
+
+
     const onImgClick=()=>{
         console.log("heool")
         fileRef.current.click()
     }
   //  
-  const dispatch=useDispatch();
 
 
   useEffect(() => {
@@ -68,18 +77,21 @@ export default function Profile() {
   },
   ()=>{
     getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl)=>{
-      setFormData({...formData,avatar:downloadUrl})
+      setFormData1({...formData1,avatar:downloadUrl})
     })
   }
   ) 
   }
   
-  const handleChange=(e)=>{
-    setFormData({...formData,[e.target.id]:e.target.value})
-    console.log('hi2')
+  const handleChange1=(e)=>{
+    setFormData1({...formData1,[e.target.id]:e.target.value})
   }
   const handleChange2=(e)=>{
-    console.log('hi')
+    setFormData2({...formData2,[e.target.id]:e.target.value})
+  }
+  const handleChange3=(e)=>{
+    setFormData3({...formData3,[e.target.id]:e.target.value})
+
   }
   const handleSubmit=async (e)=>{
     e.preventDefault();
@@ -88,7 +100,7 @@ export default function Profile() {
       const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
         'Content-Type':'application/json',
       },
-    body:JSON.stringify(formData)});
+    body:JSON.stringify(formData1)});
     const data=await res.json()
     if(data.success===false){
        dispatch(updateUserFailure(data.message));
@@ -104,13 +116,14 @@ export default function Profile() {
 
   }
   
-  console.log(formData)
+  console.log(formData1)
+  console.log(formData2)
+  console.log(formData3)
   console.log(file);
   console.log(currentUser)
   const [isHovered, setIsHovered] = useState(false);
 
 // for edit 1
-  const [editing, setEditing] = useState(false);
   const handleEditClick = () => {
     setEditing(true);
   };
@@ -120,11 +133,11 @@ export default function Profile() {
   };
 
   const handleCancelClick = () => {
+    setFormData1(currentUser)
     setEditing(false);
   };
 
   // for edit 2
-  const [editing2, setEditing2] = useState(false);
   const handleEditClick2 = () => {
     setEditing2(true);
   };
@@ -134,11 +147,11 @@ export default function Profile() {
   };
 
   const handleCancelClick2 = () => {
+    setFormData2(currentUser)
     setEditing2(false);
   };
 
   // for edit 3
-  const [editing3, setEditing3] = useState(false);
   const handleEditClick3 = () => {
     setEditing3(true);
   };
@@ -148,6 +161,7 @@ export default function Profile() {
   };
 
   const handleCancelClick3 = () => {
+    setFormData3(currentUser)
     setEditing3(false);
   };
 
@@ -272,32 +286,32 @@ export default function Profile() {
           
           <div className=''>
             <label htmlFor="Name" className='text-dimgray'>Name</label>
-            <input className='pt-2 font-bold text-[1.1rem]' readOnly onChange={handleChange2} id="Name" type="text" placeholder="User Name"/>
+            <input className='pt-2 font-bold text-[1.1rem]'  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
             {/* <div className='pt-2 font-bold text-[1.1rem]'>Divyansh Nigam</div> */}
           </div>
           <div>
             <label htmlFor="Gender" className='text-dimgray'>Gender</label>
-            <input className='pt-2 font-bold text-[1.1rem]' readOnly onChange={handleChange2} id="Gender" type="text" placeholder="Gender"/>
+            <input className='pt-2 font-bold text-[1.1rem]'  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender"/>
             {/* <div className='pt-2 font-bold text-[1.1rem]'>Male</div> */}
           </div>
           <div>
             <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label>
-            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="DOB" type="date" placeholder="MM/DD/YYYY" />
+            <input className="pt-2 font-bold text-[1.1rem]" pattern="\d{2}\\d{2}\\d{4}" onChange={handleChange1} id="dob" formate type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
             {/* <div className='pt-2 font-bold text-[1.1rem]'>10/05/2004</div> */}
           </div>
           <div>
             <label htmlFor="Country" className='text-dimgray'>Country</label>
-            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="Country" type="text" placeholder="India"/>
+            <input className="pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="country" type="text"  value={formData1.country} placeholder="India"/>
             {/* <div className='pt-2 font-bold text-[1.1rem]'>India</div> */}
           </div>
           <div>
             <label className='text-dimgray'>State</label>
-            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="state" type="text" placeholder="Madhya Pradesh"/>
+            <input className="pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="state" type="text" value={formData1.state} placeholder="Madhya Pradesh"/>
             {/* <div className='pt-2 font-bold text-[1.1rem]'>Madhya Pradesh</div> */}
           </div>
           <div>
             <label htmlFor="City" className='text-dimgray'>City</label>
-            <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="city" type="text" placeholder="Bhopal"/>
+            <input className="pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="city" type="text" value={formData1.city} placeholder="Bhopal"/>
             {/* <div className='pt-2 font-bold text-[1.1rem]'>Bhopal</div> */}
           </div>
         </div>
@@ -336,22 +350,22 @@ export default function Profile() {
           <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
             <div>
               <label htmlFor="Profession" className='text-dimgray'>Profession</label>
-              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="Profession" type="text" placeholder="Student"/>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2}  id="profession" type="text" value={formData2.profession} placeholder="Student"/>
               {/* <div className='pt-2 font-bold text-[1.1rem]'>Student</div> */}
             </div>
             <div>
               <label htmlFor="Current Education" className='text-dimgray'>Current Education</label>
-              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="eduation" type="text" placeholder="B.tech"/>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="education" type="text" value={formData2.education} placeholder="B.tech"/>
               {/* <div className='pt-2 font-bold text-[1.1rem]'>Under Graduate</div> */}
             </div>
             <div>
               <label className='text-dimgray'>Course(if applicable)</label>
-              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="course" type="text" placeholder="course"/>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="course" type="text" value={formData2.course} placeholder="course"/>
               {/* <div className='pt-2 font-bold text-[1.1rem]'>B.tech</div> */}
             </div>
             <div>
               <label htmlFor="Stream" className='text-dimgray'>Stream</label>
-              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="stream" type="text" placeholder="Stream"/>
+              <input className="pt-2 font-bold text-[1.1rem]" readOnly onChange={handleChange2} id="stream" type="text" value={formData2.stream} placeholder="Stream"/>
               {/* <div className=' pt-2 font-bold text-[1.1rem]'>PCM</div> */}
             </div>
             
@@ -395,20 +409,20 @@ export default function Profile() {
           <div className='flex flex-col justify-start pt-[2rem] lg:pt-[3rem]'>
           <div>
               <label htmlFor="Email" className='text-dimgray'>Email</label>
-               <input className='text-[1.1rem]  pt-2 font-bold w-full' readOnly  onChange={handleChange2}  id='Email' type='email' placeholder="username@gmail.com"/>
+               <input className='text-[1.1rem]  pt-2 font-bold w-full' readOnly  onChange={handleChange3}  id='email' type='email' value={formData3.email} placeholder="username@gmail.com"/>
               {/* <div className='text-[1.1rem] pt-2 font-bold'>nigamdivyansh2004@gmail.com</div> */}
           </div>
 
           <div className='flex flex-col lg:flex-row gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem] justify-between '>
           <div>
               <label htmlFor="Contact" className='text-dimgray'>Contact</label>
-              <input className='font-bold text-[1.1rem] pt-2' readOnly onChange={handleChange2} id='Contact' type='tel' placeholder='XXXXXXXXXX'/>
+              <input className='font-bold text-[1.1rem] pt-2' readOnly onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
                {/* <div className='font-bold text-[1.1rem] pt-2 '>9098652348</div> */}
           </div>
 
           <div>
               <label htmlFor="Linked In" className='text-dimgray'>Linked In</label>
-              <input className="font-bold text-[1.1rem] pt-2" readOnly onChange={handleChange2} id="Linked In" type="email" placeholder="http://linked.com"/>
+              <input className="font-bold text-[1.1rem] pt-2" readOnly onChange={handleChange3} id="linkedin" type="text" value={formData3.linkedin} placeholder="http://linked.com"/>
               {/* <div className='font-bold text-[1.1rem] pt-2 '>http://linked.com</div> */}
           </div>
           </div>
