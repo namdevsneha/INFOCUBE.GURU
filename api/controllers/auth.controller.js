@@ -10,7 +10,7 @@ export const signup= async(req,res,next)=>{
    const newUser= new User({username,email,password:hashedPassword});
    try{
     await newUser.save();
-    res.status(201).json("user created successfully.");
+    res.status(201).json("user created");
    }catch(error){
      next(error)
    }
@@ -35,6 +35,7 @@ export const login =async(req,res,next)=>{
 
 export const google=async(req,res,next)=>{
   try {
+    
   const user=await User.findOne({email:req.body.email});
     if(user){
       const token=jwt.sign({id:user._id},process.env.JWT_SECRET);
