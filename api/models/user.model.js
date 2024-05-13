@@ -39,7 +39,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         default:"--Select--"
     },
-    phoneNumber:{
+    contact:{
         type:Number,
         default:0
     },
@@ -57,7 +57,7 @@ const userSchema=new mongoose.Schema({
     },
     profession:{
         type:String,
-        default:" "
+        default:"--Enter--"
     },
     course:{
         type:String,
@@ -65,7 +65,7 @@ const userSchema=new mongoose.Schema({
     },
     stream:{
         type:String,
-        default:" "
+        default:"--Enter--"
     }
     // field:{
     //     type:Array<String>(5),
