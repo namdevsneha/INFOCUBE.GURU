@@ -78,7 +78,7 @@ export default function Home(){
   }, []);
 
   return (
-    <div className="">
+    <div className=" sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]">
       {isMobile ? <Mobile /> : <Desktop />}
     </div>
   );
