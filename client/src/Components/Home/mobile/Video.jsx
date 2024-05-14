@@ -3,6 +3,7 @@ import Video from "../../../Assets/Videos/startvideoMobile.mp4";
 import {Link} from 'react-scroll';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../../Redux/IsOpenSlice';
+import { closeDropDown } from "../../../Redux/userSlice/navDropDown";
 
 
 export default function StartingVideo() {
@@ -21,7 +22,7 @@ export default function StartingVideo() {
 
     const handleWheelScroll = (e,height) => {
       dispatch(closeNav());
-    
+      dispatch(closeDropDown());
 
     };
     
@@ -31,7 +32,7 @@ export default function StartingVideo() {
    
       
       <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
-      <div onWheel={handleWheelScroll} 
+      <div onWheel={handleWheelScroll} onTouchStart={handleWheelScroll}
       style={{ touchAction: 'pan-y' }} className=" w-screen h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
         <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>

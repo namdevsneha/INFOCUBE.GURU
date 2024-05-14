@@ -44,7 +44,7 @@ export default function Help(){
     }, []);
   
     return (
-      <div className="">
+      <div className="sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]">
         {isMobile ? <MobileHelp /> : <DesktopHelp />}
       </div>
     );
