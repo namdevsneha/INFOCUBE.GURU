@@ -2,7 +2,7 @@ import React from 'react'
 
 import Infocube from '../Assets/Images/infocube.svg';
 import LinkedIn from '../Assets/Images/LinkedIn.svg';
-import facebook from '../Assets/Images/facebook.svg';
+import facebook from '../Assets/Images/Facebook.svg';
 import Instagram from '../Assets/Images/Instagram.svg';
 import X from '../Assets/Images/X.svg';
 import Youtube from '../Assets/Images/Youtube.svg';
