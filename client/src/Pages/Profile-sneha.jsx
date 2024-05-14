@@ -416,7 +416,7 @@ export default function Profile() {
           <div className='flex flex-col lg:flex-row gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem] justify-between '>
           <div>
               <label htmlFor="Contact" className='text-dimgray'>Contact</label>
-              <input className='font-bold text-[1.1rem] pt-2' readOnly onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
+              <input  className=' font-bold text-[1.1rem] pt-2'  onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
                {/* <div className='font-bold text-[1.1rem] pt-2 '>9098652348</div> */}
           </div>
 

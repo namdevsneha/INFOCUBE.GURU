@@ -5,26 +5,29 @@ import { X ,ChevronDown} from "lucide-react";
 import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 import profile from '../../Assets/Images/profile.png'
-import logout from '../../Assets/Images/logout.png'
+import RightArrow from '../../Assets/Images/RightArrow2.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 import { signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../../Redux/userSlice/userSlice';
+import { closeDropDown, toogleDropDown } from '../../Redux/userSlice/navDropDown';
+
 
 export default function Nav() {
     const isOpen = useSelector((state) => state.navbar.isOpen);
-    const [open,setOpen]=useState(false);
     const dispatch = useDispatch();
     const {currentUser}=useSelector((state)=>state.user)
-
+    const isnavDropDownOpen=useSelector((state)=>state.navDropDown.isOpen);
 
     const handleToggleNavbar = () => {
       dispatch(toggleNavbar());
     };
     const closeNavbar = () => {
+      dispatch(closeDropDown())
       dispatch(closeNav());
     };
 
     const handleSignOut=async()=>{
+      dispatch(closeDropDown())
       try{
         dispatch(signOutUserStart());
         const res=await fetch('/api/auth/signOut');
@@ -42,26 +45,38 @@ export default function Nav() {
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden  '>
-        <div className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 ">
+        <div onWheelCapture={closeNavbar} className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 ">
             <Navlink />
             {currentUser?(
                <div>
                
                <div className='menu-container '>
-                <div className='menu-trigger ' onClick={()=>{setOpen(!open)}}>
+                <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
                 <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
                 </div>
-                <div className={`dropdown-menu absolute border-5 border-solid border-red-200 border-t bg-white w-[13rem] top-[3.1rem] lg:top-[3.1rem] md:right-[5rem] rounded-[20px] py-[10px] px-[20px] lg:right-[10rem] ${open?'active':'inactive'}`}>
-                  <h3 className='text-[1rem]'>Hi, <span>User</span>  </h3>
+                
+                
+                <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[13rem] top-[3.4rem] lg:top-[3.5rem]
+                 md:right-[5rem] rounded-[5px] py-[10px] px-[20px] lg:right-[10rem] text-black ${isnavDropDownOpen?'active':'inactive'}`}>
+                  <div className='flex items-center  gap-[5px]'>
+                  <img className=' rounded-full h-[2.5rem] w-[2.5rem]  overflow-hidden ' src={currentUser.avatar}/>
+                  <h3 className='text-[1rem] h-[1.5rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
+                  </div>
                   <ul>
                   <KLink to="Profile">
-                    <DropDownItem img={profile} text={"Profile"}/>
+                    <button className='w-full' onClick={()=>{dispatch(closeDropDown())}}>
+                    <DropDownItem  text={"Profile"}/>
+                    </button>
                     </KLink>
+                    <li>
+                      <div className='border-[.1px] m-auto w-[9rem]  border-black'></div>
+                    </li>
                     <button onClick={handleSignOut} className='w-full'>
-                    <DropDownItem  img={logout} text={"Logout"}/>
+                    <DropDownItem  text={"Logout"}/>
                      </button>
                   </ul>
                   </div>
+          
                 </div>
              </div>
             ):(
@@ -87,23 +102,34 @@ export default function Nav() {
           {
             currentUser?
             (
-               <div className='menu-container '>
-                <div className='menu-trigger ' onClick={()=>{setOpen(!open)}}>
-                <img className=' rounded-full h-[1.875rem] w-[1.875rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
+              <div className='menu-container '>
+              <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
+              <img className=' rounded-full h-[1.875rem] w-[1.875rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
+              </div>
+              
+              
+              <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem] 
+               right-[2.2rem] rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`}>
+                <div className='flex items-center  gap-[5px]'>
+                <img className=' rounded-full h-[1.875rem] w-[1.875rem]  overflow-hidden ' src={currentUser.avatar}/>
+                <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
                 </div>
-                <div className={`dropdown-menu absolute bg-white w-[10rem] top-[2.5rem] right-[2.5rem] rounded-[20px] py-[.5rem] px-[1rem]  ${open?'active':'inactive'}`}>
-                  <h3 className='text-[.6rem]'>Hi,<span>User</span>  </h3>
-                  <ul>
-                    <KLink to="Profile">
-                    <DropDownItem img={profile} text={"Profile"}/>
-                    </KLink>
-                    
-                    <button onClick={handleSignOut} className='w-full'>
-                    <DropDownItem  img={logout} text={"Logout"}/>
-                     </button>
-                  </ul>
-                  </div>
+                <ul>
+                <KLink to="Profile">
+                  <button className='w-full text-[.75rem]' onClick={()=>{dispatch(closeDropDown())}}>
+                  <DropDownItem  text={"Profile"}/>
+                  </button>
+                  </KLink>
+                  <li>
+                    <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
+                  </li>
+                  <button onClick={handleSignOut} className='w-full text-[.75rem]'>
+                  <DropDownItem  text={"Logout"}/>
+                   </button>
+                </ul>
                 </div>
+        
+              </div>
             
           ):
             (<KLink to='Login'>
@@ -125,16 +151,16 @@ export default function Nav() {
 }
 
 const Navlink = () => {
-  
+  const dispatch = useDispatch();
   return(
     <div className="text-[.75rem] md:text-[.8rem] lg:text-[1rem] font-sans items-center ml-[10px]">
-    <Link to='About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px]">ABOUT US</Link>
+    <Link onClick={()=>dispatch(closeDropDown())} to='About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px]"> ABOUT US</Link>
     
-    <Link to='Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px]">ALUMNI</Link>
+    <Link onClick={()=>dispatch(closeDropDown())} to='Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px]">ALUMNI</Link>
     
-    <KLink to='Career' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">CAREER PATH</KLink>
+    <KLink onClick={()=>dispatch(closeDropDown())} to='Career' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">CAREER PATH</KLink>
     
-    <KLink to='Help' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">HELP & SUPPORT</KLink>
+    <KLink onClick={()=>dispatch(closeDropDown())} to='Help' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">HELP & SUPPORT</KLink>
   </div>
   )
 }
@@ -142,9 +168,10 @@ const Navlink = () => {
 
 function DropDownItem(props){
   return(
-    <li className='dropdownItem sm:text-[.6rem] md:text-[1rem] lg:text-[1rem] flex my-[.25rem] md:my-[.5rem] mx-auto p-[.25rem] md:p-[.5rem] border-t border-black'>
-      <img src={props.img} alt='hey'></img>
-      <a>{props.text}</a>
+    <li  className='dropdownItem   font-roboto  w-full md:text-[1rem] lg:text-[1rem] flex my-[2px] md:my-[.75rem]  '>
+      <a className='mr-auto'>{props.text}</a>
+      
+      <img style={{fontWeight:'bold'}} className='' src={RightArrow}></img>
     </li>
   )
 }
