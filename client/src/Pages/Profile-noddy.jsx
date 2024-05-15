@@ -73,6 +73,11 @@ export default function Profile_noddy() {
       }
 
     }
+    const handleSubmit2=async(e)=>{
+      
+      console.log('changes')
+
+    }
     const handleSignOut=async()=>{
       try{
         dispatch(signOutUserStart());
@@ -92,7 +97,7 @@ export default function Profile_noddy() {
     console.log(file);
   return (
     <div>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit2}>
         <input 
         onChange={(e)=>setFile(e.target.files[0])} 
         type='file' 
@@ -109,6 +114,8 @@ export default function Profile_noddy() {
         onChange={handleChange}
         className='border p-3 rounded-lg'/>
         <button disabled={loading} className="text-black px-[24px] text-[1rem] leading-tight font-roboto">{loading?"loading...":"Update"}</button>
+        <button disabled={loading} className="text-black px-[24px] text-[1rem] leading-tight font-roboto">{loading?"loading...":"Update22"}</button>
+        <span>{error?error:""}</span>
         <span>{error?error:""}</span>
         <span>{updateSuccess?"user updated successfully":"  "}</span>
         <button onClick={handleSignOut}>Sign Out</button>

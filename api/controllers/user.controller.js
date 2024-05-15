@@ -18,9 +18,20 @@ export const updateUser=async (req,res,next)=>{
         const updateUser= await User.findByIdAndUpdate(req.params.id,{
             $set:{
                 username:req.body.username,
-                email:req.body.email,
+                // email:req.body.email,
                 password:req.body.password,
                 avatar:req.body.avatar,
+                education:req.body.education,
+                country:req.body.country,
+                state:req.body.state,
+                city:req.body.city,
+                contact:req.body.contact,
+                gender:req.body.gender,
+                dob:req.body.dob,
+                linkedin:req.body.linkedin,
+                stream:req.body.stream,
+                course:req.body.course,
+
             }
         },{new:true})
         

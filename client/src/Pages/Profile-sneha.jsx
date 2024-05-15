@@ -22,23 +22,35 @@ export default function Profile() {
     const [filePerc,setFilePerc]=useState(0);
     const [fileUploadError,setFileUploadError]=useState(false);
     
-    const [formData1,setFormData1]=useState(currentUser);
-    const [formData2,setFormData2]=useState(currentUser);
-    const [formData3,setFormData3]=useState(currentUser);
+    const [formData1,setFormData1]=useState({username:currentUser.username,dob:currentUser.dob,
+                avatar:currentUser.avatar,
+                gender:currentUser.gender,
+                country:currentUser.country,
+                state:currentUser.state,
+                city:currentUser.city,});
+
+    const [formData2,setFormData2]=useState({ stream:currentUser.stream,
+                course:currentUser.course,
+                education:currentUser.education,});
+
+    const [formData3,setFormData3]=useState({ contact:currentUser.contact,
+      linkedin:currentUser.linkedin,});
 
     const [updateSuccess,setUpdateSuccess]=useState(false);
   const [editing, setEditing] = useState(false);
     const [editing2, setEditing2] = useState(false);
   const [editing3, setEditing3] = useState(false);
-
-
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const [disabled, setDisabled] = useState(true);
+  const [disabled2, setDisabled2] = useState(true);
+  const [disabled3, setDisabled3] = useState(true);
   const dispatch=useDispatch();
 
+  
 
-    const onImgClick=()=>{
-        console.log("heool")
-        fileRef.current.click()
-    }
+
+    
   //  
 
 
@@ -62,8 +74,12 @@ export default function Profile() {
 
 
   //Functions to handle editing details
+  const onImgClick=()=>{
+          console.log("heool")
+          fileRef.current.click()
+      }
 
-  const handleUploadFile=(file)=>{
+    const handleUploadFile=(file)=>{
     const storage =getStorage(app);
     const fileName=new Date().getTime()+ file.name;
     const storageRef=ref(storage,fileName);
@@ -95,45 +111,19 @@ export default function Profile() {
     setFormData3({...formData3,[e.target.id]:e.target.value})
 
   }
-  const handleSubmit=async (e)=>{
-    e.preventDefault();
-    try{
-      dispatch(updateUserStart());
-      const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    body:JSON.stringify(formData1)});
-    const data=await res.json()
-    if(data.success===false){
-       dispatch(updateUserFailure(data.message));
-       return;
-    }
-    dispatch(updateUserSuccess(data));
-    setUpdateSuccess(true);
 
-    }catch(error){
-      
-      dispatch(updateUserFailure(error.message));
-    }
-
-  }
-  
-  console.log(formData1)
-  console.log(formData2)
-  console.log(formData3)
-  console.log(file);
-  console.log(currentUser)
-  const [isHovered, setIsHovered] = useState(false);
-
-// for edit 1
   const handleEditClick = () => {
     setEditing(true);
     setDisabled(false);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (event) => {
     setEditing(false);
     setDisabled(true);
+    const form = event.target.closest('form');
+    if (form) {
+      handleSubmit1(event,'form1');
+    }
   };
 
   const handleCancelClick = () => {
@@ -142,15 +132,67 @@ export default function Profile() {
     setDisabled(true);
   };
 
+  const handleSubmit1=async (e,formId)=>{
+    var formData=formData1
+     if(formId=='form1'){
+      formData=formData1
+      
+    }else if(formId=='form2'){
+      formData=formData2
+    }else if(formId=='form3'){
+      formData=formData3
+    }
+    console.log(formData)
+    e.preventDefault();
+    try{
+      dispatch(updateUserStart());
+      const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
+        'Content-Type':'application/json',
+      },
+    
+    body:JSON.stringify(formData)});
+
+    const data=await res.json()
+    console.log('here')
+    if(data.success===false){
+      console.log('failed')
+       dispatch(updateUserFailure(data.message));
+       return;
+    }
+    console.log('now here also')
+    dispatch(updateUserSuccess(data));
+    setUpdateSuccess(true);
+
+    }catch(error){
+      console.log('error')
+      dispatch(updateUserFailure(error.message));
+    }
+
+  }
+
+  // console.log(formData1)
+  // console.log(formData2)
+  // console.log(formData3)
+  // console.log(file);
+  // console.log(currentUser)
+  
+  
+// for edit 1
+ 
+
   // for edit 2
   const handleEditClick2 = () => {
     setEditing2(true);
     setDisabled2(false);
   };
 
-  const handleSaveClick2 = () => {
+  const handleSaveClick2 = (event) => {
     setEditing2(false);
     setDisabled2(true);
+    const form = event.target.closest('form');
+    if (form) {
+      handleSubmit1(event,'form2');
+    }
   };
 
   const handleCancelClick2 = () => {
@@ -165,9 +207,13 @@ export default function Profile() {
     setDisabled3(false);
   };
 
-  const handleSaveClick3 = () => {
+  const handleSaveClick3 = (event) => {
     setEditing3(false);
     setDisabled3(true);
+    const form = event.target.closest('form');
+    if (form) {
+      handleSubmit1(event,'form3');
+    }
   };
 
   const handleCancelClick3 = () => {
@@ -176,9 +222,7 @@ export default function Profile() {
     setDisabled3(true);
   };
 
-  const [disabled, setDisabled] = useState(true);
-  const [disabled2, setDisabled2] = useState(true);
-  const [disabled3, setDisabled3] = useState(true);
+  
  
 
 
@@ -272,13 +316,14 @@ export default function Profile() {
         </div>}
 
       <div className="grid grid-cols-1 gap-[2rem] md:gap-[3rem] lg:gap-[4rem] lg:grid-cols-5 w-full mb-[2rem] md:mb-[3rem] lg:mb-[4rem]">
-      <form className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
+      <form  className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
         <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
         <div>Personal Info</div>
         {editing ? (
-            <>
+       
+        <> 
               <div className="flex flex-row ">
-              <button 
+              <button type="submit"
                 onClick={handleSaveClick}
               >
                 <img src={saveEdit} />
@@ -300,7 +345,6 @@ export default function Profile() {
         </div>
 
         <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
-          
           <div className=''>
             <label htmlFor="Name" className='text-dimgray'>Name</label>
             <input disabled={disabled} className='pt-2 font-bold text-[1.1rem]'  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
