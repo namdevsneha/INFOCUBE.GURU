@@ -10,6 +10,9 @@ export default function OAuth(){
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const handleGoogleClick=async()=>{
+
+
+
         try {
             const provider=new GoogleAuthProvider();
             const auth =getAuth(app);
@@ -22,10 +25,16 @@ export default function OAuth(){
                 },
                 body:JSON.stringify({email:result.user.email,name:result.user.displayName,photo:result.user.photoURL})
             })
+
             const data=await res.json()
             console.log(data)
+            if(data.username){
+               navigate('/') 
+            }else{
+                navigate('/SignUpForm')
+            }
             dispatch(signInSuccess(data));
-            navigate('/')
+            
 
         } catch (error) {
             console.log('could not sign in with ',error);

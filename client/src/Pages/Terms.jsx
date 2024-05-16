@@ -3,7 +3,7 @@ import React from "react";
 export default function Terms(){
     return (
         
-        <div className="px-[2.5rem] md:px-[7.5rem] lg:px-[10.125rem] pt-[.5rem] pb-[2rem] w-full relative text-[.75rem] md:text-[1rem] text-left inline-block text-black font-roboto">
+        <div className="sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[2.5rem] md:px-[7.5rem] lg:px-[10.125rem] pt-[.5rem] pb-[2rem] w-full relative text-[.75rem] md:text-[1rem] text-left inline-block text-black font-roboto">
         <b className="mx-auto py-[1rem] flex w-auto relative text-[2rem] md:text-[3rem] leading-[120%] inline-block font-roboto text-black text-left">{`Terms & Conditions`}</b>
             <p className="m-0">
             <span>

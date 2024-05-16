@@ -42,7 +42,8 @@ export default {
       'graybutton':"#032127",
       "gray": {
       "100": "#1e1e1e",
-      "200": "rgba(255, 255, 255, 0.3)"
+      "200": "rgba(255, 255, 255, 0.3)",
+      "300":"#F3F3F3"
       },
       "neutral-dark-gray": "#505050"
       },
@@ -61,6 +62,12 @@ export default {
       "31xl": "50px",
       "23xl": "42px",
       "xl": "20px"
+      },
+      dropShadow: {
+        '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+        '4xl': [
+            '0px 4px 2px rgba(0, 0, 0, .5 )'
+        ]
       }
       },
       "fontSize": {

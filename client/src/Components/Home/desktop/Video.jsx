@@ -2,13 +2,15 @@ import React,{useState,useRef} from "react";
 import Video from "../../../Assets/Videos/startvideo.mp4";
 import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
 import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { closeDropDown, toogleDropDown } from '../../../Redux/userSlice/navDropDown.js';
 
 
 export default function StartingVideo() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const videoRef = useRef(null);
+    const dispatch=useDispatch();
     
     const togglePlay = () => {
       const video = videoRef.current;
@@ -29,7 +31,7 @@ export default function StartingVideo() {
     };
 
     return (
-      <div className="relative w-full max-w-full overflow-hidden lg:h-[38.688rem] md:h-[25rem] shrink-0 
+      <div onWheel={()=>{dispatch(closeDropDown())}} className="relative w-full max-w-full overflow-hidden lg:h-[38.688rem] md:h-[25rem] shrink-0 
       text-left lg:text-[8rem] md:text-[5rem] text-white font-khand" 
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
         <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="w-full h-full object-cover" autoPlay loop muted>

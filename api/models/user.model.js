@@ -4,7 +4,6 @@ const userSchema=new mongoose.Schema({
     username:{
         type:String,
         required:true,
-        unique: true,
     },
     email:{
         type:String,
@@ -27,30 +26,46 @@ const userSchema=new mongoose.Schema({
         type:String,
         default:"Select Education"
     },
-    // country:{
-    //     type:String,
-    //     default:"India"
-    // },
-    // state:{
-    //     type:String,
-    //     default:"--Select--"
-    // },
-    // city:{
-    //     type:String,
-    //     default:"--Select--"
-    // },
-    // number:{
-    //     type:Number,
-    //     default:1111111111
-    // },
-    // gender:{
-    //     type:String,
-    //     default:"--Select--"
-    // },
-    // dob:{
-    //     type:Date,
-    //     default:""
-    // },
+    country:{
+        type:String,
+        default:"--Select--"
+    },
+    state:{
+        type:String,
+        default:"--Select--"
+    },
+    city:{
+        type:String,
+        default:"--Select--"
+    },
+    contact:{
+        type:Number,
+        default:0
+    },
+    gender:{
+        type:String,
+        default:"Select Gender"
+    },
+    dob:{
+        type:Date,
+        default:""
+    },
+    linkedin:{
+        type:String,
+        default:" "
+    },
+    profession:{
+        type:String,
+        default:"--Enter--"
+    },
+    course:{
+        type:String,
+        default:" "
+    },
+    stream:{
+        type:String,
+        default:"--Enter--"
+    }
     // field:{
     //     type:Array<String>(5),
     //     default:{}

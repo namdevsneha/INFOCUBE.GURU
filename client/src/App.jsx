@@ -19,6 +19,7 @@ import Profile from './Pages/Profile-sneha.jsx';
 import Verification from "./Pages/Verification.jsx";
 import Profile_noddy from './Pages/Profile-noddy.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import SignupForm from './Pages/SignUpForm.jsx';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
       <Route path='/Terms' element={<Terms/>}/>
       <Route path='/Login' element={<Login/>}/>
       <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
+      <Route path='/SignUpForm' element={<SignupForm/>}/>
       <Route path='/Verification' element={<Verification/>}/>
       <Route element={<PrivateRoute/>}>
       <Route path='/Profile' element={<Profile/>}/>

@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
+import FacebookLogin  from 'react-facebook-login';
 
 export default function Profile_noddy() {
     const fileRef=useRef(null);
@@ -73,6 +74,11 @@ export default function Profile_noddy() {
       }
 
     }
+    const handleSubmit2=async(e)=>{
+      
+      console.log('changes')
+
+    }
     const handleSignOut=async()=>{
       try{
         dispatch(signOutUserStart());
@@ -87,12 +93,16 @@ export default function Profile_noddy() {
         dispatch(signOutUserFailure(error.message))
       }
     }
+    const handleResponse = (response) => {
+      console.log(response);
+      // Handle the response here, e.g., save user info to state or local storage
+    };
     console.log(currentUser)
     console.log(formData)
     console.log(file);
   return (
     <div>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit2}>
         <input 
         onChange={(e)=>setFile(e.target.files[0])} 
         type='file' 
@@ -109,10 +119,27 @@ export default function Profile_noddy() {
         onChange={handleChange}
         className='border p-3 rounded-lg'/>
         <button disabled={loading} className="text-black px-[24px] text-[1rem] leading-tight font-roboto">{loading?"loading...":"Update"}</button>
+        <button disabled={loading} className="text-black px-[24px] text-[1rem] leading-tight font-roboto">{loading?"loading...":"Update22"}</button>
+        <span>{error?error:""}</span>
         <span>{error?error:""}</span>
         <span>{updateSuccess?"user updated successfully":"  "}</span>
         <button onClick={handleSignOut}>Sign Out</button>
       </form>
+
+      
+      <button>hi</button>
+      <div className='h-[20rem] bg-white'>
+      <div className="flex justify-center items-center h-[10rem] bg-gray-100">
+      <FacebookLogin
+          appId="718440783623274" // Replace with your Facebook app ID
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={handleResponse}
+          cssClass="bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          icon="fa-facebook"
+      />
+      </div>
+    </div>
     </div>
   )
 }
