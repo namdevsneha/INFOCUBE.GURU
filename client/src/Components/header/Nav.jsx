@@ -41,13 +41,13 @@ export default function Nav() {
         dispatch(signOutUserFailure(error.message))
       }
     }
-
+    console.log(currentUser)
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden  '>
         <div onWheelCapture={closeNavbar} className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 ">
             <Navlink />
-            {currentUser?(
+            {currentUser && currentUser.username?(
                <div>
                
                <div className='menu-container '>
@@ -100,7 +100,7 @@ export default function Nav() {
         <div className="flex  justify-between md:hidden">
           <button className='h-[1.5rem] mt-[.25rem]' onClick={handleToggleNavbar}>{isOpen ? <X /> : <ChevronDown />}</button>
           {
-            currentUser?
+            currentUser && currentUser.username?
             (
               <div className='menu-container '>
               <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
