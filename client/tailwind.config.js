@@ -45,6 +45,7 @@ export default {
       "200": "rgba(255, 255, 255, 0.3)",
       "300":"#F3F3F3"
       },
+      "purple-feedback":"#B190B6",
       "neutral-dark-gray": "#505050"
       },
       "spacing": {},
