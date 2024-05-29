@@ -6,7 +6,7 @@ import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess} from '../Redux/userSlice/userSlice';
 import avatar from '../Assets/Images/avatar.svg';
 import avatarhover from '../Assets/Images/avatarHover.svg';
-import polygon from '../Assets/Images/polygon.svg';
+import polygon from '../Assets/Images/Polygon.png';
 import edit from '../Assets/Images/edit.svg';
 import crossEdit from '../Assets/Images/crossEdit.svg';
 import saveEdit from '../Assets/Images/saveEdit.svg';
