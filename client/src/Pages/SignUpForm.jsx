@@ -106,12 +106,12 @@ export default function SignupForm(){
     console.log(formData);
 
     return (
-        <div className={`grid ${deviceType==='lg'?"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
-            {deviceType==='lg'?<div className="col-span-3 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
+        <div className={`grid ${deviceType==='lg'?windowsHeight>800?"grid-cols-6":"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
+            {deviceType==='lg'?<div className={`${windowsHeight>800?"col-span-4":"col-span-3"} w-full  h-full`} style={{ filter: 'brightness(0.5 )'  }} >
                 <img
                 className="w-full h-full object-cover object-left"
                 src={LoginMain}
-                style={{ clipPath:windowsHeight>800?`circle(75% at ${(0.03422)*windowsWidth -60.68}% 50%)` :`circle(65% at ${(0.03422)*windowsWidth -15.68}% 50%)`  }}
+                style={{ clipPath:windowsHeight>800?`circle(75% at ${(0.045)*windowsWidth -60.68}% 50%)` :`circle(65% at ${(0.03422)*windowsWidth -15.68}% 50%)`  }}
                 alt="Login Main"
                 />
             </div>:""}
