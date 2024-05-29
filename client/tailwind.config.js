@@ -64,6 +64,10 @@ export default {
       "23xl": "42px",
       "xl": "20px"
       },
+      boxShadow: {
+        '3xl': '0 350px 600px +15px rgba(0, 100, 100, 1)',
+        inner: 'inset 0px 10px 20px 10px rgba(0, 0, 0, .4)',
+      },
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
         '4xl': [

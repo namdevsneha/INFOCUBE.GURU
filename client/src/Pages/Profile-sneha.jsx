@@ -217,7 +217,7 @@ export default function Profile() {
 
   return (
     <>
-    <div className={'sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
+    <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
     style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${windowsSize*0.55}px` }}>
       {deviceType=="lg"?
       <div className='flex w-full justify-between'>
