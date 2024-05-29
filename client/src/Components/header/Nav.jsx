@@ -158,7 +158,7 @@ const Navlink = () => {
     
     <Link onClick={()=>dispatch(closeDropDown())} to='Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px]">ALUMNI</Link>
     
-    <KLink onClick={()=>dispatch(closeDropDown())} to='Career' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">CAREER PATH</KLink>
+    <KLink onClick={()=>dispatch(closeDropDown())} to='Feedback' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">FEEDBACK</KLink>
     
     <KLink onClick={()=>dispatch(closeDropDown())} to='Help' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">HELP & SUPPORT</KLink>
   </div>
