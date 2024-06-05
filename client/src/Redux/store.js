@@ -7,14 +7,18 @@ import storage from 'redux-persist/lib/storage'
 import deviceTypeReducer from './userSlice/deviceTypeSlice.js';
 import userDataReducer from "./userSlice/userData.js";
 import { showHeader } from './userSlice/loginSlice.js';
-import navDropDown from './userSlice/navDropDown.js'
+import navDropDown from './userSlice/navDropDown.js';
+import verifyPass from './userSlice/verifyPass.js';
 
 const rootReducer= combineReducers({navbar: navbarReducer,
   user:userReducer,
+
   showHeader:showHeaderSlice,
   deviceType:deviceTypeReducer,
   userData:userDataReducer,
-  navDropDown:navDropDown})
+  navDropDown:navDropDown,
+  verifyPass:verifyPass,
+  })
 
 const persistConfig={key:'root',storage,version:1}
 
