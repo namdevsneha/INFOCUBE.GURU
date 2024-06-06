@@ -22,6 +22,7 @@ import PrivateRoute from './Components/PrivateRoute.jsx';
 import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPasswordRoute.jsx';
 import SignupForm from './Pages/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword.jsx';
+import ChangePassword from './Pages/ChangePassword.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -56,14 +57,20 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
       <Route path='/SignUpForm' element={<SignupForm/>}/>
+      <Route path='/ChangePassword' element={<ChangePassword/>}/>
+
       <Route element={<ForgotPasswordPrivateRoute/>}>
       <Route path='/ForgotPassVerification' element={<Verification/>}/>
       </Route>
+
+      
+
       <Route element={<PrivateRoute/>}>
       <Route path='/Profile' element={<Profile/>}/>
       </Route>
+
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
-      +</Routes>
+      </Routes>
 
     {showHeader?<Footer/>:""}
     </BrowserRouter>}

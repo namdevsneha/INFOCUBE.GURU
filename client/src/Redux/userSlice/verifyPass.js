@@ -5,18 +5,22 @@ const verifyPass=createSlice({
     initialState:{
         currentUser:false,
         loading:false,
+        email:'',
     },
     reducers:{
         verifyStart:(state)=>{
             state.loading=true;
+            state.email='';
         },
         notVerifiedPass:(state)=>{
             state.currentUser=false;
-            state.loading=false
+            state.loading=false;
+            state.email='';
         },
-        verifiedPass:(state)=>{
+        verifiedPass:(state,data)=>{
             state.currentUser=true;
             state.loading=false;
+            state.email=data.payload;
         }
 
     }

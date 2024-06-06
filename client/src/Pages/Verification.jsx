@@ -7,26 +7,54 @@ import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
 import InfoCube from '../Assets/Images/infocubeblack.svg';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.svg';
 import LoginMain from '../Assets/Images/LoginMain.png';
-;
+
 
 export default function Verification(){
-    const [otp,setOTP]=useState({});
+    const [otp,setOTP]=useState(0);
+    const [otp2,setOTP2]=useState(0);
     const [windowsSize,setWindowsSize]=useState({});
-    const {loading,error}=useSelector((state)=>state.user);
+    const {loading}=useSelector((state)=>state.user);
     const userData=useSelector((state)=>state.userData.userData);
     const deviceType = useSelector((state) => state.deviceType.deviceType);
-    const navigate=useNavigate();
+    const {currentUser,email}=useSelector((state)=>state.verifyPass);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
 
     useEffect(() => {
         
         dispatch(hideHeader());
-
+        // sendOTPVerificationEmail({email:"utkarshsaxena@rediffmail.com"})
         const handleResize = () => {
           dispatch(changeDevice());
           setWindowsSize(window.innerWidth) 
         };
-    
+        console.log({email:currentUser})
+        
+        const sendOtp = async () => {
+            try {
+                //  dispatch(signInStart());
+                 const res=await fetch('/api/auth/sendOTP',{
+                     method:'POST',
+                     headers:{
+                         'Content-Type':'application/json',
+                     },
+                     body: JSON.stringify({email:email}),
+                 });
+                 const data= await res.json();
+                 setOTP(data);
+                 if(data.success===false){
+                    // dispatch(signInFailure(data.message));
+                    return;
+                  
+                }
+                // dispatch(signInSuccess(data));
+                // navigate('/Login');
+        
+                } catch (error) {
+                //  dispatch(signInFailure(error.message));
+                }
+          };
+        sendOtp();
         handleResize(); // Call initially
         window.addEventListener('resize', handleResize);
         return () => {
@@ -34,39 +62,25 @@ export default function Verification(){
         };
       }, [dispatch,setWindowsSize]);
 
+      console.log(otp)
+
    const handleChange=(e)=>{
-        setOTP({
-            ...otp,
-            [e.target.id]:e.target.value,
-        });
+    
+        if(e.target.id=="otp"){
+            setOTP2(e.target.value)
+        }
     };
+    
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(userData)
-        console.log(otp);
-        // try {
-        //  dispatch(signInStart());
-        //  const res=await fetch('/api/auth/signup',{
-        //      method:'POST',
-        //      headers:{
-        //          'Content-Type':'application/json',
-        //      },
-        //      body: JSON.stringify(formData),
-        //  });
-        //  const data= await res.json();
-        //  console.log(data);
-        //  if(data.success===false){
-        //     dispatch(signInFailure(data.message));
-        //     return;
-          
-        // }
-        // dispatch(signInSuccess(data));
-        // navigate('/Login');
-
-        // } catch (error) {
-        //  dispatch(signInFailure(error.message));
-        // }
+        console.log(otp)
+        console.log(otp2)
+        if(otp==otp2){
+            navigate('../ChangePassword');
+        }
+        console.log(otp==otp2)
+       
     }
     console.log(userData);
     return (
