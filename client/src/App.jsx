@@ -19,8 +19,9 @@ import Profile from './Pages/Profile-sneha.jsx';
 import Verification from "./Pages/Verification.jsx";
 import Profile_noddy from './Pages/Profile-noddy.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPasswordRoute.jsx';
 import SignupForm from './Pages/SignUpForm.jsx';
-
+import ForgotPassword from './Pages/ForgotPassword.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -45,7 +46,9 @@ function App() {
       <Route path='/' element={<Home/>}/>
       {/* <Route path='/Career' element={<Career/>}/> */}
       {/* <Route path='/Alumini' element={<Alumini/>}/> */}
+      <Route element={<PrivateRoute/>}>
       <Route path='/Feedback' element={<Feedback/>}/>
+      </Route>
       <Route path='/Help' element={<Help/>}/>
       <Route path='/Privacy' element={<Privacy/>}/>
       <Route path='/Signup' element={<SignUp/>}/>
@@ -53,11 +56,15 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
       <Route path='/SignUpForm' element={<SignupForm/>}/>
-      <Route path='/Verification' element={<Verification/>}/>
+      <Route element={<ForgotPasswordPrivateRoute/>}>
+      <Route path='/ForgotPassVerification' element={<Verification/>}/>
+      </Route>
       <Route element={<PrivateRoute/>}>
       <Route path='/Profile' element={<Profile/>}/>
       </Route>
-    </Routes>
+      <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
+      +</Routes>
+
     {showHeader?<Footer/>:""}
     </BrowserRouter>}
     </div>)

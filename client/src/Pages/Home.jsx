@@ -34,7 +34,7 @@ export function Mobile() {
             <ExpertiseMobile/>
             <CheckMobile/>
             <JoinMobile/>
-            <TeamMobile/>
+            {/* <TeamMobile/> */}
             <JourneyMobile/>
             <ImageMobile/>
             <TestimonialMobile/>
@@ -52,7 +52,7 @@ export function Desktop() {
             <Expertise/>
             <Check/>
             <Join/>
-            <Team/>
+            {/* <Team/> */}
             <Journey/>
             <Image/>
             <Testimonial/>

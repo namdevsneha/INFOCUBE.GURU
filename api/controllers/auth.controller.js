@@ -94,3 +94,16 @@ export const signOut=async(req,res,next)=>{
           next(error);
         }
 }
+
+export const forgotPass=async(req,res,next)=>{
+  const {email}=req.body;
+  try {
+    const validUser=await User.findOne({email});
+    if(!validUser) return next(errorHandler(404,"user not found!"))
+    
+    res.status(200).json(email);
+     
+  }catch(error){
+    next(error);
+  }
+}

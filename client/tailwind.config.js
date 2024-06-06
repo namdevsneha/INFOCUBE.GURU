@@ -45,6 +45,7 @@ export default {
       "200": "rgba(255, 255, 255, 0.3)",
       "300":"#F3F3F3"
       },
+      "purple-feedback":"#B190B6",
       "neutral-dark-gray": "#505050"
       },
       "spacing": {},
@@ -62,6 +63,10 @@ export default {
       "31xl": "50px",
       "23xl": "42px",
       "xl": "20px"
+      },
+      boxShadow: {
+        '3xl': '0 350px 600px +15px rgba(0, 100, 100, 1)',
+        inner: 'inset 0px 10px 20px 10px rgba(0, 0, 0, .4)',
       },
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',

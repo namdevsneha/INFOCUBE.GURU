@@ -6,7 +6,7 @@ import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess} from '../Redux/userSlice/userSlice';
 import avatar from '../Assets/Images/avatar.svg';
 import avatarhover from '../Assets/Images/avatarHover.svg';
-import polygon from '../Assets/Images/polygon.svg';
+import polygon from '../Assets/Images/Polygon.png';
 import edit from '../Assets/Images/edit.svg';
 import crossEdit from '../Assets/Images/crossEdit.svg';
 import saveEdit from '../Assets/Images/saveEdit.svg';
@@ -217,7 +217,7 @@ export default function Profile() {
 
   return (
     <>
-    <div className={'sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
+    <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
     style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${windowsSize*0.55}px` }}>
       {deviceType=="lg"?
       <div className='flex w-full justify-between'>

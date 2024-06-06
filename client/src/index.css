@@ -91,8 +91,57 @@ body {
   transition: 100ms;
 }
 
-/* .dropdownItem a{
-  max-width: 100px;
-  margin-left: 10px;
-   transition: 100ms;
-} */
+
+/*             Feedback Scale                     */
+.scale-container {
+  justify-content: space-between;
+  width: 100%;
+  
+  margin: 0 auto;
+}
+
+.scale-label {
+  flex: 0 0 100px;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.scale-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+}
+
+.scale-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #004c4c;
+  z-index: 0;
+}
+
+.scale-dot {
+
+  border-style: solid;
+  border-color: #004c4c;
+  border-radius: 50%;
+  background-color: #B190B6;
+  z-index: 1;
+}
+.scale-dot:hover {
+  background-color:#B190B6 ;
+  border-color: #FFFFFF;
+}
+
+.scale-dot.active {
+  background-color: #B190B6;
+  border-color: #FFFFFF;
+}
+/*             Feedback Scale                   */
