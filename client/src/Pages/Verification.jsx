@@ -7,7 +7,7 @@ import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
 import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
-
+import LoadingSpinner from "../Components/loadingSpinner.jsx";
 
 export default function Verification(){
     const [otp,setOTP]=useState(0);
@@ -19,9 +19,17 @@ export default function Verification(){
     const {currentUser,email}=useSelector((state)=>state.verifyPass);
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const [isImgLoaded, setIsImgLoaded] = useState(false);
+
+    const handleImageLoaded = () => {
+      setIsImgLoaded(true);
+    };
 
     useEffect(() => {
-        
+        const img = new Image();
+        img.src = LoginMain; // Replace with your image URL
+        img.onload = handleImageLoaded;
+
         dispatch(hideHeader());
         // sendOTPVerificationEmail({email:"utkarshsaxena@rediffmail.com"})
         const handleResize = () => {
@@ -84,6 +92,7 @@ export default function Verification(){
     }
     console.log(userData);
     return (
+        <div>{isImgLoaded? 
         <div className={`grid ${deviceType==='lg'?"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className="col-span-3 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
@@ -122,6 +131,6 @@ export default function Verification(){
                 </div>
                 </div>
 
-        </div>);
+        </div>:<LoadingSpinner/>}</div>);
     
 } 

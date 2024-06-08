@@ -9,6 +9,7 @@ import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
 import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
+import LoadingSpinner from "../Components/loadingSpinner.jsx";
 
 export default function ForgotPassword(){
     const [formData,setFormData]=useState({});
@@ -20,8 +21,16 @@ export default function ForgotPassword(){
     const deviceType = useSelector((state) => state.deviceType.deviceType);
     const navigate=useNavigate();
     const dispatch=useDispatch();
+    const [isImgLoaded, setIsImgLoaded] = useState(false);
+
+    const handleImageLoaded = () => {
+      setIsImgLoaded(true);
+    };
 
     useEffect(() => {
+        const img = new Image();
+        img.src = LoginMain; // Replace with your image URL
+        img.onload = handleImageLoaded;
 
         dispatch(hideHeader());
 
@@ -75,6 +84,7 @@ export default function ForgotPassword(){
     }
 
     return (
+        <div>{isImgLoaded? 
         <div className={`grid ${deviceType==='lg'?windowsHeight>800?"grid-cols-6":"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className={`${windowsHeight>800?"col-span-4":"col-span-3"} w-full  h-full`} style={{ filter: 'brightness(0.5 )'  }} >
                 <img
@@ -117,6 +127,8 @@ export default function ForgotPassword(){
                 </div>
                 </div>
 
-        </div>);
+        </div>:<LoadingSpinner/>}
+        </div>
+        );
     
 } 
