@@ -62,7 +62,7 @@ export default function Join() {
               </div></Link>
             </div>
             <div className="flex flex-row items-center justify-center gap-[0.5rem] text-[0.688rem] text-black">
-              <div className="relative leading-[150%]">Learn More</div>
+              <button className="relative leading-[150%]">Learn More</button>
               <img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="hi" src={RightArrow}/>
             </div>
           </div>

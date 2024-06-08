@@ -57,8 +57,8 @@ export default function Check(){
                                 </div>
                                 <div className="flex flex-row items-center justify-start pt-[1rem] px-[0rem] pb-[0rem] text-[1rem] text-white">
                                         <div className="rounded-[44px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem]">
-                                                <div className="relative leading-[150%]">CHECK OUT
-                                                </div>
+                                                <button className="relative leading-[150%]">CHECK OUT
+                                                </button>
                                         </div>
                                 </div>
                         </div>
