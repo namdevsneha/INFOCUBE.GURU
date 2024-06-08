@@ -4,8 +4,8 @@ import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess} from '../Redux/userSlice/userSlice';
-import avatar from '../Assets/Images/avatar.webp';
-import avatarhover from '../Assets/Images/avatarHover.webp';
+import avatar from '../Assets/Images/avatar.svg';
+import avatarhover from '../Assets/Images/avatarHover.svg';
 import polygon from '../Assets/Images/Polygon.webp';
 import edit from '../Assets/Images/edit.webp';
 import crossEdit from '../Assets/Images/crossEdit.webp';
@@ -304,8 +304,8 @@ export default function Profile() {
 
         </div>}
 
-      <div className="grid grid-cols-1 gap-[2rem] md:gap-[3rem] lg:gap-[4rem] lg:grid-cols-5 w-full mb-[2rem] md:mb-[3rem] lg:mb-[4rem]">
-      <form  className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
+      <div className="grid grid-cols-1 gap-[2rem] md:gap-[2rem] lg:gap-[4rem] lg:grid-cols-3 w-full mb-[2rem] md:mb-[3rem] lg:mb-[2rem]">
+      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
         <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
         <div>Personal Info</div>
         {editing ? (
@@ -369,8 +369,8 @@ export default function Profile() {
       </div>
 
       
-      <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[4rem] lg:grid-cols-5   mb-[6rem]  '>
-        <form className='col-span-1 lg:col-span-3 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
+      <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[2rem] lg:grid-cols-3  mb-[6rem]  '>
+        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
           <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Education</div>
           {editing2 ? (
@@ -426,7 +426,7 @@ export default function Profile() {
         </form>
         
      
-        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem]   ' >
+        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem]   ' >
         
           <div className='flex justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Contact Info</div>

@@ -145,3 +145,19 @@ body {
   border-color: #FFFFFF;
 }
 /*             Feedback Scale                   */
+
+/* Spinning loader */
+
+.loader {
+  border-top-color: #3498db; /* Change the color as needed */
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
