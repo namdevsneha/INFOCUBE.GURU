@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link} from 'react-scroll';
+import {Link as KLink} from 'react-router-dom';
 import SignUp from "../../../Pages/SignUp";
 
 
@@ -48,7 +49,8 @@ export default function Form(){
                     </div>
                     <div className="self-stretch relative text-[0.521rem] leading-[150%] text-black">{`By clicking Sign Up you're confirming
                      that you agree with our `}
-                        <span className="[text-decoration:underline]">Terms and Conditions</span>.
+                        <KLink to="Terms" >
+                        <span className="[text-decoration:underline]">Terms and Conditions</span></KLink>.
                     </div>
                 </div>
             </div>
