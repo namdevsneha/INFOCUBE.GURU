@@ -1,7 +1,7 @@
 import './faq.css';
 import React,{useState} from 'react';
-import FAQImg from '../../../Assets/Images/FAQ.svg'
-import Arrow from '../../../Assets/Images/ArrowDown.svg'
+import FAQImg from '../../../Assets/Images/FAQ.webp'
+import Arrow from '../../../Assets/Images/ArrowDown.webp'
 export default function FAQ(){
     const [selected,setSelected]=useState(null)
     const toggle=(i)=>{
@@ -11,7 +11,7 @@ export default function FAQ(){
         setSelected(i)
     }
     return (
-        <div className='w-full relative bg-white text-left text-[1rem] text-black font-roboto'>
+        <div className= 'mt-10 w-full relative bg-white text-left text-[1rem] text-black font-roboto'>
             <div className='flex justify-center'>
                 <img className="center w-[25rem] h-auto object-cover" alt="" src={FAQImg} />
                 </div>

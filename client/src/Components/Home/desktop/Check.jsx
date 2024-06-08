@@ -1,7 +1,7 @@
 import React,{useState,useRef}  from "react";
 import video from '../../../Assets/Videos/newvideo.mp4';
-import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
-import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
+import PlayBtn from "../../../Assets/Images/PlayBtn.webp";
+import PauseBtn from "../../../Assets/Images/PauseBtn.webp";
 
 
 export default function Check(){
@@ -57,8 +57,8 @@ export default function Check(){
                                 </div>
                                 <div className="flex flex-row items-center justify-start pt-[1rem] px-[0rem] pb-[0rem] text-[1rem] text-white">
                                         <div className="rounded-[44px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem]">
-                                                <div className="relative leading-[150%]">CHECK OUT
-                                                </div>
+                                                <button className="relative leading-[150%]">CHECK OUT
+                                                </button>
                                         </div>
                                 </div>
                         </div>

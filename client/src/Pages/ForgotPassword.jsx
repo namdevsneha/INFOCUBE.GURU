@@ -5,16 +5,17 @@ import {useSelector,useDispatch} from 'react-redux';
 import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
 import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import InfoCube from '../Assets/Images/infocubeblack.svg';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.svg';
-import LoginMain from '../Assets/Images/LoginMain.png';
+import InfoCube from '../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../Assets/Images/LoginMain.webp';
 import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 
 export default function ForgotPassword(){
     const [formData,setFormData]=useState({});
     const [windowsWidth,setwindowsWidth]=useState({});
     const [windowsHeight,setwindowsHeight]=useState({});
-    const {loading,error}=useSelector((state)=>state.verifyPass);
+    const {loading,error,email,currentUser}=useSelector((state)=>state.verifyPass);
+    console.log({email:email,loading,currentUser})
     
     const deviceType = useSelector((state) => state.deviceType.deviceType);
     const navigate=useNavigate();
@@ -56,14 +57,13 @@ export default function ForgotPassword(){
              body: JSON.stringify(formData),
          });
          const data= await res.json();
-         console.log(data);
          if(data.success===false){
             dispatch(notVerifiedPass());
             console.log("Email is Invalid")
             return;
           
         }
-        dispatch(verifiedPass());
+        dispatch(verifiedPass(data));
         
 
         navigate('../ForgotPassVerification');

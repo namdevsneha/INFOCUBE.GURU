@@ -1,6 +1,6 @@
 import React from 'react';
-import ExpertiseImage from '../../../Assets/Images/expertise.svg'
-import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import ExpertiseImage from '../../../Assets/Images/expertise.webp'
+import RightArrow from '../../../Assets/Images/RightArrow.webp'
 import {Link } from 'react-router-dom';
 
 export default function Expertise(){
@@ -38,11 +38,11 @@ export default function Expertise(){
 						py-[0.75rem] px-[1.5rem] border-[1px] border-solid border-black">
 							<Link to='Login'>
 							<button >
-							<div className="relative leading-[150%]">Join</div> </button>
+							<button className="relative leading-[150%]">Join</button> </button>
 							</Link>
 						</div>
 						<div className="h-[2.25rem] flex flex-row items-center justify-center gap-[0.5rem] text-black">
-							<div className="relative leading-[150%]">Learn More</div>
+							<button className="relative leading-[150%]">Learn More</button>
 							<img className="w-[1.5rem] relative h-[1.5rem] overflow-hidden shrink-0" alt="" src={RightArrow} />
 						</div>
 					</div>

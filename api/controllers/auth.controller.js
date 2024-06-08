@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+import { sendOTPVerificationEmail } from "../utils/otp.js";
 
 
 export const signup= async(req,res,next)=>{
@@ -106,4 +107,16 @@ export const forgotPass=async(req,res,next)=>{
   }catch(error){
     next(error);
   }
+}
+
+export const sendOTP=async(req,res,next)=>{
+    const {email}=req.body;
+    try{
+      const otp=`${Math.floor(1000+Math.random()*9000)}`;
+      sendOTPVerificationEmail({email:email,otp:otp})
+      res.status(200).json(otp);
+  }
+    catch(error){
+      next(error);
+    }
 }

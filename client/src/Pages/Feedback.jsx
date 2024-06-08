@@ -1,6 +1,6 @@
 import React,{setState,useState} from "react";
-import backgroundImage from '../Assets/Images/Feedback_Bg_image.png';
-import infocubelogo from '../Assets/Images/InfoCubeLogo.svg'
+import backgroundImage from '../Assets/Images/Feedback_Bg_image.webp';
+import infocubelogo from '../Assets/Images/InfoCubeLogo.webp'
 import {Link} from "react-router-dom";
 
 export default function Feedback(){

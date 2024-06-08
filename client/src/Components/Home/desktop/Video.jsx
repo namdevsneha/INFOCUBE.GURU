@@ -1,7 +1,7 @@
 import React,{useState,useRef} from "react";
 import Video from "../../../Assets/Videos/startvideo.mp4";
-import PlayBtn from "../../../Assets/Images/PlayBtn.svg";
-import PauseBtn from "../../../Assets/Images/PauseBtn.svg";
+import PlayBtn from "../../../Assets/Images/PlayBtn.webp";
+import PauseBtn from "../../../Assets/Images/PauseBtn.webp";
 import { useSelector, useDispatch } from 'react-redux';
 import { closeDropDown, toogleDropDown } from '../../../Redux/userSlice/navDropDown.js';
 

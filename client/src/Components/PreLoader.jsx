@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import image from '../Assets/Images/InfoCubeLogo.svg';
+import image from '../Assets/Images/InfoCubeLogo.webp';
 import './PreLoader.css';
 import Video from "../Assets/Videos/startvideo.mp4";
 export default function Preloader () {
