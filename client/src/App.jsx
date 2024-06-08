@@ -13,7 +13,6 @@ import SignUp from './Pages/SignUp';
 import Terms from './Pages/Terms';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Preloader from './Components/PreLoader';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile-sneha.jsx';
 import Verification from "./Pages/Verification.jsx";
@@ -23,6 +22,9 @@ import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPassword
 import SignupForm from './Pages/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword.jsx';
 import ChangePassword from './Pages/ChangePassword.jsx';
+
+import ScrollToTop from './Pages/ScrollToTop.jsx';
+// import { Router } from 'express';
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -41,8 +43,11 @@ function App() {
   }, []);
   
   return(
-    <div className="overflow-x-hidden" > {loading?<Preloader/>: <BrowserRouter>
+    <div className="overflow-x-hidden" > 
+     <BrowserRouter>
     {showHeader?<Header/>:""}
+  
+    <ScrollToTop/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       {/* <Route path='/Career' element={<Career/>}/> */}
@@ -73,7 +78,7 @@ function App() {
       </Routes>
 
     {showHeader?<Footer/>:""}
-    </BrowserRouter>}
+    </BrowserRouter>
     </div>)
   }
 
