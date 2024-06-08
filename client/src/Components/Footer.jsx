@@ -36,10 +36,10 @@ export default function Footer() {
       <div className="self-stretch flex flex-row items-start justify-between ">
       <div className="relative leading-[150%]">All rights reserved. @infocube.guru</div>
       <div className="flex flex-row items-start justify-start gap-[1.5rem]">
-      <div className="relative [text-decoration:underline] leading-[150%]">Privacy Policy</div>
+      <div className="relative [text-decoration:underline] leading-[150%] cursor-pointer">Privacy Policy</div>
       <KLink to="Terms">
       <div className="relative [text-decoration:underline] leading-[150%]">Terms of Service</div></KLink>
-      <div className="relative [text-decoration:underline] leading-[150%]">Cookies Settings</div>
+      <div className="relative [text-decoration:underline] leading-[150%] cursor-pointer">Cookies Settings</div>
       </div>
       </div>
       </div>
