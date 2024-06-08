@@ -1,9 +1,9 @@
 import React from 'react';
-import Help from "../../../Assets/Images/Help.svg"
+import Help from "../../../Assets/Images/Help.webp"
 
-import Insta from '../../../Assets/Images/InstaColour.svg'
-import LinkedIn from '../../../Assets/Images/LinkedInColour.svg'
-import Gmail from '../../../Assets/Images/GmailColour.svg'
+import Insta from '../../../Assets/Images/InstaColour.webp'
+import LinkedIn from '../../../Assets/Images/LinkedInColour.webp'
+import Gmail from '../../../Assets/Images/GmailColour.webp'
 
 
 export default function Body(){

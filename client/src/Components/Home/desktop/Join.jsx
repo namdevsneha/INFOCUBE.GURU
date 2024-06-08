@@ -1,5 +1,5 @@
 import React from 'react'
-import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import RightArrow from '../../../Assets/Images/RightArrow.webp'
 import {Link } from 'react-router-dom';
 
 export default function Join() {

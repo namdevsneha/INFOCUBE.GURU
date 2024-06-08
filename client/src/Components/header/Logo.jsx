@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import logo from '../../Assets/Images/logo.svg';
-import infocubeLogo from '../../Assets/Images/InfoCubeLogo.svg';
-import Infocube from '../../Assets/Images/Infocube_black.svg'
+import logo from '../../Assets/Images/logo.webp';
+import infocubeLogo from '../../Assets/Images/InfoCubeLogo.webp';
+import Infocube from '../../Assets/Images/Infocube_black.webp'
 
 export default function Logo() {
   

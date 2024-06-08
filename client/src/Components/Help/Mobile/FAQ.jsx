@@ -1,7 +1,7 @@
 import './faq.css';
 import React,{useState} from 'react';
-import FAQImg from '../../../Assets/Images/FAQ.svg'
-import Arrow from '../../../Assets/Images/ArrowDown.svg'
+import FAQImg from '../../../Assets/Images/FAQ.webp'
+import Arrow from '../../../Assets/Images/ArrowDown.webp'
 export default function FAQ(){
     const [selected,setSelected]=useState(null)
     const toggle=(i)=>{

@@ -4,14 +4,14 @@
   import 'slick-carousel/slick/slick-theme.css';
 
 
-  import Divyansh from '../../../Assets/Images/Divyansh.png'
-  import Utkarsh from '../../../Assets/Images/Utkarsh.png'
-  import Shivam from '../../../Assets/Images/Shivam.png'
-  import Parthiv from '../../../Assets/Images/Parthiv.png'
-  import Vaishnavi from '../../../Assets/Images/Vaishnavi.png'
-  import Sneha from '../../../Assets/Images/Sneha.png'
+  import Divyansh from '../../../Assets/Images/Divyansh.webp'
+  import Utkarsh from '../../../Assets/Images/Utkarsh.webp'
+  import Shivam from '../../../Assets/Images/Shivam.webp'
+  import Parthiv from '../../../Assets/Images/Parthiv.webp'
+  import Vaishnavi from '../../../Assets/Images/Vaishnavi.webp'
+  import Sneha from '../../../Assets/Images/Sneha.webp'
 
-  import RightArrow from '../../../Assets/Images/RightArrow.svg'
+  import RightArrow from '../../../Assets/Images/RightArrow.webp'
 
 
   export default function Team() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import ExpertiseImage from '../../../Assets/Images/expertise.svg'
-import RightArrow from '../../../Assets/Images/RightArrow.svg'
+import ExpertiseImage from '../../../Assets/Images/expertise.webp'
+import RightArrow from '../../../Assets/Images/RightArrow.webp'
 import {Link } from 'react-router-dom';
 
 export default function Expertise(){

@@ -4,9 +4,9 @@ import {useSelector,useDispatch} from 'react-redux';
 import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
 import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import InfoCube from '../Assets/Images/infocubeblack.svg';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.svg';
-import LoginMain from '../Assets/Images/LoginMain.png';
+import InfoCube from '../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../Assets/Images/LoginMain.webp';
 
 
 export default function Verification(){

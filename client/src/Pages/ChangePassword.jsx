@@ -6,9 +6,9 @@ import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSl
 
 import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import InfoCube from '../Assets/Images/infocubeblack.svg';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.svg';
-import LoginMain from '../Assets/Images/LoginMain.png';
+import InfoCube from '../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../Assets/Images/LoginMain.webp';
 import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 
 export default function ChangePassword(){

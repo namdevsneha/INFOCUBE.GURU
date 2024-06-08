@@ -4,8 +4,8 @@ import { X ,ChevronDown} from "lucide-react";
 // import {Link as ScrollLink} from 'react-scroll';
 import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
-import profile from '../../Assets/Images/profile.png'
-import RightArrow from '../../Assets/Images/RightArrow2.svg'
+import profile from '../../Assets/Images/profile.webp'
+import RightArrow from '../../Assets/Images/RightArrow2.webp'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 import { signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../../Redux/userSlice/userSlice';
