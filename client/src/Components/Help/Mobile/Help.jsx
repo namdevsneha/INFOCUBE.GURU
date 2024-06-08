@@ -8,7 +8,7 @@ import Gmail from '../../../Assets/Images/GmailColour.svg'
 
 export default function Body(){
   	return (
-    		<div className='my-[2rem]  mx-auto font-im-fell-double-pica inline-block w-full h-full relative bg-white text-left text-[1.5rem] text-black font-roboto'>
+    		<div className='my-[2rem]   mx-auto font-im-fell-double-pica inline-block w-full h-full relative bg-white text-left text-[1.5rem] text-black '>
 				<div className='mx-[32px] w-full '>
 						<img className='h-[15rem] w-auto' src={Help}/>
 					</div>

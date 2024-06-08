@@ -11,7 +11,7 @@ export default function FAQ(){
         setSelected(i)
     }
     return (
-        <div className='w-full relative bg-white text-left text-[1rem] text-black font-roboto'>
+        <div className= 'mt-10 w-full relative bg-white text-left text-[1rem] text-black font-roboto'>
             <div className='flex justify-center'>
                 <img className="center w-[25rem] h-auto object-cover" alt="" src={FAQImg} />
                 </div>
