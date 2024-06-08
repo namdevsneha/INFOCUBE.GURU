@@ -1,10 +1,10 @@
 import React,{useRef} from "react";
-import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.svg";
-import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.svg";
-import Image2 from "../../../Assets/Images/Image2.png";
-import seminar from "../../../Assets/Images/seminar.jpg";
-import seminar2 from "../../../Assets/Images/seminar2.jpg";
-import seminar3 from "../../../Assets/Images/seminar3.jpg";
+import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.webp";
+import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.webp";
+import Image2 from "../../../Assets/Images/Image2.webp";
+import seminar from "../../../Assets/Images/seminar.webp";
+import seminar2 from "../../../Assets/Images/seminar2.webp";
+import seminar3 from "../../../Assets/Images/seminar3.webp";
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';

@@ -4,12 +4,12 @@ import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess} from '../Redux/userSlice/userSlice';
-import avatar from '../Assets/Images/avatar.svg';
-import avatarhover from '../Assets/Images/avatarHover.svg';
-import polygon from '../Assets/Images/Polygon.png';
-import edit from '../Assets/Images/edit.svg';
-import crossEdit from '../Assets/Images/crossEdit.svg';
-import saveEdit from '../Assets/Images/saveEdit.svg';
+import avatar from '../Assets/Images/avatar.webp';
+import avatarhover from '../Assets/Images/avatarHover.webp';
+import polygon from '../Assets/Images/Polygon.webp';
+import edit from '../Assets/Images/edit.webp';
+import crossEdit from '../Assets/Images/crossEdit.webp';
+import saveEdit from '../Assets/Images/saveEdit.webp';
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});

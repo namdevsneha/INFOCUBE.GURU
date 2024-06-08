@@ -4,7 +4,7 @@ import {app} from '../firebase';
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {signInSuccess} from '../Redux/userSlice/userSlice.js'
-import GoogleImg from '../Assets/Images/GoogleColour.svg'
+import GoogleImg from '../Assets/Images/GoogleColour.webp'
 
 export default function OAuth(){
     const dispatch=useDispatch();
