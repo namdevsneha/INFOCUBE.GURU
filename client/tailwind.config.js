@@ -84,6 +84,9 @@ export default {
         ],
         'homeImage': [
           '4px 4px 30px rgba(177, 130, 209, 1 )'
+      ],
+      'homeImagePhone': [
+          '3px 3px 20px rgba(177, 130, 209, 1 )'
       ]
       }
       },

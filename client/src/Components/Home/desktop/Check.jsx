@@ -1,4 +1,4 @@
-import React,{useState,useRef}  from "react";
+import React from "react";
 import StayUpdatedImage from '../../../Assets/Images/StayUpdated.png'
 import { Link } from "react-scroll";
 export default function Check(){

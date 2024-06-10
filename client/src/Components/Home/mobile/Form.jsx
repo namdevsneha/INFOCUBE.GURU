@@ -27,7 +27,7 @@ export default function Form(){
             <div className="w-auto pt-[24px] pb-[32px] leading-[120%] font-poppins text-justify " style={{fontSize:`${0.005102*innerWidth+14.094766}px`}} >
                 We aim to bridge the gap between  potential and opportunities. Our approach involves offering tailored roadmaps and comprehensive career paths, along with personalized advice from our trusted alumni and mentors. We foster a supportive community dedicated to empowering your journey towards success.
                 </div>
-            <div className="w-full h-auto  flex flex-col items-start justify-start box-border">
+            <div className="w-full h-auto  flex flex-col items-start justify-start box-border" style={{gap: `${0.007653*innerWidth+8.135549}px`}}>
                 <div className="self-stretch flex flex-row items-start justify-start " style={{gap: `${0.007653*innerWidth+8.135549}px`}}>
                     <form  className="bg-white rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start border-[0.7px] border-solid border-black " 
                     style={{fontSize: `${0.007653*innerWidth+8.135549}px`, padding:`${8}px ${16.5}px `}}>

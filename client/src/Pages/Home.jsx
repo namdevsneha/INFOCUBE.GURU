@@ -25,7 +25,8 @@ import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
 import { notVerifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 import Services from "../Components/Home/desktop/Services.jsx";
 import Counselling from "../Components/Home/desktop/Counselling.jsx";
-
+import CounsellingMobile from "../Components/Home/mobile/Counselling.jsx";
+import ServiesMobile from "../Components/Home/mobile/Services.jsx";
 
 
 // mobile function
@@ -35,6 +36,8 @@ export function Mobile() {
     <div>
             <VideoMobile/>
             <FormMobile/>
+            <CounsellingMobile/>
+            <ServiesMobile/>
             <ExpertiseMobile/>
             <CheckMobile/>
             <JoinMobile/>

@@ -1,70 +1,27 @@
-import React,{useState,useRef}  from "react";
-import video from '../../../Assets/Videos/newvideo.mp4';
-import PlayBtn from "../../../Assets/Images/PlayBtn.webp";
-import PauseBtn from "../../../Assets/Images/PauseBtn.webp";
+import React from "react";
+import { Link } from "react-scroll";
+import StayUpdatedImage from '../../../Assets/Images/StayUpdated.png'
 
 export default function Check() {
-  const [isPlaying, setIsPlaying] = useState(false);
-        const [isHovered, setIsHovered] = useState(false);
-        const videoRef = useRef(null);
-
-        const togglePlay = () => {
-        const video = videoRef.current;
-        if (video.paused) {
-                video.play();
-        } else {
-                video.pause();
-        }
-        setIsPlaying(!isPlaying);
-        };
-        
-        const handleMouseEnter = () => {
-        setIsHovered(true);
-        };
-        
-        const handleMouseLeave = () => {
-        setIsHovered(false);
-        };
+  
 
   return (
-    <div className=''>
-      <div className="relative w-full flex flex-col items-start justify-start gap-[0.625rem] text-left text-[1rem] text-black font-roboto">
-        <b className=" relative text-[1.2rem] leading-[120%]">Updates Center</b>
-                <div className="px-4 item-center justify-center h-auto object-contain object-center w-auto overflow-hidden shrink" 
-                        onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                        <video ref={videoRef} id="video-player"  autoPlay muted loop>
-                                <source src={video} type="video/mp4" />
-                                Your browser does not support the video tag.
-                        </video>
-                        {isHovered && 
-                        <button className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white 
-                        px-4 py-2 rounded-md opacity-50 hover:opacity-100 transition-opacity duration-300" onClick={togglePlay}>
-                                {videoRef.current && videoRef.current.paused ? 
-                                <img src={PlayBtn} alt="Play"></img> : <img src={PauseBtn} alt="Pause"></img>}
-                        </button> }
-                </div>
-        <div className="w-auto flex flex-col items-start justify-center pt-[1.563rem] px-[0rem] pb-[0rem] box-border gap-[0.961rem] 
-        text-[2rem]">
-                <div className="self-stretch flex flex-col items-start justify-start">
-                        <div className="self-stretch flex flex-col items-start justify-start">
-                                <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem]">
-                                        <b className="self-stretch relative leading-[120%]">Stay Updated with the Latest News and Reminders in 
-                                        Your Field
-                                        </b>
-                                        <div className="self-stretch relative text-[1rem] leading-[150%]">Stay informed with real-time updates and timely reminders 
-                                        tailored to your specific field. Explore the latest news, trends, and insights to keep ahead in your industry. Welcome to our comprehensive section dedicated to keeping
-                                         you informed and up-to-date with the latest news and reminders relevant to your field.
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-                <div className="flex flex-row items-center justify-start pt-[0.638rem] px-[0rem] pb-[0rem] text-[0.638rem] text-white">
-                        <div className="rounded-[28.07px] bg-darkslategray flex flex-row items-center justify-center py-[0.5rem] px-[0.938rem]">
-                                <button className="relative leading-[150%]">CHECK OUT</button>
-                        </div>
-                </div>
+        <div className="w-auto box-border mb-[48px] ">
+        <div className="items-center justify-start " >
+        <span className='font-semibold font-poppins ' style={{ fontSize:`${0.005102*innerWidth+14.094766}px` }} >Update Center</span>
+        <img className="w-full drop-shadow-homeImagePhone  mt-[10px] mb-[45px] h-auto  " alt="" src={StayUpdatedImage} />
+        <h2 className='font-bold mb-[12px] font-poppins leading-[120%]' style={{  fontSize: `${0.045918*innerWidth+14.825714}px` }} >Stay Updated with the Latest News and Reminders in Your Field</h2>
+        <p className="leading-[150%] w-auto  font-poppins mb-[16px] " style={{  fontSize:`${0.005102*innerWidth+14.094766}px` }}>Stay informed with real-time updates and timely reminders 
+                tailored to your specific field. Explore the latest news, trends, and insights to keep ahead in your industry. Welcome to our comprehensive section dedicated to keeping
+                you informed and up-to-date with the latest news and reminders relevant to your field.
+        </p>
+        <Link to='Login'>
+        <button className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
+                border-[1px] border-solid border-black" style={{fontSize: `${0.007653*innerWidth+8.135549}px`, padding:`${8}px ${16.5}px `}}>
+                CHECK OUT
+        </button>
+        </Link>
         </div>
-        </div>
-    </div>
+</div>
   )
 }
