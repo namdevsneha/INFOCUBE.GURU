@@ -34,7 +34,7 @@ export default function Image(){
           };
 
     return (
-      <div className='px-[15px] py-[20px]'>
+      <div className=''>
         <div className="relative w-full overflow-hidden flex flex-col items-center justify-start gap-[0.938rem] text-center
          text-[2rem] text-black font-roboto">
           <div className="w-[20.698rem] flex flex-col items-center justify-start gap-[0.625rem]">

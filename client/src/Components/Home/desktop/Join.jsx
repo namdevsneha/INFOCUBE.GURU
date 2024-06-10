@@ -1,5 +1,9 @@
 import React from 'react'
 import RightArrow from '../../../Assets/Images/RightArrow.webp'
+import Join1 from '../../../Assets/Images/Join1.png'
+import Join2 from '../../../Assets/Images/Join2.png'
+import Join3 from '../../../Assets/Images/Join3.png'
+
 import {Link } from 'react-router-dom';
 
 export default function Join() {
@@ -13,14 +17,17 @@ export default function Join() {
 
       <div className="grid grid-cols-3 font-poppins  justify-start "style={{marginBottom:`${0.0223*innerWidth-2.816}px`, gap:`${0.02857*innerWidth-6.8574}px`  }}  >
         <div className='col-span-1'>
+          <img className='mx-auto' style={{scale:`${0.0004464*innerWidth+0.1429}`}} src={Join1}></img>
           <h2 className='font-bold leading-[130%]' style={{fontSize: `${0.00893*innerWidth+14.8}px`, marginBottom:`${0.01429*innerWidth-3.4288}px`}}> Tailored Road Maps for Success</h2>
           <p className=' leading-[150%]' style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }}> Our platform offers narrowed road maps and detailed career paths to guide you towards success in your chosen field.</p>
            </div>
            <div className='col-span-1'>
+           <img className='mx-auto' style={{scale:`${0.0004464*innerWidth+0.1429}`}} src={Join2}></img>
           <h2 className='font-bold leading-[130%]' style={{fontSize: `${0.00893*innerWidth+14.8}px`, marginBottom:`${0.01429*innerWidth-3.4288}px`}}> Personalized Guidance from Experts</h2>
           <p className=' leading-[150%]' style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }}> Get personalized guidance and support from our community of alumni and mentors who are experts in their respective fields.</p>
            </div>
            <div className='col-span-1'>
+           <img className='mx-auto' style={{scale:`${0.0004464*innerWidth+0.1429}`}} src={Join3}></img>
           <h2 className='font-bold leading-[130%]' style={{fontSize: `${0.00893*innerWidth+14.8}px`, marginBottom:`${0.01429*innerWidth-3.4288}px`}}> Stay Connected with a Supportive Community</h2>
           <p className=' leading-[150%]' style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }}>Join our community of like-minded individuals who are always available to help and support you on your journey.</p>
            </div>

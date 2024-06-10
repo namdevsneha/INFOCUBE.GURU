@@ -4,10 +4,10 @@ import { Link } from "react-scroll";
 export default function Check(){
    
     return (
-        <div className="w-auto  overflow-hidden   box-border " style={{margin:`${0.03333*innerWidth-4}px 0px `}}>
+        <div className="w-auto     box-border " style={{margin:`${0.03333*innerWidth-4}px 0px `}}>
                 <div className="grid grid-cols-2 items-center justify-start " style={{gap:`${0.1905*innerWidth-165.76}px`}}>
-                        <div className="col-span-1 my-auto overflow-hidden" >
-                        <img className="w-full h-auto overflow-hidden " alt="" src={StayUpdatedImage} />
+                        <div className="col-span-1 my-auto " >
+                        <img className="w-full drop-shadow-homeImage h-auto  " alt="" src={StayUpdatedImage} />
                         </div>
                         <div className="my-auto col-span-1 w-auto  items-start justify-center">
                                 <h2 className='font-bold mb-[12px] font-poppins leading-[120%]' style={{ fontSize: `${0.01905*innerWidth+11.424}px`,marginBottom:`${0.0223*innerWidth-2.816}px`  }} >Stay Updated with the <br/>Latest News and Reminders in Your Field</h2>

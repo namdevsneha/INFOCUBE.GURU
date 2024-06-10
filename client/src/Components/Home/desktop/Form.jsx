@@ -50,7 +50,7 @@ export default function Form(){
             </div>
 
             <div className="col-span-1  items-start justify-between text-left font-roboto ">
-                <div className="w-full flex flex-col items-start justify-start box-border gap-[1rem] md:text-[14px] lg:text-[16px]  text-neutral-dark-gray" style={{gap:`${0.00693*innerWidth+2.71}px`}}>
+                <div className="w-full flex flex-col items-start justify-start box-border  md:text-[14px] lg:text-[16px]  text-neutral-dark-gray" style={{gap:`${0.00693*innerWidth+2.71}px`}}>
                         <div className="self-stretch flex flex-row items-start justify-start gap-[.5rem] " style={{gap:`${0.00693*innerWidth+2.71}px`}}>
                             <form onSubmit={handleSubmit} className="bg-white rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start md:py-[.6rem] lg:py-[0.75rem] px-[0.75rem] border-[1px] border-solid border-black ">
                                 <input className="border-none focus:outline-none w-full" onChange={handleChange} id="email" type="text" placeholder="Enter your email"/>

@@ -22,7 +22,7 @@ export default function Header() {
    return (
      <header className='absolute top-0 py-[.25rem] z-[1] flex w-full  flex-wrap items-center justify-between border-b border-black
       bg-white text-black font-bold  text-text-primary backdrop-blur-[100px] ' 
-      style={isMobile?{}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
+      style={{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
        <Logo />
        <Nav />
      </header>

@@ -5,7 +5,7 @@ import {Link } from 'react-router-dom';
 
 export default function Join() {
   return (
-    <div className='px-[15px] py-[20px]' id='About'> 
+    <div className='' id='About'> 
       <div className="relative w-full h-full flex flex-col items-start justify-start gap-[2.5rem] text-center
         text-[0.875rem] text-black font-roboto">
         <div className="w-auto flex flex-col items-center justify-start gap-[1rem]">

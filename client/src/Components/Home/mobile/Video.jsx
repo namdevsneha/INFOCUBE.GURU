@@ -10,15 +10,13 @@ export default function StartingVideo() {
     
     const isOpen = useSelector((state) => state.navbar.isOpen);
 
-    const baseClass = 'fixed px-[15px] py-[20px] leading-[100%] font-khand text-white text-left text-[3.363rem]';
-    const conditionalClass = isOpen ? 'top-[110px] h-auto' : 'top-[40px]';
+    const baseClass = 'relative font-bold  font-khand  text-white ';
+    const conditionalClass = isOpen ? 'top-[60px] h-auto' : 'top-[40px]';
 
     // Combine base class and conditional class based on isOpen
     const combinedClass = `${baseClass} ${conditionalClass}`;
 
     const dispatch = useDispatch();
-  
- // Optional: Use smooth scrolling
 
     const handleWheelScroll = (e,height) => {
       dispatch(closeNav());
@@ -33,31 +31,28 @@ export default function StartingVideo() {
       
       <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
       <div onWheel={handleWheelScroll} onTouchStart={handleWheelScroll}
-      style={{ touchAction: 'pan-y' }} className=" w-screen h-screen object-cover  overflow-hidden shrink-0 
+      style={{marginLeft :`-${0.0383*innerWidth-0.6239}px` ,touchAction: 'pan-y' }} className=" w-screen h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
-        <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
+        <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] bg-grey absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
         
           
-          <b className={combinedClass}>
-                        <p className="m-0">
-                            <span className="text-[1.95rem]">Unlock Your</span>
-                            <span className="text-[2.5rem]">{` `}</span>
-                            <span className="text-[2.694rem]">Potential</span>
-                            <span className="text-[2.5rem]">{` `}</span>
-                            <span className="text-[1.95rem]">with</span>
-                            <span className="text-[2.5rem]">{` `}</span>
-                            <span>Personalized</span>
-                            <span className="text-[2.5rem]">{` `}</span>
-                        </p>
-                        <p className="m-0 text-[3.094rem]">
-                            <span className="text-[2.463rem]">Career</span>
-                            <span className="text-[2.5rem]">{` `}</span>
-                            <span>Guidance</span>
-                        </p>
-                    </b>
+          <p className={combinedClass} >
+                <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
+                <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
+                <span className="leading-[100%]" style={{fontSize:`${0.04827*innerWidth+24.98891}px`}}>Potential</span>
+                <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
+                <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>with</span>
+                <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
+                <span className="leading-[100%]" style={{fontSize:`${0.045*innerWidth+31.985}px`}}>Personalized</span>
+                <p className="leading-[100%]" style={{fontSize:`${0.0485*innerWidth+31.3005}px`}}>
+                    <span style={{fontSize:`${0.03827*innerWidth+25.03191}px`}}>Career</span>
+                    <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
+                    <span style={{fontSize:`${0.0485*innerWidth+31.3005}px`}}>Guidance</span>
+                </p>
+            </p>
       </div>
       </Link>
     );
