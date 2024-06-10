@@ -24,7 +24,15 @@ export default function Feedback(){
       name: 'Sneha',
       feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
       rating: 5
-    }
+      
+    },
+    {
+      name: 'Utkar  shi',
+      feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
+      rating: 5
+      
+    },
+
   ]);
 
   const handleNameChange = (event) => setName(event.target.value);
@@ -78,11 +86,11 @@ export default function Feedback(){
 
             </div>
         </div>
-        <div style={linearGradientStyle}>
-        <div className="mx-[8rem]">
+        <div className="pb-[4rem]" style={linearGradientStyle}>
+        <div  style={{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
           <div className="flex items-center justify-between">
-            <h1 className="text-[3rem] font-bold font-roboto "  style={{ fontSize: `${0.0390625*innerWidth}px` }}>What Students Say About<br/> Their Career Journey</h1>
-            <img className="pr-[2rem]" src={feed}/>
+            <h2 className=" font-bold font-roboto "  style={{ fontSize: `${48}px` }}>What Students Say About<br/> Their Career Journey</h2>
+            <img className="pr-[2rem]" style={{ imageSize: `${0.0390625*innerWidth}px` }} src={feed}/>
           </div>
         
         <div className="">

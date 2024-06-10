@@ -25,6 +25,7 @@ import ChangePassword from './Pages/ChangePassword.jsx';
 import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
 import ScrollToTop from './Pages/ScrollToTop.jsx';
+import ScrollToElement from './Pages/ScrollToElement.jsx';
 // import { Router } from 'express';
 
 function App() {
@@ -51,8 +52,9 @@ function App() {
     <div className="overflow-x-hidden" > 
      <BrowserRouter>
     {showHeader?<Header/>:""}
-  
+    <ScrollToElement/>
     <ScrollToTop/>
+    
     <Routes>
       <Route path='/' element={<Home/>}/>
       {/* <Route path='/Career' element={<Career/>}/> */}

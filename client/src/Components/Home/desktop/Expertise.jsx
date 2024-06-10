@@ -5,7 +5,7 @@ import {Link } from 'react-router-dom';
 
 export default function Expertise(){
   	return (
-		<div className=" w-auto overflow-hidden lg:mb-[64px] md:pb-[48px] box-border" id='Alumni'>
+		<section className=" w-auto overflow-hidden lg:mb-[64px] md:pb-[48px] box-border" id='Alumni'>
 			<div className=" grid grid-cols-2 items-center justify-start " style={{gap:`${0.1905*innerWidth-165.76}px`}}>
 				<div className=" mt-auto col-span-1 items-start justify-start ">
 					
@@ -42,7 +42,7 @@ export default function Expertise(){
 				<img className="w-full h-auto" alt="" src={ExpertiseImage} />
 				</div>
 			</div>
-		</div>
+		</section>
 		);
 };
 
