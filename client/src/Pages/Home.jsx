@@ -22,11 +22,15 @@ import ImageMobile from "../Components/Home/mobile/Image.jsx";
 import TeamMobile from "../Components/Home/mobile/Team.jsx";
 import VideoMobile from "../Components/Home/mobile/Video.jsx";
 import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
+import { notVerifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
+import Services from "../Components/Home/desktop/Services.jsx";
+import Counselling from "../Components/Home/desktop/Counselling.jsx";
 
 
 
 // mobile function
 export function Mobile() {
+ 
   return (
     <div>
             <VideoMobile/>
@@ -35,7 +39,7 @@ export function Mobile() {
             <CheckMobile/>
             <JoinMobile/>
             {/* <TeamMobile/> */}
-            <JourneyMobile/>
+            {/* <JourneyMobile/> */}
             <ImageMobile/>
             <TestimonialMobile/>
     </div>
@@ -46,14 +50,16 @@ export function Mobile() {
 // desktop function
 export function Desktop() {
   return (
-    <div>
+    <div className="gradient-corner1">
             <Video/>
             <Form/>
+            <Counselling/>
+            <Services/>
             <Expertise/>
             <Check/>
             <Join/>
             {/* <Team/> */}
-            <Journey/>
+            {/* <Journey/> */}
             <Image/>
             <Testimonial/>
     </div>
@@ -63,9 +69,11 @@ export function Desktop() {
 // main function
 export default function Home(){
   const [isMobile, setIsMobile] = useState(false);
+  const {innerWidth,outerWidth,innerHeight,outerHeight}=useSelector((state)=>state.screenSize);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showHeader());
+    dispatch(notVerifiedPass())
     
     function handleResize() {
       setIsMobile(window.innerWidth < 768); // Change the threshold according to your needs
@@ -78,7 +86,7 @@ export default function Home(){
   }, []);
 
   return (
-    <div className=" sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]">
+    <div className={`${isMobile?"":'gradient-corner'} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
     </div>
   );

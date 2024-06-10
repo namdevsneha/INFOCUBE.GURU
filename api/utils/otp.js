@@ -2,23 +2,27 @@ import dotenv from "dotenv";
 import bcryptjs from "bcryptjs";
 
 import nodemailer from 'nodemailer';
-import OTP from "../models/otp.model.js";
 
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
+const transporter = nodemailer.createTransport(
+    {
+    host: "smtp.zoho.com",
+    secure: true,
     auth:{
-        user:"sraj95922@gmail.com",
-        pass:"jcpz jsqu fwub ricb",
-    }
+        // user:"Infocube.ed@gmail.com",
+        // pass:"evhl rwfq rooh vwyu",
+        user:"support@infocube.guru",
+        pass:"N4hd1nH0tSx6",
+    }  
+  
 });
 
 export const sendOTPVerificationEmail=async({email,otp})=>{
     try{
       
       const mailOptions = {
-        from: "sraj95922@gmail.com",
+        from: "support@infocube.guru",
         to: email,
         subject: 'Verify Your Email',
         html: `<p>Enter <b>${otp}</b> in the app to verify your email address and complete your email verification. </p>`
@@ -39,6 +43,7 @@ export const sendOTPVerificationEmail=async({email,otp})=>{
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.error(error);
+            
         } else {
             console.log('Email sent: ' + info.response);
         } 
@@ -52,4 +57,3 @@ export const sendOTPVerificationEmail=async({email,otp})=>{
     }
   }
   
-sendOTPVerificationEmail({_id:"he",email:"utkarshsaxena@rediffmail.com"});

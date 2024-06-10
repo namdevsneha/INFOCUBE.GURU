@@ -1,5 +1,5 @@
 import React from 'react'
-import ExpertiseImage from '../../../Assets/Images/expertise.webp'
+import ExpertiseImage from '../../../Assets/Images/Expertise.png'
 import RightArrow from '../../../Assets/Images/RightArrow.webp'
 import {Link } from 'react-router-dom';
 

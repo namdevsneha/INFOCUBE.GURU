@@ -22,6 +22,7 @@ import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPassword
 import SignupForm from './Pages/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword.jsx';
 import ChangePassword from './Pages/ChangePassword.jsx';
+import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
 import ScrollToTop from './Pages/ScrollToTop.jsx';
 // import { Router } from 'express';
@@ -29,18 +30,22 @@ import ScrollToTop from './Pages/ScrollToTop.jsx';
 function App() {
   const [loading, setLoading] = useState(false); 
   const showHeader = useSelector((state) => state.showHeader.showheader);
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // Simulate loading time, you can replace this with your actual loading logic
-    const timer = setTimeout(() => {
-      setLoading(false);
-      document.body.style.overflow = 'none';
-    }, 0);
+    
+    const handleResize = () => {
+      dispatch(setSize({'innerWidth':window.innerWidth,'innerHeight':window.innerHeight,
+        'outerWidth':window.outerWidth,'outerHeight':window.outerHeight}));
+      
+    };
+    handleResize(); // Call initially
+        window.addEventListener('resize', handleResize);
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
 
-    // Clean up timer on unmount
-    return () => clearTimeout(timer);
-  }, []);
+  }, [dispatch]);
   
   return(
     <div className="overflow-x-hidden" > 
