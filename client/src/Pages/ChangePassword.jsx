@@ -85,17 +85,18 @@ export default function ChangePassword(){
     }
 
     return (
-        <div className={`grid ${deviceType==='lg'?windowsHeight>800?"grid-cols-6":"grid-cols-5":"grid-cols"} w-screen bg-white h-screen overflow-hidden font-roboto `}>
-            {deviceType==='lg'?<div className={`${windowsHeight>800?"col-span-4":"col-span-3"} w-full  h-full`} style={{ filter: 'brightness(0.5 )'  }} >
+        <div className={`grid ${deviceType==='lg'?"md:grid-cols-5 xl:grid-cols-3 ":"grid-cols"}  w-screen bg-white h-screen overflow-hidden font-roboto `}>
+            {deviceType==='lg'?<div className="md:col-span-3 xl:col-span-2 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
                 className="w-full h-full object-cover object-left"
                 src={LoginMain}
-                style={{ clipPath:windowsHeight>800?`circle(75% at ${(0.045)*windowsWidth -60.68}% 50%)` :`circle(65% at ${(0.03422)*windowsWidth -15.68}% 50%)`  }}
+                style={{ clipPath:innerWidth<1280?windowsHeight>800?`circle(75% at ${0.5078*innerWidth-519.984}px 50%)` :`circle(65% at ${0.03906*innerWidth+79.952}px 50%)` 
+                :(windowsHeight>800?`circle(75% at ${0.3333*innerWidth-330}px 50%)` :`circle(65% at ${0.38095*innerWidth-231.04}px 50%)`) }}
                 alt="Login Main"
                 />
             </div>:""}
 
-            <div className="col-span-2  flex h-full w-auto flex-1 flex-col   items-center justify-center">
+            <div className="md:col-span-2 xl:col-span-1  flex h-full w-auto flex-1 flex-col   items-center justify-center">
                 <div className="text-[.65rem]  lg:text-[0.75rem] ">
                         Sign Up to
                 </div>

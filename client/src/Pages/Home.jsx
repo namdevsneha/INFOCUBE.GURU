@@ -86,7 +86,7 @@ export default function Home(){
   }, []);
 
   return (
-    <div className={`${isMobile?"":'gradient-corner'} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
+    <div className={`${isMobile?"":''} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
     </div>
   );
