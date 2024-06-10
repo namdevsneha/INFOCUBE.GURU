@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
-import SignUp from "../../../Pages/SignUp";
+
+
 
 export default function Form(){
     const handleChange=(e)=>{
@@ -39,37 +40,38 @@ export default function Form(){
         }
     }
     return (
-        <div className=" relative overflow-hidden flex flex-row justify-between lg:py-[3.75rem] md:py-[2rem] md:px-[5rem] lg:px-[10rem]
-        box-border gap-[5rem] text-justify lg:text-[1.125rem] md:text-[1rem] text-black font-roboto">
-            <div className="flex-1 flex flex-col gap-[1.5rem]">
-                
-                <p className="leading-[150%] font-medium whitespace-normal">We aim to bridge the gap between  potential and opportunities. Our approach involves offering tailored roadmaps and comprehensive career paths, along with personalized advice from our trusted alumni and mentors. We foster a supportive community dedicated to empowering your journey towards success.</p>
-
-                
+        
+        <div className="grid grid-cols-2 relative overflow-hidden justify-between md:py-[32px] lg:py-[50px] 
+         box-border text-black  " style={{gap:`${0.0536*innerWidth-22.91}px`}}>
+            <div className=" col-span-1 font-poppins">             
+                <p className="leading-[150%] w-auto text-justify " style={{ fontSize: `${0.00335*innerWidth+11.568}px` }}>We aim to bridge the gap between  potential and opportunities. Our approach
+                     involves offering tailored roadmaps and comprehensive career paths, along with personalized advice from our trusted alumni and
+                      mentors. We foster a supportive community dedicated to empowering your journey towards success.</p>
             </div>
 
-            <div className="flex-1 flex flex-col items-start justify-between text-left lg:text-[3.5rem] md:text-[2.5rem]">
-            <div className="w-full flex flex-col items-start justify-starta
-                box-border gap-[1rem] text-left text-[1rem] text-neutral-dark-gray ">
-                    <div className="self-stretch flex flex-row items-start justify-start gap-[1rem] ">
-                        <form onSubmit={handleSubmit} className="rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start p-[0.75rem] border-[1px] border-solid border-black ">
-                            <input onChange={handleChange} id="email" type="text" placeholder="Enter your email"/>
-                        </form>
-                        <div className="rounded-[29px] bg-graybutton flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem] 
-                        text-white border-[1px] border-solid border-darkslategray">
-                            <KLink to="SignUp">
-                            <div className="relative leading-[150%]">Sign up</div>
-                            </KLink>
+            <div className="col-span-1  items-start justify-between text-left font-roboto ">
+                <div className="w-full flex flex-col items-start justify-start box-border gap-[1rem] md:text-[14px] lg:text-[16px]  text-neutral-dark-gray" style={{gap:`${0.00693*innerWidth+2.71}px`}}>
+                        <div className="self-stretch flex flex-row items-start justify-start gap-[.5rem] " style={{gap:`${0.00693*innerWidth+2.71}px`}}>
+                            <form onSubmit={handleSubmit} className="bg-white rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start md:py-[.6rem] lg:py-[0.75rem] px-[0.75rem] border-[1px] border-solid border-black ">
+                                <input className="border-none focus:outline-none w-full" onChange={handleChange} id="email" type="text" placeholder="Enter your email"/>
+                            </form>
+                            <KLink to='Signup'>
+						<button className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
+						 border-[1px] border-solid border-black" style={{fontSize: `${0.00476*innerWidth+6.8608}px`, padding:`${0.00476*innerWidth+2.8608}px ${0.00476*innerWidth+14.8608}px `}}>
+							Sign up
+						</button>
+						</KLink>
+                        </div>
+                        <div className="self-stretch relative lg:text-[12px] md:text-[10px] leading-[150%] text-black">
+                            <span>By clicking Sign Up you're confirming that you 
+                        agree with our </span>
+                        <KLink to="Terms"><span className="[text-decoration:underline]">Terms and Conditions.</span>
+                        </KLink>
+                            
                         </div>
                     </div>
-                    <div className="self-stretch relative text-[0.75rem] leading-[150%] text-black">{`By clicking Sign Up you're confirming that you 
-                    agree with our `}
-                    <KLink to="Terms"><span className="[text-decoration:underline]">Terms and Conditions.</span>
-                    </KLink>
-                        
-                    </div>
-                </div>
             </div>
         </div>
+        
     )
 }

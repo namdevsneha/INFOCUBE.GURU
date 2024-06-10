@@ -49,7 +49,7 @@ export default function Testimonial(){
 <div className="   w-auto grid lg:grid-cols-12 md:grid-cols-10  ">
   <button className= " col-span-1 place-self-center "
   onClick={() => slider?.current?.slickPrev()}>
-    <img src={LeftArrowBtn}/>
+    <img className="h-[3rem]" src={LeftArrowBtn}/>
     </button>          
 <div className=" lg:col-span-10 md:col-span-8 h-[18rem]">
 
@@ -123,7 +123,7 @@ export default function Testimonial(){
 
 <button className="col-span-1 place-self-center " 
 onClick={() => slider?.current?.slickNext()}>
-    <img src={RightArrowBtn}/>
+    <img className="h-[3rem]" src={RightArrowBtn}/>
     </button> 
 
 </div>

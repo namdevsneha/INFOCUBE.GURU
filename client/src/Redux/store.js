@@ -9,6 +9,7 @@ import userDataReducer from "./userSlice/userData.js";
 import { showHeader } from './userSlice/loginSlice.js';
 import navDropDown from './userSlice/navDropDown.js';
 import verifyPass from './userSlice/verifyPass.js';
+import screenSizeSlice from './userSlice/screenSizeSlice.js';
 
 const rootReducer= combineReducers({navbar: navbarReducer,
   user:userReducer,
@@ -18,6 +19,7 @@ const rootReducer= combineReducers({navbar: navbarReducer,
   userData:userDataReducer,
   navDropDown:navDropDown,
   verifyPass:verifyPass,
+  screenSize:screenSizeSlice
   })
 
 const persistConfig={key:'root',storage,version:1}
