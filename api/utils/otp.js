@@ -52,4 +52,3 @@ export const sendOTPVerificationEmail=async({email,otp})=>{
     }
   }
   
-sendOTPVerificationEmail({_id:"he",email:"utkarshsaxena@rediffmail.com"});

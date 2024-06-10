@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -11,6 +12,7 @@ export default {
       thin3:'200',
     },
     colors:{
+      
       buttonColor:'#255652',
       black: "#000",
       darkslategray: "#255652",
@@ -22,8 +24,12 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         gotham: ['Gotham', 'sans-serif'],
-        lato:['Lato',"sans-serif"]
-      }
+        lato:['Lato',"sans-serif"],
+ 
+      
+
+      },
+    
     },
   },
   plugins: [],theme: {
@@ -40,6 +46,7 @@ export default {
       "purplefont": "rgba(138, 49, 200, 0.71)",
       "grey": "rgba(0, 0, 0, 0.5)",
       'graybutton':"#032127",
+      "darkorchid": "#8a31c8",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)",
@@ -57,7 +64,8 @@ export default {
       "inter": "Inter",
       "iceland": "Iceland",
       "lato": "Lato",
-      "khand": "Khand"
+      "khand": "Khand",
+      "poppins": "Poppins"
       },
       "borderRadius": {
       "31xl": "50px",

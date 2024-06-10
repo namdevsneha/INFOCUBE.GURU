@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceland:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IM+FELL+Double+Pica:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Khand:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -25,7 +26,7 @@ body {
 
 
 
-
+/* Navbar profile drop down */
 .dropdown-menu.active{
   opacity: 1;
   visibility: visible;
@@ -90,6 +91,7 @@ body {
   opacity: 0.5;
   transition: 100ms;
 }
+/* Navbar profile drop down */
 
 
 /*             Feedback Scale                     */
@@ -146,6 +148,7 @@ body {
 }
 /*             Feedback Scale                   */
 
+
 /* Spinning loader */
 
 .loader {
@@ -161,3 +164,64 @@ body {
     transform: rotate(360deg);
   }
 }
+/* Spinning loader */
+
+/* Gradient for home page */
+
+.gradient-corner {
+  position: relative;
+  z-index: 0; /* Ensure the background is behind the content */
+}
+
+.gradient-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: 
+    linear-gradient(135deg,  #5a0096, #ffffff),
+    linear-gradient(225deg, #8000D7, #ffffff);
+    /* linear-gradient(90deg,  #8000D7, #ffffff),
+    linear-gradient(90deg, #8000D7, #ffffff),
+    linear-gradient(90deg, #8000D7, #ffffff),
+    linear-gradient(90deg, #8000D7, #ffffff) */
+    
+  background-size: 
+    30% 10%, 30% 10%;
+    /* 10% 5% , 20% 20%,
+    20% 10%, 20% 20% */
+    
+     /* Set background size for each gradient */
+  background-repeat: no-repeat; 
+
+  background-position: 
+    top 8% left -15%, top 8% right -20%;
+    /* top 1000px left 0px, top 1000px right 0px,
+    top 0px left 0px, top right */
+     /* Position each gradient */
+  border-radius: 
+    0% 80% 80% 0% , 0% 100% 0% 0%;
+  filter: blur(30px);
+  opacity: 0.8; 
+  z-index: -1;
+}
+/* Gradient for home page */
+
+/* Badge for counselling section */
+
+.container {
+  position: relative;
+  display: inline-block; /* Ensures container only takes the space it needs */
+}
+
+.badge {
+  position: relative;
+  background-color: red;
+  color: white;
+  border-radius: 0%;
+  transform: translate(0%, -0%);
+}
+/* Badge for counselling section */
