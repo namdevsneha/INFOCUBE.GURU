@@ -80,7 +80,7 @@ export default {
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
         '4xl': [
-            '0px 4px 2px rgba(0, 0, 0, .5 )'
+            '0px 4px 2px rgba(20, 20, 20, .35 )'
         ]
       }
       },
