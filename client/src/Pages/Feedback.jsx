@@ -10,7 +10,41 @@ export default function Feedback(){
     setActiveIndex(index);
   };
 
+  // const linearGradientStyle = {
+  //   background: 'linear-gradient(to bottom, #FFFFFF, #9D94FF)',
+  //   minHeight: '100vh', 
+  // };
+
+  // const [name, setName] = useState('');
+  // const [feedback, setFeedback] = useState('');
+  // const [rating, setRating] = useState(1);
+  // const [testimonials, setTestimonials] = useState([
+  //   {
+  //     name: 'Sneha',
+  //     feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
+  //     rating: 5
+  //   }
+  // ]);
+
+  // const handleNameChange = (event) => setName(event.target.value);
+  // const handleFeedbackChange = (event) => setFeedback(event.target.value);
+  // const handleRatingChange = (event) => setRating(parseInt(event.target.value));
+
+  // const handleSubmit = () => {
+  //   if (name.trim() !== '' && feedback.trim() !== '') {
+  //     const newTestimonial = {
+  //       name,
+  //       feedback,
+  //       rating
+  //     };
+  //     setTestimonials([...testimonials, newTestimonial]);
+  //     setName('');
+  //     setFeedback('');
+  //     setRating(1);
+  //   }
+  // };
     return (
+        <>
         <div className="shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] flex flex-col items-center justify-center bg-purple-feedback h-screen  " style={{backgroundImage:`url(${backgroundImage})`}}>
 
         <div className="p-[.5rem] md:p-[1rem] justify-center align-item-center "><img className=" w-[3rem] md:w-[5.5rem] h-auto" src={infocubelogo}></img></div>
@@ -43,5 +77,23 @@ export default function Feedback(){
 
             </div>
         </div>
+        {/* <div style={linearGradientStyle}>
+        <h2 className="text-xl font-bold mb-4">What Students Say About Their Career Journey</h2>
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className="mb-4 p-4 bg-gray-50 rounded shadow-sm">
+            <div className="flex items-center mb-2">
+              <div className="bg-gray-300 rounded-full h-10 w-10 flex items-center justify-center mr-4">
+                <span className="text-gray-600 font-bold">{testimonial.name.charAt(0)}</span>
+              </div>
+              <div>
+                <p className="font-bold">{testimonial.name}</p>
+                <p className="text-yellow-500">{'★'.repeat(testimonial.rating)}</p>
+              </div>
+            </div>
+            <p className="text-gray-700">{testimonial.feedback}</p>
+          </div>
+        ))}
+        </div> */}
+        </>
     )
 } 
