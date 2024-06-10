@@ -17,6 +17,7 @@ export default {
       
       white: "#fff",
       gray: "#1e1e1e",
+      hexPurple: "#9D94FF"
     },
     extend: {
       fontFamily: {
