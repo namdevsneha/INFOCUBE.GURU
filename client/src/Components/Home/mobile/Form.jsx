@@ -8,7 +8,7 @@ export default function Form(){
     
 
     return (
-        <div className=' box-border overflow-hidden my-[10px]' id="form" >
+        <div className=' box-border overflow-hidden mb-[48px] pt-[20px] pb-[10px]' id="form" >
             <p className="font-bold  font-khand " >
                 <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
                 <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>

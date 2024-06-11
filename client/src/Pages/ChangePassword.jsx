@@ -2,20 +2,19 @@ import React,{useState,useEffect} from "react";
 import {Link,useNavigate} from "react-router-dom";
 
 import {useSelector,useDispatch} from 'react-redux';
-import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
+import { updatePasswordFailure, updatePasswordStart, updatePasswordSuccess } from '../Redux/userSlice/userSlice.js'
 
 import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
 import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
-import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 
 export default function ChangePassword(){
+    const {loading,error,email}=useSelector((state)=>state.verifyPass);
     const [formData,setFormData]=useState({});
     const [windowsWidth,setwindowsWidth]=useState({});
     const [windowsHeight,setwindowsHeight]=useState({});
-    const {loading,error,email,currentUser}=useSelector((state)=>state.verifyPass);
     const [showPass,setShowPass]=useState({showPass:true});
     const [showPass2,setShowPass2]=useState({showPass2:true});    
     const deviceType = useSelector((state) => state.deviceType.deviceType);
@@ -25,7 +24,7 @@ export default function ChangePassword(){
     useEffect(() => {
 
         dispatch(hideHeader());
-
+        setFormData({email:email})
         const handleResize = () => {
           dispatch(changeDevice());
           setwindowsWidth(window.innerWidth) 
@@ -44,6 +43,7 @@ export default function ChangePassword(){
             ...formData,
             [e.target.id]:e.target.value,
         });
+
     };
     const showPassword=()=>{
         setShowPass(!showPass);
@@ -51,37 +51,32 @@ export default function ChangePassword(){
     const showPassword2=()=>{
       setShowPass2(!showPass2);
   }
-  const handlePassChange=(e)=>{
-    setConfirmPass(e.target.value)
-}
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        try {
-         dispatch(verifyStart());
-         const res=await fetch('/api/auth/forgotPass',{
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json',
-             },
-             body: JSON.stringify(formData),
-         });
-         const data= await res.json();
-         if(data.success===false){
-            dispatch(notVerifiedPass());
-            console.log("Email is Invalid")
-            return;
-          
-        }
-        dispatch(verifiedPass(data));
-        
+    try{
+      dispatch(updatePasswordStart());
+      const res=await fetch(`/api/user/updatePassword`,{method:'POST',headers:{
+        'Content-Type':'application/json',
+      },
+    
+    body:JSON.stringify(formData)});
 
-        navigate('../ForgotPassVerification');
+    const data=await res.json()
+    console.log('here')
+    if(data.success===false){
+      console.log('failed')
+       dispatch(updatePasswordFailure(data.message));
+       return;
+    }
+    console.log('now here also')
+    dispatch(updatePasswordSuccess(data));
+    navigate('../Login');
 
-        
-        } catch (error) {
-         dispatch(notVerifiedPass());
-        }
+    }catch(error){
+      console.log('error')
+      dispatch(updatePasswordFailure(error.message));
+    }
     }
 
     return (
@@ -116,7 +111,7 @@ export default function ChangePassword(){
 
                         {/* confirm password */}
                         <div className="mb-1 rounded-[104px] flex flex-rows items-center relative w-full">
-                            <input onChange={handlePassChange} id="confirm_password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]
+                            <input onChange={handleChange} id="confirm_password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]
                             text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass2?"password":"text"} placeholder="Confirm Password"/>
                             <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword2}>{showPass2?"Show":"Hide"}</p>
                         </div>

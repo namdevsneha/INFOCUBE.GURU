@@ -41,3 +41,21 @@ export const updateUser=async (req,res,next)=>{
 
     }
 }
+
+export const updatePassword=async (req,res,next)=>{
+try{
+        const validUser=await User.findOne({email:req.body.email});
+        if(req.body.password){
+            req.body.password=bcryptjs.hashSync(req.body.password,10)
+        }
+        const updateUser= await User.findByIdAndUpdate(validUser._id,{
+            $set:{
+                password:req.body.password,
+                }
+        },{new:true})
+        const {password,...rest}=updateUser._doc;
+        res.status(200).json(rest);
+    }catch(error){
+        console.log(error )
+    }
+}
