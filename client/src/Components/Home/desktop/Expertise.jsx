@@ -5,11 +5,11 @@ import {Link } from 'react-router-dom';
 
 export default function Expertise(){
   	return (
-		<section className=" w-auto overflow-hidden lg:mb-[64px] md:pb-[48px] box-border" id='Alumni'>
+		<section className=" w-auto  lg:mb-[64px] md:pb-[48px] box-border" id='Alumni'>
 			<div className=" grid grid-cols-2 items-center justify-start " style={{gap:`${0.1905*innerWidth-165.76}px`}}>
 				<div className=" mt-auto col-span-1 items-start justify-start ">
 					
-					 <span className='font-semibold font-roboto' style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }} >Alumni Center</span>
+					 <span className='font-semibold font-poppins' style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }} >Alumni Center</span>
 					 <h2 className='font-bold mb-[12px] font-poppins leading-[120%]' style={{ fontSize: `${0.01905*innerWidth+11.424}px` }} >Personalized Guidance<br/>from Experienced Alumni and Mentors</h2>
 					 <p className="leading-[150%]  font-poppins" style={{ fontSize: `${0.00335*innerWidth+11.568}px`,marginBottom:`${0.0223*innerWidth-2.816}px`  }} >Our platform connects you with knowledgeable alumni and mentors who provide personalized guidance in various fields. Benefit from their expertise and experience to navigate your 
 						career path with confidence.</p>
@@ -28,7 +28,7 @@ export default function Expertise(){
 						<Link to='Login'>
 						<button className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
 						 border-[1px] border-solid border-black" style={{fontSize: `${0.00476*innerWidth+6.8608}px`, padding:`${0.00476*innerWidth+2.8608}px ${0.00476*innerWidth+14.8608}px `}}>
-							Join
+							Explore
 						</button>
 						</Link>
 						<div className=" flex flex-row items-center justify-center gap-[0.2rem] text-black">
@@ -39,7 +39,7 @@ export default function Expertise(){
 				</div>
 
 				<div className='my-auto col-span-1'>
-				<img className="w-full h-auto" alt="" src={ExpertiseImage} />
+				<img className="drop-shadow-homeImage w-full h-auto" alt="" src={ExpertiseImage} />
 				</div>
 			</div>
 		</section>

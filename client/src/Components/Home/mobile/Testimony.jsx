@@ -44,7 +44,7 @@ export default function Testimonial(){
           };
 
     return (
-        <div className="px-[15px] py-[20px]">
+        <div className="">
 
 <div className="   w-auto grid grid-cols-8  ">
   <button className="w-[1.7rem] col-span-1 place-self-center "

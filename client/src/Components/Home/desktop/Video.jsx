@@ -36,7 +36,7 @@ export default function StartingVideo() {
       <div  onWheel={()=>{dispatch(closeDropDown())}} className="relative w-screen  overflow-hidden  shrink-0 
       text-left lg:text-[8rem] md:text-[5rem] mx-[-2rem] text-white font-khand"  style={{marginLeft :`-${0.0813*innerWidth-11.43}px`,height:`${viewportHeight}px`}}
        >
-        <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="w-full h-full object-cover" autoPlay loop muted>
+        <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="bg-grey w-full h-full object-cover" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>

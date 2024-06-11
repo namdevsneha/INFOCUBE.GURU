@@ -25,7 +25,8 @@ import TestimonialMobile from "../Components/Home/mobile/Testimony.jsx";
 import { notVerifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 import Services from "../Components/Home/desktop/Services.jsx";
 import Counselling from "../Components/Home/desktop/Counselling.jsx";
-
+import CounsellingMobile from "../Components/Home/mobile/Counselling.jsx";
+import ServiesMobile from "../Components/Home/mobile/Services.jsx";
 
 
 // mobile function
@@ -35,6 +36,8 @@ export function Mobile() {
     <div>
             <VideoMobile/>
             <FormMobile/>
+            <CounsellingMobile/>
+            <ServiesMobile/>
             <ExpertiseMobile/>
             <CheckMobile/>
             <JoinMobile/>
@@ -86,7 +89,7 @@ export default function Home(){
   }, []);
 
   return (
-    <div className={`${isMobile?"":''} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
+    <div className={`${isMobile?"":''} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{paddingLeft:`${0.0383*innerWidth-0.6239}px`, paddingRight:`${0.0383*innerWidth-0.6239}px`}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
     </div>
   );

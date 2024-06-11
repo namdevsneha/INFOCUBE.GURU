@@ -81,7 +81,13 @@ export default {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
         '4xl': [
             '0px 4px 2px rgba(20, 20, 20, .35 )'
-        ]
+        ],
+        'homeImage': [
+          '4px 4px 30px rgba(177, 130, 209, 1 )'
+      ],
+      'homeImagePhone': [
+          '3px 3px 20px rgba(177, 130, 209, 1 )'
+      ]
       }
       },
       "fontSize": {

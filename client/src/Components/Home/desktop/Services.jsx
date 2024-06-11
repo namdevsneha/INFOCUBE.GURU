@@ -4,7 +4,7 @@ import React from 'react';
 export default function Services(){
     return (
         <div>
-            <div className=" pb-[16px] relative overflow-hidden py-[1rem] box-border font-poppins">
+            <div className=" relative overflow-hidden py-[1rem] box-border font-poppins">
 
             <span className='text-darkorchid font-semibold text-[14px]' style={{ fontSize: `${0.0045*innerWidth+9.4286}px` }}>What you need </span>
             <h2 className="font-bold whitespace-nowrap md:my-[4px] lg:my-[8px] " style={{ fontSize: `${0.0246*innerWidth+16.768}px` }}> What We Offer</h2>

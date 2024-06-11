@@ -13,12 +13,11 @@ export default function Counselling(){
                 <h2 className=" font-extralight " style={{ fontSize: `${0.00893*innerWidth+14.86}px`,marginBottom:`${0.0714*innerWidth-25.088}px` }}> Get Your Dream College</h2>
             <span className='leading-[150%]' style={{ fontSize: `${0.00893*innerWidth+6.864}px` }}>Connect with us for all college Counselling</span>
             <span className='leading-[150%] font-medium' style={{ fontSize: `${0.00893*innerWidth+6.864}px`,marginBottom:`${0.0223*innerWidth-2.816}px` }}>MPDTE | JOSAA | CSAB | ALL STATE LEVEL COUNSELLING</span>
-            <Link to='Login'>
-						<button className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
+						<a href='https://forms.gle/GLiuC6NgMNAGh8my9'><button  className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
 						 border-[1px] border-solid border-black" style={{fontSize: `${0.00476*innerWidth+6.8608}px`, padding:`${0.00476*innerWidth+2.8608}px ${0.00476*innerWidth+14.8608}px `}}>
 							Raise a Request &gt;
 						</button>
-						</Link>
+                        </a>
             </div>
 
             <div className='col-span-1'>
