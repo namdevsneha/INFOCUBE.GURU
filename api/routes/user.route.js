@@ -1,10 +1,11 @@
 import  express from "express";
-import {test, updateUser} from "../controllers/user.controller.js"
+import {test, updatePassword, updateUser} from "../controllers/user.controller.js"
 import { verfiyToken } from "../utils/verifyUser.js";
 const router = express.Router();
 
 router.get('/',test)
 
-router.post('/update/:id',verfiyToken,updateUser);
+router.post('/updateProfile/:id',verfiyToken,updateUser);
+router.post('/updatePassword',updatePassword);
 
 export default router;

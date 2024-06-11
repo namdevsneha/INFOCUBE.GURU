@@ -17,28 +17,27 @@ export default function Profile() {
 
   //Code for backend
   const fileRef=useRef(null);
-    const {currentUser,loading,error}=useSelector((state)=>state.user);
-    const [file,setFile]=useState(undefined);
-    const [filePerc,setFilePerc]=useState(0);
-    const [fileUploadError,setFileUploadError]=useState(false);
-    
-    const [formData1,setFormData1]=useState({username:currentUser.username,dob:currentUser.dob,
-                avatar:currentUser.avatar,
-                gender:currentUser.gender,
-                country:currentUser.country,
-                state:currentUser.state,
-                city:currentUser.city,});
+  const {currentUser,loading,error}=useSelector((state)=>state.user);
+  const [file,setFile]=useState(undefined);
+  const [filePerc,setFilePerc]=useState(0);
+  const [fileUploadError,setFileUploadError]=useState(false);
+  
+  const [formData1,setFormData1]=useState({username:currentUser.username,dob:currentUser.dob,
+              avatar:currentUser.avatar,
+              gender:currentUser.gender,
+              country:currentUser.country,
+              state:currentUser.state,
+              city:currentUser.city,});
 
-    const [formData2,setFormData2]=useState({ stream:currentUser.stream,
-                course:currentUser.course,
-                education:currentUser.education,});
+  const [formData2,setFormData2]=useState({ stream:currentUser.stream,
+              course:currentUser.course,
+              education:currentUser.education,});
 
-    const [formData3,setFormData3]=useState({ contact:currentUser.contact,
-      linkedin:currentUser.linkedin,});
+  const [formData3,setFormData3]=useState({ contact:currentUser.contact,
+    linkedin:currentUser.linkedin,});
 
-    const [updateSuccess,setUpdateSuccess]=useState(false);
   const [editing, setEditing] = useState(false);
-    const [editing2, setEditing2] = useState(false);
+  const [editing2, setEditing2] = useState(false);
   const [editing3, setEditing3] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   
@@ -139,7 +138,7 @@ export default function Profile() {
     e.preventDefault();
     try{
       dispatch(updateUserStart());
-      const res=await fetch(`/api/user/update/${currentUser._id}`,{method:'POST',headers:{
+      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
         'Content-Type':'application/json',
       },
     

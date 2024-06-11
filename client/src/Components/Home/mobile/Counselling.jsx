@@ -1,13 +1,14 @@
 import React from 'react';
 import CounsellingImage from '../../../Assets/Images/CounsellingImage.png'
-import { useSelector } from 'react-redux';
-import { Link } from 'react-scroll';
+import Horn from '../../../Assets/Images/horn.png'
+
 
 export default function Counselling(){
     return (
 
-        <div className=" justify-between  w-full box-border justify-between 
-           overflow-hidden  items-center font-poppins " style={{gap:`${0.1384*innerWidth-25.4}px`}}>
+        <div className="relative justify-between  w-full box-border justify-between  items-center font-poppins " style={{gap:`${0.1384*innerWidth-25.4}px`}}>
+          <img  className="absolute" alt="Counselling" src={Horn} style={{top:`${-95}px`,left:`${-65}px`, scale:`${0.00028*innerWidth+0.28524}`, rotate:"3.31deg" }}/>
+
             <h className=" font-bold whitespace-nowrap " style={{ fontSize: `${0.045918*innerWidth+14.825714}px` }}>College Applications</h>
             <h2 className=" font-extralight " style={{ fontSize: `${0.02041*innerWidth+16.34853}px`,marginBottom:`${40}px` }}> Get Your Dream College</h2>
             <span className='leading-[150%]' style={{ fontSize:`${0.005102*innerWidth+14.094766}px`}}>Connect with us for all college Counselling<br/></span>
