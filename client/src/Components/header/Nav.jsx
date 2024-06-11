@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import { X ,ChevronDown} from "lucide-react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import {Link as ScrollLink} from 'react-scroll';
-import {Link} from 'react-scroll';
+// import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 import profile from '../../Assets/Images/profile.webp'
 import RightArrow from '../../Assets/Images/RightArrow2.webp'
@@ -42,6 +42,7 @@ export default function Nav() {
       }
     }
     console.log(currentUser)
+
   return (
     <>
     <nav className=' flex shrink items-center overflow-hidden  '>
@@ -144,18 +145,7 @@ export default function Nav() {
     {isOpen && (
             <div onWheelCapture={closeNavbar} className=' flex gap-1 flex-col items-center basis-full '>
                 <Navlink/>
-                {/* <div>
-                  <div className='menu-container'>
-                    <div className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300 text-black ${isnavDropDownOpen?'active':'inactive'}`}>
-                      <div className='flex items-center gap-[5px] '>
-                      <Link onClick={()=>dispatch(closeDropDown())} to='About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer"> ABOUT US</Link>
-  
-                      </div>
-
-                    </div>
-
-                  </div>
-                </div> */}
+                
             </div>
     )}
     </>
@@ -166,9 +156,9 @@ const Navlink = () => {
   const dispatch = useDispatch();
   return(
     <div className="text-[.75rem] md:text-[.8rem] lg:text-[1rem] font-sans ml-[10px]  ">
-    <Link onClick={()=>dispatch(closeDropDown())} to='About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer"> ABOUT US</Link>
+    <Link onClick={()=>dispatch(closeDropDown())} to='/#About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer"> ABOUT US</Link>
     
-    <Link onClick={()=>dispatch(closeDropDown())} to='Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer">ALUMNI</Link>
+    <KLink onClick={()=>dispatch(closeDropDown())} to='/#Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer">ALUMNI</KLink>
     
     <KLink onClick={()=>dispatch(closeDropDown())} to='Feedback' className="mx-[3px] md:mx-[4px] lg:mx-[5px]">FEEDBACK</KLink>
     

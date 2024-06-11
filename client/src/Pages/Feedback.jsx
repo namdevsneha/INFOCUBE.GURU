@@ -3,6 +3,7 @@ import backgroundImage from '../Assets/Images/Feedback_Bg_image.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.png';
 import {Link} from "react-router-dom";
 import feed from '../Assets/Images/feed.png';
+import comma from '../Assets/Images/comma.png'
 
 export default function Feedback(){
     const [activeIndex, setActiveIndex] = useState('0'); // Initially set the third dot as active
@@ -24,7 +25,15 @@ export default function Feedback(){
       name: 'Sneha',
       feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
       rating: 5
-    }
+      
+    },
+    {
+      name: 'Utkar  shi',
+      feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
+      rating: 5
+      
+    },
+
   ]);
 
   const handleNameChange = (event) => setName(event.target.value);
@@ -46,7 +55,7 @@ export default function Feedback(){
   };
     return (
         <>
-        <div className="shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] flex flex-col items-center justify-center bg-purple-feedback h-screen  " style={{backgroundImage:`url(${backgroundImage})`}}>
+        <div className=" shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] flex flex-col items-center justify-center bg-purple-feedback h-screen  " style={{backgroundImage:`url(${backgroundImage})`}}>
 
         <div className="p-[.5rem] md:p-[1rem] justify-center align-item-center "><img className=" w-[3rem] md:w-[5.5rem] h-auto" src={InfoCubeLogo  }></img></div>
         <span className="p-[.5rem] md:p-[1rem] text-white font-gotham  text-[1rem] md:text-[2rem] text-center inline-block w-[20rem] md:w-[45rem]">How much did our support aid you in your career journey?</span>
@@ -78,11 +87,16 @@ export default function Feedback(){
 
             </div>
         </div>
-        <div style={linearGradientStyle}>
-        <div className="mx-[8rem]">
+
+        <div>
+          <img src={comma} style={{ imageSize: `${7}px` }}/>
+        </div>
+
+        <div className=" pb-[4rem]" style={linearGradientStyle}>
+        <div  style={{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
           <div className="flex items-center justify-between">
-            <h1 className="text-[3rem] font-bold font-roboto "  style={{ fontSize: `${0.0390625*innerWidth}px` }}>What Students Say About<br/> Their Career Journey</h1>
-            <img className="pr-[2rem]" src={feed}/>
+            <h2 className=" font-bold font-roboto "  style={{ fontSize: `${48}px` }}>What Students Say About<br/> Their Career Journey</h2>
+            <img className="pr-[2rem]" style={{ imageSize: `${0.0390625*innerWidth}px` }} src={feed}/>
           </div>
         
         <div className="">
