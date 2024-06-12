@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Terms(){
+    const [show, setShow] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+      setShow(true);
+      return () => setShow(false);
+    }, [location]);
     return (
-        
+        <div  className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
         <div className="sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[2.5rem] md:px-[7.5rem] lg:px-[10.125rem] pt-[.5rem] pb-[2rem] w-full relative text-[.75rem] md:text-[1rem] text-left inline-block text-black font-roboto">
         <b className="mx-auto py-[1rem] flex w-auto relative text-[2rem] md:text-[3rem] leading-[120%] inline-block font-roboto text-black text-left">{`Terms & Conditions`}</b>
             <p className="m-0">
@@ -233,6 +241,7 @@ export default function Terms(){
             <span className="font-roboto text-mediumblue">Infocube.ed@gmail.com</span>
             </p>
             <p className="m-0 font-light">By using Infocube, you acknowledge and agree to these Terms and Conditions. Thank you for choosing Infocube for your educational needs.</p>
+            </div>
             </div>
     )
 } 

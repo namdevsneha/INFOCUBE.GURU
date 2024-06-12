@@ -3,6 +3,7 @@ import Body from "../Components/Help/Desktop/Help.jsx"
 import FAQ from "../Components/Help/Desktop/FAQ.jsx"
 import BodyMobile from "../Components/Help/Mobile/Help.jsx"
 import FAQMobile from '../Components/Help/Mobile/FAQ.jsx'
+import { useLocation } from "react-router-dom";
 
 
 
@@ -30,6 +31,13 @@ export function MobileHelp() {
 
 export default function Help(){
     const [isMobile, setIsMobile] = useState(false);
+    const [show, setShow] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+      setShow(true);
+      return () => setShow(false);
+    }, [location]);
   
     useEffect(() => {
       function handleResize() {
@@ -44,8 +52,10 @@ export default function Help(){
     }, []);
   
     return (
+      <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
       <div className="sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]">
         {isMobile ? <MobileHelp /> : <DesktopHelp />}
+      </div>
       </div>
     );
   }

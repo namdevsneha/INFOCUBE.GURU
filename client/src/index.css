@@ -211,18 +211,48 @@ body {
 }
 /* Gradient for home page */
 
-/* Badge for counselling section */
+/* Page Transition */
 
-.container {
-  position: relative;
-  display: inline-block; /* Ensures container only takes the space it needs */
+.page1-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.badge {
-  position: relative;
-  background-color: red;
-  color: white;
-  border-radius: 0%;
-  transform: translate(0%, -0%);
+.page1-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
 }
-/* Badge for counselling section */
+
+.page1-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page1-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page2-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page2-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page2-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page2-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 500ms, transform 500ms;
+}

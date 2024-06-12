@@ -1,7 +1,7 @@
-import React,{setState,useState} from "react";
+import React,{setState,useEffect,useState} from "react";
 import backgroundImage from '../Assets/Images/Feedback_Bg_image.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.png';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import feed from '../Assets/Images/feed.png';
 import comma from '../Assets/Images/comma.png'
 
@@ -39,6 +39,13 @@ export default function Feedback(){
   const handleNameChange = (event) => setName(event.target.value);
   const handleFeedbackChange = (event) => setFeedback(event.target.value);
   const handleRatingChange = (event) => setRating(parseInt(event.target.value));
+  const [show, setShow] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setShow(true);
+    return () => setShow(false);
+  }, [location]);
 
   const handleSubmit = () => {
     if (name.trim() !== '' && feedback.trim() !== '') {
@@ -54,6 +61,7 @@ export default function Feedback(){
     }
   };
     return (
+      <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
         <div className="relative w-full h-full">
         <div className="relative shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] flex flex-col items-center justify-center bg-purple-feedback h-screen bg-no-repeat " style={{backgroundSize:'cover' ,backgroundImage:`url(${backgroundImage})`,}}>
 
@@ -121,6 +129,7 @@ export default function Feedback(){
 
         </div>
         
+        </div>
         </div>
     )
 } 

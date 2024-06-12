@@ -29,9 +29,15 @@ export default function Signup(){
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const [isImgLoaded, setIsImgLoaded] = useState(false);
+    const [show, setShow] = useState(false);
 
     const handleImageLoaded = () => {
       setIsImgLoaded(true);
+      setShow(false)
+      const timer = setTimeout(() => {
+        setShow(true);
+      }, 50); 
+      return ()=>clearTimeout(timer);
     };
 
     useEffect(() => {
@@ -126,7 +132,8 @@ export default function Signup(){
     console.log(formData);
 
     return (
-        <div>{isImgLoaded? 
+        <div>{isImgLoaded?
+            <div className={`page ${show ? 'page2-enter-active' : 'page2-exit-active'}`}> 
             <div className={`grid ${deviceType==='lg'?"md:grid-cols-5 xl:grid-cols-3 ":"grid-cols"}  w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className="md:col-span-3 xl:col-span-2 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
@@ -227,7 +234,9 @@ export default function Signup(){
                 </div>
                 </div>
 
-        </div>:<LoadingSpinner/>
+            </div>
+            </div>
+        :<LoadingSpinner/>
 }</div>);
     
 } 

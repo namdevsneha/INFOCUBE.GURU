@@ -27,6 +27,7 @@ import Services from "../Components/Home/desktop/Services.jsx";
 import Counselling from "../Components/Home/desktop/Counselling.jsx";
 import CounsellingMobile from "../Components/Home/mobile/Counselling.jsx";
 import ServiesMobile from "../Components/Home/mobile/Services.jsx";
+import { useLocation } from "react-router-dom";
 
 
 // mobile function
@@ -73,6 +74,15 @@ export function Desktop() {
 export default function Home(){
   const [isMobile, setIsMobile] = useState(false);
   const {innerWidth,outerWidth,innerHeight,outerHeight}=useSelector((state)=>state.screenSize);
+  const [show, setShow] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setShow(true);
+    return () => setShow(false);
+  }, [location]);
+
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showHeader());
@@ -87,10 +97,12 @@ export default function Home(){
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
+ 
   return (
+    <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
     <div className={`${isMobile?"":''} sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{paddingLeft:`${0.0383*innerWidth-0.6239}px`, paddingRight:`${0.0383*innerWidth-0.6239}px`}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
+    </div>
     </div>
   );
 }

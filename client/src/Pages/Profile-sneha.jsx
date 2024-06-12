@@ -10,6 +10,7 @@ import polygon from '../Assets/Images/Polygon.webp';
 import edit from '../Assets/Images/edit.webp';
 import crossEdit from '../Assets/Images/crossEdit.webp';
 import saveEdit from '../Assets/Images/saveEdit.webp';
+import { useLocation } from "react-router-dom";
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
@@ -45,6 +46,14 @@ export default function Profile() {
   const [disabled2, setDisabled2] = useState(true);
   const [disabled3, setDisabled3] = useState(true);
   const dispatch=useDispatch();
+
+  const [show, setShow] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setShow(true);
+    return () => setShow(false);
+  }, [location]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -215,7 +224,7 @@ export default function Profile() {
   };
 
   return (
-    <>
+    <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
     <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
     style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${windowsSize*0.55}px` }}>
       {deviceType=="lg"?
@@ -483,7 +492,7 @@ export default function Profile() {
       </div>
       </div>
 
-    </>
+    </div>
   )
 }
  

@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import {Link,useNavigate} from "react-router-dom";
+import {Link,useLocation,useNavigate} from "react-router-dom";
 
 import {useSelector,useDispatch} from 'react-redux';
 import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
@@ -23,15 +23,21 @@ export default function Login(){
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const [isImgLoaded, setIsImgLoaded] = useState(false);
+    const [show, setShow] = useState(false);
 
     const handleImageLoaded = () => {
       setIsImgLoaded(true);
+      setShow(false)
+      const timer = setTimeout(() => {
+        setShow(true);
+      }, 50); 
+      return ()=>clearTimeout(timer);
     };
 
     useEffect(() => {
         const img = new Image();
         img.src = LoginMain; // Replace with your image URL
-    img.onload = handleImageLoaded;
+        img.onload = handleImageLoaded;
 
         dispatch(hideHeader());
 
@@ -88,6 +94,7 @@ export default function Login(){
 
     return (
         <div>{isImgLoaded? 
+        <div className={`page ${show ? 'page2-enter-active' : 'page2-exit-active'}`}>
         <div className={`grid ${deviceType==='lg'?"md:grid-cols-5 xl:grid-cols-3 ":"grid-cols"}  w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className="md:col-span-3 xl:col-span-2 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
@@ -142,7 +149,9 @@ export default function Login(){
                 </div>
                 </div>
 
-        </div>:<LoadingSpinner/>
+        </div>
+        </div>
+        :<LoadingSpinner/>
 }
         </div>);
     
