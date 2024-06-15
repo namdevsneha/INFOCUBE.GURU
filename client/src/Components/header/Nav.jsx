@@ -45,7 +45,7 @@ export default function Nav() {
 
   return (
     <>
-    <nav className=' flex shrink items-center overflow-hidden  '>
+    <nav className='  flex shrink items-center overflow-hidden  '>
         <div onWheelCapture={closeNavbar} className="hidden justify-end items-center md:flex  md:gap-2 lg:gap-4 gap-1 ">
             <Navlink />
             {currentUser && currentUser.username?(
@@ -83,12 +83,12 @@ export default function Nav() {
             ):(
               <div>
                 <KLink to='SignUp'>
-                <button className='rounded-xl py-[.4rem] px-[1rem] lg:py-[.5rem] lg:px-[1.25rem] font-roboto mr-[10px] lg:mr-[16px] border-[1px]
+                <button className='rounded-xl w-[4.5rem] lg:w-[6rem] py-[.4rem] px-[.4rem] lg:py-[.5rem] lg:px-[.5rem] font-roboto mr-[5px] lg:mr-[10px] border-[1px]
                    border-solid border-black
                  text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
                 </KLink>
                 <KLink to='Login '>
-                <button className=' text-white font-roboto border-[1px] py-[.4rem] px-[1rem] lg:py-[.5rem] lg:px-[1.25rem]  border-solid border-darkslategray rounded-xl 
+                <button className='w-[4.5rem] lg:w-[6rem] text-white font-roboto border-[1px] py-[.4rem] px-[.4rem] lg:py-[.5rem] lg:px-[1.25rem]  border-solid border-darkslategray rounded-xl 
                 bg-graybutton box-border items-center justify-center md:text-[14px] lg:text-[16px]'>Login</button> 
                 </KLink>
               </div>
