@@ -4,6 +4,7 @@ import Image2 from "../../../Assets/Images/seminar2.jpg";
 import Image3 from "../../../Assets/Images/image3.jpg";
 import Image4 from "../../../Assets/Images/image5.jpg";
 import Image5 from "../../../Assets/Images/seminar3.webp";
+// import Image5 from "../../../Assets/Images/seminar3.webp";
 
 
 export default function ImageComponent(){
