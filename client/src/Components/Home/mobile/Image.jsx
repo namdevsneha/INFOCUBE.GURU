@@ -1,10 +1,11 @@
 import React,{useRef} from "react";
 import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.webp";
 import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.webp";
-import Image2 from "../../../Assets/Images/Image2.webp";
-import seminar from "../../../Assets/Images/seminar.webp";
-import seminar2 from "../../../Assets/Images/seminar2.webp";
-import seminar3 from "../../../Assets/Images/seminar3.webp";
+import Image1 from "../../../Assets/Images/image1.jpg";
+import Image2 from "../../../Assets/Images/image3.jpg";
+import Image3 from "../../../Assets/Images/seminar2.webp";
+import Image4 from "../../../Assets/Images/image5.jpg";
+import Image5 from "../../../Assets/Images/seminar3.webp";
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -50,13 +51,19 @@ export default function Image(){
             <div className=" col-span-6 items-center  justify-start  h-[14rem]">
               <Slider ref={slider} {...settings} >
                   <div className=" w-full items-center ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar} />
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image1} />
                   </div>
                   <div className=" ">
-                      <img className=" m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar2} />
+                      <img className=" m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image2} />
                   </div>
                   <div className=" ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={seminar3} />
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image3} />
+                  </div>
+                  {/* <div className=" ">
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image4} />
+                  </div> */}
+                  <div className=" ">
+                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image5} />
                   </div>
               </Slider>
             </div>
