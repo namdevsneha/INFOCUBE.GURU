@@ -4,7 +4,6 @@ import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.webp";
 import Image1 from "../../../Assets/Images/image1.jpg";
 import Image2 from "../../../Assets/Images/image3.jpg";
 import Image3 from "../../../Assets/Images/seminar2.webp";
-import Image4 from "../../../Assets/Images/image5.jpg";
 import Image5 from "../../../Assets/Images/seminar3.webp";
 
 import Slider from 'react-slick';
