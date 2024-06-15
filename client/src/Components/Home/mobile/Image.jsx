@@ -59,9 +59,7 @@ export default function Image(){
                   <div className=" ">
                       <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image3} />
                   </div>
-                  {/* <div className=" ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image4} />
-                  </div> */}
+                
                   <div className=" ">
                       <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image5} />
                   </div>
