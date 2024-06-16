@@ -173,7 +173,7 @@ function DropDownItem(props){
     <li  className='dropdownItem   font-roboto  w-full md:text-[1rem] lg:text-[1rem] flex my-[2px] md:my-[.75rem]  '>
       <a className='mr-auto'>{props.text}</a>
       
-      <img style={{fontWeight:'bold'}} className='' src={RightArrow}></img>
+      <img style={{fontWeight:'bold',scale:'.2'}} className='' src={RightArrow}></img>
     </li>
   )
 }
