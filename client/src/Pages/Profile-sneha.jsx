@@ -171,15 +171,7 @@ export default function Profile() {
 
   }
 
-  // console.log(formData1)
-  // console.log(formData2)
-  // console.log(formData3)
-  // console.log(file);
-  // console.log(currentUser)
-  
-  
-// for edit 1
- 
+
 
   // for edit 2
   const handleEditClick2 = () => {
