@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Logo from '../Components/header/Logo';
 import Nav from '../Components/header/Nav';
-import {Link} from 'react-router-dom';
-import SignUp from '../Pages/SignUp';
+
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);

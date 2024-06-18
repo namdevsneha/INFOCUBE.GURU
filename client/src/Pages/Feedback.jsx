@@ -21,18 +21,6 @@ export default function Feedback(){
   const [feedback, setFeedback] = useState('');
   const [rating, setRating] = useState(1);
   const [testimonials, setTestimonials] = useState([
-    {
-      name: 'Sneha',
-      feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
-      rating: 5
-      
-    },
-    {
-      name: 'Utkarsh',
-      feedback: 'I am grateful for the guidance and mentorship I received from this platform. It helped me navigate my career path with confidence.',
-      rating: 5
-      
-    },
 
   ]);
   const {loading,error}=useSelector((state)=>state.user);
@@ -54,15 +42,48 @@ export default function Feedback(){
   });
   };
 
+  // useEffect(() => {
+  // });
+
   const handleSubmit2 =async(e) =>{
-    const res=await fetch('/api/feedback/fetch',{
-      method:'POST',
-      headers:{
-          'Content-Type':'application/json',
-      },
-      body: JSON.stringify(formData),
-  });
+    console.log('hi')
+    try{
+      const res=await fetch('/api/feedback/fetch',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(formData),
+    });
+    const data= await res.json();
+    const newData = [];
+
+    for(let i=0;i<data.length;i++){
+      const email=data[i].email;
+      try{
+        const res=await fetch('/api/feedback/fetchUserData',{
+          method:'POST',
+          headers:{
+              'Content-Type':'application/json',
+          },
+          body: JSON.stringify({email}),
+      });
+      const userData= await res.json();
+      
+      newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
+    }catch(error){
+      console.log(error)
+    }
+    }
+    setTestimonials(newData);
+    console.log(testimonials);
+    }catch(error){
+      console.log(error)
+    }
+    
   }
+
+
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
@@ -87,8 +108,8 @@ export default function Feedback(){
     navigate('/');
 
     } catch (error) {
-      console.log(error)
-     dispatch(feedbackSaveFailure(error.message));
+        console.log(error)
+        dispatch(feedbackSaveFailure(error.message));
     }
   };
 

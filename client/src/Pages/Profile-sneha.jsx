@@ -171,15 +171,7 @@ export default function Profile() {
 
   }
 
-  // console.log(formData1)
-  // console.log(formData2)
-  // console.log(formData3)
-  // console.log(file);
-  // console.log(currentUser)
-  
-  
-// for edit 1
- 
+
 
   // for edit 2
   const handleEditClick2 = () => {
@@ -225,8 +217,9 @@ export default function Profile() {
 
   return (
     <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
-    <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] md:px-[3rem] lg:px-[6rem]  relative bg-right-top bg-no-repeat overflow-hidden'} 
-    style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${windowsSize*0.55}px` }}>
+    <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] relative bg-right-top bg-no-repeat overflow-hidden'}  
+    style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${0.4464*innerWidth+100}px`,
+    paddingLeft :innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`,paddingRight:innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`  } }>
       {deviceType=="lg"?
       <div className='flex w-full justify-between'>
 
@@ -313,22 +306,22 @@ export default function Profile() {
         </div>}
 
       <div className="grid grid-cols-1 gap-[2rem] md:gap-[2rem] lg:gap-[4rem] lg:grid-cols-3 w-full mb-[2rem] md:mb-[3rem] lg:mb-[2rem]">
-      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
-        <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
-        <div>Personal Info</div>
+      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem] ' >
+        <div className='flex flex-row items-center justify-between text-dimgray px-4  border-solid border-b-[1px] border-grey content-center'>
+        <div className="">Personal Info</div>
         {editing ? (
        
         <> 
-              <div className="flex flex-row ">
+              <div className="flex  flex-row ">
               <button type="submit"
                 onClick={handleSaveClick}
               >
-                <img src={saveEdit} />
+                <img src={saveEdit} style={{scale:'.4'}} />
               </button>
               <button 
                 onClick={handleCancelClick}
               >
-                <img src={crossEdit} />
+                <img src={crossEdit} style={{scale:'.4'}}/>
               </button>
               </div>
             </>
@@ -336,7 +329,7 @@ export default function Profile() {
             <button 
               onClick={handleEditClick}
             >
-              <img src={edit} />
+              <img src={edit} style={{scale:'.4'}} />
             </button>
           )}
         </div>
@@ -378,8 +371,8 @@ export default function Profile() {
 
       
       <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[2rem] lg:grid-cols-3  mb-[6rem]  '>
-        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem] ' >
-          <div className='flex justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
+        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem] ' >
+          <div className='flex items-center justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Education</div>
           {editing2 ? (
             <>
@@ -387,12 +380,12 @@ export default function Profile() {
               <button 
                 onClick={handleSaveClick2}
               >
-                <img src={saveEdit} />
+                <img src={saveEdit} style={{scale:'.4'}}/>
               </button>
               <button 
                 onClick={handleCancelClick2}
               >
-                <img src={crossEdit} />
+                <img src={crossEdit} style={{scale:'.4'}} />
               </button>
               </div>
             </>
@@ -400,7 +393,7 @@ export default function Profile() {
             <button 
               onClick={handleEditClick2}
             >
-              <img src={edit} />
+              <img src={edit}  style={{scale:'.4'}}/>
             </button>
           )}
           </div>
@@ -434,9 +427,9 @@ export default function Profile() {
         </form>
         
      
-        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 py-[2rem]   ' >
+        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem]   ' >
         
-          <div className='flex justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
+          <div className='flex items-center justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
           <div>Contact Info</div>
 
             {editing3 ? (
@@ -445,12 +438,12 @@ export default function Profile() {
               <button 
                 onClick={handleSaveClick3}
               >
-                <img src={saveEdit} />
+                <img src={saveEdit} style={{scale:'.4'}}/>
               </button>
               <button 
                 onClick={handleCancelClick3}
               >
-                <img src={crossEdit} />
+                <img src={crossEdit} style={{scale:'.4'}}/>
               </button>
               </div>
             </>
@@ -458,7 +451,7 @@ export default function Profile() {
             <button 
               onClick={handleEditClick3}
             >
-              <img src={edit} />
+              <img src={edit} style={{scale:'.4'}}/>
             </button>
           )}
 
