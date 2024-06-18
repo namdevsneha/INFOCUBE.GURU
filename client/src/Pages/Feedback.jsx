@@ -42,46 +42,44 @@ export default function Feedback(){
   });
   };
 
-  // useEffect(() => {
-  // });
-
-  const handleSubmit2 =async(e) =>{
-    console.log('hi')
-    try{
-      const res=await fetch('/api/feedback/fetch',{
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json',
-        },
-        body: JSON.stringify(formData),
-    });
-    const data= await res.json();
-    const newData = [];
-
-    for(let i=0;i<data.length;i++){
-      const email=data[i].email;
+  useEffect(() => {
+    const handleFeedback =async(e) =>{
       try{
-        const res=await fetch('/api/feedback/fetchUserData',{
+        const res=await fetch('/api/feedback/fetch',{
           method:'POST',
           headers:{
               'Content-Type':'application/json',
           },
-          body: JSON.stringify({email}),
+          body: JSON.stringify(formData),
       });
-      const userData= await res.json();
+      const data= await res.json();
+      const newData = [];
+  
+      for(let i=0;i<data.length;i++){
+        const email=data[i].email;
+        try{
+          const res=await fetch('/api/feedback/fetchUserData',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({email}),
+        });
+        const userData= await res.json();
+        
+        newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
+      }catch(error){
+        console.log(error)
+      }
+      }
+      setTestimonials(newData);
+      }catch(error){
+        console.log(error)
+      }
       
-      newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
-    }catch(error){
-      console.log(error)
     }
-    }
-    setTestimonials(newData);
-    console.log(testimonials);
-    }catch(error){
-      console.log(error)
-    }
-    
-  }
+    handleFeedback();
+  });
 
 
   const handleSubmit = async(e) => {
@@ -157,7 +155,6 @@ export default function Feedback(){
 
             </div>
         </div>
-        <button onClick={handleSubmit2}>fetch</button>
 
         <div className="relative w-full " >
           <img src={comma} className="absolute z-10  " style={{marginLeft :`${0.09375*innerWidth - 150}px`,top:`${0.0279018*innerWidth-133.4736}px`,scale: `${0.000223214*innerWidth+0.171429 }`}} />
