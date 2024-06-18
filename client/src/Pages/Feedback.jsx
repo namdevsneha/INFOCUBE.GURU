@@ -87,8 +87,8 @@ export default function Feedback(){
     navigate('/');
 
     } catch (error) {
-      console.log(error)
-     dispatch(feedbackSaveFailure(error.message));
+        console.log(error)
+        dispatch(feedbackSaveFailure(error.message));
     }
   };
 
