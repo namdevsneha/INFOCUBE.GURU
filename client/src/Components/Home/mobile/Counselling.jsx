@@ -6,7 +6,7 @@ import Horn from '../../../Assets/Images/horn.png'
 export default function Counselling(){
     return (
 
-        <div className="relative justify-between  w-full box-border justify-between  items-center font-poppins " style={{gap:`${0.1384*innerWidth-25.4}px`}}>
+        <div className="relative w-full box-border justify-between  items-center font-poppins " style={{gap:`${0.1384*innerWidth-25.4}px`}}>
           <img  className="absolute" alt="Counselling" src={Horn} style={{top:`${-95}px`,left:`${-65}px`, scale:`${0.00028*innerWidth+0.28524}`, rotate:"3.31deg" }}/>
 
             <h className=" font-bold whitespace-nowrap " style={{ fontSize: `${0.045918*innerWidth+14.825714}px` }}>College Applications</h>
@@ -16,7 +16,7 @@ export default function Counselling(){
              <div className="relative w-full  mx-auto">
       <div className="relative">
         <img
-          className="w-full h-auto"
+          className="w-full h-auto pb-[2rem]"
           alt="Counselling"
           src={CounsellingImage}
           style={{ height: `${innerWidth - (0.22959 * innerWidth + 43.86047)}px` }}
