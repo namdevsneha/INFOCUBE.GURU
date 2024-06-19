@@ -217,76 +217,57 @@ export default function Profile() {
 
   return (
     <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
-    <div className={'shadow-inner mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] px-[1rem] relative bg-right-top bg-no-repeat overflow-hidden'}  
+    <div className={'shadow-inner mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem]  relative bg-right-top bg-no-repeat overflow-hidden'}  
     style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${0.4464*innerWidth+100}px`,
     paddingLeft :innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`,paddingRight:innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`  } }>
       {deviceType=="lg"?
-      <div className='flex w-full justify-between'>
+      <div className='flex w-full  justify-between my-[3rem] '>
 
-        <div className=' lg:mt-[4rem]  lg:mb-[6rem] flex flex-col  font-lato font-extralight justify-center  ' style={{fontSize:windowsSize<1300?"3.5rem":"4.8rem",marginTop:windowsSize<1300?"2.5rem":"4rem"}}>
-          <div>
-          <div>
-          <span className='' >Hey,</span>
-          <span>{' '}</span>
-          <span className=' font-bold' style={{fontSize:windowsSize<1300?"4.5rem":"6rem"}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}</span>
-          </div>
-
-          <div>
-          <span>Here's</span>
-          <span>{' '}</span>
-          <span>Your</span>
-          <span>{' '}</span>
-          <span className=' font-bold text-purplefont'>Profile</span>
-          </div>
-          </div>
-
-          
-
+      <div className='  flex flex-col my-auto font-lato font-extralight  justify-center  ' style={{fontSize:`${0.0254*innerWidth+28.032}px`,marginTop:windowsSize<1300?"2.5rem":"4rem"}}>
+        <div className="leading-[120%] items-center justify-center">
+        <span >{"Hey, "}</span>
+        <span className=' font-poppins font-bold' style={{fontSize:`${0.02679*innerWidth+44.5632}px`}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}<br/></span>
+        <span >{'Here\'s Your '}</span>
+        
+        <span className='font-poppins font-bold text-purplefont' >Profile</span>
         </div>
+      </div>
 
-          <div className='flex items-center'>
-          <div className='relative object-cover overflow-hidden rounded-full  bg-purple' style={{height:windowsSize<1300?windowsSize<1100?"13rem":("14rem"):"18rem",width:windowsSize<1300?windowsSize<1100?"13rem":"14rem":"18rem"}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <div className='flex '>
+        <div className='relative object-cover overflow-hidden rounded-full  bg-purple' style={{height:`${0.08929*innerWidth+116.5712}px`,width:`${0.08929*innerWidth+116.5712}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 
+        <img
+          src={avatar}
+          alt="Profile"
+          className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+          style={{ opacity: isHovered ? 0.5 : 1 }}
+        />
+        {isHovered && (
           <img
-            src={avatar}
+            src={avatarhover}
             alt="Profile"
             className="absolute transition-opacity duration-500 ease-in-out opacity-100"
-            style={{ opacity: isHovered ? 0.5 : 1 }}
           />
-          {isHovered && (
-            <img
-              src={avatarhover}
-              alt="Profile"
-              className="absolute transition-opacity duration-500 ease-in-out opacity-100"
-            />
-          )}
-        
-          </div>
-          </div>
+        )}
+      
+        </div>
+        </div>
 
       </div>
       :
-      <div className="flex ">
-       <div className='w-full my-[3rem] lg:mt-[8rem]  lg:mb-[6rem] flex flex-col  font-lato font-extralight	text-[1.5rem] md:text-[3rem]  justify-center gap-[4rem] '>
-          <div>
-          <div>
-          <span className=''>Hey,</span>
-          <span>{' '}</span>
-          <span className='text-[1.75rem] md:text-[4rem] font-bold'>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}</span>
-          </div>
+      <div className="flex my-[1rem] md:my-[2rem] ">
+       <div className='w-full    flex flex-col  font-lato font-extralight	text-[1.5rem] md:text-[3rem]  justify-center gap-[4rem] '>
+          <div className="leading-[120%]" style={{fontSize:`${0.0432099*innerWidth+3.7962963}px`}}>
+          <span >{"Hey, "}</span>
+          <span className='font-poppins font-bold' style={{fontSize:`${0.0432099*innerWidth+9.7962963}px`}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}<br/></span>
 
-          <div>
-          <span>Here's</span>
-          <span>{' '}</span>
-          <span>Your</span>
-          <span>{' '}</span>
-          <span className=' font-bold text-purplefont'>Profile</span>
-          </div>
+          <span>{'Here\'s Your '}</span>
+          <span className=' font-bold font-poppins text-purplefont'>Profile</span>
           </div>
         </div>
 
 
-        <div className="my-auto">  <div className='relative object-cover overflow-hidden rounded-full h-[6.61rem] w-[6.61rem]  md:h-[10rem] md:w-[10rem] bg-purple ' onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <div className="my-auto">  <div className='relative object-cover overflow-hidden rounded-full bg-purple ' style={{height:`${0.0771605*innerWidth+81.0648125}px`,width:`${0.0771605*innerWidth+81.0648125}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <img
             src={avatar}
             alt="Profile"
@@ -306,118 +287,105 @@ export default function Profile() {
         </div>}
 
       <div className="grid grid-cols-1 gap-[2rem] md:gap-[2rem] lg:gap-[4rem] lg:grid-cols-3 w-full mb-[2rem] md:mb-[3rem] lg:mb-[2rem]">
-      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem] ' >
-        <div className='flex flex-row items-center justify-between text-dimgray px-4  border-solid border-b-[1px] border-grey content-center'>
-        <div className="">Personal Info</div>
+      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left  border-[1px] border-solid border-grey px-4 pb-[2rem] ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
+        <div className='flex flex-row items-center justify-between text-dimgray  border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
+        <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Personal Info</div>
         {editing ? (
        
-        <> 
-              <div className="flex  flex-row ">
-              <button type="submit"
-                onClick={handleSaveClick}
+              <div className="flex  flex-row gap-[1rem] ">
+              <button className="h-auto" type="submit"
+                onClick={handleSaveClick} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={saveEdit} style={{scale:'.4'}} />
+                <img src={saveEdit}  />
               </button>
-              <button 
-                onClick={handleCancelClick}
+              <button className="h-auto"
+                onClick={handleCancelClick} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={crossEdit} style={{scale:'.4'}}/>
+                <img src={crossEdit} />
               </button>
               </div>
-            </>
           ) : (
             <button 
-              onClick={handleEditClick}
+              onClick={handleEditClick} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
             >
-              <img src={edit} style={{scale:'.4'}} />
+              <img src={edit} />
             </button>
           )}
         </div>
 
-        <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
+        <div className='grid grid-cols-2  font-roboto lg:grid-cols-4 justify-start gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem]' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
           <div className=''>
-            <label htmlFor="Name" className='text-dimgray'>Name</label>
-            <input disabled={disabled} className='bg-transparent pt-2 font-bold text-[1.1rem]'  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>Divyansh Nigam</div> */}
+            <label htmlFor="Name" className=' text-dimgray'>Name</label><br/>
+            <input disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
           </div>
           <div>
-            <label htmlFor="Gender" className='text-dimgray'>Gender</label>
-            <input disabled={disabled} className='bg-transparent pt-2 font-bold text-[1.1rem]'  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender"/>
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>Male</div> */}
+            <label htmlFor="Gender" className='text-dimgray'>Gender</label><br/>
+            <input disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender"/>
           </div>
           <div>
-            <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold text-[1.1rem]" pattern="\d{2}\\d{2}\\d{4}" onChange={handleChange1} id="dob" formate type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>10/05/2004</div> */}
+            <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label><br/>
+            <input disabled={disabled} className="bg-transparent pt-2 font-bold " pattern="\d{2}\\d{2}\\d{4}" onChange={handleChange1} id="dob" formate type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
           </div>
           <div>
-            <label htmlFor="Country" className='text-dimgray'>Country</label>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="country" type="text"  value={formData1.country} placeholder="India"/>
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>India</div> */}
+            <label htmlFor="Country" className='text-dimgray'>Country</label><br/>
+            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="country" type="text"  value={formData1.country} placeholder="India"/>
           </div>
           <div>
-            <label className='text-dimgray'>State</label>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="state" type="text" value={formData1.state} placeholder="Madhya Pradesh"/>
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>Madhya Pradesh</div> */}
+            <label className='text-dimgray'>State</label><br/>
+            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="state" type="text" value={formData1.state} placeholder="Madhya Pradesh"/>
           </div>
           <div>
-            <label htmlFor="City" className='text-dimgray'>City</label>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange1} id="city" type="text" value={formData1.city} placeholder="Bhopal"/>
-            {/* <div className='pt-2 font-bold text-[1.1rem]'>Bhopal</div> */}
+            <label htmlFor="City" className='text-dimgray'>City</label><br/>
+            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="city" type="text" value={formData1.city} placeholder="Bhopal"/>
           </div>
         </div>
       </form>
       </div>
 
-      
       <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[2rem] lg:grid-cols-3  mb-[6rem]  '>
-        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem] ' >
-          <div className='flex items-center justify-between text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
-          <div>Education</div>
+        <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left   font-roboto border-[1px] border-solid border-grey   px-4 pb-[2rem] ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
+          <div className='flex items-center justify-between text-dimgray  pb-1 border-solid border-b-[1px] border-grey content-center'  style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
+          <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Education</div>
           {editing2 ? (
-            <>
-              <div className="flex flex-row ">
+           
+              <div className="flex flex-row gap-[1rem] ">
               <button 
-                onClick={handleSaveClick2}
+                onClick={handleSaveClick2} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={saveEdit} style={{scale:'.4'}}/>
+                <img src={saveEdit} />
               </button>
               <button 
-                onClick={handleCancelClick2}
+                onClick={handleCancelClick2} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={crossEdit} style={{scale:'.4'}} />
+                <img src={crossEdit}  />
               </button>
               </div>
-            </>
+          
           ) : (
             <button 
-              onClick={handleEditClick2}
+              onClick={handleEditClick2} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
             >
-              <img src={edit}  style={{scale:'.4'}}/>
+              <img src={edit}  />
             </button>
           )}
           </div>
 
-          <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem]'>
+          <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem] ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
             <div>
-              <label htmlFor="Profession" className='text-dimgray'>Profession</label>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange2}  id="profession" type="text" value={formData2.profession} placeholder="Student"/>
-              {/* <div className='pt-2 font-bold text-[1.1rem]'>Student</div> */}
+              <label htmlFor="Profession" className='text-dimgray'>Profession</label><br/>
+              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2}  id="profession" type="text" value={formData2.profession} placeholder="Student"/>
             </div>
             <div>
-              <label htmlFor="Current Education" className='text-dimgray'>Current Education</label>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange2} id="education" type="text" value={formData2.education} placeholder="B.tech"/>
-              {/* <div className='pt-2 font-bold text-[1.1rem]'>Under Graduate</div> */}
+              <label htmlFor="Current Education" className='text-dimgray'>Current Education</label><br/>
+              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="education" type="text" value={formData2.education} placeholder="B.tech"/>
             </div>
             <div>
-              <label className='text-dimgray'>Course(if applicable)</label>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange2} id="course" type="text" value={formData2.course} placeholder="course"/>
-              {/* <div className='pt-2 font-bold text-[1.1rem]'>B.tech</div> */}
+              <label className='text-dimgray'>Course(if applicable)</label><br/>
+              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="course" type="text" value={formData2.course} placeholder="course"/>
             </div>
             <div>
-              <label htmlFor="Stream" className='text-dimgray'>Stream</label>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold text-[1.1rem]"  onChange={handleChange2} id="stream" type="text" value={formData2.stream} placeholder="Stream"/>
-              {/* <div className=' pt-2 font-bold text-[1.1rem]'>PCM</div> */}
+              <label htmlFor="Stream" className='text-dimgray'>Stream</label><br/>
+              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="stream" type="text" value={formData2.stream} placeholder="Stream"/>
             </div>
             
 
@@ -427,55 +395,50 @@ export default function Profile() {
         </form>
         
      
-        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem]   ' >
+        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem]   ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
         
-          <div className='flex items-center justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center'>
-          <div>Contact Info</div>
+          <div className='flex items-center justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
+          <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Contact Info</div>
 
             {editing3 ? (
             <>
-              <div className="flex flex-row ">
+              <div className="flex flex-row gap-[1rem]">
               <button 
-                onClick={handleSaveClick3}
+                onClick={handleSaveClick3} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={saveEdit} style={{scale:'.4'}}/>
+                <img src={saveEdit} />
               </button>
               <button 
-                onClick={handleCancelClick3}
+                onClick={handleCancelClick3} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
-                <img src={crossEdit} style={{scale:'.4'}}/>
+                <img src={crossEdit} />
               </button>
               </div>
             </>
           ) : (
             <button 
-              onClick={handleEditClick3}
+              onClick={handleEditClick3} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
             >
-              <img src={edit} style={{scale:'.4'}}/>
+              <img src={edit} />
             </button>
           )}
 
           </div>
 
-          <div className='flex flex-col justify-start pt-[2rem] lg:pt-[3rem]'>
+          <div className='flex flex-col lg:flex-row gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem]  justify-between ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
           <div>
-              <label htmlFor="Email" className='text-dimgray'>Email</label>
-               <input disabled={disabled3} className='bg-transparent text-[1.1rem]  pt-2 font-bold w-full'   onChange={handleChange3}  id='email' type='email' value={formData3.email} placeholder="username@gmail.com"/>
-              {/* <div className='text-[1.1rem] pt-2 font-bold'>nigamdivyansh2004@gmail.com</div> */}
-          </div>
-
-          <div className='flex flex-col lg:flex-row gap-[2rem] md:gap-[3rem] lg:gap-[4rem] pt-[2rem] md:pt-[3rem] lg:pt-[4rem] justify-between '>
-          <div>
-              <label htmlFor="Contact" className='text-dimgray'>Contact</label>
-              <input  disabled={disabled3} className='bg-transparent font-bold text-[1.1rem] pt-2'  onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
-               {/* <div className='font-bold text-[1.1rem] pt-2 '>9098652348</div> */}
+              <label htmlFor="Email" className='text-dimgray'>Email</label><br/>
+               <input disabled={disabled3} className='bg-transparent  pt-2 font-bold w-full'   onChange={handleChange3}  id='email' type='email' value={formData3.email} placeholder="username@gmail.com"/>
           </div>
 
           <div>
-              <label htmlFor="Linked In" className='text-dimgray'>Linked In</label>
-              <input disabled={disabled3} className="bg-transparent font-bold text-[1.1rem] pt-2"  onChange={handleChange3} id="linkedin" type="text" value={formData3.linkedin} placeholder="http://linked.com"/>
-              {/* <div className='font-bold text-[1.1rem] pt-2 '>http://linked.com</div> */}
+              <label htmlFor="Contact" className='text-dimgray'>Contact</label><br/>
+              <input  disabled={disabled3} className='bg-transparent font-bold  pt-2'  onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
           </div>
+
+          <div>
+              <label htmlFor="Linked In" className='text-dimgray'>Linked In</label><br/>
+              <input disabled={disabled3} className="bg-transparent font-bold pt-2"  onChange={handleChange3} id="linkedin" type="text" value={formData3.linkedin} placeholder="http://linked.com"/>
           </div>
 
           </div>
@@ -483,9 +446,35 @@ export default function Profile() {
 
           
       </div>
+      {/* <ProfilePictureDialog></ProfilePictureDialog> */}
       </div>
 
     </div>
   )
 }
  
+
+const ProfilePictureDialog = () => {
+  const onClose = () => {}
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+        <div className="flex justify-between items-center border-b pb-2 mb-4">
+          <h2 className="text-xl font-bold">Select Profile Picture</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+            <img src={avatar} alt="Profile" className="w-full h-full object-cover" />
+          </div>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Select from your device</button>
+        </div>
+      </div>
+    </div>
+  );
+};

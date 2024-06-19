@@ -18,7 +18,7 @@ export const feedback= async(req,res,next)=>{
  }
 
 export const feedbackFetch =async(req,res,body)=>{
-    const feedbacks=await FEEDBACK.find({});
+    const feedbacks=await FEEDBACK.find({}).sort({'time': -1});
     res.status(200).json(feedbacks);
 }
 
