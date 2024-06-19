@@ -41,7 +41,6 @@ export default function Nav() {
         dispatch(signOutUserFailure(error.message))
       }
     }
-    console.log(currentUser)
 
   return (
     <>
