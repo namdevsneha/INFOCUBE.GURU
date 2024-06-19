@@ -11,17 +11,21 @@ import edit from '../Assets/Images/edit.webp';
 import crossEdit from '../Assets/Images/crossEdit.webp';
 import saveEdit from '../Assets/Images/saveEdit.webp';
 import { useLocation } from "react-router-dom";
+import { Country, State, City } from 'country-state-city';
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
   const deviceType = useSelector((state) => state.deviceType.deviceType);
-
+  const [showChangeImage,setShowChangeImage]=useState(false);
   //Code for backend
   const fileRef=useRef(null);
   const {currentUser,loading,error}=useSelector((state)=>state.user);
+
   const [file,setFile]=useState(undefined);
   const [filePerc,setFilePerc]=useState(0);
   const [fileUploadError,setFileUploadError]=useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+ 
   
   const [formData1,setFormData1]=useState({username:currentUser.username,dob:currentUser.dob,
               avatar:currentUser.avatar,
@@ -50,6 +54,31 @@ export default function Profile() {
   const [show, setShow] = useState(false);
   const location = useLocation();
 
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  const handleCountryChange = (event) => {
+    const country = Country.getCountryByCode(event.target.value);
+    setSelectedCountry(country);
+    setSelectedState(null); // Reset state and city when country changes
+    setSelectedCity(null);
+    setFormData1({...formData1,country:country.name})
+  };
+
+  const handleStateChange = (event) => {
+    const state = State.getStateByCodeAndCountry(event.target.value, selectedCountry.isoCode);
+    setSelectedState(state);
+    setSelectedCity(null); // Reset city when state changes
+    setFormData1({...formData1,state:state.name})
+  };
+
+  const handleCityChange =  async(event) =>{
+    const city = event.target.value;
+    setSelectedCity(city);
+    await setFormData1({...formData1,city:city})
+  };
+
   useEffect(() => {
     setShow(true);
     return () => setShow(false);
@@ -61,26 +90,32 @@ export default function Profile() {
       setWindowsSize(window.innerWidth) 
     };
 
-    if(file){
-      handleUploadFile(file)
-    }
-
     handleResize(); // Call initially
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+    
   },[dispatch,setWindowsSize,file]);
-  console.log(deviceType)
 
 
   //Functions to handle editing details
-  const onImgClick=()=>{
-          console.log("heool")
-          fileRef.current.click()
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    if (selectedFile) {
+      const imageUrl = URL.createObjectURL(selectedFile);
+      setImageUrl(imageUrl);
+    }
+  };
+  
+  const onImgClick=async ()=>{
+          await fileRef.current.click()
+
       }
 
-    const handleUploadFile=(file)=>{
+    const handleUploadFile= (file)=>{
     const storage =getStorage(app);
     const fileName=new Date().getTime()+ file.name;
     const storageRef=ref(storage,fileName);
@@ -94,11 +129,16 @@ export default function Profile() {
   (error)=>{
     setFileUploadError(true);
   },
-  ()=>{
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl)=>{
-      setFormData1({...formData1,avatar:downloadUrl})
+  async ()=> {
+      await getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) =>{
+       setFormData1({...formData1,avatar:downloadUrl})
+       handleSubmit2(downloadUrl);
+
     })
-  }
+    
+    
+  },
+  
   ) 
   }
   
@@ -132,8 +172,31 @@ export default function Profile() {
     setEditing(false);
     setDisabled(true);
   };
+  const handleSubmit2=async(avatarUrl)=>{
+    try{
+      dispatch(updateUserStart());
+      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
+        'Content-Type':'application/json',
+      },
+    
+    body:JSON.stringify({avatar:avatarUrl})});
 
-  const handleSubmit1=async (e,formId)=>{
+    const data=await res.json()
+    if(data.success===false){
+      console.log('failed')
+       dispatch(updateUserFailure(data.message));
+       return;
+    }
+    dispatch(updateUserSuccess(data));
+    setUpdateSuccess(true);
+
+    }catch(error){
+      console.log('error')
+      dispatch(updateUserFailure(error.message));
+    }
+  }
+
+  const handleSubmit1=async (formId)=>{
     var formData=formData1
      if(formId=='form1'){
       formData=formData1
@@ -143,8 +206,6 @@ export default function Profile() {
     }else if(formId=='form3'){
       formData=formData3
     }
-    console.log(formData)
-    e.preventDefault();
     try{
       dispatch(updateUserStart());
       const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
@@ -154,13 +215,11 @@ export default function Profile() {
     body:JSON.stringify(formData)});
 
     const data=await res.json()
-    console.log('here')
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));
        return;
     }
-    console.log('now here also')
     dispatch(updateUserSuccess(data));
     setUpdateSuccess(true);
 
@@ -171,8 +230,13 @@ export default function Profile() {
 
   }
 
-
-
+  const handleChangeImage=(e)=>{
+    setShowChangeImage(showChangeImage=>!showChangeImage)
+    setFilePerc(0);
+    setImageUrl('');
+    setFormData1({...formData1,avatar:currentUser.avatar})
+  }
+ 
   // for edit 2
   const handleEditClick2 = () => {
     setEditing2(true);
@@ -234,10 +298,10 @@ export default function Profile() {
       </div>
 
         <div className='flex '>
-        <div className='relative object-cover overflow-hidden rounded-full  bg-purple' style={{height:`${0.08929*innerWidth+116.5712}px`,width:`${0.08929*innerWidth+116.5712}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <div onClick={handleChangeImage} className='relative object-cover  flex items-center justify-center overflow-hidden rounded-full  bg-purple' style={{height:`${0.08929*innerWidth+116.5712}px`,width:`${0.08929*innerWidth+116.5712}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 
         <img
-          src={avatar}
+          src={formData1.avatar}
           alt="Profile"
           className="absolute transition-opacity duration-500 ease-in-out opacity-100"
           style={{ opacity: isHovered ? 0.5 : 1 }}
@@ -266,10 +330,10 @@ export default function Profile() {
           </div>
         </div>
 
-
-        <div className="my-auto">  <div className='relative object-cover overflow-hidden rounded-full bg-purple ' style={{height:`${0.0771605*innerWidth+81.0648125}px`,width:`${0.0771605*innerWidth+81.0648125}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <div onClick={handleChangeImage} className="my-auto"> 
+           <div className='relative object-cover  flex items-center justify-center overflow-hidden rounded-full bg-purple ' style={{height:`${0.0771605*innerWidth+81.0648125}px`,width:`${0.0771605*innerWidth+81.0648125}px`}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <img
-            src={avatar}
+            src={formData1.avatar}
             alt="Profile"
             className="absolute transition-opacity duration-500 ease-in-out opacity-100"
             style={{ opacity: isHovered ? 0.5 : 1 }}
@@ -286,8 +350,8 @@ export default function Profile() {
 
         </div>}
 
-      <div className="grid grid-cols-1 gap-[2rem] md:gap-[2rem] lg:gap-[4rem] lg:grid-cols-3 w-full mb-[2rem] md:mb-[3rem] lg:mb-[2rem]">
-      <form  className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left  border-[1px] border-solid border-grey px-4 pb-[2rem] ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
+      <div className="grid grid-cols-1 gap-[2rem] md:gap-[2rem] lg:gap-[4rem] lg:grid-cols-3 w-full mb-[1rem] md:mb-[3rem] lg:mb-[2rem]">
+      <form  className='col-span-1 lg:col-span-2 relative box-border  text-left  border-[1px] border-solid border-grey px-4 pb-[2rem] ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
         <div className='flex flex-row items-center justify-between text-dimgray  border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
         <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Personal Info</div>
         {editing ? (
@@ -320,29 +384,55 @@ export default function Profile() {
           </div>
           <div>
             <label htmlFor="Gender" className='text-dimgray'>Gender</label><br/>
-            <input disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender"/>
+            <select disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender">
+            <option value="Female"> Female </option>              
+              <option value="Male"> Male </option>
+              <option value="Others"> Others </option>
+            </select>
           </div>
           <div>
             <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label><br/>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold " pattern="\d{2}\\d{2}\\d{4}" onChange={handleChange1} id="dob" formate type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
+            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="dob"  type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
           </div>
           <div>
             <label htmlFor="Country" className='text-dimgray'>Country</label><br/>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="country" type="text"  value={formData1.country} placeholder="India"/>
+            <select id="country" disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleCountryChange}  type="text" placeholder="India">
+            <option value={formData1.country}>{formData1.country}</option>
+            {Country.getAllCountries().map((country) => (
+              <option key={country.isoCode} value={country.isoCode}>
+                {country.name}
+              </option>
+            ))}
+              </select>
+
           </div>
           <div>
             <label className='text-dimgray'>State</label><br/>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="state" type="text" value={formData1.state} placeholder="Madhya Pradesh"/>
+            <select disabled={ disabled || !selectedCountry} className="bg-transparent pt-2 font-bold "  onChange={handleStateChange} id="state" type="text"  placeholder="Madhya Pradesh">
+            <option value={formData1.state}>{formData1.state}</option>
+            {selectedCountry && State.getStatesOfCountry(selectedCountry.isoCode).map((state) => (
+              <option key={state.isoCode} value={state.isoCode}>
+                {state.name}
+              </option>
+            ))}
+              </select>
           </div>
           <div>
             <label htmlFor="City" className='text-dimgray'>City</label><br/>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="city" type="text" value={formData1.city} placeholder="Bhopal"/>
+            <select disabled={disabled || !selectedState} className="bg-transparent pt-2 font-bold "  onChange={handleCityChange} id="city" type="text"  placeholder="Bhopal">
+            <option value={formData1.city}>{formData1.city}</option>
+            {selectedState && City.getCitiesOfState(selectedCountry.isoCode, selectedState.isoCode).map((city) => (
+              <option key={city.name} value={city.name}>
+                {city.name}
+              </option>
+            ))}
+              </select>
           </div>
         </div>
       </form>
       </div>
 
-      <div className=' grid grid-col-1 gap-[2rem] md:gap-[3rem] lg:gap-[2rem] lg:grid-cols-3  mb-[6rem]  '>
+      <div className=' grid grid-col-1 gap-[1rem] md:gap-[3rem] lg:gap-[2rem] lg:grid-cols-3  mb-[6rem]  '>
         <form className='col-span-1 lg:col-span-2 relative box-border overflow-hidden text-left   font-roboto border-[1px] border-solid border-grey   px-4 pb-[2rem] ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
           <div className='flex items-center justify-between text-dimgray  pb-1 border-solid border-b-[1px] border-grey content-center'  style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
           <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Education</div>
@@ -426,9 +516,9 @@ export default function Profile() {
           </div>
 
           <div className='flex flex-col lg:flex-row gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem]  justify-between ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
-          <div>
+          <div className="w-full">
               <label htmlFor="Email" className='text-dimgray'>Email</label><br/>
-               <input disabled={disabled3} className='bg-transparent  pt-2 font-bold w-full'   onChange={handleChange3}  id='email' type='email' value={formData3.email} placeholder="username@gmail.com"/>
+              <label className='bg-transparent  pt-2 font-bold w-full' >{currentUser.email} </label>
           </div>
 
           <div>
@@ -446,35 +536,54 @@ export default function Profile() {
 
           
       </div>
-      {/* <ProfilePictureDialog></ProfilePictureDialog> */}
+      {showChangeImage?<div className="fixed inset-0 flex bg-gray-900 bg-opacity-50">
+        <div className=" flex mx-auto h-screen items-center justify-center">
+        <form   accept='image/*'  className='bg-white col-span-1 lg:col-span-2 relative box-border  text-left  border-[1px] border-solid border-grey px-4 pb-[10px]' style={{width:innerWidth<1024?`${0.3703704*innerWidth+181.6666667}px`:`${0.44642857*innerWidth+102.857143}px`, borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
+        <div className='flex flex-row   items-center justify-between text-dimgray  border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
+        <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Select Profile Picture </div>
+
+              <div className="flex ml-auto flex-row gap-[1rem] ">
+              <div className="h-auto" type="submit"
+                onClick={()=>{if(file){handleUploadFile(file)}}} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
+              >
+                <img src={saveEdit}  />
+              </div>
+              <button className="h-auto"
+                onClick={handleChangeImage} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
+              >
+                <img src={crossEdit} />
+              </button>
+              </div>
+        </div>
+
+        <div className=" bg-purple mx-auto my-[1rem] rounded-full overflow-hidden mb-4" style={{height:`${0.08929*innerWidth+116.5712}px`,width:`${0.08929*innerWidth+116.5712}px`}}>
+            <img src={imageUrl || currentUser.avatar} alt="Profile" className="w-full h-full object-cover" />  
+          </div>
+          <div className="flex justify-center pb-2" >
+              {fileUploadError?(<span className='text-red-700'>Error in Uploading image</span>):
+              filePerc>0 && filePerc<100?(<span>{`uploading ${filePerc}`}</span>):
+              filePerc===100?(<span className="border-solid border-[1px] border-green-700 rounded-2xl p-2 bg-green-200">File Uploaded Successfully</span>):<></>}
+            </div>
+        <div className='flex flex-row   items-center justify-between text-dimgray  border-solid border-t-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
+        <div  className="rounded-[104px] mx-auto items-center relative ">
+        <input 
+        onChange={handleFileChange} 
+        type='file' 
+        ref={fileRef} 
+        hidden accept='image/*'/>
+            <div  onClick={onImgClick}  className="w-auto center-text flex items-center justify-center  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+              text-black  border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" >
+              SELECT FROM YOUR DEVICE
+              </div>                               
+                        </div>
+        </div>
+        
+      </form>
+      </div>
+    </div>:null}
       </div>
 
     </div>
   )
 }
  
-
-const ProfilePictureDialog = () => {
-  const onClose = () => {}
-
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-96">
-        <div className="flex justify-between items-center border-b pb-2 mb-4">
-          <h2 className="text-xl font-bold">Select Profile Picture</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
-            <img src={avatar} alt="Profile" className="w-full h-full object-cover" />
-          </div>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Select from your device</button>
-        </div>
-      </div>
-    </div>
-  );
-};
