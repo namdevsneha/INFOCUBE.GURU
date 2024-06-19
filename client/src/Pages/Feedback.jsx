@@ -94,7 +94,6 @@ export default function Feedback(){
          body: JSON.stringify(formData),
      });
      const data= await res.json();
-     console.log(data);
      if(data.success===false){
         dispatch(feedbackSaveFailure(data.message));
         console.log("Sign in failed")
@@ -102,7 +101,6 @@ export default function Feedback(){
       
     }
     dispatch(feedbackSaveSuccess(data));
-    console.log("Success")
     navigate('/');
 
     } catch (error) {
