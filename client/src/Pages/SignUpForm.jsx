@@ -24,7 +24,7 @@ export default function SignupForm(){
     const [selectedGender, setSelectedGender] = useState('');
     const [selectedEducation, setSelectedEducation] = useState('');
     const [confirm_paasword,setConfirmPass]=useState('');
-    const [selectedDob, setSelectedDob] = useState(new Date());
+    const [selectedDob, setSelectedDob] = useState('');
     const deviceType = useSelector((state) => state.deviceType.deviceType);
     const userData=useSelector((state)=>state.userData.userData)
     const navigate=useNavigate();
@@ -81,7 +81,6 @@ export default function SignupForm(){
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(formData)
         if(formData.education=='Select Education'){
             dispatch(signInFailure('Select Education'))
             return;
@@ -112,12 +111,10 @@ export default function SignupForm(){
          dispatch(signInFailure(error.message));
         }
         dispatch(setUserData(JSON.stringify(formData)))
-        console.log(userData);
         // navigate('/');
     }
 
 
-    console.log(formData);
 
     return (
         <div>{isImgLoaded? 
@@ -151,9 +148,9 @@ export default function SignupForm(){
 
                         {/* dob */}
                         <div className="mb-4 rounded-[55px] items-center relative w-full bg-red-700 ">
-                        <DatePicker dateFormat="dd/MM/yyyy" 
-                        onChange={(date) => {setSelectedDob(date); setFormData({...formData,dob: date.toLocaleDateString()});}}  
-                        wrapperClassName="w-full" calendarClassName="w-full" className="w-full  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                        <input calendarClassName="w-full" id="dob" formate type="date" value={selectedDob} placeholder="MM/DD/YYYY"
+                        onChange={(e) => {setSelectedDob(e.target.value); setFormData({...formData,dob:e.target.value});}}  
+                        wrapperClassName="w-full" className="w-full  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
                         text-black border text-black  border-black border-[1.5px] rounded-[55px] transition duration-300 ease-in-out" 
                         selected={selectedDob}/></div>
                         

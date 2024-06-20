@@ -47,8 +47,7 @@ const userSchema=new mongoose.Schema({
         default:"Select Gender"
     },
     dob:{
-        type:Date,
-        default:""
+        type:String,
     },
     linkedin:{
         type:String,

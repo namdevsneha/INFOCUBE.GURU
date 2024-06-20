@@ -115,6 +115,8 @@ export default function Profile_noddy() {
           filePerc===100?(<span>File Uploaded Successfully</span>):<></>}
         </p>
       Profile
+
+      
         <input type='text' placeholder='Name' defaultValue={currentUser.username} id='username'
         onChange={handleChange}
         className='border p-3 rounded-lg'/>
