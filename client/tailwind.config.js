@@ -16,22 +16,11 @@ export default {
       buttonColor:'#255652',
       black: "#000",
       darkslategray: "#255652",
-      
       white: "#fff",
       gray: "#1e1e1e",
       hexPurple: "#9D94FF"
     },
-    extend: {
-      fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
-        gotham: ['Gotham', 'sans-serif'],
-        lato:['Lato',"sans-serif"],
- 
-      
 
-      },
-    
-    },
   },
   plugins: [],theme: {
     "extend": {
@@ -58,8 +47,6 @@ export default {
       },
       "spacing": {},
       "fontFamily": {
-      // "times-new-roman": "'Times New Roman'",
-      // "im-fell-double-pica": "'IM FELL Double Pica'",
       "roboto": "Roboto",
       "roboto-slab": "'Roboto Slab'",
       "inter": "Inter",
@@ -91,20 +78,9 @@ export default {
       }
       },
       "fontSize": {
-      "16xl-1": "2.194rem",
-      "46xl": "4.063rem",
       "base": "1rem",
-      "5xl": "1.5rem",
       "lg": "1.125rem",
-      "29xl": "3rem",
       "sm": "0.875rem",
-      "13xl": "2rem",
-      "21xl": "2.5rem",
-      "12xl-2": "1.95rem",
-      "27xl": "2.875rem",
-      "37xl": "3.5rem",
-      "83xl": "6.375rem",
-      "57xl": "4.75rem",
       "inherit": "inherit"
       }
       },
