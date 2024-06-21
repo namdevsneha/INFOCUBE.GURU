@@ -51,7 +51,7 @@ function App() {
   return(
     <div className="overflow-x-hidden" > 
      <BrowserRouter>
-    {showHeader?<Header/>:""}
+    {/* {showHeader?<Header/>:""} */}
     <ScrollToElement/>
     <ScrollToTop/>
     
@@ -84,7 +84,7 @@ function App() {
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
       </Routes>
 
-    {showHeader?<Footer/>:""}
+    {/* {showHeader?<Footer/>:""} */}
     </BrowserRouter>
     </div>)
   }
