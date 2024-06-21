@@ -154,7 +154,7 @@ export default function Nav() {
 const Navlink = () => {
   const dispatch = useDispatch();
   return(
-    <div className="text-[.75rem] md:text-[.8rem] lg:text-[1rem] ml-[10px]  " style={{fontSize:innerWidth<1023?`${0.0012345679*innerWidth+11.5362962963}px`:`${0.00357142857*innerWidth+9.14285716}px`}}>
+    <div className="ml-[10px]  " style={{fontSize:innerWidth<1023?`${0.0012345679*innerWidth+11.5362962963}px`:`${0.00357142857*innerWidth+9.14285716}px`}}>
     <Link onClick={()=>dispatch(closeDropDown())} to='/#About' spy={true} smooth={true} duration={1000} offset={10} className=" mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer"> ABOUT US</Link>
     
     <KLink onClick={()=>dispatch(closeDropDown())} to='/#Alumni' spy={true} smooth={true} duration={800} offset={50} className="mx-[3px] md:mx-[4px] lg:mx-[5px] cursor-pointer">ALUMNI</KLink>
