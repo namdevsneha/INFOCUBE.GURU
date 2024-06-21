@@ -58,8 +58,8 @@ export default {
       },
       "spacing": {},
       "fontFamily": {
-      "times-new-roman": "'Times New Roman'",
-      "im-fell-double-pica": "'IM FELL Double Pica'",
+      // "times-new-roman": "'Times New Roman'",
+      // "im-fell-double-pica": "'IM FELL Double Pica'",
       "roboto": "Roboto",
       "roboto-slab": "'Roboto Slab'",
       "inter": "Inter",
