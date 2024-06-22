@@ -30,7 +30,7 @@ export default function StartingVideo() {
 
     return (
       <div  onWheel={()=>{dispatch(closeDropDown())}} className="relative w-screen  overflow-hidden  shrink-0 
-      text-left  mx-[-2rem] text-white font-khand"  style={{fontSize:`${0.046875*innerWidth+38}px`, marginLeft :`-${0.0813*innerWidth-11.43}px`,height:`${viewportHeight}px`}}>
+      text-left  mx-[-2rem] text-white font-khand bg-grey"  style={{fontSize:`${0.046875*innerWidth+38}px`, marginLeft :`-${0.0813*innerWidth-11.43}px`,height:`${viewportHeight}px`}}>
         
         {/* <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="bg-grey w-full h-full object-cover" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
@@ -38,7 +38,7 @@ export default function StartingVideo() {
         </video> */}
         
           
-            <p className="absolute font-bold lg:top-[1.5rem] lg:left-[2.125rem] md:top-[1.1rem] md:left-[1.5rem] leading-[100%] inline-block  lg:w-[60rem]  h-auto" >
+            {/* <p className="absolute font-bold lg:top-[1.5rem] lg:left-[2.125rem] md:top-[1.1rem] md:left-[1.5rem] leading-[100%] inline-block  lg:w-[60rem]  h-auto" >
               <p >
               <span style={{fontSize:`${0.029464*innerWidth+19.47872}px`}}> Unlock Your</span>
               <span style={{fontSize:`${0.031696*innerWidth+41.14208}px`}}>{` `}</span>
@@ -55,7 +55,7 @@ export default function StartingVideo() {
               <span style={{fontSize:`${0.031696*innerWidth+41.14208}px`}}>{` `}</span>
               <span style={{fontSize:`${0.031696*innerWidth+41.14208}px`}}>Guidance</span>
               </p>
-            </p>
+            </p> */}
 
       </div>
     );
