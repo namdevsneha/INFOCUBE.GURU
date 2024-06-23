@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import {showHeader} from "../Redux/userSlice/loginSlice.js";
 import { useSelector, useDispatch } from 'react-redux';
 // desktop components
+
+
 import Form from "../Components/Home/desktop/Form.jsx";
-import Expertise from "../Components/Home/desktop/Expertise.jsx";
-import Check from "../Components/Home/desktop/Check.jsx";
-import Join from "../Components/Home/desktop/Join.jsx";
+const Expertise = React.lazy(() => import('../Components/Home/desktop/Expertise.jsx'));
+const Check = React.lazy(() => import('../Components/Home/desktop/Check.jsx'));
+const Join = React.lazy(() => import('../Components/Home/desktop/Join.jsx'));
 import Journey from "../Components/Home/desktop/Journey.jsx";
-import Image from "../Components/Home/desktop/Image.jsx";
+const Image = React.lazy(() => import('../Components/Home/desktop/Image.jsx'));
 import Team from "../Components/Home/desktop/Team.jsx";
 import Video from '../Components/Home/desktop/Video.jsx'
-import Testimonial from "../Components/Home/desktop/Testimony.jsx";
+const Testimonial = React.lazy(() => import('../Components/Home/desktop/Testimony.jsx'));
+
 // mobile components
 
 import FormMobile from "../Components/Home/mobile/Form.jsx"
@@ -57,6 +60,7 @@ export function Desktop() {
     <div className="gradient-corner1">
             <Video/>
             <Form/>
+            <Suspense fallback={<div></div>}>
             <Counselling/>
             <Services/>
             <Expertise/>
@@ -66,6 +70,7 @@ export function Desktop() {
             {/* <Journey/> */}
             <Image/>
             <Testimonial/>
+            </Suspense>
     </div>
   )
 }
