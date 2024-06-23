@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import Logo from '../Components/header/Logo';
+import React, { Suspense, useEffect, useState } from 'react'
+const Logo = React.lazy(() => import('../Components/header/Logo'));
 import Nav from '../Components/header/Nav';
 
 
@@ -25,7 +25,9 @@ export default function Header() {
 
    return (
     <header className="absolute top-0 py-1 z-10 lg:py-1.25 flex w-full flex-wrap items-center justify-between border-b border-black bg-white text-black font-bold backdrop-blur-100px" style={headerStyles}>
+    <Suspense fallback={<div></div>}>
     <Logo />
+    </Suspense>
     <Nav />
   </header>
    )

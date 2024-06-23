@@ -28,24 +28,7 @@ export default function StartingVideo() {
       };
     }, []);
 
-    useEffect(() => {
-      const videoElement = videoRef.current;
-  
-      if ('loading' in HTMLVideoElement.prototype) {
-        videoElement.setAttribute('loading', 'lazy');
-      } else {
-        // Fallback for browsers that do not support the loading attribute
-        const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              videoElement.setAttribute('src', videoElement.getAttribute('data-src'));
-              observer.unobserve(videoElement);
-            }
-          });
-        });
-        lazyVideoObserver.observe(videoElement);
-      }
-    }, []);
+    
 
     const handleWheel = () => {
       dispatch(closeDropDown());
@@ -83,7 +66,6 @@ export default function StartingVideo() {
         loop
         muted
         data-src={Video}
-        loading="lazy"
       >
         <source src={Video} type="video/mp4" />
         Your browser does not support the video tag.
