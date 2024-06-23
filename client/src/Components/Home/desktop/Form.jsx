@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
 
 
@@ -12,33 +11,7 @@ export default function Form(){
         });
     };
 
-    const handleSubmit=async (e)=>{
-        e.preventDefault();
-        try {
-         dispatch(signInStart());
-         const res=await fetch('/api/auth/login',{
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json',
-             },
-             body: JSON.stringify(formData),
-         });
-         const data= await res.json();
-         console.log(data);
-         if(data.success===false){
-            dispatch(signInFailure(data.message));
-            console.log("Sign in failed")
-            return;
-          
-        }
-        dispatch(signInSuccess(data));
-        console.log("Success")
-        navigate('/');
 
-        } catch (error) {
-         dispatch(signInFailure(error.message));
-        }
-    }
     return (
         
         <div className="grid grid-cols-2 relative overflow-hidden justify-between md:py-[32px] lg:py-[50px] 
@@ -52,7 +25,7 @@ export default function Form(){
             <div className="col-span-1  items-start justify-between text-left font-roboto ">
                 <div className="w-full flex flex-col items-start justify-start box-border  md:text-[14px] lg:text-[16px]  text-neutral-dark-gray" style={{gap:`${0.00693*innerWidth+2.71}px`}}>
                         <div className="self-stretch flex flex-row items-start justify-start gap-[.5rem] " style={{gap:`${0.00693*innerWidth+2.71}px`}}>
-                            <form onSubmit={handleSubmit} className="bg-white rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start md:py-[.6rem] lg:py-[0.75rem] px-[0.75rem] border-[1px] border-solid border-black ">
+                            <form  className="bg-white rounded-[32px] flex-1 bg-gray flex flex-row items-center justify-start md:py-[.6rem] lg:py-[0.75rem] px-[0.75rem] border-[1px] border-solid border-black ">
                                 <input className="border-none focus:outline-none w-full" onChange={handleChange} id="email" type="text" placeholder="Enter your email"/>
                             </form>
                             <KLink to='Signup'>

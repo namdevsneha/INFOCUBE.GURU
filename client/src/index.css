@@ -250,3 +250,21 @@ body {
 }
 
 
+/* Navlink.css */
+.navlink-container {
+  display: flex;
+  gap: 10px; /* Adjust gap as per your design */
+}
+
+.navlink {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 0px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navlink:hover {
+  background-color: #f0f0f0; /* Example hover background color */
+}
