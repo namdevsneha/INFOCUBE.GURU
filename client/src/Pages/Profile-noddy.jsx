@@ -4,7 +4,6 @@ import { useSelector,useDispatch } from 'react-redux';
 import {getDownloadURL, getStorage,ref,uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { updateUserStart,updateUserFailure,updateUserSuccess,signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../Redux/userSlice/userSlice';
-import FacebookLogin  from 'react-facebook-login';
 
 export default function Profile_noddy() {
     const fileRef=useRef(null);
@@ -132,14 +131,7 @@ export default function Profile_noddy() {
       <button>hi</button>
       <div className='h-[20rem] bg-white'>
       <div className="flex justify-center items-center h-[10rem] bg-gray-100">
-      <FacebookLogin
-          appId="718440783623274" // Replace with your Facebook app ID
-          autoLoad={false}
-          fields="name,email,picture"
-          callback={handleResponse}
-          cssClass="bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          icon="fa-facebook"
-      />
+     
       </div>
     </div>
     </div>
