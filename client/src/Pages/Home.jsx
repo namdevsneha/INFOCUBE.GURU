@@ -5,14 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 import Form from "../Components/Home/desktop/Form.jsx";
-const Expertise = React.lazy(() => import('../Components/Home/desktop/Expertise.jsx'));
-const Check = React.lazy(() => import('../Components/Home/desktop/Check.jsx'));
-const Join = React.lazy(() => import('../Components/Home/desktop/Join.jsx'));
+import Expertise from "../Components/Home/desktop/Expertise.jsx";
+import Check from "../Components/Home/desktop/Check.jsx";
+import Join from "../Components/Home/desktop/Join.jsx";
 import Journey from "../Components/Home/desktop/Journey.jsx";
-const Image = React.lazy(() => import('../Components/Home/desktop/Image.jsx'));
+import Image from "../Components/Home/desktop/Image.jsx";
 import Team from "../Components/Home/desktop/Team.jsx";
 import Video from '../Components/Home/desktop/Video.jsx'
-const Testimonial = React.lazy(() => import('../Components/Home/desktop/Testimony.jsx'));
+import Testimonial from "../Components/Home/desktop/Testimony.jsx";
 
 // mobile components
 
