@@ -131,7 +131,7 @@ export default function Profile_noddy() {
       <button>hi</button>
       <div className='h-[20rem] bg-white'>
       <div className="flex justify-center items-center h-[10rem] bg-gray-100">
- 
+     
       </div>
     </div>
     </div>
