@@ -1,15 +1,13 @@
-import React,{useState,useRef, useEffect} from "react";
-import Video from "../../../Assets/Videos/startvideo.mp4";
-import PlayBtn from "../../../Assets/Images/PlayBtn.webp";
-import PauseBtn from "../../../Assets/Images/PauseBtn.webp";
-import { useSelector, useDispatch } from 'react-redux';
+import React,{useState, useEffect, Suspense} from "react";
+
+
+import { useDispatch } from 'react-redux';
 import { closeDropDown, toogleDropDown } from '../../../Redux/userSlice/navDropDown.js';
-
-
+// const StartVideo = React.lazy(() => import('./StartVideo.jsx'));
+const StartVideo = React.lazy(() => import('./StartVideo.jsx'));
 export default function StartingVideo() {
  
  
-    const videoRef = useRef(null);
     const dispatch=useDispatch();
     const [viewportHeight, setViewportHeight] = useState(0);
 
@@ -55,22 +53,11 @@ export default function StartingVideo() {
       className="relative w-screen overflow-hidden shrink-0 text-left mx-[-2rem] text-white font-khand bg-grey"
       style={containerStyles}
     >
-      <div>
-      <link rel="preload" as="video" href={Video} type="video/mp4" />
-      <video
-        ref={videoRef}
-        style={{ filter: 'brightness(0.3)' }}
-        id="video-player"
-        className="bg-grey w-screen h-screen object-cover object-center max-h-[1080px]"
-        autoPlay
-        loop
-        muted
-        data-src={Video}
-      >
-        <source src={Video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+      <Suspense fallback={<div  className="bg-grey w-full h-full object-cover"></div>}>
+        <StartVideo/>      
+
+      </Suspense>
+        
 
       <div className={`absolute font-bold lg:top-[1.5rem] lg:left-[2.125rem] md:top-[1.1rem] md:left-[1.5rem] leading-[100%] inline-block lg:w-[60rem] lg:max-w-[60rem] h-auto`}>
           <span style={spanStyles1}> Unlock Your</span>
@@ -90,3 +77,5 @@ export default function StartingVideo() {
     </div>
     );
   }
+
+  
