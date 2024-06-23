@@ -18,20 +18,12 @@ export default function Logo() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  
-  const infocubelogo = isMobile?{height:`${22.496}px`}:{height:`${0.010714*innerWidth+19.428572}px`};
-  const infocube = isMobile?{height:`${11.296}px`}:{height:`${0.00625*innerWidth+8}px`};
   return (
     <Link to='/' className=''>
         <div className='grid grid-cols-4 gap-[4.5px] md:gap-[6px] lg:gap-[8px] items-center'> 
-        <img className='col-span-1 w-auto  ' alt='Infocube Logo'
-          loading='lazy'
- style={infocubelogo} src={infocubeLogo}/>
-        <img className='col-span-3 w-auto   ' alt='Infocube'
-          loading='lazy'  style={infocube} src={Infocube}/>
+        <img className='col-span-1 w-auto h-[1.406rem] ' style={isMobile?{height:`${22.496}px`}:{height:`${0.010714*innerWidth+19.428572}px`}} src={infocubeLogo}/>
+        <img className='col-span-3 w-auto h-[0.706rem]  ' style={isMobile?{height:`${11.296}px`}:{height:`${0.00625*innerWidth+8}px`}} src={Infocube}/>
           </div>
     </Link>
   )
 }
-
