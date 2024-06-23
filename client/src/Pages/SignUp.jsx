@@ -8,9 +8,7 @@ import {setUserData} from "../Redux/userSlice/userData.js";
 import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
-import DatePicker from "react-datepicker";
 import LoadingSpinner from "../Components/loadingSpinner.jsx";
-import "react-datepicker/dist/react-datepicker.css";
 
 export default function Signup(){
 
