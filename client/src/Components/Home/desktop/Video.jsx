@@ -28,14 +28,45 @@ export default function StartingVideo() {
       };
     }, []);
 
+    useEffect(() => {
+      const videoElement = videoRef.current;
+  
+      if ('loading' in HTMLVideoElement.prototype) {
+        videoElement.setAttribute('loading', 'lazy');
+      } else {
+        // Fallback for browsers that do not support the loading attribute
+        const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              videoElement.setAttribute('src', videoElement.getAttribute('data-src'));
+              observer.unobserve(videoElement);
+            }
+          });
+        });
+        lazyVideoObserver.observe(videoElement);
+      }
+    }, []);
+
     return (
       <div  onWheel={()=>{dispatch(closeDropDown())}} className="relative w-screen  overflow-hidden  shrink-0 
-      text-left  mx-[-2rem] text-white font-khand bg-grey"  style={{fontSize:`${0.046875*innerWidth+38}px`, marginLeft :`-${0.0813*innerWidth-11.43}px`,height:`${viewportHeight}px`}}>
+      text-left  mx-[-2rem] text-white font-khand bg-grey"  style={{maxHeight:"1080px",fontSize:`${0.046875*innerWidth+38}px`, marginLeft :`-${0.0813*innerWidth-11.43}px`,height:`${viewportHeight}px`}}>
         
-        <video ref={videoRef}  style={{ filter: 'brightness(0.3)' }} id="video-player" className="bg-grey w-full h-full object-cover" autoPlay loop muted>
-          <source src={Video} type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
+        <div>
+      <link rel="preload" as="video" href={Video} type="video/mp4" />
+      <video 
+        ref={videoRef} 
+        style={{ filter: 'brightness(0.3)' }} 
+        id="video-player" 
+        className="bg-grey w-screen h-screen object-cover object-center" 
+        autoPlay 
+        loop 
+        muted 
+        data-src={Video}
+      >
+        <source src={Video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
         
           
             <p className="absolute font-bold lg:top-[1.5rem] lg:left-[2.125rem] md:top-[1.1rem] md:left-[1.5rem] leading-[100%] inline-block  lg:w-[60rem]  h-auto" >
