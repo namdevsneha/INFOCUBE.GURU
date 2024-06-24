@@ -18,19 +18,19 @@ export default function ImageComponent(){
        
          <div className="w-full grid grid-cols-7 grid-rows-6 gap-4">
         <div className="col-span-3 row-span-4">
-          <img alt="first" src={Image1} className="w-full h-full object-cover" />
+          <img loading='lazy' alt="first" src={Image1} className="w-full h-full object-cover" />
         </div>
         <div className="col-span-2 row-span-3">
-          <img alt="Second" src={Image2} className="w-full h-full object-cover" />
+          <img loading='lazy' alt="Second" src={Image2} className="w-full h-full object-cover" />
         </div>
         <div className="col-span-2 row-span-3">
-          <img alt="Third" src={Image4} className="w-full h-full object-cover" />
+          <img loading='lazy' alt="Third" src={Image4} className="w-full h-full object-cover" />
         </div>
         <div className="col-span-4 row-span-3">
-          <img alt="Fourth" src={Image3} className="w-full h-full object-cover" />
+          <img loading='lazy' alt="Fourth" src={Image3} className="w-full h-full object-cover" />
         </div>
         <div className="col-span-3 row-span-2">
-          <img alt="Fifth" src={Image5} className="w-full h-full object-cover" />
+          <img loading='lazy' alt="Fifth" src={Image5} className="w-full h-full object-cover" />
         </div>
       </div>
     </div>)

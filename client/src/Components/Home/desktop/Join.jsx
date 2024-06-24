@@ -42,7 +42,7 @@ export default function Join() {
 						</Link>
 						<div className=" flex flex-row items-center justify-center gap-[0.2rem] text-black">
 							<button className=" leading-[150%] font-roboto" style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }} >Learn More</button>
-							<img className="w-auto h-[.8rem] lg:h-[1.2rem] overflow-hidden " alt="" src={RightArrow} />
+							<img  className="w-auto h-[.8rem] lg:h-[1.2rem] overflow-hidden " alt="" src={RightArrow} />
 						</div>
 					</div>
     </div>
