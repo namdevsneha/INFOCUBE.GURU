@@ -8,10 +8,10 @@ export default function Counselling(){
         <div className="lg:pb-[60px] md:pb-[32px] justify-between w-full box-border justify-between 
             grid grid-cols-2 items-center  " style={{gap:`${0.1384*innerWidth-25.4}px`}}>
             <div className=' relative grid col-span-1 font-poppins mt-auto'>
-					<img  className="absolute" alt="Counselling" src={Horn} style={{top:`${-100}px`,left:`${-75}px`, scale:`${0.0002232*innerWidth+0.2714}`, rotate:"3.31deg" }}/>
+					<img loading='lazy' className="absolute" alt="Counselling" src={Horn} style={{top:`${-100}px`,left:`${-75}px`, scale:`${0.0002232*innerWidth+0.2714}`, rotate:"3.31deg" }}/>
 
                 <h className=" font-bold whitespace-nowrap " style={{ fontSize: `${0.0246*innerWidth+16.768}px` }}>College Applications</h>
-                <h2 className=" font-extralight " style={{ fontSize: `${0.00893*innerWidth+14.86}px`,marginBottom:`${0.0714*innerWidth-25.088}px` }}> Get Your Dream College</h2>
+                <h2 className=" font-extralight "  style={{ fontSize: `${0.00893*innerWidth+14.86}px`,marginBottom:`${0.0714*innerWidth-25.088}px` }}> Get Your Dream College</h2>
             <span className='leading-[150%]' style={{ fontSize: `${0.00893*innerWidth+6.864}px` }}>Connect with us for all college Counselling</span>
             <span className='leading-[150%] font-medium' style={{ fontSize: `${0.00893*innerWidth+6.864}px`,marginBottom:`${0.0223*innerWidth-2.816}px` }}>MPDTE | JOSAA | CSAB | ALL STATE LEVEL COUNSELLING</span>
 						<a href='https://forms.gle/GLiuC6NgMNAGh8my9'><button  className="font-roboto leading-[150%] w-auto rounded-[43px] text-white bg-graybutton box-border 
@@ -22,7 +22,7 @@ export default function Counselling(){
             </div>
 
             <div className='col-span-1'>
-            <img className="flex-1 w-full h-full overflow-hidden " alt="" src={CounsellingImage} />
+            <img loading='lazy' className="flex-1 w-full h-full overflow-hidden " alt="" src={CounsellingImage} />
             </div>
         </div>
     )

@@ -20,9 +20,9 @@ export default function Logo() {
   }, []);
   return (
     <Link to='/' className=''>
-        <div className='flex flex-row gap-[4.5px] md:gap-[6px] lg:gap-[8px] items-center'> 
-        <img className='basis-1/4 w-auto h-[1.406rem] ' style={isMobile?{height:`${22.496}px`}:{height:`${0.010714*innerWidth+19.428572}px`}} src={infocubeLogo}/>
-        <img className='basis-3/4 w-auto h-[0.706rem]  ' style={isMobile?{height:`${11.296}px`}:{height:`${0.00625*innerWidth+8}px`}} src={Infocube}/>
+        <div className='grid grid-cols-4 gap-[4.5px] md:gap-[6px] lg:gap-[8px] items-center'> 
+        <img className='col-span-1 w-auto h-[1.406rem] ' style={isMobile?{height:`${22.496}px`}:{height:`${0.010714*innerWidth+19.428572}px`}} src={infocubeLogo}/>
+        <img className='col-span-3 w-auto h-[0.706rem]  ' style={isMobile?{height:`${11.296}px`}:{height:`${0.00625*innerWidth+8}px`}} src={Infocube}/>
           </div>
     </Link>
   )
