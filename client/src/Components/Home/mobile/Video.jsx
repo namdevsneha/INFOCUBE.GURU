@@ -10,7 +10,7 @@ export default function StartingVideo() {
     
     const isOpen = useSelector((state) => state.navbar.isOpen);
 
-    const baseClass = 'relative font-bold  font-khand  text-white ';
+    const baseClass = 'relative font-thin  font-khand  text-white ';
     const conditionalClass = isOpen ? 'top-[60px] h-auto' : 'top-[40px]';
 
     // Combine base class and conditional class based on isOpen

@@ -20,6 +20,16 @@ export default {
       gray: "#1e1e1e",
       hexPurple: "#9D94FF"
     },
+    extend: {
+      fontFamily: {
+        iceland: ['Iceland', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        khand: ['Khand', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      },
+    },
 
   },
   plugins: [],theme: {
