@@ -27,7 +27,7 @@ export default function Feedback(){
   const [show, setShow] = useState(false);
   const location = useLocation();
   const dispatch=useDispatch();
-
+  const initialFormData= {email:currentUser.email,feedback:'',stars:'1'};
 
   useEffect(() => {
     setShow(true);
@@ -101,6 +101,7 @@ export default function Feedback(){
       
     }
     dispatch(feedbackSaveSuccess(data));
+    setformData(initialFormData);
     navigate('/');
 
     } catch (error) {
