@@ -9,7 +9,6 @@ import feedbackRouter from "./routes/feedback.route.js"
 
 dotenv.config();
 
-export const maxDuration=60;
 
 
 mongoose.connect(process.env.MONGO).then(()=>{
