@@ -23,10 +23,15 @@ const app=express();
 app.use(express.json())
 app.use(cookieParser());
 
-app.listen(3000,()=>{
+try{
+app.listen(4000,()=>{
     console.log("Hello server is running.");
 }
 );
+}catch(err){
+    console.log("hi");
+    console.log(err);
+}
 
 app.use('/api/user',userRouter);
 app.use('/api/auth',signupRouter);
