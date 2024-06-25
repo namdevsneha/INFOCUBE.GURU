@@ -5,11 +5,9 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   server:{
     proxy:{
-      '/api': {
-        target: 'https://infocube-guru-api.vercel.app',
-        secure: true,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+      '/api':{
+        target:'http://localhost:4000',
+        secure:false
       }
     }
   },
