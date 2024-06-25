@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:'https://infocube-guru-api.vercel.app',
+        target:'https://infocube-guru-api-git-main-infocubes-projects.vercel.app/',
         secure:false
       },
       
