@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-import bcryptjs from "bcryptjs";
 
 import nodemailer from 'nodemailer';
 
