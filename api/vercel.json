@@ -2,11 +2,14 @@
     "version":2,
     "builds":[
         {"src":"./index.js","use":"@vercel/node",
+        "config": {
+            
         "functions": {
         "index.js": {
           "maxDuration": 60
         }
       }
+    }
     }
     ],
     "routes":[
