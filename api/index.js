@@ -6,6 +6,7 @@ import signupRouter from "./routes/auth.route.js"
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import feedbackRouter from "./routes/feedback.route.js"
+import cors from 'cors';
 
 dotenv.config();
 
@@ -19,18 +20,21 @@ mongoose.connect(process.env.MONGO).then(()=>{
 const __dirname=path.resolve();
 
 const app=express();
+
+// Use CORS middleware
+app.use(cors({
+    origin: 'https://infocube.guru', // Replace with your frontend domain
+    credentials: true, // Enable if you need to send cookies
+  }));
+
 app.use(express.json())
 app.use(cookieParser());
 
-try{
 app.listen(4000,()=>{
     console.log("Hello server is running.");
 }
 );
-}catch(err){
-    console.log("hi");
-    console.log(err);
-}
+
 
 app.use('/api/user',userRouter);
 app.use('/api/auth',signupRouter);
