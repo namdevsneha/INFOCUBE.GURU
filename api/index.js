@@ -27,11 +27,11 @@ const app=express();
 
 app.listen(3000,()=>{
     console.log("Hello server is running.");
-},
+}
+);
 app.use("/",(req,res,)=>{
     console.log("Hello from middleware");
 }),
-);
 console.log("Hello server is running2.");
 
 // app.use('/api/user',userRouter);
