@@ -150,7 +150,7 @@ const links = [
   { to: '/#About', text: 'ABOUT US', duration: 1000, offset: 10 },
   { to: '/#Alumni', text: 'ALUMNI', duration: 800, offset: 50 },
   { to: 'Feedback', text: 'FEEDBACK', duration: null, offset: null },
-  { to: 'Help', text: 'HELPSUPPORT', duration: null, offset: null },
+  { to: 'Help', text: 'HELP & SUPPORT', duration: null, offset: null },
 ];
 
 const Navlink = () => {
