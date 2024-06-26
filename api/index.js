@@ -23,8 +23,8 @@ const app=express();
 
 // Use CORS middleware
 app.use(cors({
-    // origin: 'http://localhost:5173', // Replace with your frontend domain
-    // credentials: true, // Enable if you need to send cookies
+    origin: 'https://infocube.guru', // Allow your Vercel app
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   }));
 
 app.use(express.json())
