@@ -88,6 +88,7 @@ export default function Login(){
         navigate('/');
 
         } catch (error) {
+            
          dispatch(signInFailure(error.message));
         }
     }
