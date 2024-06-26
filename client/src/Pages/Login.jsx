@@ -67,22 +67,24 @@ export default function Login(){
     };
 
     const handleSubmit=async (e)=>{
-
+        
         e.preventDefault();
         try {
          dispatch(signInStart());
          const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
-    headers: {
-        'Content-Type': 'application/json',
-    }
-});
-         const data= await res.json();
+            headers: {
+                'Content-Type': 'application/json',
+            }});
+         const data= res.data;
          console.log(data);
          if(data.success===false){
             dispatch(signInFailure(data.message));
             console.log("Sign in failed")
             return;
-          
+            // const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     }
         }
         dispatch(signInSuccess(data));
         console.log("Success")
