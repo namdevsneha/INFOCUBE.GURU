@@ -7,12 +7,11 @@ export default defineConfig({
     host:true,
     proxy:{
       '/api':{
-         target: 'https://infocube-guru-api.vercel.app/',
+         target: 'https://infocube-guru-api.vercel.app',
         changeOrigin: true,
         secure: false,
         ws: true,
      
-        rewrite: (path) => path.replace("/api", ""),
         configure: (proxy, options) => {
           proxy.on('proxyReq', (proxyReq, req, res) => {
             console.log(`Proxying request to: ${proxyReq.getHeader('host')}${req.url}`);
