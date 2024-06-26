@@ -1,0 +1,1 @@
+export const baseURL=`https://infocube-guru-akxl.onrender.com`

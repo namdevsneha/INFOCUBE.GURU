@@ -23,8 +23,9 @@ const app=express();
 
 // Use CORS middleware
 app.use(cors({
-    origin: 'https://infocube-guru.vercel.app/', // Allow your Vercel app
+    origin: 'http://localhost:5173', // Allow your Vercel app
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: 'Content-Type',
   }));
 
 app.use(express.json())

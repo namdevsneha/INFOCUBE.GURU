@@ -7,7 +7,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'https://infocube-guru-api.vercel.app',
+        target: 'https://infocube-guru-akxl.onrender.com/',
         changeOrigin: true,
         secure: false,
         ws: true,
