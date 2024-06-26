@@ -31,8 +31,8 @@ export default function Nav  (){
     dispatch(closeDropDown());
     try {
       dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signOut');
-      const data = await res.json();
+      const res = await axios.get('/api/auth/signOut');
+      const data = res.data;
       if (data.success === false) {
         dispatch(signOutUserFailure(data.message));
         return;
