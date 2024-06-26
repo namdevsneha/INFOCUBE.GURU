@@ -10,7 +10,7 @@ export default function StartingVideo() {
     
     const isOpen = useSelector((state) => state.navbar.isOpen);
 
-    const baseClass = 'relative font-thin  font-khand  text-white ';
+    const baseClass = 'relative font-bold  font-khand  text-white ';
     const conditionalClass = isOpen ? 'top-[60px] h-auto' : 'top-[40px]';
 
     // Combine base class and conditional class based on isOpen
@@ -40,7 +40,7 @@ export default function StartingVideo() {
         </video>
           
           <p className={combinedClass}  style={{paddingLeft:`${0.0383*innerWidth-0.6239}px`}}>
-                <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
+          <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
                 <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
                 <span className="leading-[100%]" style={{fontSize:`${0.04827*innerWidth+24.98891}px`}}>Potential</span>
                 <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
