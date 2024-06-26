@@ -25,6 +25,7 @@ export default function OAuth(){
                 name: result.user.displayName,
                 photo: result.user.photoURL
             }, {
+                withCredentials:true,
                 headers: {
                     'Content-Type': 'application/json'
                 }

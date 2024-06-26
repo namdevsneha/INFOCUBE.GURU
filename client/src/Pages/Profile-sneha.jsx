@@ -179,6 +179,7 @@ export default function Profile() {
       const res=await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, {
         avatar: avatarUrl
     }, {
+        withCredentials:true,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -191,7 +192,6 @@ export default function Profile() {
        return;
     }
     dispatch(updateUserSuccess(data));
-    setUpdateSuccess(true);
 
     }catch(error){
       console.log('error')
@@ -212,19 +212,19 @@ export default function Profile() {
     try{
       dispatch(updateUserStart());
       const res= await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, formData, {
+        withCredentials:true,
         headers: {
             'Content-Type': 'application/json',
         },
     });
-
     const data=await res.data
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));
        return;
     }
+   
     dispatch(updateUserSuccess(data));
-    setUpdateSuccess(true);
 
     }catch(error){
       console.log('error')

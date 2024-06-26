@@ -72,6 +72,7 @@ export default function Login(){
         try {
          dispatch(signInStart());
          const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
+            withCredentials:true,
             headers: {
                 'Content-Type': 'application/json',
             }});
