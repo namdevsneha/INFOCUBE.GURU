@@ -11,6 +11,8 @@ import crossEdit from '../Assets/Images/crossEdit.webp';
 import saveEdit from '../Assets/Images/saveEdit.webp';
 import { useLocation } from "react-router-dom";
 import { Country, State, City } from 'country-state-city';
+import { baseURL } from "../url.js";
+import axios from "axios";
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
@@ -174,13 +176,15 @@ export default function Profile() {
   const handleSubmit2=async(avatarUrl)=>{
     try{
       dispatch(updateUserStart());
-      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    
-    body:JSON.stringify({avatar:avatarUrl})});
+      const res=await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, {
+        avatar: avatarUrl
+    }, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
-    const data=await res.json()
+    const data=await res.data
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));
@@ -207,13 +211,13 @@ export default function Profile() {
     }
     try{
       dispatch(updateUserStart());
-      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    
-    body:JSON.stringify(formData)});
+      const res= await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, formData, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
-    const data=await res.json()
+    const data=await res.data
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));

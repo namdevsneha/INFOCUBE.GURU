@@ -6,6 +6,8 @@ import feed from '../Assets/Images/feed.png';
 import comma from '../Assets/Images/comma.png'
 import { useDispatch, useSelector } from "react-redux";
 import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../Redux/userSlice/userSlice";
+import axios from "axios";
+import { baseURL } from "../url";
 
 
 export default function Feedback(){
@@ -45,27 +47,23 @@ export default function Feedback(){
   useEffect(() => {
     const handleFeedback =async(e) =>{
       try{
-        const res=await fetch('/api/feedback/fetch',{
-          method:'POST',
-          headers:{
-              'Content-Type':'application/json',
-          },
-          body: JSON.stringify(formData),
+        const res= await axios.post(`${baseURL}/api/feedback/fetch`, formData, {
+          headers: {
+              'Content-Type': 'application/json'
+          }
       });
-      const data= await res.json();
+      const data= await res.data;
       const newData = [];
   
       for(let i=0;i<data.length;i++){
         const email=data[i].email;
         try{
-          const res=await fetch('/api/feedback/fetchUserData',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({email}),
+          const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, formData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
-        const userData= await res.json();
+        const userData= await res.data;
         
         newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
       }catch(error){
@@ -79,21 +77,19 @@ export default function Feedback(){
       
     }
     handleFeedback();
-  });
+  },[formData]);
 
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
      dispatch(feedbackSaveStart());
-     const res=await fetch('/api/feedback/save',{
-         method:'POST',
-         headers:{
-             'Content-Type':'application/json',
-         },
-         body: JSON.stringify(formData),
-     });
-     const data= await res.json();
+     const res= await axios.post(`${baseURL}/api/feedback/save`, formData, {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
+     const data= await res.data;
      if(data.success===false){
         dispatch(feedbackSaveFailure(data.message));
         console.log("Sign in failed")

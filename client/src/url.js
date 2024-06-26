@@ -1,1 +1,1 @@
-export const baseURL=`https://infocube-guru-akxl.onrender.com`
+export const baseURL=import.meta.env.VITE_BASE_URL;

@@ -10,6 +10,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 import { signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../../Redux/userSlice/userSlice';
 import { closeDropDown, toogleDropDown } from '../../Redux/userSlice/navDropDown';
+import axios from 'axios';
+import { baseURL } from '../../url';
 
 
 export default function Nav  (){
@@ -31,14 +33,16 @@ export default function Nav  (){
     dispatch(closeDropDown());
     try {
       dispatch(signOutUserStart());
-      const res = await axios.get('/api/auth/signOut');
+      const res = await axios.get( `${baseURL}/api/auth/signOut`);
       const data = res.data;
       if (data.success === false) {
+        console.log(hi);
         dispatch(signOutUserFailure(data.message));
         return;
       }
       dispatch(signOutUserSuccess(data));
     } catch (error) {
+      console.log(error);
       dispatch(signOutUserFailure(error.message));
     }
   };

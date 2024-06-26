@@ -5,7 +5,8 @@ import User from "../models/user.model.js"
 
 export const test = (req,res)=>{
     res.json({
-        message:"Hello world",
+        message:"Hello world i am done",
+
     });
 }
 
@@ -48,12 +49,14 @@ try{
         if(req.body.password){
             req.body.password=bcryptjs.hashSync(req.body.password,10)
         }
+
         const updateUser= await User.findByIdAndUpdate(validUser._id,{
             $set:{
                 password:req.body.password,
                 }
         },{new:true})
         const {password,...rest}=updateUser._doc;
+        console.log(updateUser._doc)
         res.status(200).json(rest);
     }catch(error){
         console.log(error )

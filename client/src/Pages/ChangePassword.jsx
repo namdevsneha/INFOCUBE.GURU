@@ -9,6 +9,9 @@ import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
 import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
+import axios from "axios";
+import { baseURL } from "../url.js";
+import LoadingSpinner from "../Components/loadingSpinner.jsx";
 
 export default function ChangePassword(){
     const {loading,error,email}=useSelector((state)=>state.verifyPass);
@@ -41,6 +44,9 @@ export default function ChangePassword(){
           setwindowsWidth(window.innerWidth) 
           setwindowsHeight(window.innerHeight)
         };
+        const img = new Image();
+        img.src = LoginMain; 
+        img.onload = handleImageLoaded;
     
         handleResize(); // Call initially
         window.addEventListener('resize', handleResize);
@@ -67,13 +73,13 @@ export default function ChangePassword(){
         e.preventDefault();
     try{
       dispatch(updatePasswordStart());
-      const res=await fetch(`/api/user/updatePassword`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    
-    body:JSON.stringify(formData)});
-
-    const data=await res.json()
+      const res = await axios.post(`${baseURL}/api/user/updatePassword`, formData, {
+        headers: {
+            'Content-Type': 'application/json',
+            
+        },
+    });
+    const data=await res.data
     console.log('here')
     if(data.success===false){
       console.log('failed')
