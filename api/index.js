@@ -30,7 +30,7 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser());
 
-app.listen(4000,()=>{
+app.listen(3000,()=>{
     console.log("Hello server is running.");
 }
 );
