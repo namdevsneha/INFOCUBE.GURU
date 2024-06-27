@@ -20,7 +20,7 @@ export default function FAQ(){
                     <div className='item'>
                         <div className='title mx-[64px]' onClick={()=>toggle(i)} >
                             <h2>{item.question}</h2>
-                            <img className={selected==i ?"rotate-180":" "}  alt="arrow" src={Arrow} />
+                            <img className={selected==i ?"rotate-180":" "}  alt="arrow" style={{ scale: `${0.3}` }}  src={Arrow} />
                             </div> 
                         <div className={selected==i ?"content show mx-[86px] text-[1.3rem]":" text-[1.3rem] content mx-[86px]"}>
                         <div className='flex flex-row'>

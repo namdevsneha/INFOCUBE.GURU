@@ -16,7 +16,7 @@ export default function Feedback(){
     minHeight: '100vh', 
   };
   const {currentUser}=useSelector((state)=>state.user);
-  const [formData,setformData]=useState({email:currentUser.email});
+  const [formData,setformData]=useState({email:currentUser.email,feedback:'',rating:'0'});
   const [name, setName] = useState('');
   const [feedback, setFeedback] = useState('');
   const [rating, setRating] = useState(1);
@@ -27,7 +27,6 @@ export default function Feedback(){
   const [show, setShow] = useState(false);
   const location = useLocation();
   const dispatch=useDispatch();
-  const initialFormData= {email:currentUser.email,feedback:'',stars:'1'};
 
   useEffect(() => {
     setShow(true);
@@ -55,7 +54,7 @@ export default function Feedback(){
       const data= await res.json();
       const newData = [];
   
-      for(let i=0;i<data.length;i++){
+      for(let i=0;i<10;i++){
         const email=data[i].email;
         try{
           const res=await fetch('/api/feedback/fetchUserData',{
@@ -101,13 +100,14 @@ export default function Feedback(){
       
     }
     dispatch(feedbackSaveSuccess(data));
-    setformData(initialFormData);
-    navigate('/');
 
     } catch (error) {
         console.log(error)
         dispatch(feedbackSaveFailure(error.message));
     }
+    setActiveIndex('0')
+    setformData({email:currentUser.email,feedback:'',rating:'0'})
+    console.log(formData)
   };
 
 
@@ -118,7 +118,7 @@ export default function Feedback(){
       });
   };
 
-  
+ 
     return (
       <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
         <div className="relative w-full h-full">
@@ -144,7 +144,7 @@ export default function Feedback(){
             <div className="justify-center align-item-center m-[1rem]   rounded-[32px] bg-white w-full max-w-[350px] md:max-w-[600px] bg-gray p-[0.2rem] border-[1px] border-solid border-black">
             <form onSubmit={handleSubmit}>
                     <div className="flex flex-row items-center justify-between">
-                    <input onChange={handleChange} id="feedback" type="text" className="outline-none w-full m-1 md:m-2 align-item-center text-gray leading-[120%] md:leading-[150%] " placeholder="Write a Review"/>
+                    <input onChange={handleChange} id="feedback" type="text" className="outline-none w-full m-1 md:m-2 align-item-center text-gray leading-[120%] md:leading-[150%] " placeholder="Write a Review" value={formData.feedback}/>
                     <div className="rounded-[29px] bg-darkslategray flex flex-row items-center justify-center py-[.2rem] md:py-[0.4rem] px-[.8rem] md:px-[1.5rem] 
                         text-white border-[.5px] md:border-[1px] border-solid border-darkslategray">                            
                     <button disabled={loading} className="relative leading-[120%] md:leading-[150%]">{loading?"Submitting":"Submit"}</button>
@@ -168,8 +168,9 @@ export default function Feedback(){
         
         <div className="">
         {testimonials.map((testimonial, index) => (
-          <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50 rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
-            <div className="flex items-center mb-2">
+          <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50  rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
+            <div className="flex items-center mb-2 ">
+              <button></button>
               <div className="bg-gray-300 rounded-full h-10 w-10 flex items-center justify-center mr-4">
                 <span className="text-gray-600 font-bold">{testimonial.name.charAt(0)}</span>
               </div>
@@ -183,6 +184,7 @@ export default function Feedback(){
           </div>
           
         ))}
+         
         </div>
         </div>
 
