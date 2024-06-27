@@ -50,7 +50,7 @@ export default function Nav  (){
   const renderUserMenu = (size = 'lg') => (
     innerWidth>768?<div className='menu-container '>
     <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
-    <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
+    <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden object-cover ' src={currentUser.avatar}/>
     </div>
     
     
