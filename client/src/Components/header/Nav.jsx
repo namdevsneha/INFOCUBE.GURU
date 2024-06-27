@@ -106,7 +106,7 @@ export default function Nav  (){
               
               
               <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem] 
-                rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth - 0.6239}px`}}>
+                rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth - 4.5239}px`}}>
                 <div className='flex items-center  gap-[5px]'>
                 <img className=' rounded-full h-[1.875rem] w-[1.875rem]  overflow-hidden ' src={currentUser.avatar}/>
                 <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
@@ -129,6 +129,66 @@ export default function Nav  (){
               </div>
   );
 
+  
+const links = [
+  { to: '/#About', text: 'ABOUT US', duration: 1000, offset: 10 },
+  { to: '/#Alumni', text: 'ALUMNI', duration: 800, offset: 50 },
+  { to: 'Feedback', text: 'FEEDBACK', duration: null, offset: null },
+  { to: 'Help', text: 'HELP & SUPPORT', duration: null, offset: null },
+];
+
+  const renderNavLinks = () => (
+    <div className='menu-container'>
+           <button className="menu-trigger h-[1.5rem] mt-[.25rem]" onClick={handleToggleNavbar}>
+            {isOpen ? <X /> : <ChevronDown />}
+          </button>
+        <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem]
+          rounded-[5px] py-[2px] px-[10px]  text-black ${isOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth + 21.5239}px`}}>
+              <ul>
+                <KLink   className='' to='/#About' spy={true}
+                  smooth={true} duration={1000} offset={10} >
+                <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
+                ABOUT
+                </li>
+                </KLink>
+                  
+                <li>
+                    <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
+                  </li>
+
+                <KLink   to='/#Alumini' spy={true}
+                  smooth={true} duration={800} offset={50} >
+                   <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
+                ALUMINI
+                </li>
+                </KLink>
+
+                <li>
+                    <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
+                  </li>
+
+                <KLink  to='Feedback' className="navlink ">
+                <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
+                FEEDBACK
+                </li>
+                </KLink>
+
+                <li>
+                    <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
+                  </li>
+
+                <KLink  to='Help' className="navlink ">
+                <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px]  '>
+                HELP & SUPPORT
+                </li>
+                </KLink>
+            </ul>
+           
+            </div>
+      
+    </div>
+  );
+
   const renderAuthButtons = () => (
     innerWidth>768?<div>
     <KLink to='SignUp'>
@@ -147,23 +207,7 @@ export default function Nav  (){
 </KLink>
   );
 
-  const renderNavLinks = () => (
-    <div className=''>
-      {/* {links.map((link, index) => (
-        <ScrollLink
-          key={index}
-          to={link.to}
-          spy={true}
-          smooth={true}
-          duration={link.duration}
-          offset={link.offset}
-          className="navlink"
-        >
-          {link.text}
-        </ScrollLink>
-      ))} */}
-    </div>
-  );
+  
 
   return (
     <div>
@@ -174,16 +218,13 @@ export default function Nav  (){
         </div>
 
         <div className="flex justify-between md:hidden">
-          <button className="h-[1.5rem] mt-[.25rem]" onClick={handleToggleNavbar}>
-            {isOpen ? <X /> : <ChevronDown />}
-          </button>
+        {renderNavLinks()}
+
           {currentUser && currentUser.username ? renderUserMenu('sm') : renderAuthButtons()}
         </div>
       </nav>
 
-    {isOpen && (
-      renderNavLinks()
-    )}
+      
     </div>
   );
 };
