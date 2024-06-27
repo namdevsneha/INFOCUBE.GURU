@@ -26,6 +26,8 @@ import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
 import ScrollToTop from './Pages/ScrollToTop.jsx';
 import ScrollToElement from './Pages/ScrollToElement.jsx';
+import { closeDropDown } from './Redux/userSlice/navDropDown.js';
+import { closeNav } from './Redux/IsOpenSlice.js';
 // import { Router } from 'express';
 
 function App() {
@@ -47,9 +49,15 @@ function App() {
         };
 
   }, [dispatch]);
+
+  const handleWheel = () => {
+    dispatch(closeNav());
+    dispatch(closeDropDown());
+  };
+
   
   return(
-    <div className="overflow-x-hidden" > 
+    <div onTouchStart={handleWheel} onWheel={handleWheel} className="overflow-x-hidden" > 
      <BrowserRouter>
     {showHeader?<Header/>:""}
     <ScrollToElement/>

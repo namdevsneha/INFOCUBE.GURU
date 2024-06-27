@@ -1,0 +1,66 @@
+/* Navbar profile drop down */
+.dropdown-menu.active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 200ms ease;
+}
+
+.dropdown-triangle.active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 200ms ease;
+}
+
+
+.dropdown-menu.inactive{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 200ms ease;
+}
+
+#comment-box {
+	position: absolute;
+}
+
+#comment-box::after {
+	content: "";
+	position: absolute;
+	height: 20px;
+	width: 25px;
+	top: -12px;
+	right: .5rem;
+	background-color: #F3F3F3;
+	clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+}
+
+.dropdown-menu::before{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  content: '';
+  height: 20px;
+  width: 20px;
+  transform: rotate(45deg);
+}
+
+
+.dropdown-menu ul li:hover a{
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover img{
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+.dropdownItem img{
+  max-width: 20px;
+  opacity: 0.5;
+  transition: 100ms;
+}
+/* Navbar profile drop down */
