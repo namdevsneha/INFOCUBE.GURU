@@ -12,16 +12,25 @@ import { signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../../Re
 import { closeDropDown, toogleDropDown } from '../../Redux/userSlice/navDropDown';
 import axios from 'axios';
 import { baseURL } from '../../url';
-
+import './Nav.css';
 
 export default function Nav  (){
   const isOpen = useSelector((state) => state.navbar.isOpen);
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const isnavDropDownOpen = useSelector((state) => state.navDropDown.isOpen);
+  const [isNavOpen,setIsNavOpen] = useState(false);
+  const [isProfileOpen,setIsProfileOpen] = useState(false);
 
   const handleToggleNavbar = () => {
+    if(isNavOpen){
+      setIsNavOpen(false);
     dispatch(toggleNavbar());
+    dispatch(toggleNavbar());
+    }else{
+      setIsNavOpen(true);
+      dispatch(toggleNavbar());
+    }
   };
 
   const closeNavbar = () => {
@@ -29,8 +38,20 @@ export default function Nav  (){
     dispatch(closeNav());
   };
 
+  const handleToggleProfile = () => {
+    if(isProfileOpen){
+      setIsProfileOpen(false);
+    dispatch(toogleDropDown());
+    dispatch(toogleDropDown());
+    }else{
+      setIsProfileOpen(true);
+      dispatch(toogleDropDown());
+    }
+  };
+
+
   const handleSignOut = async () => {
-    dispatch(closeDropDown());
+    handleToggleProfile();
     try {
       dispatch(signOutUserStart());
       const res = await axios.get( `${baseURL}/api/auth/signOut`);
@@ -48,21 +69,22 @@ export default function Nav  (){
   };
 
   const renderUserMenu = (size = 'lg') => (
-    innerWidth>768?<div className='menu-container '>
-    <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
+    innerWidth>768?
+    <div className='menu-container '>
+    <div className='menu-trigger ' onClick={handleToggleProfile}>
     <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden object-cover ' src={currentUser.avatar}/>
     </div>
     
     
     <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[13rem] top-[3.4rem] lg:top-[3.5rem]
-     md:right-[5rem] rounded-[5px] py-[10px] px-[20px] lg:right-[10rem] text-black ${isnavDropDownOpen?'active':'inactive'}`}>
+      rounded-[5px] py-[10px] px-[20px] text-black ${isnavDropDownOpen?'active':'inactive'}` } style={{right:`${0.0813 * innerWidth - 11.43}px`}}>
       <div className='flex items-center  gap-[5px]'>
       <img className=' rounded-full h-[2.5rem] w-[2.5rem]  overflow-hidden ' src={currentUser.avatar}/>
       <h3 className='text-[1rem] h-[1.5rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
       </div>
       <ul>
       <KLink to="Profile">
-        <button className='w-full' onClick={()=>{dispatch(closeDropDown())}}>
+        <button className='w-full' onClick={handleToggleProfile}>
         <DropDownItem  text={"Profile"}/>
         </button>
         </KLink>
@@ -78,20 +100,20 @@ export default function Nav  (){
     </div>
     :
     <div className='menu-container '>
-              <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
+              <div className='menu-trigger ' onClick={handleToggleProfile}>
               <img className=' rounded-full h-[1.875rem] w-[1.875rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
               </div>
               
               
               <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem] 
-               right-[2.2rem] rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`}>
+                rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth - 0.6239}px`}}>
                 <div className='flex items-center  gap-[5px]'>
                 <img className=' rounded-full h-[1.875rem] w-[1.875rem]  overflow-hidden ' src={currentUser.avatar}/>
                 <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
                 </div>
                 <ul>
                 <KLink to="Profile">
-                  <button className='w-full text-[.75rem]' onClick={()=>{dispatch(closeDropDown())}}>
+                  <button className='w-full text-[.75rem]' onClick={handleToggleProfile}>
                   <DropDownItem  text={"Profile"}/>
                   </button>
                   </KLink>
@@ -125,6 +147,24 @@ export default function Nav  (){
 </KLink>
   );
 
+  const renderNavLinks = () => (
+    <div className=''>
+      {/* {links.map((link, index) => (
+        <ScrollLink
+          key={index}
+          to={link.to}
+          spy={true}
+          smooth={true}
+          duration={link.duration}
+          offset={link.offset}
+          className="navlink"
+        >
+          {link.text}
+        </ScrollLink>
+      ))} */}
+    </div>
+  );
+
   return (
     <div>
       <nav className="flex shrink items-center overflow-hidden">
@@ -141,11 +181,9 @@ export default function Nav  (){
         </div>
       </nav>
 
-      {isOpen && (
-        <div onWheelCapture={closeNavbar} className="flex gap-1 flex-col items-center basis-full">
-          <Navlink />
-        </div>
-      )}
+    {isOpen && (
+      renderNavLinks()
+    )}
     </div>
   );
 };

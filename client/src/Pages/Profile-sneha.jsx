@@ -290,7 +290,7 @@ export default function Profile() {
       {deviceType=="lg"?
       <div className='flex w-full  justify-between my-[3rem] '>
 
-      <div className='  flex flex-col my-auto font-lato font-extralight  justify-center  ' style={{fontSize:`${0.0254*innerWidth+28.032}px`,marginTop:windowsSize<1300?"2.5rem":"4rem"}}>
+      <div className='  flex flex-col my-auto font-lato font-thin  justify-center  ' style={{fontSize:`${0.0254*innerWidth+28.032}px`,marginTop:windowsSize<1300?"2.5rem":"4rem"}}>
         <div className="leading-[120%] items-center justify-center">
         <span >{"Hey, "}</span>
         <span className=' font-poppins font-bold' style={{fontSize:`${0.02679*innerWidth+44.5632}px`}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}<br/></span>
@@ -387,7 +387,7 @@ export default function Profile() {
           </div>
           <div>
             <label htmlFor="Gender" className='text-dimgray'>Gender</label><br/>
-            <select disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender">
+            <select disabled={disabled} className='bg-transparent w-full pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender">
             <option value="Female"> Female </option>              
               <option value="Male"> Male </option>
               <option value="Others"> Others </option>
@@ -398,20 +398,20 @@ export default function Profile() {
             <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="dob"  type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
           </div>
           <div>
-            <label htmlFor="Country" className='text-dimgray'>Country</label><br/>
-            <select id="country" disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleCountryChange}  type="text" placeholder="India">
-            <option value={formData1.country}>{formData1.country}</option>
+            <label htmlFor="Country" className='text-dimgray '>Country</label><br/>
+            <select id="country" disabled={disabled} className="bg-transparent pt-2 w-full font-bold "  onChange={handleCountryChange}  type="text" placeholder="India">
+            <option className="w-[20rem]" value={formData1.country}>{formData1.country}</option>
             {Country.getAllCountries().map((country) => (
-              <option key={country.isoCode} value={country.isoCode}>
+              <option className="w-[20rem]"  key={country.isoCode} value={country.isoCode}>
                 {country.name}
               </option>
             ))}
               </select>
 
           </div>
-          <div>
+          <div className=""> 
             <label className='text-dimgray'>State</label><br/>
-            <select disabled={ disabled || !selectedCountry} className="bg-transparent pt-2 font-bold "  onChange={handleStateChange} id="state" type="text"  placeholder="Madhya Pradesh">
+            <select disabled={ disabled || !selectedCountry} className="bg-transparent w-full pt-2 font-bold "  onChange={handleStateChange} id="state" type="text"  placeholder="Madhya Pradesh">
             <option value={formData1.state}>{formData1.state}</option>
             {selectedCountry && State.getStatesOfCountry(selectedCountry.isoCode).map((state) => (
               <option key={state.isoCode} value={state.isoCode}>
@@ -422,7 +422,7 @@ export default function Profile() {
           </div>
           <div>
             <label htmlFor="City" className='text-dimgray'>City</label><br/>
-            <select disabled={disabled || !selectedState} className="bg-transparent pt-2 font-bold "  onChange={handleCityChange} id="city" type="text"  placeholder="Bhopal">
+            <select disabled={disabled || !selectedState} className="bg-transparent pt-2 w-full font-bold "  onChange={handleCityChange} id="city" type="text"  placeholder="Bhopal">
             <option value={formData1.city}>{formData1.city}</option>
             {selectedState && City.getCitiesOfState(selectedCountry.isoCode, selectedState.isoCode).map((city) => (
               <option key={city.name} value={city.name}>
