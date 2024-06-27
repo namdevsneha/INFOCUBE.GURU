@@ -124,14 +124,14 @@ export default function ChangePassword(){
                         {/* password */}
                         <div className="mb-4 rounded-[104px] flex flex-rows items-center relative w-full ">
                             <input onChange={handleChange} id="password" className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                             text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass?"password":"text"} placeholder="Password"/>                               
+                             text-black border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass?"password":"text"} placeholder="Password"/>                               
                              <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword}>{showPass?"Show":"Hide"}</p>
                         </div>
 
                         {/* confirm password */}
                         <div className="mb-1 rounded-[104px] flex flex-rows items-center relative w-full">
                             <input onChange={handleChange} id="confirm_password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]
-                            text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass2?"password":"text"} placeholder="Confirm Password"/>
+                            text-black border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass2?"password":"text"} placeholder="Confirm Password"/>
                             <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword2}>{showPass2?"Show":"Hide"}</p>
                         </div>
                        
