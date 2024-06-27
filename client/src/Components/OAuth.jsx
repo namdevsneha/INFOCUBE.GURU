@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {signInSuccess} from '../Redux/userSlice/userSlice.js'
 import GoogleImg from '../Assets/Images/GoogleColour.webp'
+import axios from 'axios';
+import { baseURL } from '../url.js';
 
 export default function OAuth(){
     const dispatch=useDispatch();
@@ -18,15 +20,18 @@ export default function OAuth(){
             const auth =getAuth(app);
             
             const result=await signInWithPopup(auth,provider);
-            const res=await fetch('/api/auth/google',{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json',
-                },
-                body:JSON.stringify({email:result.user.email,name:result.user.displayName,photo:result.user.photoURL})
-            })
+            const res=await axios.post(`${baseURL}/api/auth/google`, {
+                email: result.user.email,
+                name: result.user.displayName,
+                photo: result.user.photoURL
+            }, {
+                withCredentials:true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
 
-            const data=await res.json()
+            const data=res.data
             console.log(data)
             if(data.username){
                navigate('/') 

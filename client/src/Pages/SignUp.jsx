@@ -9,6 +9,8 @@ import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
 import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import axios from "axios";
+import { baseURL } from "../url.js";
 
 export default function Signup(){
 
@@ -102,14 +104,13 @@ export default function Signup(){
         }
         try {
          dispatch(signInStart());
-         const res=await fetch('/api/auth/signup',{
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json',
-             },
-             body: JSON.stringify(formData),
-         });
-         const data= await res.json();
+         const res = await axios.post(`${baseURL}/api/auth/signup`, formData, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+         const data= await res.data;
+            console.log(data);
          if(data.success===false){
             dispatch(signInFailure(data.message));
             return;
@@ -119,6 +120,7 @@ export default function Signup(){
         dispatch(signUpSuccess())
 
         } catch (error) {
+            console.log(error);
          dispatch(signInFailure(error.message));
         }
         dispatch(setUserData(JSON.stringify(formData)))

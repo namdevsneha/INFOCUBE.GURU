@@ -10,6 +10,8 @@ import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
 import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
 import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import { baseURL } from "../url.js";
+import axios from "axios";
 
 export default function ForgotPassword(){
     const [formData,setFormData]=useState({});
@@ -64,14 +66,12 @@ export default function ForgotPassword(){
         e.preventDefault();
         try {
          dispatch(verifyStart());
-         const res=await fetch('/api/auth/forgotPass',{
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json',
-             },
-             body: JSON.stringify(formData),
-         });
-         const data= await res.json();
+         const res = await axios.post(`${baseURL}/api/auth/forgotPass`, formData, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+         const data= await res.data;
          if(data.success===false){
             dispatch(notVerifiedPass());
             console.log("Email is Invalid")

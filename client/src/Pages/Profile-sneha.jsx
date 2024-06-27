@@ -11,6 +11,8 @@ import crossEdit from '../Assets/Images/crossEdit.webp';
 import saveEdit from '../Assets/Images/saveEdit.webp';
 import { useLocation } from "react-router-dom";
 import { Country, State, City } from 'country-state-city';
+import { baseURL } from "../url.js";
+import axios from "axios";
 
 export default function Profile() {
   const [windowsSize,setWindowsSize]=useState({});
@@ -174,20 +176,22 @@ export default function Profile() {
   const handleSubmit2=async(avatarUrl)=>{
     try{
       dispatch(updateUserStart());
-      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    
-    body:JSON.stringify({avatar:avatarUrl})});
+      const res=await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, {
+        avatar: avatarUrl
+    }, {
+        withCredentials:true,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
-    const data=await res.json()
+    const data=await res.data
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));
        return;
     }
     dispatch(updateUserSuccess(data));
-    setUpdateSuccess(true);
 
     }catch(error){
       console.log('error')
@@ -207,20 +211,20 @@ export default function Profile() {
     }
     try{
       dispatch(updateUserStart());
-      const res=await fetch(`/api/user/updateProfile/${currentUser._id}`,{method:'POST',headers:{
-        'Content-Type':'application/json',
-      },
-    
-    body:JSON.stringify(formData)});
-
-    const data=await res.json()
+      const res= await axios.post(`${baseURL}/api/user/updateProfile/${currentUser._id}`, formData, {
+        withCredentials:true,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    const data=await res.data
     if(data.success===false){
       console.log('failed')
        dispatch(updateUserFailure(data.message));
        return;
     }
+   
     dispatch(updateUserSuccess(data));
-    setUpdateSuccess(true);
 
     }catch(error){
       console.log('error')
@@ -302,7 +306,7 @@ export default function Profile() {
         <img
           src={formData1.avatar}
           alt="Profile"
-          className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+          className="absolute transition-opacity w-full h-full object-cover cover duration-500 ease-in-out opacity-100"
           style={{ opacity: isHovered ? 0.5 : 1 }}
         />
         {isHovered && (
@@ -334,7 +338,7 @@ export default function Profile() {
         <img
             src={formData1.avatar}
             alt="Profile"
-            className="absolute transition-opacity duration-500 ease-in-out opacity-100"
+            className="absolute w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100"
             style={{ opacity: isHovered ? 0.5 : 1 }}
           />
           {isHovered && (
@@ -542,7 +546,7 @@ export default function Profile() {
         <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Select Profile Picture </div>
 
               <div className="flex ml-auto flex-row gap-[1rem] ">
-              <div className="h-auto" type="submit"
+              <div className="cursor-pointer h-auto" type="submit"
                 onClick={()=>{if(file){handleUploadFile(file)}}} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
                 <img src={saveEdit}  />
@@ -570,7 +574,7 @@ export default function Profile() {
         type='file' 
         ref={fileRef} 
         hidden accept='image/*'/>
-            <div  onClick={onImgClick}  className="w-auto center-text flex items-center justify-center  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+            <div  onClick={onImgClick}  className="cursor-pointer w-auto center-text flex items-center justify-center  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
               text-black  border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" >
               SELECT FROM YOUR DEVICE
               </div>                               

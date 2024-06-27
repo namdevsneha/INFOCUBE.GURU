@@ -6,6 +6,8 @@ import feed from '../Assets/Images/feed.png';
 import comma from '../Assets/Images/comma.png'
 import { useDispatch, useSelector } from "react-redux";
 import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../Redux/userSlice/userSlice";
+import axios from "axios";
+import { baseURL } from "../url";
 
 
 export default function Feedback(){
@@ -27,6 +29,7 @@ export default function Feedback(){
   const [show, setShow] = useState(false);
   const location = useLocation();
   const dispatch=useDispatch();
+  const [initialFormData,setinitialFormData]= useState({email:currentUser.email,feedback:'',rating:'0'});
 
   useEffect(() => {
     setShow(true);
@@ -44,27 +47,23 @@ export default function Feedback(){
   useEffect(() => {
     const handleFeedback =async(e) =>{
       try{
-        const res=await fetch('/api/feedback/fetch',{
-          method:'POST',
-          headers:{
-              'Content-Type':'application/json',
-          },
-          body: JSON.stringify(formData),
+        const res= await axios.post(`${baseURL}/api/feedback/fetch`, formData, {
+          headers: {
+              'Content-Type': 'application/json'
+          }
       });
-      const data= await res.json();
+      const data= await res.data;
       const newData = [];
   
       for(let i=0;i<10;i++){
         const email=data[i].email;
         try{
-          const res=await fetch('/api/feedback/fetchUserData',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({email}),
+          const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, formData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
-        const userData= await res.json();
+        const userData= await res.data;
         
         newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
       }catch(error){
@@ -78,21 +77,19 @@ export default function Feedback(){
       
     }
     handleFeedback();
-  });
+  },[formData]);
 
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
      dispatch(feedbackSaveStart());
-     const res=await fetch('/api/feedback/save',{
-         method:'POST',
-         headers:{
-             'Content-Type':'application/json',
-         },
-         body: JSON.stringify(formData),
-     });
-     const data= await res.json();
+     const res= await axios.post(`${baseURL}/api/feedback/save`, formData, {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
+     const data= await res.data;
      if(data.success===false){
         dispatch(feedbackSaveFailure(data.message));
         console.log("Sign in failed")
@@ -100,6 +97,8 @@ export default function Feedback(){
       
     }
     dispatch(feedbackSaveSuccess(data));
+    setActiveIndex('0');
+    setformData(initialFormData);
 
     } catch (error) {
         console.log(error)
@@ -144,7 +143,7 @@ export default function Feedback(){
             <div className="justify-center align-item-center m-[1rem]   rounded-[32px] bg-white w-full max-w-[350px] md:max-w-[600px] bg-gray p-[0.2rem] border-[1px] border-solid border-black">
             <form onSubmit={handleSubmit}>
                     <div className="flex flex-row items-center justify-between">
-                    <input onChange={handleChange} id="feedback" type="text" className="outline-none w-full m-1 md:m-2 align-item-center text-gray leading-[120%] md:leading-[150%] " placeholder="Write a Review" value={formData.feedback}/>
+                    <input onChange={handleChange} id="feedback" type="text" value={formData.feedback} className="outline-none w-full m-1 md:m-2 align-item-center text-gray leading-[120%] md:leading-[150%] " placeholder="Write a Review"/>
                     <div className="rounded-[29px] bg-darkslategray flex flex-row items-center justify-center py-[.2rem] md:py-[0.4rem] px-[.8rem] md:px-[1.5rem] 
                         text-white border-[.5px] md:border-[1px] border-solid border-darkslategray">                            
                     <button disabled={loading} className="relative leading-[120%] md:leading-[150%]">{loading?"Submitting":"Submit"}</button>
@@ -168,11 +167,10 @@ export default function Feedback(){
         
         <div className="">
         {testimonials.map((testimonial, index) => (
-          <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50  rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
-            <div className="flex items-center mb-2 ">
-              <button></button>
-              <div className="bg-gray-300 rounded-full h-10 w-10 flex items-center justify-center mr-4">
-                <span className="text-gray-600 font-bold">{testimonial.name.charAt(0)}</span>
+          <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50 rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
+            <div className="flex items-center mb-2">
+              <div className="bg-blue-300 rounded-full h-10 w-10 flex items-center justify-center mr-4">
+              <img className=' rounded-full h-full w-full object-cover  overflow-hidden ' src={currentUser.avatar}/>
               </div>
               <div>
                 <p className="font-bold">{testimonial.name}</p>

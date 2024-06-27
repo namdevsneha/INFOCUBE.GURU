@@ -10,7 +10,7 @@ export default function StartingVideo() {
     
     const isOpen = useSelector((state) => state.navbar.isOpen);
 
-    const baseClass = 'relative font-thin  font-khand  text-white ';
+    const baseClass = 'relative font-bold  font-khand  text-white ';
     const conditionalClass = isOpen ? 'top-[60px] h-auto' : 'top-[40px]';
 
     // Combine base class and conditional class based on isOpen
@@ -33,16 +33,14 @@ export default function StartingVideo() {
       <div onWheel={handleWheelScroll} onTouchStart={handleWheelScroll}
       style={{marginLeft :`-${0.0383*innerWidth-0.6239}px` ,touchAction: 'pan-y' }} className=" w-screen bg-grey h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
-
-{/*         
+        
         <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] bg-grey absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
-        </video> */}
-        
+        </video>
           
           <p className={combinedClass}  style={{paddingLeft:`${0.0383*innerWidth-0.6239}px`}}>
-                <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
+          <span style={{fontSize:`${0.03316*innerWidth+18.82228}px`}}>Unlock Your</span>
                 <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>
                 <span className="leading-[100%]" style={{fontSize:`${0.04827*innerWidth+24.98891}px`}}>Potential</span>
                 <span style={{fontSize:`${0.04082*innerWidth+24.67606}px`}}>{` `}</span>

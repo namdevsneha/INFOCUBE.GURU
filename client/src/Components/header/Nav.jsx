@@ -10,6 +10,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
 import { signOutUserFailure,signOutUserStart,signOutUserSuccess } from '../../Redux/userSlice/userSlice';
 import { closeDropDown, toogleDropDown } from '../../Redux/userSlice/navDropDown';
+import axios from 'axios';
+import { baseURL } from '../../url';
 
 
 export default function Nav  (){
@@ -31,14 +33,16 @@ export default function Nav  (){
     dispatch(closeDropDown());
     try {
       dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signOut');
-      const data = await res.json();
+      const res = await axios.get( `${baseURL}/api/auth/signOut`);
+      const data = res.data;
       if (data.success === false) {
+        console.log(hi);
         dispatch(signOutUserFailure(data.message));
         return;
       }
       dispatch(signOutUserSuccess(data));
     } catch (error) {
+      console.log(error);
       dispatch(signOutUserFailure(error.message));
     }
   };
@@ -46,7 +50,7 @@ export default function Nav  (){
   const renderUserMenu = (size = 'lg') => (
     innerWidth>768?<div className='menu-container '>
     <div className='menu-trigger ' onClick={()=>{dispatch(toogleDropDown())}}>
-    <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
+    <img className=' rounded-full h-[2.5rem] w-[2.5rem] cursor-pointer overflow-hidden object-cover ' src={currentUser.avatar}/>
     </div>
     
     
@@ -150,7 +154,7 @@ const links = [
   { to: '/#About', text: 'ABOUT US', duration: 1000, offset: 10 },
   { to: '/#Alumni', text: 'ALUMNI', duration: 800, offset: 50 },
   { to: 'Feedback', text: 'FEEDBACK', duration: null, offset: null },
-  { to: 'Help', text: 'HELPSUPPORT', duration: null, offset: null },
+  { to: 'Help', text: 'HELP & SUPPORT', duration: null, offset: null },
 ];
 
 const Navlink = () => {

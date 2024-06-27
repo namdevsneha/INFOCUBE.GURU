@@ -7,6 +7,8 @@ import InfoCube from '../Assets/Images/infocubeblack.webp';
 import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
 import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import axios from "axios";
+import { baseURL } from "../url.js";
 
 export default function Verification(){
     const [otp,setOTP]=useState(0);
@@ -48,14 +50,14 @@ export default function Verification(){
         const sendOtp = async () => {
             try {
                 //  dispatch(signInStart());
-                 const res=await fetch('/api/auth/sendOTP',{
-                     method:'POST',
-                     headers:{
-                         'Content-Type':'application/json',
-                     },
-                     body: JSON.stringify({email:email}),
-                 });
-                 const data= await res.json();
+                 const res=await axios.post(`${baseURL}/api/auth/sendOTP`, {
+                    email: email
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                 const data= await res.data;
                  setOTP(data);
                  if(data.success===false){
                     // dispatch(signInFailure(data.message));

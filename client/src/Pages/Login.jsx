@@ -12,6 +12,8 @@ import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
 import LoginMain from '../Assets/Images/LoginMain.webp';
 
 import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import axios from "axios";
+import { baseURL } from "../url.js";
 
 export default function Login(){
     const [formData,setFormData]=useState({});
@@ -65,29 +67,32 @@ export default function Login(){
     };
 
     const handleSubmit=async (e)=>{
+        
         e.preventDefault();
         try {
          dispatch(signInStart());
-         const res=await fetch('/api/auth/login',{
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json',
-             },
-             body: JSON.stringify(formData),
-         });
-         const data= await res.json();
+         const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
+            withCredentials:true,
+            headers: {
+                'Content-Type': 'application/json',
+            }});
+         const data= res.data;
          console.log(data);
          if(data.success===false){
             dispatch(signInFailure(data.message));
             console.log("Sign in failed")
             return;
-          
+            // const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     }
         }
         dispatch(signInSuccess(data));
         console.log("Success")
         navigate('/');
 
         } catch (error) {
+            console.log(error);
          dispatch(signInFailure(error.message));
         }
     }
