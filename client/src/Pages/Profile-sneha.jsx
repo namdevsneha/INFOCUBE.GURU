@@ -546,7 +546,7 @@ export default function Profile() {
         <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Select Profile Picture </div>
 
               <div className="flex ml-auto flex-row gap-[1rem] ">
-              <div className="cursor-pointer sh-auto" type="submit"
+              <div className="cursor-pointer h-auto" type="submit"
                 onClick={()=>{if(file){handleUploadFile(file)}}} style={{ width:`${0.00781*innerWidth+19.9988}px`}}
               >
                 <img src={saveEdit}  />
