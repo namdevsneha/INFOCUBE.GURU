@@ -57,7 +57,7 @@ function App() {
 
   
   return(
-    <div onTouchStart={handleWheel} onWheel={handleWheel} className="overflow-x-hidden" > 
+    <div onClickCapture={handleWheel} onTouchStart={handleWheel} onWheel={handleWheel} className="overflow-x-hidden" > 
      <BrowserRouter>
     {showHeader?<Header/>:""}
     <ScrollToElement/>

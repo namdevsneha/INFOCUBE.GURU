@@ -22,6 +22,16 @@ export default function Nav  (){
   const [isNavOpen,setIsNavOpen] = useState(false);
   const [isProfileOpen,setIsProfileOpen] = useState(false);
 
+  let username = currentUser.username;
+  let userName='';
+  let firstSpaceIndex = username.indexOf(" ");
+
+  if (firstSpaceIndex === -1) {
+    userName = username.charAt(0).toUpperCase() + username.slice(1);
+  } else {
+    userName= username.charAt(0).toUpperCase() + username.slice(1, firstSpaceIndex);
+  }
+
   const handleToggleNavbar = () => {
     if(isNavOpen){
       setIsNavOpen(false);
@@ -80,7 +90,7 @@ export default function Nav  (){
       rounded-[5px] py-[10px] px-[20px] text-black ${isnavDropDownOpen?'active':'inactive'}` } style={{right:`${0.0813 * innerWidth - 11.43}px`}}>
       <div className='flex items-center  gap-[5px]'>
       <img className=' rounded-full h-[2.5rem] w-[2.5rem]  overflow-hidden ' src={currentUser.avatar}/>
-      <h3 className='text-[1rem] h-[1.5rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
+      <h3 className='text-[1rem] h-[1.5rem]  overflow-hidden'>Hi,<span>{userName}</span>   </h3>
       </div>
       <ul>
       <KLink to="Profile">
@@ -101,15 +111,15 @@ export default function Nav  (){
     :
     <div className='menu-container '>
               <div className='menu-trigger ' onClick={handleToggleProfile}>
-              <img className=' rounded-full h-[1.875rem] w-[1.875rem] cursor-pointer overflow-hidden ' src={currentUser.avatar}/>
+              <img className=' rounded-full h-[1.875rem] w-[1.875rem] cursor-pointer object-cover overflow-hidden ' src={currentUser.avatar}/>
               </div>
               
               
               <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem] 
                 rounded-[5px] py-[5px] px-[10px]  text-black ${isnavDropDownOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth - 4.5239}px`}}>
                 <div className='flex items-center  gap-[5px]'>
-                <img className=' rounded-full h-[1.875rem] w-[1.875rem]  overflow-hidden ' src={currentUser.avatar}/>
-                <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{currentUser.username}</span>   </h3>
+                <img className=' rounded-full h-[1.875rem] w-[1.875rem] object-cover  overflow-hidden ' src={currentUser.avatar}/>
+                <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{userName}</span>   </h3>
                 </div>
                 <ul>
                 <KLink to="Profile">
@@ -128,14 +138,6 @@ export default function Nav  (){
         
               </div>
   );
-
-  
-const links = [
-  { to: '/#About', text: 'ABOUT US', duration: 1000, offset: 10 },
-  { to: '/#Alumni', text: 'ALUMNI', duration: 800, offset: 50 },
-  { to: 'Feedback', text: 'FEEDBACK', duration: null, offset: null },
-  { to: 'Help', text: 'HELP & SUPPORT', duration: null, offset: null },
-];
 
   const renderNavLinks = () => (
     <div className='menu-container'>
