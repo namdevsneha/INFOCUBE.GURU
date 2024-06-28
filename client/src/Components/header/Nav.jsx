@@ -22,8 +22,12 @@ export default function Nav  (){
   const [isNavOpen,setIsNavOpen] = useState(false);
   const [isProfileOpen,setIsProfileOpen] = useState(false);
 
-  let username = currentUser.username;
   let userName='';
+  let username='';
+  if(currentUser && currentUser.username){
+    username = currentUser.username;
+
+  }  
   let firstSpaceIndex = username.indexOf(" ");
 
   if (firstSpaceIndex === -1) {
