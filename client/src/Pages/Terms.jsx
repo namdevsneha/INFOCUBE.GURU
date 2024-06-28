@@ -12,9 +12,6 @@ export default function Terms(){
     return (
         <div  className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}` }>
           <div className="mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem] flex flex-col items-center" >
-          {/* <div className="font-bold font-roboto py-[2rem] md:py-[2.5rem] lg:py-[3rem] text-left" style={{fontSize:`${0.0234375*innerWidth+24}px`}}>Terms & Conditions</div> */}
-            
-
           
           <div className="relative w-full  flex items-center justify-center  py-[2rem] md:py-[2.5rem] lg:py-[3rem]">
         <div className="absolute inset-0 flex items-center">
