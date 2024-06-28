@@ -282,9 +282,19 @@ export default function Profile() {
     setDisabled3(true);
   };
 
+  let username = currentUser.username;
+  let userName='';
+  let firstSpaceIndex = username.indexOf(" ");
+
+  if (firstSpaceIndex === -1) {
+    userName = username.charAt(0).toUpperCase() + username.slice(1);
+  } else {
+    userName= username.charAt(0).toUpperCase() + username.slice(1, firstSpaceIndex);
+  }
+
   return (
-    <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
-    <div className={'shadow-inner mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem]  relative bg-right-top bg-no-repeat overflow-hidden'}  
+    <div  className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`} >
+    <div id="" className={'shadow-inner mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem]  relative bg-right-top bg-no-repeat overflow-hidden'}  
     style={{ backgroundImage:deviceType=="lg"? `url(${polygon})`:"",backgroundSize:`${0.4464*innerWidth+100}px`,
     paddingLeft :innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`,paddingRight:innerWidth<768?`${0.0383*innerWidth-0.6239}px`:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`  } }>
       {deviceType=="lg"?
@@ -293,7 +303,7 @@ export default function Profile() {
       <div className='  flex flex-col my-auto font-lato font-thin  justify-center  ' style={{fontSize:`${0.0254*innerWidth+28.032}px`,marginTop:windowsSize<1300?"2.5rem":"4rem"}}>
         <div className="leading-[120%] items-center justify-center">
         <span >{"Hey, "}</span>
-        <span className=' font-poppins font-bold' style={{fontSize:`${0.02679*innerWidth+44.5632}px`}}>{currentUser.username.charAt(0).toUpperCase()+currentUser.username.slice(1,currentUser.username.indexOf(" "))}<br/></span>
+        <span className=' font-poppins font-bold' style={{fontSize:`${0.02679*innerWidth+44.5632}px`}}>{userName}<br/></span>
         <span >{'Here\'s Your '}</span>
         
         <span className='font-poppins font-bold text-purplefont' >Profile</span>

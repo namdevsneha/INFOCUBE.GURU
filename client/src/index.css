@@ -454,3 +454,8 @@ body {
 .navlink:hover {
   background-color: #f0f0f0; /* Example hover background color */
 }
+
+
+#example1{
+  box-shadow: -10px 0 8px -8px black, 10px 0 8px -8px black;
+}
