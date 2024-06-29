@@ -26,7 +26,7 @@ export default function Login(){
     const dispatch=useDispatch();
     const [isImgLoaded, setIsImgLoaded] = useState(false);
     const [show, setShow] = useState(false);
-
+    const [err,setErr]=useState(null);
     const handleImageLoaded = () => {
       setIsImgLoaded(true);
       setShow(false)
@@ -60,6 +60,17 @@ export default function Login(){
         setShowPass(!showPass);
     }
    const handleChange=(e)=>{
+    
+        if(e.target.id==='email'){
+            const isFirstCharLetter = /^[a-zA-Z]/.test(e.target.value[0]);
+            const isValidEmail = e.target.value.includes('@') && e.target.value.includes('.'); 
+            if(!isValidEmail||!isFirstCharLetter){
+                setErr("Invalid Email")
+                return;
+            }else{
+                setErr(null);
+            }
+        }
         setFormData({
             ...formData,
             [e.target.id]:e.target.value,
@@ -82,10 +93,6 @@ export default function Login(){
             dispatch(signInFailure(data.message));
             console.log("Sign in failed")
             return;
-            // const res = await axios.post(`${baseURL}/api/auth/login`, formData, {
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     }
         }
         dispatch(signInSuccess(data));
         console.log("Success")
@@ -138,6 +145,7 @@ export default function Login(){
                         <p className="ml-4 text-[.7rem]  lg:text-[0.8rem] text-slateblue font-roboto font-medium"> 
                         <Link to='../ForgotPassword'> Forgot Password?</Link>
                         </p>
+                        {err&&<p className="ml-4 text-[.7rem]  lg:text-[0.8rem]  text-red-500 font-roboto ">{err}</p>}
                         {error&&<p className="ml-4 text-[.7rem]  lg:text-[0.8rem]  text-red-500 font-roboto ">{error}</p>}
                         <div className="mb-8"/>
                         <div className="mb-4 mx-auto w-[8rem] md:w-[9rem] lg:w-[10rem] rounded-[44px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem] relative leading-[150%]">
