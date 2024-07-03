@@ -26,7 +26,7 @@ export default function StartingVideo() {
       style={{marginLeft :`-${0.0383*innerWidth-0.6239}px` ,touchAction: 'pan-y' }} className=" w-screen bg-grey h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
         
-        <video style={{ filter: 'brightness(0.3)' }} id="video-player" className="z-[-1] bg-grey absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
+        <video style={{ filter: 'brightness(1)' }} id="video-player" className="z-[-1]  absolute top-[0px] w-screen h-screen object-fill" height="100%" autoPlay loop muted>
           <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
@@ -49,3 +49,5 @@ export default function StartingVideo() {
       </Link>
     );
   }
+
+  
