@@ -14,7 +14,7 @@ export default function Image(){
     const slider = React.useRef(null);
           
           const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
@@ -34,43 +34,44 @@ export default function Image(){
           };
 
     return (
-      <div className=''>
         <div className="relative w-full overflow-hidden flex flex-col items-center justify-start gap-[0.938rem] text-center
-         text-[2rem] text-black font-roboto">
-          <div className="w-[20.698rem] flex flex-col items-center justify-start gap-[0.625rem]">
-            <b className="self-stretch relative leading-[120%]">Image Gallery</b>
-            <div className="self-stretch relative text-[0.625rem] leading-[150%]">Capturing Moments of Community Events and Interactions</div>
+         text-black font-poppins pb-6">
+          <div className=" flex flex-col items-center justify-start gap-[0.625rem]">
+            <b className="self-stretch relative leading-[120%]" style={{fontSize: `${0.045918*innerWidth+14.825714}px`}}>Image Gallery</b>
+            <div className="self-stretch relative leading-[150%]" style={{fontSize: `${0.007653*innerWidth+8.135549}px`}}>Capturing Moments of Community Events and Interactions</div>
           </div>
           <div className="w-full grid grid-cols-8  ">
-            <button className="w-[1.7rem] col-span-1 place-self-center "
+            <button className=" col-span-1 place-self-center "
               onClick={() => slider?.current?.slickPrev()}>
-              <img src={LeftArrowBtn}/>
+              <img src={LeftArrowBtn} style={{width:`${0.020408*innerWidth+16.347296}px`}}/>
             </button> 
 
-            <div className=" col-span-6 items-center  justify-start  h-[14rem]">
-              <Slider ref={slider} {...settings} >
-                  <div className=" w-full items-center ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image1} />
-                  </div>
-                  <div className=" ">
-                      <img className=" m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image2} />
-                  </div>
-                  <div className=" ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image3} />
-                  </div>
-                
-                  <div className=" ">
-                      <img className="m-auto w-auto h-[11.5rem]  object-cover" alt="" src={Image5} />
-                  </div>
-              </Slider>
+            <div className=" col-span-6 items-center  justify-start  " >
+            <Slider ref={slider} {...settings}>
+              <div className="px-4  w-full flex justify-center items-center" >
+                <img className="w-auto m-auto py-auto bg-blue-200" alt="" style={{height:`${0.255102*innerWidth+54.081366}px`}} src={Image1} />
+              </div>
+              <div className="px-4 w-full  flex justify-center items-center  " >
+                <img className="w-auto bg-blue-200 " alt="" style={{height:`${0.255102*innerWidth+54.081366}px`}} src={Image2} />
+              </div>
+              <div className="px-4 w-full flex justify-center items-center">
+                <img className="w-auto object-cover" alt="" style={{height:`${0.255102*innerWidth+54.081366}px`}} src={Image3} />
+              </div>
+              <div className="px-4 w-full flex justify-center items-center">
+                <img className="w-auto object-cover" alt="" style={{height:`${0.255102*innerWidth+54.081366}px`}} src={Image5} />
+              </div> 
+              
+            </Slider>
+
             </div>
 
-            <button className="w-[1.7rem] col-span-1 place-self-center " 
+            <button className=" col-span-1 place-self-center " 
               onClick={() => slider?.current?.slickNext()}>
-              <img src={RightArrowBtn}/>
+              <img src={RightArrowBtn} style={{width:`${0.020408*innerWidth+16.347296}px`}}/>
             </button> 
           </div>
         </div>
-      </div>
     )
 }
+
+{/* */}
