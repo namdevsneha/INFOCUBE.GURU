@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Body from "../Components/Help/Desktop/Help.jsx"
-import FAQ from "../Components/Help/Desktop/FAQ.jsx"
-import BodyMobile from "../Components/Help/Mobile/Help.jsx"
-import FAQMobile from '../Components/Help/Mobile/FAQ.jsx'
+import Body from "./Desktop/Help.jsx"
+import FAQ from "./Desktop/FAQ.jsx"
+import BodyMobile from "./Mobile/Help.jsx"
+import FAQMobile from './Mobile/FAQ.jsx'
 import { useLocation } from "react-router-dom";
 
 

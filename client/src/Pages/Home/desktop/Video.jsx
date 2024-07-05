@@ -50,7 +50,7 @@ export default function StartingVideo() {
     return (
        <div
       onWheel={handleWheel}
-      className="relative w-screen overflow-hidden shrink-0 text-left mx-[-2rem] text-white font-khand bg-grey"
+      className="relative w-screen  shrink-0 text-left mx-[-2rem] text-white font-khand bg-grey"
       style={containerStyles}
     >
       <Suspense fallback={<div  className="bg-grey w-full h-full object-cover"></div>}>

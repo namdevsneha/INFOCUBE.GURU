@@ -1,7 +1,7 @@
 import React from "react";
 import bg from '../../../Assets/Images/bg.webp';
 import {Link} from "react-router-dom";
-import SignUp from "../../../Pages/SignUp";
+import SignUp from "../../Auth/SignUp";
 
 export default function Journey(){
     return (

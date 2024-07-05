@@ -1,13 +1,13 @@
 import React,{setState,useEffect,useState} from "react";
-import backgroundImage from '../Assets/Images/Feedback_Bg_image.webp';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.png';
+import backgroundImage from '../../Assets/Images/Feedback_Bg_image.webp';
+import InfoCubeLogo from '../../Assets/Images/InfoCubeLogo.png';
 import {Link, useLocation} from "react-router-dom";
-import feed from '../Assets/Images/feed.png';
-import comma from '../Assets/Images/comma.png'
+import feed from '../../Assets/Images/feed.png';
+import comma from '../../Assets/Images/comma.png'
 import { useDispatch, useSelector } from "react-redux";
-import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../Redux/userSlice/userSlice";
+import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../../Redux/userSlice/userSlice";
 import axios from "axios";
-import { baseURL } from "../url";
+import { baseURL } from "../../url";
 
 
 export default function Feedback(){
@@ -43,6 +43,7 @@ export default function Feedback(){
       rating:index,
   });
   };
+  console.log(formData)
 
   useEffect(() => {
     const handleFeedback =async(e) =>{
@@ -58,13 +59,12 @@ export default function Feedback(){
       for(let i=0;i<data.length;i++){
         const email=data[i].email;
         try{
-          const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, formData, {
+          const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, {email}, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         const userData= await res.data;
-        
         newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
       }catch(error){
         console.log(error)
@@ -113,7 +113,7 @@ export default function Feedback(){
           [e.target.id]:e.target.value,
       });
   };
-
+  console.log(testimonials)
   
     return (
       <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
@@ -167,7 +167,7 @@ export default function Feedback(){
           <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50 rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
             <div className="flex items-center mb-2">
               <div className="bg-blue-300 rounded-full h-10 w-10 flex items-center justify-center mr-4">
-              <img className=' rounded-full h-full w-full object-cover  overflow-hidden ' src={currentUser.avatar}/>
+              <img className=' rounded-full h-full w-full object-cover  overflow-hidden ' src={testimonial.avatar}/>
               </div>
               <div>
                 <p className="font-bold">{testimonial.name}</p>

@@ -3,29 +3,26 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { showHeader,hideHeader } from './Redux/userSlice/loginSlice.js';
 
-import Home from './Pages/Home';
-// import Career from './Pages/Career';
-// import Alumini from './Pages/Alumini';
-import Feedback from './Pages/Feedback';
-import Help from './Pages/Help';
+import Home from './Pages/Home/Home.jsx';
+import Feedback from './Pages/Feedback/Feedback.jsx';
+import Help from './Pages/Help/Help.jsx';
 import Privacy from './Pages/Privacy';
-import SignUp from './Pages/SignUp';
+import SignUp from './Pages/Auth/SignUp.jsx';
 import Terms from './Pages/Terms';
-import Header from './Components/Header';
+import Header from './Components/header/Header.jsx';
 import Footer from './Components/Footer';
-import Login from './Pages/Login';
+import Login from './Pages/Auth/Login.jsx';
 import Profile from './Pages/Profile-sneha.jsx';
-import Verification from "./Pages/Verification.jsx";
-import Profile_noddy from './Pages/Profile-noddy.jsx';
-import PrivateRoute from './Components/PrivateRoute.jsx';
+import Verification from "./Pages/ForgotPassword/Verification.jsx";
+import PrivateRoute from './Components/privateRoute/PrivateRoute.jsx';
 import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPasswordRoute.jsx';
-import SignupForm from './Pages/SignUpForm.jsx';
-import ForgotPassword from './Pages/ForgotPassword.jsx';
-import ChangePassword from './Pages/ChangePassword.jsx';
+import SignupForm from './Pages/Auth/SignUpForm.jsx';
+import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
+import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
-import ScrollToTop from './Pages/ScrollToTop.jsx';
-import ScrollToElement from './Pages/ScrollToElement.jsx';
+import ScrollToTop from './Components/ScrollToTop.jsx';
+import ScrollToElement from './Components/ScrollToElement.jsx';
 import { closeDropDown } from './Redux/userSlice/navDropDown.js';
 import { closeNav } from './Redux/IsOpenSlice.js';
 // import { Router } from 'express';
@@ -75,7 +72,6 @@ function App() {
       <Route path='/Signup' element={<SignUp/>}/>
       <Route path='/Terms' element={<Terms/>}/>
       <Route path='/Login' element={<Login/>}/>
-      <Route path='/ProfileNoddy' element={<Profile_noddy/>}/>
       <Route path='/SignUpForm' element={<SignupForm/>}/>
       <Route path='/ChangePassword' element={<ChangePassword/>}/>
 

@@ -162,7 +162,7 @@ export default function Nav  (){
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li>
 
-                <KLink   to='/#Alumini' spy={true}
+                <KLink   to='/#Alumni' spy={true}
                   smooth={true} duration={800} offset={50} >
                    <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
                 ALUMINI

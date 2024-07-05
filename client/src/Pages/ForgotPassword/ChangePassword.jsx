@@ -2,24 +2,24 @@ import React,{useState,useEffect} from "react";
 import {Link,useNavigate} from "react-router-dom";
 
 import {useSelector,useDispatch} from 'react-redux';
-import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
-import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
-import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import InfoCube from '../Assets/Images/infocubeblack.webp';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
-import LoginMain from '../Assets/Images/LoginMain.webp';
-import { notVerifiedPass, verifiedPass, verifyStart } from "../Redux/userSlice/verifyPass.js";
-import LoadingSpinner from "../Components/loadingSpinner.jsx";
-import { baseURL } from "../url.js";
-import axios from "axios";
+import { updatePasswordFailure, updatePasswordStart, updatePasswordSuccess } from '../../Redux/userSlice/userSlice.js'
 
-export default function ForgotPassword(){
+import {changeDevice} from '../../Redux/userSlice/deviceTypeSlice.js'
+import {hideHeader, showHeader} from "../../Redux/userSlice/loginSlice.js"
+import InfoCube from '../../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../../Assets/Images/LoginMain.webp';
+import axios from "axios";
+import { baseURL } from "../../url.js";
+import LoadingSpinner from "../../Components/loadingSpinner.jsx";
+
+export default function ChangePassword(){
+    const {loading,error,email}=useSelector((state)=>state.verifyPass);
     const [formData,setFormData]=useState({});
     const [windowsWidth,setwindowsWidth]=useState({});
     const [windowsHeight,setwindowsHeight]=useState({});
-    const {loading,error,email,currentUser}=useSelector((state)=>state.verifyPass);
-    console.log({email:email,loading,currentUser})
-    
+    const [showPass,setShowPass]=useState({showPass:true});
+    const [showPass2,setShowPass2]=useState({showPass2:true});    
     const deviceType = useSelector((state) => state.deviceType.deviceType);
     const navigate=useNavigate();
     const dispatch=useDispatch();
@@ -36,17 +36,17 @@ export default function ForgotPassword(){
     };
 
     useEffect(() => {
-        const img = new Image();
-        img.src = LoginMain; // Replace with your image URL
-        img.onload = handleImageLoaded;
 
         dispatch(hideHeader());
-
+        setFormData({email:email})
         const handleResize = () => {
           dispatch(changeDevice());
           setwindowsWidth(window.innerWidth) 
           setwindowsHeight(window.innerHeight)
         };
+        const img = new Image();
+        img.src = LoginMain; 
+        img.onload = handleImageLoaded;
     
         handleResize(); // Call initially
         window.addEventListener('resize', handleResize);
@@ -60,39 +60,46 @@ export default function ForgotPassword(){
             ...formData,
             [e.target.id]:e.target.value,
         });
+
     };
+    const showPassword=()=>{
+        setShowPass(!showPass);
+    }
+    const showPassword2=()=>{
+      setShowPass2(!showPass2);
+  }
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        try {
-         dispatch(verifyStart());
-         const res = await axios.post(`${baseURL}/api/auth/forgotPass`, formData, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-         const data= await res.data;
-         if(data.success===false){
-            dispatch(notVerifiedPass());
-            console.log("Email is Invalid")
-            return;
-          
-        }
-        dispatch(verifiedPass(data));
-        
+    try{
+      dispatch(updatePasswordStart());
+      const res = await axios.post(`${baseURL}/api/user/updatePassword`, formData, {
+        headers: {
+            'Content-Type': 'application/json',
+            
+        },
+    });
+    const data=await res.data
+    console.log('here')
+    if(data.success===false){
+      console.log('failed')
+       dispatch(updatePasswordFailure(data.message));
+       return;
+    }
+    console.log('now here also')
+    dispatch(updatePasswordSuccess(data));
+    navigate('../Login');
 
-        navigate('../ForgotPassVerification');
-
-        
-        } catch (error) {
-         dispatch(notVerifiedPass());
-        }
+    }catch(error){
+      console.log('error')
+      dispatch(updatePasswordFailure(error.message));
+    }
     }
 
     return (
-        <div>{isImgLoaded?
-            <div className={`page ${show ? 'page2-enter-active' : 'page2-exit-active'}`}> 
-            <div className={`grid ${deviceType==='lg'?"md:grid-cols-5 xl:grid-cols-3 ":"grid-cols"}  w-screen bg-white h-screen overflow-hidden font-roboto `}>
+      <div>{isImgLoaded? 
+        <div className={`page ${show ? 'page-enter-active' : 'page-exit-active'}`}>
+        <div className={`grid ${deviceType==='lg'?"md:grid-cols-5 xl:grid-cols-3 ":"grid-cols"}  w-screen bg-white h-screen overflow-hidden font-roboto `}>
             {deviceType==='lg'?<div className="md:col-span-3 xl:col-span-2 w-full  h-full" style={{ filter: 'brightness(0.5 )'  }} >
                 <img
                 className="w-full h-full object-cover object-left"
@@ -114,9 +121,18 @@ export default function ForgotPassword(){
                     </div>
                     
                     <form onSubmit={handleSubmit} className=" w-[20rem] md:w-[22rem] lg:w-[25rem] py-[1rem] items-center justify-center" >
-                        <div className="rounded-[104px] items-center relative w-full ">
-                            <input onChange={handleChange} id="email" className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                             text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type="text" placeholder="Email"/>                               
+                        {/* password */}
+                        <div className="mb-4 rounded-[104px] flex flex-rows items-center relative w-full ">
+                            <input onChange={handleChange} id="password" className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                             text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass?"password":"text"} placeholder="Password"/>                               
+                             <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword}>{showPass?"Show":"Hide"}</p>
+                        </div>
+
+                        {/* confirm password */}
+                        <div className="mb-1 rounded-[104px] flex flex-rows items-center relative w-full">
+                            <input onChange={handleChange} id="confirm_password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]
+                            text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type={showPass2?"password":"text"} placeholder="Confirm Password"/>
+                            <p className="absolute right-4 text-[0.8rem] text-dimgray cursor-pointer" onClick={showPassword2}>{showPass2?"Show":"Hide"}</p>
                         </div>
                        
                         {error&&<p className="ml-4 text-[.7rem]  lg:text-[0.8rem]  text-red-500 font-roboto ">{error}</p>}
@@ -135,9 +151,9 @@ export default function ForgotPassword(){
                 </div>
                 </div>
 
-            </div>
-            </div>
-            :<LoadingSpinner/>}
+        </div>
+        </div>
+        :<LoadingSpinner/>}
         </div>
         );
     
