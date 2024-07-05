@@ -2,18 +2,18 @@ import React,{useState,useEffect} from "react";
 import {Link,useLocation,useNavigate} from "react-router-dom";
 
 import {useSelector,useDispatch} from 'react-redux';
-import {signInFailure,signInStart,signInSuccess} from '../Redux/userSlice/userSlice.js'
-import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
-import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import OAuth from "../Components/OAuth.jsx";
-import FacebookImg from '../Assets/Images/FacebookColour.webp';
-import InfoCube from '../Assets/Images/infocubeblack.webp';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
-import LoginMain from '../Assets/Images/LoginMain.webp';
+import {signInFailure,signInStart,signInSuccess} from '../../Redux/userSlice/userSlice.js'
+import {changeDevice} from '../../Redux/userSlice/deviceTypeSlice.js'
+import {hideHeader, showHeader} from "../../Redux/userSlice/loginSlice.js"
+import OAuth from "../../Components/OAuth.jsx";
+import FacebookImg from '../../Assets/Images/FacebookColour.webp';
+import InfoCube from '../../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../../Assets/Images/LoginMain.webp';
 
-import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
-import { baseURL } from "../url.js";
+import { baseURL } from "../../url.js";
 
 export default function Login(){
     const [formData,setFormData]=useState({});

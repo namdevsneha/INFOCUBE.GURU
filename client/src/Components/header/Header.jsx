@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react'
-const Logo = React.lazy(() => import('../Components/header/Logo'));
-import Nav from '../Components/header/Nav';
+const Logo = React.lazy(() => import('./Logo'));
+import Nav from './Nav';
 
 
 export default function Header() {

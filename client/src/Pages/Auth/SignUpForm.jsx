@@ -1,16 +1,16 @@
 import React,{useState,useEffect} from "react";
 import {Link,useNavigate} from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux';
-import {signInFailure,signInStart,signUpSuccess} from '../Redux/userSlice/userSlice.js'
-import {changeDevice} from '../Redux/userSlice/deviceTypeSlice.js'
-import {hideHeader, showHeader} from "../Redux/userSlice/loginSlice.js"
-import {setUserData} from "../Redux/userSlice/userData.js";
-import InfoCube from '../Assets/Images/infocubeblack.webp';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.webp';
-import LoginMain from '../Assets/Images/LoginMain.webp';
-import LoadingSpinner from "../Components/loadingSpinner.jsx";
+import {signInFailure,signInStart,signUpSuccess} from '../../Redux/userSlice/userSlice.js'
+import {changeDevice} from '../../Redux/userSlice/deviceTypeSlice.js'
+import {hideHeader, showHeader} from "../../Redux/userSlice/loginSlice.js"
+import {setUserData} from "../../Redux/userSlice/userData.js";
+import InfoCube from '../../Assets/Images/infocubeblack.webp';
+import InfoCubeLogo from '../../Assets/Images/InfoCubeLogo.webp';
+import LoginMain from '../../Assets/Images/LoginMain.webp';
+import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
-import { baseURL } from "../url.js";
+import { baseURL } from "../../url.js";
 
 export default function SignupForm(){
     

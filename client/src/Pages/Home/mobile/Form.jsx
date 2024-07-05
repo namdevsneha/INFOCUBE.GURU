@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-scroll';
 import {Link as KLink} from 'react-router-dom';
-import SignUp from "../../../Pages/SignUp";
+import SignUp from "../../Auth/SignUp";
 
 
 export default function Form(){

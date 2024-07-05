@@ -1,13 +1,13 @@
 import React,{setState,useEffect,useState} from "react";
-import backgroundImage from '../Assets/Images/Feedback_Bg_image.webp';
-import InfoCubeLogo from '../Assets/Images/InfoCubeLogo.png';
+import backgroundImage from '../../Assets/Images/Feedback_Bg_image.webp';
+import InfoCubeLogo from '../../Assets/Images/InfoCubeLogo.png';
 import {Link, useLocation} from "react-router-dom";
-import feed from '../Assets/Images/feed.png';
-import comma from '../Assets/Images/comma.png'
+import feed from '../../Assets/Images/feed.png';
+import comma from '../../Assets/Images/comma.png'
 import { useDispatch, useSelector } from "react-redux";
-import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../Redux/userSlice/userSlice";
+import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../../Redux/userSlice/userSlice";
 import axios from "axios";
-import { baseURL } from "../url";
+import { baseURL } from "../../url";
 
 
 export default function Feedback(){
