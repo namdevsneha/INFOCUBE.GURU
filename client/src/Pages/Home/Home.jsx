@@ -113,7 +113,8 @@ export default function Home(){
   return (
     <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
     <div style={parentStyle}>
-      <CustomBeforeComponent ></CustomBeforeComponent>
+      {isMobile? "":
+      <CustomBeforeComponent ></CustomBeforeComponent>}
     <div className={`${isMobile?"":""}  sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{paddingLeft:`${0.0383*innerWidth-0.6239}px`, paddingRight:`${0.0383*innerWidth-0.6239}px`}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
     </div>
