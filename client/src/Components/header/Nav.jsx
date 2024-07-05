@@ -144,7 +144,7 @@ export default function Nav  (){
   );
 
   const renderNavLinks = () => (
-    <div className='menu-container'>
+    <div className='z-90 menu-container'>
            <button className="menu-trigger h-[1.5rem] mt-[.25rem]" onClick={handleToggleNavbar}>
             {isOpen ? <X /> : <ChevronDown />}
           </button>

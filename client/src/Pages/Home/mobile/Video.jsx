@@ -12,17 +12,21 @@ export default function StartingVideo() {
 
     const baseClass = 'relative font-bold top-[40px] font-khand  text-white ';
 
-    // Combine base class and conditional class based on isOpen
 
     const dispatch = useDispatch();
 
     
+  const handleWheel = () => {
+    dispatch(closeNav());
+    dispatch(closeDropDown());
+  };
+
 
     return (
    
       
       <Link to="form" spy={true} smooth={true} activeClass="active" duration={700} offset={20} >
-      <div 
+      <div onTouchStart={handleWheel}
       style={{marginLeft :`-${0.0383*innerWidth-0.6239}px` ,touchAction: 'pan-y' }} className=" w-screen bg-grey h-screen object-cover  overflow-hidden shrink-0 
       text-left text-white font-khand" >
         
