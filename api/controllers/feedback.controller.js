@@ -2,7 +2,6 @@ import FEEDBACK from "../models/feedback.model.js";
 import User from "../models/user.model.js";
 
 export const feedback= async(req,res,next)=>{
-    console.log("hkdk")
 
     const{email,feedback,rating}= req.body;
 
@@ -17,12 +16,24 @@ export const feedback= async(req,res,next)=>{
     
  }
 
-export const feedbackFetch =async(req,res,body)=>{
-    const feedbacks=await FEEDBACK.find({}).sort({'time': -1});
+export const feedbackFetch =async(req,res)=>{
+  const page = parseInt(req.body.page) || 1;
+  const limit = parseInt(req.body.limit) || 8;
+
+  const skip = (page - 1) * limit;
+
+  try {
+    const feedbacks = await FEEDBACK.find({})
+      .sort({ 'createdAt': -1 })
+      .skip(skip)
+      .limit(limit);
     res.status(200).json(feedbacks);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 }
 
-export const fetchUserData = async(req,res,body)=>{
+export const fetchUserData = async(req,res)=>{
   const{email}=req.body;
   const userData=await User.findOne({email});
   res.status(200).json(userData);

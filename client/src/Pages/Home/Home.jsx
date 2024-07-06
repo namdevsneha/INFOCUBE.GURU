@@ -113,7 +113,7 @@ export default function Home(){
   return (
     <div className={`page ${show ? 'page1-enter-active' : 'page1-exit-active'}`}>
     <div style={parentStyle}>
-      {isMobile? "":
+      {innerWidth<1024? "":
       <CustomBeforeComponent ></CustomBeforeComponent>}
     <div className={`${isMobile?"":""}  sm:mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]`} style={isMobile?{paddingLeft:`${0.0383*innerWidth-0.6239}px`, paddingRight:`${0.0383*innerWidth-0.6239}px`}:{paddingLeft :`${0.0813*innerWidth-11.43}px`,paddingRight:`${0.0813*innerWidth-11.43}px`, gap:`${0.0536*innerWidth-22.91}px`}}>
       {isMobile ? <Mobile /> : <Desktop />}
@@ -143,40 +143,93 @@ const CustomBeforeComponent = () => {
   const style = {
     content: '""',
     position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: `
-    radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) ${-25}% ${viewportHeight-(0.1674*innerWidth+378.11)}px / ${0.390625*innerWidth}px ${0.5022*innerWidth+35.78}px no-repeat,
-    radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) ${130}% ${viewportHeight-(0.1674*innerWidth+378.11)}px / ${0.390625*innerWidth}px ${0.5022*innerWidth+35.78}px no-repeat,
-    radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) ${-20}% ${viewportHeight+250}px / ${0.3013*innerWidth+91.02}px ${0.5580*innerWidth+26.24}px no-repeat
-     
-                 `,
-    filter: `blur(${0.1339*innerWidth-7.09}px)`,
     zIndex: 0,    
   };
-  
-  const style2 = {
-    content: '""',
+
+  const gradient1 = {
     position: 'absolute',
-    top: 2600,
-    left: 1860,
+    top: `${viewportHeight-(-0.1116*innerWidth+614.2857)}px`,
+    left: `${0.0781*innerWidth-199.952}px`,
+    width: '350px',
+    height: '600px',
+    background: `radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) 0px 0px / ${350}px ${600}px no-repeat`,
+    filter: `blur(${190}px)`,
+  };
+  const gradient2 = {
+    position: 'absolute',
+    top: `${viewportHeight-(-0.1116*innerWidth+614.2857)}px`,
+    left: `${0.8929*innerWidth-114.368}px`,
+    width: '350px',
+    height: '600px',
+    background: `radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) 0px 0px / ${350}px ${600}px no-repeat`,
+    filter: `blur(${190}px)`,
+  };
+
+  const gradient3={
+    position: 'absolute',
+    top: `${viewportHeight+(0.2790*innerWidth+14.32)}px`,
+    left: `${0.0781*innerWidth-199.952}px`,
     width: '350px',
     height: '600px',
     background: `
-    radial-gradient( rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 50%) 0px 0px / ${351}px ${600}px no-repeat
+    radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) 0px 0px / ${350}px ${600}px no-repeat
                  `,
-    filter: `blur(${50}px)`,
-    zIndex: -1,
-    transform:`rotate(18deg)`,
-    
+    filter: `blur(${190}px)`,
+    transform:`rotate(-11.4deg)`,
+  }
+
+  const gradient4 = {
+    position: 'absolute',
+    top: `${viewportHeight+(0.8371*innerWidth+392.768)}px`,
+    left: `${0.9821*innerWidth-185.632}px`,
+    width: '350px',
+    height: '600px',
+    background: `
+    radial-gradient( rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 100%) 0px 0px / ${351}px ${600}px no-repeat
+                 `,
+    filter: `blur(${170}px)`,
+    transform:`rotate(19.7deg)`,
   };
 
+
+  const gradient5={
+    position: 'absolute',
+    top: `${viewportHeight+(0.8036*innerWidth+1127.088)}px`,
+    left: `${-(0.0558*innerWidth+92.864)}px`,
+    width: '450px',
+    height: '600px',
+    background: `
+    radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) 0px 0px / ${450}px ${600}px no-repeat
+                 `,
+    filter: `blur(${0.0223*innerWidth+147.184}px)`,
+    transform:`rotate(-23.4deg)`,
+  }
+
+  const gradient6 = {
+    position: 'absolute',
+    top: `${viewportHeight+(1.5625*innerWidth+1000)}px`,
+    left: `${0.9821*innerWidth-185.632}px`,
+    width: '350px',
+    height: '600px',
+    background: `
+    radial-gradient( rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 100%) 0px 0px / ${351}px ${600}px no-repeat
+                 `,
+    filter: `blur(${170}px)`,
+    transform:`rotate(24deg)`,
+  };
+
+
   return <div >
-    <div style={style2}/>
+    <div style={gradient1}/>
+    <div style={gradient2}/>
+    <div style={gradient3}/>
+    <div style={gradient4}/>
+    <div style={gradient5}/>
+    <div style={gradient6}/>
     <div style={style} />
     </div>;
 };
 //      700  0.1339*innerWidth-7.09
 //     radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) ${-20}% ${viewportHeight+350}px / ${670}px ${1100}px no-repeat
+
+// radial-gradient(circle, rgba(128, 0, 215, 1) 0%, rgba(0, 0, 0, 0) 70%) ${-25}% ${viewportHeight-(0.1674*innerWidth+378.11)}px / ${0.390625*innerWidth}px ${0.5022*innerWidth+35.78}px no-repeat,
