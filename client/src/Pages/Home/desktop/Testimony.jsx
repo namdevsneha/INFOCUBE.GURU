@@ -2,6 +2,7 @@ import React,{useRef} from "react";
 import Star from "../../../Assets/Images/Star.webp"
 import ImagePlaceHolder from "../../../Assets/Images/ImagePlaceholder.webp";
 import RightArrowBtn from "../../../Assets/Images/RightArrowBtn2.webp";
+import RightArrow from "../../../Assets/Images/ArrowRight.png";
 import LeftArrowBtn from "../../../Assets/Images/LeftArrowBtn2.webp";
 import Testimonoial1 from '../../../Assets/Images/Testimonial1.jpg';
 import Testimonoial2 from '../../../Assets/Images/Testimonial2.jpg';
@@ -134,7 +135,7 @@ export default function Testimonial(){
 
 <button className="col-span-1 place-self-center " 
 onClick={() => slider?.current?.slickNext()}>
-    <img style={{height:`${0.0178*innerWidth+13.7143}px`}} src={RightArrowBtn}/>
+    <img style={{height:`${0.0178*innerWidth+13.7143}px`}} src={RightArrow}/>
     </button> 
 
 </div>

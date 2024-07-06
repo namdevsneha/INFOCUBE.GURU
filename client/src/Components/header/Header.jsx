@@ -24,7 +24,7 @@ export default function Header() {
   };
 
    return (
-    <header className="absolute top-0 py-1 z-10 lg:py-1.25 flex w-full flex-wrap items-center justify-between border-b border-black bg-white text-black font-bold backdrop-blur-100px" style={headerStyles}>
+    <header className="absolute top-0 py-[8px] z-10  flex w-full flex-wrap items-center justify-between border-b border-black bg-white text-black font-bold backdrop-blur-100px" style={headerStyles}>
     <Suspense fallback={<div></div>}>
     <Logo />
     </Suspense>

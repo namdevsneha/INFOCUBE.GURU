@@ -19,12 +19,14 @@ import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPassword
 import SignupForm from './Pages/Auth/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
+import FeedbackWithoutAuth from './Pages/Feedback/FeedbackWithoutAuth.jsx';
 import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
 import ScrollToTop from './Components/ScrollToTop.jsx';
 import ScrollToElement from './Components/ScrollToElement.jsx';
 import { closeDropDown } from './Redux/userSlice/navDropDown.js';
 import { closeNav } from './Redux/IsOpenSlice.js';
+import FeedbackPrivateRoute from './Components/privateRoute/FeedbackRoute.jsx';
 // import { Router } from 'express';
 
 function App() {
@@ -64,7 +66,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       {/* <Route path='/Career' element={<Career/>}/> */}
       {/* <Route path='/Alumini' element={<Alumini/>}/> */}
-      <Route element={<PrivateRoute/>}>
+      <Route element={<FeedbackPrivateRoute/>}>
       <Route path='/Feedback' element={<Feedback/>}/>
       </Route>
       <Route path='/Help' element={<Help/>}/>
@@ -78,6 +80,8 @@ function App() {
       <Route element={<ForgotPasswordPrivateRoute/>}>
       <Route path='/ForgotPassVerification' element={<Verification/>}/>
       </Route>
+
+      <Route path='/feedbaack' element={<FeedbackWithoutAuth/>}/>
 
       
 
