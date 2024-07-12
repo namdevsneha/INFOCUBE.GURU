@@ -92,9 +92,10 @@ export default function SignupForm(){
         try {
          dispatch(signInStart());
          const res = await axios.post(`${baseURL}/api/auth/signup2`, formData, {
+            withCredentials:true,
             headers: {
-                'Content-Type': 'application/json',
-            },
+                'Content-Type': 'application/json'
+            }
         });
          const data= await res.data;
          if(data.success===false){
