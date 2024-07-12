@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {Link,useNavigate} from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux';
-import {signInFailure,signInStart,signUpSuccess} from '../../Redux/userSlice/userSlice.js'
+import {signInFailure,signInStart,signInSuccess,signUpSuccess} from '../../Redux/userSlice/userSlice.js'
 import {changeDevice} from '../../Redux/userSlice/deviceTypeSlice.js'
 import {hideHeader, showHeader} from "../../Redux/userSlice/loginSlice.js"
 import {setUserData} from "../../Redux/userSlice/userData.js";
@@ -103,7 +103,7 @@ export default function SignupForm(){
           
         }
         navigate('/');
-        dispatch(signUpSuccess())
+        dispatch(signInSuccess(data))
 
         } catch (error) {
          dispatch(signInFailure(error.message));

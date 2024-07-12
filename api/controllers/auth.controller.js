@@ -29,13 +29,14 @@ export const signup2=async(req,res,next)=>{
     const newUser=new User({username:username,
     email:email,password:hashedPassword,verified:true,education:education,dob:dob,gender:gender})
     await newUser.save();
+
     const token= jwt.sign({id:newUser._id},process.env.JWT_SECRET);
-    const {verified:veri,password:pass,...rest}=newUser._doc;
+    const {verified:verify,password:pass,...rest}=newUser._doc;
 
     res
-    .cookie('access_token',token,{httpOnly:true})
+    .cookie('access_token',token,{ httpOnly: true, secure: true, sameSite: "none" })
     .status(200)
-      .json({email:req.body.email});
+    .json(rest);
 
   }catch(error){
     next(error)
@@ -55,7 +56,6 @@ export const login =async(req,res,next)=>{
     const {password:pass,...rest}=validUser._doc;
     res.cookie('access_token', token, { httpOnly: true, secure: true, sameSite: "none" });
 
-    console.log("cookei");
     res.status(200).json(rest);
      
   } catch (error) {
