@@ -1,6 +1,7 @@
 import React,{setState,useEffect,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import feedbackBg from "../../Assets/Images/FeedbackBg.png";
+import comma from "../../Assets/Images/comma.png"
 export default function OldFeedback(){
     
     const dispatch=useDispatch();
@@ -9,7 +10,7 @@ export default function OldFeedback(){
     useEffect(() => {
       function updateViewportHeight() {
         const documentHeight = document.documentElement.clientHeight;
-        setViewportHeight(documentHeight-250);
+        setViewportHeight(documentHeight);
       }
   
       // Add event listener for window resize
@@ -21,17 +22,18 @@ export default function OldFeedback(){
       };
     }, []);
 
+    const styles = { height: `${viewportHeight}px` };
 
     return (
-    <section className="mt-[2rem] md:mt-[2.5rem] lg:mt-[3rem]">
+    <section className="">
 
-        <section className="" style={{height:`${viewportHeight}px`}}>
-            <div className="grid grid-cols-2 ">
-                <div className="col-span-1">
+        <section className="mt-[10rem] md:mt-[2.5rem] lg:mt-[4rem]" style={styles}>
+            <div className="grid grid-cols-2 content-center  bg-red-200 ">
+                <div className="flex flex-row justify-center my-auto items-center col-span-1">
                     Hi
                 </div>
-                <div className="col-span-1">
-                    Hello
+                <div className="flex flex-row justify-center items-center col-span-1">
+                    <img src={feedbackBg}/>
                 </div>
 
             </div>
