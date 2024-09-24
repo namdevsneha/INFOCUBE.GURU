@@ -9,23 +9,23 @@ import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../
 import axios from "axios";
 import { baseURL } from "../../url";
 import LoadingSpinner from "../../Components/loadingSpinner";
-import { showHeader } from "../../Redux/userSlice/loginSlice";
 
 
-export default function FeedbackWithoutAuth(){
+export default function Feedback(){
     const [activeIndex, setActiveIndex] = useState('3'); // Initially set the third dot as active
 
   const linearGradientStyle = {
     background: 'linear-gradient(to bottom, #FFFFFF, #9D94FF)',
     minHeight: '100vh', 
   };
-  const [formData,setformData]=useState({email:null,feedback:'',rating:'3',page:1});
+  const {currentUser}=useSelector((state)=>state.user);
+  const [formData,setformData]=useState({email:currentUser.email,feedback:'',rating:'3',page:1});
   const [testimonials, setTestimonials] = useState([]);
   const {loading,error}=useSelector((state)=>state.user);
   const [show, setShow] = useState(false);
   const location = useLocation();
   const dispatch=useDispatch();
-  const [initialFormData,setinitialFormData]= useState({email:null,feedback:'',rating:'3',page:1});
+  const [initialFormData,setinitialFormData]= useState({email:currentUser.email,feedback:'',rating:'3',page:1});
 
   useEffect(() => {
     setShow(true);
@@ -42,7 +42,6 @@ export default function FeedbackWithoutAuth(){
   console.log(formData)
 
   useEffect(() => {
-    dispatch(showHeader());
     const handleFeedback =async(e) =>{
       try{
         const res= await axios.post(`${baseURL}/api/feedback/fetch`, formData, {
@@ -56,21 +55,21 @@ export default function FeedbackWithoutAuth(){
       for(let i=0;i<data.length;i++){
         const email=data[i].email;
         if(email){
-        try{
-            const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, {email}, {
-            headers: {
-                    'Content-Type': 'application/json'
-                    }
-            });
-            const userData= await res.data;
-            newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
-        }catch(error){
-        console.log(error)
-         }}else{
-            newData.push({name:"Anonymous",feedback:data[i].feedback,rating:data[i].stars, avatar:"https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622"})
-            }
+          try{
+              const res=await axios.post(`${baseURL}/api/feedback/fetchUserData`, {email}, {
+              headers: {
+                      'Content-Type': 'application/json'
+                      }
+              });
+              const userData= await res.data;
+              newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar})
+          }catch(error){
+          console.log(error)
+           }}else{
+              newData.push({name:"Anonymous",feedback:data[i].feedback,rating:data[i].stars, avatar:"https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622"})
+              }
       }
-      console.log(formData.email)
+      
       setTestimonials(newData);
       }catch(error){
         console.log(error)
@@ -101,7 +100,6 @@ export default function FeedbackWithoutAuth(){
     setActiveIndex('3');
     setformData(initialFormData);
     setTestimonials([]);
-
     } catch (error) {
         console.log(error)
         dispatch(feedbackSaveFailure(error.message));
@@ -159,7 +157,7 @@ export default function FeedbackWithoutAuth(){
 
             </div>
         </div>
-        <div>
+
         <div className="relative w-full " >
           <img src={comma} className="absolute z-10  " style={{marginLeft :`${0.09375*innerWidth - 150}px`,top:`${0.0279018*innerWidth-133.4736}px`,scale: `${0.000223214*innerWidth+0.171429 }`}} />
           </div>
@@ -175,8 +173,8 @@ export default function FeedbackWithoutAuth(){
         {testimonials.map((testimonial, index) => (
           <div key={index} className="mb-4 p-4 drop-shadow-4xl bg-gray-50 rounded-xl shadow-sm " style={{ fontSize: `${0.009375*innerWidth+6}px` }}>
             <div className="flex items-center mb-2">
-              <div className="bg-blue-300 rounded-full h-10 w-10 flex bg-black items-center justify-center mr-4">
-              <img className=' rounded-full h-full w-full object-cover   overflow-hidden ' src={testimonial.avatar}/>
+              <div className=" rounded-full bg-purple h-10 w-10 flex items-center justify-center mr-4">
+              <img className=' rounded-full h-full w-full object-cover   ' src={testimonial.avatar}/>
               </div>
               <div>
                 <p className="font-bold">{testimonial.name}</p>
@@ -195,11 +193,10 @@ export default function FeedbackWithoutAuth(){
         </div>
 
         </div>
-        </div>
+        
         </div>
         </div>:<LoadingSpinner/>}
 
       </div>
     )
 } 
-

@@ -4,7 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { showHeader,hideHeader } from './Redux/userSlice/loginSlice.js';
 
 import Home from './Pages/Home/Home.jsx';
-import Feedback from './Pages/Feedback/Feedback.jsx';
+import Feedback from './Pages/Feedback/Feedback.jsx'
+import OldFeedback from './Pages/Feedback/OldFeedback.jsx';
+import OldFeedbackWithoutAuth from './Pages/Feedback/OldFeedbackWithoutAuth.jsx';
 import Help from './Pages/Help/Help.jsx';
 import Privacy from './Pages/Privacy';
 import SignUp from './Pages/Auth/SignUp.jsx';
@@ -19,7 +21,7 @@ import ForgotPasswordPrivateRoute from './Components/privateRoute/forgotPassword
 import SignupForm from './Pages/Auth/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
-import FeedbackWithoutAuth from './Pages/Feedback/FeedbackWithoutAuth.jsx';
+
 import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
 import ScrollToTop from './Components/ScrollToTop.jsx';
@@ -81,7 +83,7 @@ function App() {
       <Route path='/ForgotPassVerification' element={<Verification/>}/>
       </Route>
 
-      <Route path='/feedbaack' element={<FeedbackWithoutAuth/>}/>
+      <Route path='/feedbaack' element={<Feedback/>}/>
 
       
 
