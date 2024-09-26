@@ -18,6 +18,19 @@ export default function Logo() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove the event listener
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, []);
   return (
     <Link to='/' className=''>
         <div className='grid grid-cols-4 gap-[4.5px] md:gap-[6px] lg:gap-[8px] items-center'> 
