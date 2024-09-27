@@ -18,7 +18,7 @@ export const feedback= async(req,res,next)=>{
 
 export const feedbackFetch =async(req,res)=>{
   const page = parseInt(req.body.page) || 1;
-  const limit = parseInt(req.body.limit) || 8;
+  const limit = parseInt(req.body.limit) || 10;
 
   const skip = (page - 1) * limit;
 

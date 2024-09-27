@@ -1,10 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { X ,ChevronDown} from "lucide-react";
-import { Link } from 'react-router-dom';
-import {Link as ScrollLink} from 'react-scroll';
-// import {Link} from 'react-scroll';
+
+
 import {Link as KLink} from 'react-router-dom';
-import profile from '../../Assets/Images/profile.webp'
 import RightArrow from '../../Assets/Images/RightArrow2.webp'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
@@ -35,6 +33,19 @@ export default function Nav  (){
   } else {
     userName= username.charAt(0).toUpperCase() + username.slice(1, firstSpaceIndex);
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove the event listener
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, []);
 
   const handleToggleNavbar = () => {
     if(isNavOpen){
@@ -146,7 +157,8 @@ export default function Nav  (){
   const renderNavLinks = () => (
     <div className='z-90 menu-container'>
            <button className="menu-trigger h-[1.5rem] mt-[.25rem]" onClick={handleToggleNavbar}>
-            {isOpen ? <X /> : <ChevronDown />}
+            
+            {isOpen ?<div className='flex flex-row text-[12px] font-normal font-inter justify-center items-center'>Menu <X /></div>  :<div className='flex flex-row text-[12px] font-normal font-inter  items-center'> Menu <ChevronDown /></div> }
           </button>
         <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem]
           rounded-[5px] py-[2px] px-[10px]  text-black ${isOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth + 21.5239}px`}}>
