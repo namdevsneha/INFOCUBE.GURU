@@ -53,7 +53,8 @@ export default {
       "300":"#F3F3F3"
       },
       "purple-feedback":"#B190B6",
-      "neutral-dark-gray": "#505050"
+      "neutral-dark-gray": "#505050",
+      "feedbackgray":"#9C9C9C",
       },
       "spacing": {},
       "fontFamily": {

@@ -32,7 +32,6 @@ export default function OAuth(){
             });
 
             const data=res.data
-            console.log(data)
             if(data.username){
                navigate('/') 
             }else{
