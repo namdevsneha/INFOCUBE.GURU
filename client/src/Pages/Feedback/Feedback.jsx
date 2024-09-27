@@ -16,7 +16,7 @@ import starColoured from "../../Assets/Images/StarColoured.webp";
 import starUncoloured from "../../Assets/Images/StarUncoloured.webp";
 
 import "./feedback.css";
-import Testimonoial3 from "../../Assets/Images/Testimonial3.jpg";
+
 
 
 
@@ -27,17 +27,6 @@ const reviewTitle={
   '4':"Very Good",
   '5':"Awesome"
 }
-const testimonials1 = [
-  "Testimonial 1: Great service!",
-  "Testimonial 2: Highly recommend!",
-  "Testimonial 3: Will use again!",
-  "Testimonial 4: Fantastic experience!",
-  "Testimonial 5: Very satisfied!",
-  "Testimonial 6: Outstanding quality!",
-  "Testimonial 7: Professional staff!",
-  "Testimonial 8: Excellent communication!",
-  "Testimonial 9: Will come back for sure!",
-];
 
 
 
@@ -48,7 +37,7 @@ export default function OldFeedback(){
     const [centerIndex, setCenterIndex] = useState(0);
   
     const {currentUser}=useSelector((state)=>state.user);
-    const [formData,setformData]=useState({email:currentUser.email,feedback:'',rating:'3',page:1});
+    const [formData,setformData]=useState({email:currentUser?currentUser.email:" ",feedback:'',rating:'3',page:1});
     const [testimonials, setTestimonials] = useState([]);
     const dispatch=useDispatch();
     //Refreshing screen when screen width changes
@@ -125,9 +114,17 @@ export default function OldFeedback(){
           },
         },
         {
-          breakpoint: 600,
+          breakpoint:767,
+          settings:{
+            slidesToShow:3,
+            centerPadding:`${0.3704 *innerWidth-194.61}px`
+          }
+        },
+        {
+          breakpoint: 525,
           settings: {
             slidesToShow: 1,
+            centerPadding:`${0.4667*innerWidth-75.125}px`
           },
         },
       ]
@@ -139,39 +136,77 @@ export default function OldFeedback(){
     <section className="mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem] ">
         
         
-        <section className="  h-[100%]" style={{marginTop:`${100}px`, marginBottom:`${100}px`}} >
-            <div className="flex justify-center items-center grid grid-cols-2 gap-[40px] h-full " style={{gap:`${0.0377*innerWidth+1.294}px`}}>
+        <section className=" my-[60px] md:my-[100px] h-[100%]"  >
+            <div className="flex justify-center items-center grid grid-cols-1 md:grid-cols-2 gap-[40px] h-full " style={{gap:`${0.0377*innerWidth+1.294}px`}}>
                 <div className="col-span-1" style={{ marginLeft: `${0.0733*innerWidth+14.566}px`  }}>
-                    <img className="h-[40px]" style={{ marginLeft: `-${0.0262*innerWidth+3.084}px`, height:`${0.0314*innerWidth+8}px` }} src={comma}/>
-                    <h2 className="font-poppins text-[36px] font-bold" style={{ fontSize: `${0.0251*innerWidth+6.49}px` }}>What Students Say<br/> About Their Career<br/> Journey</h2>
-                    <span className="font-roboto font-bold text-feedbackgray" style={{ fontSize: `${0.00476*innerWidth+6.8608}px` }}>Your Feedback Helps Us to Improve Our Services</span>
-                    <div className="font-roboto relative " style={{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.2465*innerWidth+26.33}px` }}>
-                    <div className="absolute  items-center  w-full ">
+                    {innerWidth>768?<img style={{ marginLeft: `-${0.0262*innerWidth+3.084}px`, height:`${0.0314*innerWidth+8}px` }} src={comma}/>:<></>}
+                    <h2 className="font-poppins font-bold" style={{ fontSize: innerWidth>768?`${0.0251*innerWidth+6.49}px`:`${0.04071*innerWidth+12.71}px` }}>What Students Say<br/> About Their Career<br/> Journey</h2>
+                    <span className="font-roboto font-bold text-feedbackgray" style={{ fontSize: innerWidth>768?`${0.00476*innerWidth+6.8608}px`:`${0.00763*innerWidth+6.146}px` }}>Your Feedback Helps Us to Improve Our Services</span>
+                    <div className="font-roboto relative " style={innerWidth>768?{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.2465*innerWidth+26.33}px` }:{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.30534*innerWidth+145.498}px` }}>
+                    <div className="absolute  items-center font-normal w-full ">
                         <input  id="review" className="input w-full  px-5 pr-12 
-                         font-bold leading-[150%] font-feedbackgray border-black border-[1px] rounded-full 
-                        transition duration-300 ease-in-out" style={{paddingTop:`${0.0136*innerWidth-1.928}px`,paddingBottom:`${0.0136*innerWidth-1.928}px`, fontSize: `${0.00476*innerWidth+6.8608}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }} type="text"  placeholder="Write a review"/>                     
+                          leading-[150%] font-feedbackgray border-black border-[1px] rounded-full 
+                        transition duration-300 ease-in-out" style={innerWidth>768?{paddingTop:`${0.0136*innerWidth-1.928}px`,paddingBottom:`${0.0136*innerWidth-1.928}px`, fontSize: `${0.00476*innerWidth+6.8608}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }:
+                        {paddingTop:`${0.01018*innerWidth+6.182}px`,paddingBottom:`${0.01018*innerWidth+6.182}px`, fontSize: `${12}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }} type="text"  placeholder="Write a review"/>                     
                     </div>
-                    <div className="  mr-[0px] mx-auto absolute flex justify-center rounded-[104px]  bg-darkslategray   relative " style={{width:`${0.0628*innerWidth+35.056}px`}}>
-                            <button  className="text-white  " style={{paddingTop:`${0.0127*innerWidth+.5}px`,paddingBottom:`${0.0127*innerWidth+.5}px`,fontSize:`${0.00524*innerWidth+9.6148}px`}}>Review</button>
+                    <div className="  mr-[0px] mx-auto absolute flex justify-center rounded-[104px]  bg-darkslategray   relative " style={{width:`${0.05089*innerWidth+60.112}px`}}>
+                            <button  className="text-white font-normal " style={innerWidth>768?{paddingTop:`${0.0127*innerWidth+.5}px`,paddingBottom:`${0.0127*innerWidth+.5}px`,fontSize:`${0.00524*innerWidth+9.6148}px`}:
+                          {paddingTop:`${0.01018*innerWidth+8.182}px`,paddingBottom:`${0.01018*innerWidth+8.182}px`,fontSize:`${12.5}px`}}>Review</button>
                         </div>  
                     </div>
                     
                     
                 </div>
-                <div className="col-span-1">
-                    <img className="h-auto" style={{width:`${0.408*innerWidth+30.16}px`}} src={feedbackBg}/>
+                <div className="col-span-1 flex flex-row justify-center items-center ">
+                    <img className="h-auto" style={innerWidth>768?{width:`${0.408*innerWidth+30.16}px`}:{width:`${0.318*innerWidth+205.776}px`}} src={feedbackBg}/>
                 </div>
 
             </div>
         </section>
 
-        <section className="my-[40px] " style={{marginLeft:innerWidth>1023?`${0.0943*innerWidth-97.894}px`:`${0.354*innerWidth-272.982}px`, 
-        marginRight:innerWidth>1023?`${0.0943*innerWidth-97.894}px`:`${0.354*innerWidth-272.982}px` }}>
+        <section className="my-[40px] " style={{marginLeft:innerWidth>1023?`${0}px`:`${0}px`, 
+        marginRight:innerWidth>1023?`${0}px`:`${0}px` }}>
 
-          <h2 className=" flex flex-row justify-center items-center font-poppins font-bold" style={{ fontSize: `${0.0246*innerWidth+16.768}px` }}>
+          <h2 className=" flex flex-row justify-center items-center font-poppins font-bold" style={{ fontSize: innerWidth>768?`${0.0246*innerWidth+16.768}px`:`${0.04071*innerWidth+12.71}px`  }}>
             See What They Say
           </h2>
 
+          {innerWidth<768?
+          <Slider {...settings}>
+          {testimonials.map((testimonial, index) => {
+            const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
+            const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
+           
+            const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
+            
+           
+            return(
+            <div key={index} className="flex flex-row items-center justify-center px-[26px] py-[80px] " >
+            
+            <div className="shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[6px] " style={{width:`${135}px`, padding:`${13}px`}}>
+              <div className="flex flex-row">
+                
+                
+              {stars.map((_, index) => ( <img key={index} className="h-auto" style={{ width: `${11}px` }} src={starColoured} alt={`star-${index}`}/> ))}
+               {nostars.map((_,index)=>( <img key={index} className="h-auto" style={{width:`${11}px`}} src={starUncoloured}/>))} 
+                
+              </div>
+              <div  style={{paddingTop:`${13}px`,paddingBottom:`${13}px`}}>
+              <h3 className="text-[18px] mb-[10px] font-bold " style={{fontSize:`${13}px`}}>{reviewTitle[testimonial.rating]}</h3>
+              <p className=" overflow-hidden  text-ellipsis"style={{height:`${85}px`, fontSize: `${9}px` }}>{testimonial.feedback}</p>
+              </div>
+
+              <div className="flex flex-row items-center justify-start text-left "style={{gap:`${6}px`}}>
+                <img className="relative rounded-[100%]  object-center object-cover" style={{width:`${22}px`,height:`${22}px`}}  alt="" src={testimonial.avatar} />
+                <div className="flex flex-col items-start justify-start">
+                <div className="relative leading-[140%] font-semibold " style={{ fontSize: `${9}px` }}>{testimonial.name}</div>
+                <div className="relative leading-[140%] "style={{ fontSize: `${9}px` }} >{formattedDate}</div>
+                </div>
+              </div>
+            </div>
+            </div>
+          )})}
+          </Slider>:
           <Slider {...settings}>
           {testimonials.map((testimonial, index) => {
             const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
@@ -182,6 +217,7 @@ export default function OldFeedback(){
            
             return(
             <div key={index} className={`px-[32px] py-[120px]`} >
+            
             <div className="shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[9px] " style={{width:innerWidth>1023?`${0.1256*innerWidth+30.912}px`:"180px", padding:`${0.01255*innerWidth+3.145}px`}}>
               <div className="flex flex-row">
                 
@@ -200,12 +236,14 @@ export default function OldFeedback(){
                 <div className="flex flex-col items-start justify-start">
                 <div className="relative leading-[140%] font-semibold " style={{ fontSize: `${0.00628*innerWidth+5.5664}px` }}>{testimonial.name}</div>
                 <div className="relative leading-[140%] "style={{ fontSize: `${0.00628*innerWidth+5.5664}px` }} >{formattedDate}</div>
-          </div>
-          </div>
+                </div>
+              </div>
             </div>
             </div>
           )})}
           </Slider>
+          }
+          
         </section>
         {/* <section className="mb-[100px]">
           <h2 className="flex flex-row justify-center items-center text-[64px] font-poppins font-bold">
