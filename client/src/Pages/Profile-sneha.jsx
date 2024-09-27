@@ -134,7 +134,7 @@ export default function Profile() {
       await getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) =>{
        setFormData1({...formData1,avatar:downloadUrl})
        handleSubmit2(downloadUrl);
-
+        handleChangeImage();
     })
     
     
@@ -549,7 +549,8 @@ export default function Profile() {
 
           
       </div>
-      {showChangeImage?<div className="fixed inset-0 flex bg-gray-900 bg-opacity-50">
+      {showChangeImage?
+      <div className="fixed inset-0 flex bg-gray-900 bg-opacity-50">
         <div className=" flex mx-auto h-screen items-center justify-center">
         <form   accept='image/*'  className='bg-white col-span-1 lg:col-span-2 relative box-border  text-left  border-[1px] border-solid border-grey px-4 pb-[10px]' style={{width:innerWidth<1024?`${0.3703704*innerWidth+181.6666667}px`:`${0.44642857*innerWidth+102.857143}px`, borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
         <div className='flex flex-row   items-center justify-between text-dimgray  border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>

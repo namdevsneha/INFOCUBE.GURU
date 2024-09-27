@@ -40,6 +40,11 @@ export default function OldFeedback(){
     const [formData,setformData]=useState({email:currentUser?currentUser.email:" ",feedback:'',rating:'3',page:1});
     const [testimonials, setTestimonials] = useState([]);
     const dispatch=useDispatch();
+    const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDialog = () => {
+    setIsOpen(!isOpen);
+  };
     //Refreshing screen when screen width changes
     useEffect(() => {
       const handleResize = () => {
@@ -133,6 +138,7 @@ export default function OldFeedback(){
  
     
     return (
+      <div>
     <section className="mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem] ">
         
         
@@ -144,13 +150,13 @@ export default function OldFeedback(){
                     <span className="font-roboto font-bold text-feedbackgray" style={{ fontSize: innerWidth>768?`${0.00476*innerWidth+6.8608}px`:`${0.00763*innerWidth+6.146}px` }}>Your Feedback Helps Us to Improve Our Services</span>
                     <div className="font-roboto relative " style={innerWidth>768?{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.2465*innerWidth+26.33}px` }:{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.30534*innerWidth+145.498}px` }}>
                     <div className="absolute  items-center font-normal w-full ">
-                        <input  id="review" className="input w-full  px-5 pr-12 
+                        <input onClick={toggleDialog} id="review" className="input w-full  px-5 pr-12 
                           leading-[150%] font-feedbackgray border-black border-[1px] rounded-full 
                         transition duration-300 ease-in-out" style={innerWidth>768?{paddingTop:`${0.0136*innerWidth-1.928}px`,paddingBottom:`${0.0136*innerWidth-1.928}px`, fontSize: `${0.00476*innerWidth+6.8608}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }:
                         {paddingTop:`${0.01018*innerWidth+6.182}px`,paddingBottom:`${0.01018*innerWidth+6.182}px`, fontSize: `${12}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }} type="text"  placeholder="Write a review"/>                     
                     </div>
                     <div className="  mr-[0px] mx-auto absolute flex justify-center rounded-[104px]  bg-darkslategray   relative " style={{width:`${0.05089*innerWidth+60.112}px`}}>
-                            <button  className="text-white font-normal " style={innerWidth>768?{paddingTop:`${0.0127*innerWidth+.5}px`,paddingBottom:`${0.0127*innerWidth+.5}px`,fontSize:`${0.00524*innerWidth+9.6148}px`}:
+                            <button onClick={toggleDialog} className="text-white font-normal " style={innerWidth>768?{paddingTop:`${0.0127*innerWidth+.5}px`,paddingBottom:`${0.0127*innerWidth+.5}px`,fontSize:`${0.00524*innerWidth+9.6148}px`}:
                           {paddingTop:`${0.01018*innerWidth+8.182}px`,paddingBottom:`${0.01018*innerWidth+8.182}px`,fontSize:`${12.5}px`}}>Review</button>
                         </div>  
                     </div>
@@ -259,7 +265,25 @@ export default function OldFeedback(){
             </div>
           </div>
         </section> */}
+        
 
     </section>
+    {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <h2 className="text-lg font-bold mb-4">Dialog Title</h2>
+            <p className="text-gray-700 mb-4">
+              This is the content of the dialog. You can put anything here.
+            </p>
+            <button
+              onClick={toggleDialog}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg"
+            >
+              Close Dialog
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
     )
 } 
