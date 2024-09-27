@@ -1,1 +1,0 @@
-import{j as e}from"./index-nnJl_Gl_.js";const t="/assets/startvideo-DuYK1P0E.mp4";function r(){return e.jsxs("video",{style:{filter:"brightness(0.3)"},id:"video-player",className:"bg-grey w-full h-full object-cover",autoPlay:!0,loop:!0,muted:!0,children:[e.jsx("source",{src:t,type:"video/mp4"}),"Your browser does not support the video tag."]})}export{r as default};
