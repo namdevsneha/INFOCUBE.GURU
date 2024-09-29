@@ -3,9 +3,9 @@ import User from "../models/user.model.js";
 
 export const feedback= async(req,res,next)=>{
 
-    const{email,feedback,rating}= req.body;
+    const{email,feedback,rating,firstName,lastName}= req.body;
 
-    const newFeedback= new FEEDBACK({email:email, feedback:feedback, stars:rating});
+    const newFeedback= new FEEDBACK({email:email, feedback:feedback, stars:rating,firstName:firstName,lastName:lastName});
     console.log(newFeedback)
     try{
      await newFeedback.save();

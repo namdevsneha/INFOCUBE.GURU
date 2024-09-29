@@ -19,7 +19,7 @@ export default function Nav  (){
   const isnavDropDownOpen = useSelector((state) => state.navDropDown.isOpen);
   const [isNavOpen,setIsNavOpen] = useState(false);
   const [isProfileOpen,setIsProfileOpen] = useState(false);
-
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   let userName='';
   let username='';
   if(currentUser && currentUser.username){
