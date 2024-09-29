@@ -5,6 +5,7 @@ import Nav from './Nav';
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
 
     

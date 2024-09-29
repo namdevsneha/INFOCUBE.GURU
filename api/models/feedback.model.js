@@ -13,6 +13,12 @@ const feedbackSchema=new mongoose.Schema({
     time:{
         type:Date,
         default:Date.now()
+    },
+    firstName:{
+        type:String
+    },
+    lastName:{
+        type:String
     }
 },{timestamps:true});
 
