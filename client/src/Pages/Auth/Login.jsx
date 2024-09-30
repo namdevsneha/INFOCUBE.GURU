@@ -148,7 +148,7 @@ export default function Login(){
                             <input onChange={handleChange} id="email" 
 
                             className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                            text-black border-[1.5px] rounded-full transition duration-300 ease-in-out "
+                            text-black border-black border-[1.5px] rounded-full transition duration-300 ease-in-out "
 
                             // className={`input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
                             // text-black border border-[1.5px] rounded-full transition duration-300 ease-in-out ${error ? 'border-red-500' : 'border-black'} `}
