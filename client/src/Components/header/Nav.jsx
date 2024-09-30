@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { X ,ChevronDown} from "lucide-react";
+import {motion} from 'framer-motion';
 
-
-import {Link as KLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import RightArrow from '../../Assets/Images/RightArrow2.webp'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleNavbar,closeNav } from '../../Redux/IsOpenSlice';
@@ -19,7 +19,7 @@ export default function Nav  (){
   const isnavDropDownOpen = useSelector((state) => state.navDropDown.isOpen);
   const [isNavOpen,setIsNavOpen] = useState(false);
   const [isProfileOpen,setIsProfileOpen] = useState(false);
-
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   let userName='';
   let username='';
   if(currentUser && currentUser.username){
@@ -108,11 +108,11 @@ export default function Nav  (){
       <h3 className='text-[1rem] h-[1.5rem]  overflow-hidden'>Hi,<span>{userName}</span>   </h3>
       </div>
       <ul>
-      <KLink to="Profile">
+      <Link to="Profile">
         <button className='w-full' onClick={handleToggleProfile}>
         <DropDownItem  text={"Profile"}/>
         </button>
-        </KLink>
+        </Link>
         <li>
           <div className='border-[.1px] m-auto w-[9rem]  border-black'></div>
         </li>
@@ -137,11 +137,11 @@ export default function Nav  (){
                 <h3 className='text-[.75rem] h-[1.3rem]  overflow-hidden'>Hi,<span>{userName}</span>   </h3>
                 </div>
                 <ul>
-                <KLink to="Profile">
+                <Link to="Profile">
                   <button className='w-full text-[.75rem]' onClick={handleToggleProfile}>
                   <DropDownItem  text={"Profile"}/>
                   </button>
-                  </KLink>
+                  </Link>
                   <li>
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li>
@@ -163,43 +163,43 @@ export default function Nav  (){
         <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem]
           rounded-[5px] py-[2px] px-[10px]  text-black ${isOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth + 21.5239}px`}}>
               <ul>
-                <KLink   className='' to='/#About' spy={true}
+                <Link   className='' to='/#About' spy={true}
                   smooth={true} duration={1000} offset={10} >
                 <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
                 ABOUT
                 </li>
-                </KLink>
+                </Link>
                   
                 <li>
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li>
 
-                <KLink   to='/#Alumni' spy={true}
+                <Link   to='/#Alumni' spy={true}
                   smooth={true} duration={800} offset={50} >
                    <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
                 ALUMINI
                 </li>
-                </KLink>
+                </Link>
 
                 <li>
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li>
 
-                <KLink  to='Feedback' className="navlink ">
+                <Link  to='Feedback' className="navlink ">
                 <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
                 FEEDBACK
                 </li>
-                </KLink>
+                </Link>
 
                 <li>
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li>
 
-                <KLink  to='Help' className="navlink ">
+                <Link  to='Help' className="navlink ">
                 <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px]  '>
                 HELP & SUPPORT
                 </li>
-                </KLink>
+                </Link>
             </ul>
            
             </div>
@@ -209,20 +209,20 @@ export default function Nav  (){
 
   const renderAuthButtons = () => (
     innerWidth>768?<div>
-    <KLink to='SignUp'>
+    <Link to='SignUp'>
     <button className='rounded-xl w-[4.5rem] lg:w-[6rem] py-[.4rem] px-[.4rem] lg:py-[.5rem] lg:px-[.5rem] font-roboto mr-[5px] lg:mr-[10px] border-[1px]
        border-solid border-black
      text-[10px] md:text-[14px] lg:text-[16px]'>Sign UP</button>
-    </KLink>
-    <KLink to='Login '>
+    </Link>
+    <Link to='Login '>
     <button className='w-[4.5rem] lg:w-[6rem] text-white font-roboto border-[1px] py-[.4rem] px-[.4rem] lg:py-[.5rem] lg:px-[1.25rem]  border-solid border-darkslategray rounded-xl 
     bg-graybutton box-border items-center justify-center md:text-[14px] lg:text-[16px]'>Login</button> 
-    </KLink>
+    </Link>
   </div>:
-  <KLink to='Login'>
+  <Link to='Login'>
   <button className='h-[1.5rem] text-white font-normal font-roboto border-[1px] my-[0.1rem] py-[0.262rem] px-[1rem] text-left text-[0.525rem]
    border-solid border-darkslategray rounded-xl bg-darkslategray box-border items-center justify-center  '>Login</button> 
-</KLink>
+</Link>
   );
 
   
@@ -255,6 +255,7 @@ const links = [
 ];
 
 const Navlink = () => {
+  const [hovered, setHovered] = useState(-1);
   const dispatch = useDispatch();
   const handleLinkClick = () => {
     dispatch(closeDropDown());
@@ -265,7 +266,8 @@ const Navlink = () => {
     <nav className="navlink-container" style={{ fontSize }}>
       {links.map((link, index) => (
         link.duration ?
-          <KLink
+        <motion.div className='px-2' onHoverStart={()=>{setHovered(index)}} onHoverEnd={()=>setHovered(-1)}>
+          <Link
             key={index}
             onClick={handleLinkClick}
             to={link.to}
@@ -273,19 +275,28 @@ const Navlink = () => {
             smooth={true}
             duration={link.duration}
             offset={link.offset}
-            className="navlink "
+            className="navlink hover:bg-transparent"
           >
             {link.text}
-          </KLink>
+          </Link>
+          <br></br>
+          <div className={`border-t-[4px] border-black transition-all duration-300 ease-in-out rounded-xl ${hovered==index?"w-full":"w-0"}`}/>
+        </motion.div>
+          
           :
-          <KLink
+          <motion.div className='px-2' onHoverStart={()=>{setHovered(index)}} onHoverEnd={()=>setHovered(-1)}>
+            <Link
             key={index}
             onClick={handleLinkClick}
             to={link.to}
-            className="navlink "
+            className="navlink hover:bg-transparent"
+            
           >
             {link.text}
-          </KLink>
+          </Link>
+          <div className={`border-t-[4px] border-black transition-all duration-300 ease-in-out rounded-xl ${hovered==index?"w-full":"w-0"}`}/>
+          </motion.div>
+          
       ))}
     </nav>
   );

@@ -6,6 +6,7 @@ import Infocube from '../../Assets/Images/Infocube_black.webp'
 
 export default function Logo() {
   const [isMobile, setIsMobile] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
 
     
