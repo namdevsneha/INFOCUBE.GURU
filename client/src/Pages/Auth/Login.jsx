@@ -14,6 +14,7 @@ import LoginMain from '../../Assets/Images/LoginMain.webp';
 import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
 import { baseURL } from "../../url.js";
+import { set } from "date-fns/fp";
 
 export default function Login(){
     const [formData,setFormData]=useState({});
@@ -27,6 +28,7 @@ export default function Login(){
     const [isImgLoaded, setIsImgLoaded] = useState(false);
     const [show, setShow] = useState(false);
     const [err,setErr]=useState(null);
+    // const [err,setErr]=useState(false);
     const handleImageLoaded = () => {
       setIsImgLoaded(true);
       setShow(false)
@@ -62,6 +64,8 @@ export default function Login(){
    const handleChange=(e)=>{
     
         if(e.target.id==='email'){
+            
+
             const isFirstCharLetter = /^[a-zA-Z]/.test(e.target.value[0]);
             const isValidEmail = e.target.value.includes('@') && e.target.value.includes('.'); 
             if(!isValidEmail||!isFirstCharLetter){
@@ -123,9 +127,16 @@ export default function Login(){
                         Sign In to
                 </div>
                 <div className="flex flex-col items-center justify-center w-full">
-                    <div className='pb-1 flex flex-row gap-[5px] mg:gap-[5px] lg:gap-[5px] items-center'> 
+                    <div className='pb-1 flex flex-row gap-[5px] mg:gap-[5px] lg:gap-[5px] items-center'>
+
+                        <Link to='/'>
                         <img className='w-auto h-8 md:h-9 lg:h-12' src={InfoCubeLogo} alt="Logo"/>
+                        </Link> 
+
+                        <Link to='/'>
                         <img className='w-auto h-5 md:h-6 lg:h-8' src={InfoCube} alt="Cube"/>
+                        </Link>
+                        
                     </div>
                     <div className='pb-2 flex flex-row gap-[5px] items-center'> 
                         <img className='w-auto h-[40px] md:h-[40px] lg:h-[52px] mb-[4px]' src={FacebookImg} alt="Facebook"/>
@@ -134,8 +145,16 @@ export default function Login(){
                     </div>
                     <form onSubmit={handleSubmit} className=" w-[20rem] md:w-[22rem] lg:w-[25rem] items-center justify-center" >
                         <div className="mb-4 rounded-[104px] items-center relative w-full ">
-                            <input onChange={handleChange} id="email" className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                             text-black  border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type="text" placeholder="Email"/>                               
+                            <input onChange={handleChange} id="email" 
+
+                            className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                            text-black border-[1.5px] rounded-full transition duration-300 ease-in-out "
+
+                            // className={`input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                            // text-black border border-[1.5px] rounded-full transition duration-300 ease-in-out ${error ? 'border-red-500' : 'border-black'} `}
+                            
+                            type="text" placeholder="Email" required/>   
+                            {/* {error && <p className="text-red-500"></p>}                             */}
                         </div>
                         <div className="mb-1 rounded-[104px] flex flex-rows items-center relative w-full">
                             <input onChange={handleChange} id="password"  className="input w-full  px-5 pr-12 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem]

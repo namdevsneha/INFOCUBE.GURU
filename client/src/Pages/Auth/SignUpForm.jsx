@@ -11,6 +11,7 @@ import LoginMain from '../../Assets/Images/LoginMain.webp';
 import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
 import { baseURL } from "../../url.js";
+import { Home } from "lucide-react";
 
 export default function SignupForm(){
     
@@ -135,14 +136,21 @@ export default function SignupForm(){
                 </div>
                 <div className="flex flex-col items-center justify-center w-full">
                     <div className='pb-4 flex flex-row gap-[5px] mg:gap-[5px] lg:gap-[5px] items-center'> 
+
+                        <Link to='/'>
                         <img className='w-auto h-8 md:h-9 lg:h-12' src={InfoCubeLogo} alt="Logo"/>
+                        </Link>
+
+                        <Link to='/'>
                         <img className='w-auto h-5 md:h-6 lg:h-8' src={InfoCube} alt="Cube"/>
+                        </Link>
+                        
                     </div>
                     <form onSubmit={handleSubmit} className=" w-[20rem] md:w-[22rem] lg:w-[25rem] items-center justify-center" >
                         {/* username */}
                         <div className="mb-4 rounded-[55px]  items-center relative w-full ">
                               <input onChange={handleChange}  id="username" className="input w-full  px-5  h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                              text-black border border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type="text" placeholder="Name"/>                               
+                              text-black  border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type="text" placeholder="Name"/>                               
                         </div>
 
                         {/* dob */}
