@@ -7,9 +7,9 @@ import { sendOTPVerificationEmail } from "../utils/otp.js";
 
 export const signup= async(req,res,next)=>{
   console.log(req.body);
-   const{username,email,password,education,dob,gender}= req.body;
+   const{username,email,password,education,dob,gender,avatar}= req.body;
    const hashedPassword=bcryptjs.hashSync(password,10);
-   const newUser= new User({username,email,password:hashedPassword,education,dob,gender});
+   const newUser= new User({username,email,password:hashedPassword,education,dob,gender,avatar});
    try{
     await newUser.save();
     res.status(201).json("user created");
@@ -22,12 +22,12 @@ export const signup= async(req,res,next)=>{
 
 export const signup2=async(req,res,next)=>{
 
-  const{username,email,education,dob,gender}= req.body;  
+  const{username,email,education,dob,gender,avatar}= req.body;  
   try{
     const generatePassword=Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
     const hashedPassword=bcryptjs.hashSync(generatePassword,10);
     const newUser=new User({username:username,
-    email:email,password:hashedPassword,verified:true,education:education,dob:dob,gender:gender})
+    email:email,password:hashedPassword,verified:true,education:education,dob:dob,gender:gender,avatar:avatar})
     await newUser.save();
 
     const token= jwt.sign({id:newUser._id},process.env.JWT_SECRET);

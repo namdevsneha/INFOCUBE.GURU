@@ -393,11 +393,11 @@ export default function Profile() {
         <div className='grid grid-cols-2  font-roboto lg:grid-cols-4 justify-start gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem]' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
           <div className=''>
             <label htmlFor="Name" className=' text-dimgray'>Name</label><br/>
-            <input disabled={disabled} className='bg-transparent pt-2 font-bold '  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
+            <input disabled={disabled} className='bg-transparent my-[2px] py-[2px] font-bold '  onChange={handleChange1} id="username" type="text" value={formData1.username} placeholder="User Name"/>
           </div>
           <div>
             <label htmlFor="Gender" className='text-dimgray'>Gender</label><br/>
-            <select disabled={disabled} className='bg-transparent w-full pt-2 font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender">
+            <select disabled={disabled} className='bg-transparent w-full my-[2px] py-[2px] font-bold '  onChange={handleChange1} id="gender" type="text" value={formData1.gender} placeholder="Gender">
             <option value="Female"> Female </option>              
               <option value="Male"> Male </option>
               <option value="Others"> Others </option>
@@ -405,11 +405,11 @@ export default function Profile() {
           </div>
           <div>
             <label htmlFor="DOB" className='text-dimgray'>Date of Birth</label><br/>
-            <input disabled={disabled} className="bg-transparent pt-2 font-bold "  onChange={handleChange1} id="dob"  type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
+            <input disabled={disabled} className="bg-transparent my-[2px] py-[2px] font-bold "  onChange={handleChange1} id="dob"  type="date" value={formData1.dob} placeholder="MM/DD/YYYY" />
           </div>
           <div>
             <label htmlFor="Country" className='text-dimgray '>Country</label><br/>
-            <select id="country" disabled={disabled} className="bg-transparent pt-2 w-full font-bold "  onChange={handleCountryChange}  type="text" placeholder="India">
+            <select id="country" disabled={disabled} className="bg-transparent my-[2px] py-[2px] w-full font-bold "  onChange={handleCountryChange}  type="text" placeholder="India">
             <option className="w-[20rem]" value={formData1.country}>{formData1.country}</option>
             {Country.getAllCountries().map((country) => (
               <option className="w-[20rem]"  key={country.isoCode} value={country.isoCode}>
@@ -421,7 +421,7 @@ export default function Profile() {
           </div>
           <div className=""> 
             <label className='text-dimgray'>State</label><br/>
-            <select disabled={ disabled || !selectedCountry} className="bg-transparent w-full pt-2 font-bold "  onChange={handleStateChange} id="state" type="text"  placeholder="Madhya Pradesh">
+            <select disabled={ disabled || !selectedCountry} className="bg-transparent w-full my-[2px] py-[2px] font-bold "  onChange={handleStateChange} id="state" type="text"  placeholder="Madhya Pradesh">
             <option value={formData1.state}>{formData1.state}</option>
             {selectedCountry && State.getStatesOfCountry(selectedCountry.isoCode).map((state) => (
               <option key={state.isoCode} value={state.isoCode}>
@@ -432,7 +432,7 @@ export default function Profile() {
           </div>
           <div>
             <label htmlFor="City" className='text-dimgray'>City</label><br/>
-            <select disabled={disabled || !selectedState} className="bg-transparent pt-2 w-full font-bold "  onChange={handleCityChange} id="city" type="text"  placeholder="Bhopal">
+            <select disabled={disabled || !selectedState} className="bg-transparent my-[2px] py-[2px] w-full font-bold "  onChange={handleCityChange} id="city" type="text"  placeholder="Bhopal">
             <option value={formData1.city}>{formData1.city}</option>
             {selectedState && City.getCitiesOfState(selectedCountry.isoCode, selectedState.isoCode).map((city) => (
               <option key={city.name} value={city.name}>
@@ -476,19 +476,19 @@ export default function Profile() {
           <div className='grid grid-cols-2 lg:grid-cols-4 justify-start gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem] ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
             <div>
               <label htmlFor="Profession" className='text-dimgray'>Profession</label><br/>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2}  id="profession" type="text" value={formData2.profession} placeholder="Student"/>
+              <input disabled={disabled2} className="bg-transparent my-[2px] py-[2px] font-bold "  onChange={handleChange2}  id="profession" type="text" value={formData2.profession} placeholder="Student"/>
             </div>
             <div>
               <label htmlFor="Current Education" className='text-dimgray'>Current Education</label><br/>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="education" type="text" value={formData2.education} placeholder="B.tech"/>
+              <input disabled={disabled2} className="bg-transparent my-[2px] py-[2px] font-bold "  onChange={handleChange2} id="education" type="text" value={formData2.education} placeholder="B.tech"/>
             </div>
             <div>
               <label className='text-dimgray'>Course(if applicable)</label><br/>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="course" type="text" value={formData2.course} placeholder="course"/>
+              <input disabled={disabled2} className="bg-transparent my-[2px] py-[2px] font-bold "  onChange={handleChange2} id="course" type="text" value={formData2.course} placeholder="course"/>
             </div>
             <div>
               <label htmlFor="Stream" className='text-dimgray'>Stream</label><br/>
-              <input disabled={disabled2} className="bg-transparent pt-2 font-bold "  onChange={handleChange2} id="stream" type="text" value={formData2.stream} placeholder="Stream"/>
+              <input disabled={disabled2} className="bg-transparent my-[2px] py-[2px] font-bold  "  onChange={handleChange2} id="stream" type="text" value={formData2.stream} placeholder="Stream"/>
             </div>
             
 
@@ -498,7 +498,7 @@ export default function Profile() {
         </form>
         
      
-        <form className='col-span-1 lg:col-span-1 relative box-border overflow-hidden text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem]   ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
+        <form className='col-span-1 lg:col-span-1 relative box-border  text-left text-[1rem]  font-roboto border-[1px] border-solid border-grey  rounded-[2rem] px-4 pb-[2rem]   ' style={{borderRadius:innerWidth<1024?`${0.0123457*innerWidth+11.3333333}px`:`${24}px`}} >
         
           <div className='flex items-center justify-between  text-dimgray px-4 pb-1 border-solid border-b-[1px] border-grey content-center' style={{padding:innerWidth<1024?`10px 0px`:`${0.01116*innerWidth-1.4272}px 0px`}}>
           <div className=" font-roboto" style={{fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>Contact Info</div>
@@ -528,20 +528,20 @@ export default function Profile() {
 
           </div>
 
-          <div className='flex flex-col lg:flex-row gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem]  justify-between ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
+          <div className='grid grid-cols-2 justify-start gap-[1.5rem] md:gap-[1.5rem] lg:gap-[2rem] ' style={{paddingTop :innerWidth<1024? `${0.0231481*innerWidth+16.3888889}px`:`${0.017857*innerWidth+21.7143}px`,fontSize:innerWidth<1024?`${0.0061728*innerWidth+9.6944444}px`:`${0.00357*innerWidth+10.7456}px`}}>
           <div className="w-full">
               <label htmlFor="Email" className='text-dimgray'>Email</label><br/>
-              <label className='bg-transparent  pt-2 font-bold w-full' >{currentUser.email} </label>
+              <input disabled={true} className='bg-transparent text-dimgray my-[2px] py-[2px] font-bold w-full break-all' value={currentUser.email} />
           </div>
 
           <div>
               <label htmlFor="Contact" className='text-dimgray'>Contact</label><br/>
-              <input  disabled={disabled3} className='bg-transparent font-bold  pt-2'  onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
+              <input  disabled={disabled3} className='bg-transparent font-bold  my-[2px] py-[2px]'  onChange={handleChange3} id='contact' type='tel' value={formData3.contact} placeholder='XXXXXXXXXX'/>
           </div>
 
           <div>
-              <label htmlFor="Linked In" className='text-dimgray'>Linked In</label><br/>
-              <input disabled={disabled3} className="bg-transparent font-bold pt-2"  onChange={handleChange3} id="linkedin" type="text" value={formData3.linkedin} placeholder="http://linked.com"/>
+              <label htmlFor="Linked In" className='text-dimgray'>LinkedIn</label><br/>
+              <input disabled={disabled3} className="bg-transparent font-bold my-[2px] py-[2px]"  onChange={handleChange3} id="linkedin" type="text" value={formData3.linkedin} placeholder="http://linked.com"/>
           </div>
 
           </div>

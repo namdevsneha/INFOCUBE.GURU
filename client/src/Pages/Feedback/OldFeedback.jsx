@@ -11,7 +11,7 @@ import { baseURL } from "../../url";
 import LoadingSpinner from "../../Components/loadingSpinner";
 
 
-export default function Feedback(){
+export default function OldFeedback(){
     const [activeIndex, setActiveIndex] = useState('3'); // Initially set the third dot as active
 
   const linearGradientStyle = {
