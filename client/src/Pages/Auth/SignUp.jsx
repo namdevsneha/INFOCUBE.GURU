@@ -12,6 +12,7 @@ import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
 import { baseURL } from "../../url.js";
 import { Home } from "lucide-react";
+import { maleAvatar,femaleAvatar,otherAvatar } from "../../Components/Avatarlist.jsx";
 
 export default function Signup(){
 
@@ -61,6 +62,32 @@ export default function Signup(){
           window.removeEventListener('resize', handleResize);
         };
       }, [dispatch,setwindowsWidth,setwindowsHeight]);
+
+    useEffect(() => {
+        console.log("formData has changed:", formData);
+    
+        // Logic for when formData.gender is updated
+        if(formData.gender=='Male'){
+            const randomIndex = Math.floor(Math.random() * maleAvatar.length);
+            setFormData({
+                  ...formData,
+                  avatar: maleAvatar[randomIndex],  // Correctly update the avatar field
+              });
+        }else if(formData.gender=='Female'){
+            const randomIndex = Math.floor(Math.random() * femaleAvatar.length);
+            setFormData({
+                ...formData,
+                avatar: femaleAvatar[randomIndex],  // Correctly update the avatar field
+            });
+        }else if(formData.gender=='Others'){
+            const randomIndex = Math.floor(Math.random() * otherAvatar.length);
+            setFormData({
+                ...formData,
+                avatar: otherAvatar[randomIndex],  // Correctly update the avatar field
+            });
+        }
+        console.log(formData);
+      }, [formData.gender]); 
 
     const showPassword=()=>{
         setShowPass(!showPass);

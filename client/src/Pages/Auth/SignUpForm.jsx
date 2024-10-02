@@ -12,11 +12,11 @@ import LoadingSpinner from "../../Components/loadingSpinner.jsx";
 import axios from "axios";
 import { baseURL } from "../../url.js";
 import { Home } from "lucide-react";
-
+import {maleAvatar,femaleAvatar,otherAvatar} from "../../Components/Avatarlist.jsx";
 export default function SignupForm(){
     
     const {currentUser,loading,error}=useSelector((state)=>state.user);
-    const [formData,setFormData]=useState({email:currentUser.email});
+    const [formData,setFormData]=useState({avatar: '',email:currentUser.email});
     
     const [windowsWidth,setwindowsWidth]=useState({});
     const [windowsHeight,setwindowsHeight]=useState({});
@@ -63,21 +63,51 @@ export default function SignupForm(){
         };
       }, [dispatch,setwindowsWidth,setwindowsHeight]);
 
+   const handleAvatar=()=>{
+    
+   }   
+
    const handleChange=(e)=>{
+        
         setFormData({
             ...formData,
-            [e.target.id]:e.target.value,
-            
+            [e.target.id]: e.target.value,  // Correctly update the avatar field
         });
         if(e.target.id=='gender'){
             setSelectedGender(e.target.value);
+          
         }
         if(e.target.id=='education'){
 
             setSelectedEducation(e.target.value)
         }
-        
+        console.log(formData)
     };
+
+    useEffect(() => {
+        console.log("formData has changed:", formData);
+    
+        // Logic for when formData.gender is updated
+        if(formData.gender=='Male'){
+            const randomIndex = Math.floor(Math.random() * maleAvatar.length);
+            setFormData({
+                  ...formData,
+                  avatar: maleAvatar[randomIndex],  // Correctly update the avatar field
+              });
+        }else if(formData.gender=='Female'){
+            const randomIndex = Math.floor(Math.random() * femaleAvatar.length);
+            setFormData({
+                ...formData,
+                avatar: femaleAvatar[randomIndex],  // Correctly update the avatar field
+            });
+        }else if(formData.gender=='Others'){
+            const randomIndex = Math.floor(Math.random() * otherAvatar.length);
+            setFormData({
+                ...formData,
+                avatar: otherAvatar[randomIndex],  // Correctly update the avatar field
+            });
+        }
+      }, [formData.gender]); 
 
 
     const handleSubmit=async (e)=>{
@@ -104,8 +134,10 @@ export default function SignupForm(){
             return;
           
         }
-        navigate('/');
         dispatch(signInSuccess(data))
+
+
+        navigate('/');
 
         } catch (error) {
          dispatch(signInFailure(error.message));
@@ -196,7 +228,12 @@ export default function SignupForm(){
                         <div className="mb-4 mx-auto w-[8rem] md:w-[9rem] lg:w-[10rem] rounded-[44px] bg-darkslategray flex flex-row items-center justify-center py-[0.75rem] px-[1.5rem] relative leading-[150%]">
                         <button disabled={loading} className="text-white px-[24px] text-[1rem] leading-tight font-roboto">{loading ? "Loading" : "SignUp"}</button>
                         </div>
+
+                        
                     </form>
+
+                    
+
                     <div className="mb-4 w-64 relative box-border h-[0.125rem] border-t-[2.25px] border-solid border-black" />
                     <p className="text-[.7rem] lg:text-[0.8rem] ">
                         <span className="text-dimgray">Already have an account? </span>
