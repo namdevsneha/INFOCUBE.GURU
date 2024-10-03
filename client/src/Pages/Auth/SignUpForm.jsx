@@ -149,22 +149,22 @@ export default function SignupForm(){
                     <form onSubmit={handleSubmit} className=" w-[20rem] md:w-[22rem] lg:w-[25rem] items-center justify-center" >
                         {/* username */}
                         <div className="mb-4 rounded-[55px]  items-center relative w-full ">
-                              <input onChange={handleChange}  id="username" className="input w-full  px-5  h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                              <input onChange={handleChange} required  id="username" className="input w-full  px-5  h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
                               text-black  border-black border-[1.5px] rounded-full transition duration-300 ease-in-out" type="text" placeholder="Name"/>                               
                         </div>
-
+                        
                         {/* dob */}
                         <div className="mb-4 rounded-[55px] items-center relative w-full bg-red-700 ">
-                        <input calendarClassName="w-full" id="dob" formate type="date" value={selectedDob} placeholder="MM/DD/YYYY"
+                        <input calendarClassName="w-full" id="dob" required formate type="date" value={selectedDob} placeholder="MM/DD/YYYY"
                         onChange={(e) => {setSelectedDob(e.target.value); setFormData({...formData,dob:e.target.value});}}  
                         wrapperClassName="w-full" className="w-full  px-5 h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
-                        text-black border text-black  border-black border-[1.5px] rounded-[55px] transition duration-300 ease-in-out" 
+                        text-black   border-black border-[1.5px] rounded-[55px] transition duration-300 ease-in-out" 
                         selected={selectedDob}/></div>
                         
 
                         {/* gender */}
-                        <div className="mb-4 rounded-[55px] border border-black border-[1.5px] items-center relative w-full ">
-                            <select onChange={handleChange} id="gender" value={selectedGender}  className="input w-full border-r-4  px-5   h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                        <div className="mb-4 rounded-[55px]  border-black border-[1.5px] items-center relative w-full ">
+                            <select onChange={handleChange} id="gender" required value={selectedGender}  className="input w-full border-r-4  px-5   h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
                              text-black  rounded-[55px] " type="text" placeholder="Gender">
                             <option value="Select Gender">Select Gender</option> 
                              <option value="Male"> Male </option>
@@ -174,8 +174,8 @@ export default function SignupForm(){
                         </div>
 
                         {/* education */}
-                        <div className="mb-4 rounded-[55px] border border-black border-[1.5px] items-center relative w-full ">
-                            <select onChange={handleChange} id="education" value={selectedEducation} className="input w-full border-r-4  px-5   h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
+                        <div className="mb-4 rounded-[55px]  border-black border-[1.5px] items-center relative w-full ">
+                            <select onChange={handleChange} id="education" required value={selectedEducation} className="input w-full border-r-4  px-5   h-[2.5rem] md:h-[2.6rem] lg:h-[3rem] 
                              text-black  rounded-[55px] " type="text" placeholder="Select Education">
                                 <option value="Select Education">Select Education</option>
                                 <option value="9th">9th </option>
