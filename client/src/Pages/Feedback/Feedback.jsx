@@ -317,7 +317,7 @@ const FeedbackDialog=({isOpen,setIsOpen})=>{
 };
 
   return(
-        // w-400 h-330 p-10 h-16 fs-18 w-200 starw-25
+
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">  
           <div className="bg-white font-poppins " style={innerWidth>768?{width:`${0.2232*innerWidth+121.456}px`, height:`${0.22321*innerWidth+101.4286}px`, borderRadius:`${0.02232*innerWidth-2.8544}px`}
           :{width:`${0.33163*innerWidth+145.7143}px`, height:`${0.07653*innerWidth+271.257}px`, borderRadius:`${15}px`}}>

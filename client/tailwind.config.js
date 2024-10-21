@@ -47,6 +47,9 @@ export default {
       "grey": "rgba(0, 0, 0, 0.5)",
       'graybutton':"#032127",
       "darkorchid": "#8a31c8",
+      "buttonpurple":"#430071",
+      "searchBarPurple":"#ECE6F0",
+      "searchBarPurpleIcon":"#49454f",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)",
