@@ -23,7 +23,7 @@ import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
 
 //CarrerOption
-import Lawyer from './Pages/CarrerOption/Carrer/Lawyer.jsx';
+import Lawyer from './Pages/CarrerOption/Career/Lawyer.jsx';
 
 import { setSize } from './Redux/userSlice/screenSizeSlice.js';
 
