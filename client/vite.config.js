@@ -2,9 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  optimizeDeps: {
-    include: ['@mui/icons-material']
-  },
   server: {
     host: true,
     proxy: {
@@ -28,11 +25,6 @@ export default defineConfig({
         },
       },
     },
-  },
-  build: {
-    rollupOptions: {
-      external: ['@mui/icons-material'] // Exclude @mui/icons-material from the bundle
-    }
   },
   plugins: [react()],
 })
