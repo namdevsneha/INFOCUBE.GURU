@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import { TextField, InputAdornment } from '@mui/material';
