@@ -26,5 +26,10 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['@mui/icons-material'] // Exclude @mui/icons-material from the bundle
+    }
+  },
   plugins: [react()],
 })

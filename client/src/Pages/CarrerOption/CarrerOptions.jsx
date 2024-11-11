@@ -4,7 +4,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import { TextField, InputAdornment } from '@mui/material';
 import ActionAreaCard from './CareerCard';
-import placeholder from '../../Assets/Images/placeholder.png'
 import { blogData } from './BlogData';
 
 const categories = ["View all", "PCM", "PCB", "Commerce", "Arts", "Diploma", "Common opportunities"];

@@ -21,7 +21,7 @@ import SignupForm from './Pages/Auth/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
-import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/FilmDirectorRoadmap.jsx';
+import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/filmDirectorRoadmap.jsx';
 //CarrerOption
 import Lawyer from './Pages/CarrerOption/Career/Lawyer.jsx';
 
