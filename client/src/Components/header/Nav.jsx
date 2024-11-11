@@ -185,7 +185,7 @@ export default function Nav  (){
                     <div className='border-[.1px] m-auto w-[6rem]  border-black'></div>
                   </li> */}
 
-                <Link  to='Career' className="navlink ">
+                <Link  to='CareerPath' className="navlink ">
                 <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px]  '>
                 CAREER PATHS
                 </li>
@@ -263,7 +263,7 @@ export default function Nav  (){
 const links = [
   { to: '/#About', text: 'ABOUT US', duration: 1000, offset: 10 },
   // { to: '/#Alumni', text: 'ALUMNI', duration: 800, offset: 50 },
-  { to: 'Career', text: 'CAREER PATHS', duration: null, offset: null},
+  { to: 'CareerPath', text: 'CAREER PATHS', duration: null, offset: null},
   { to: 'Feedback', text: 'FEEDBACK', duration: null, offset: null },
   { to: 'Help', text: 'HELP & SUPPORT', duration: null, offset: null },
 ];

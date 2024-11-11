@@ -21,7 +21,7 @@ import SignupForm from './Pages/Auth/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
-
+import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/FilmDirectorRoadmap.jsx';
 //CarrerOption
 import Lawyer from './Pages/CarrerOption/Career/Lawyer.jsx';
 
@@ -80,13 +80,13 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/SignUpForm' element={<SignupForm/>}/>
       <Route path='/ChangePassword' element={<ChangePassword/>}/>
-
+      <Route path='/CareerPath/FilmDirector/Roadmap' element={<FilmDirectorRoadmap />}/>
       <Route element={<ForgotPasswordPrivateRoute/>}>
       <Route path='/ForgotPassVerification' element={<Verification/>}/>
       </Route>
 
       <Route path='/feedbaack' element={<Feedback/>}/>
-      <Route path='/career' element={<CarrerOptions/>}/>
+      <Route path='/CareerPath' element={<CarrerOptions/>}/>
       
       <Route element={<PrivateRoute/>}>
       <Route path='/Profile' element={<Profile/>}/>

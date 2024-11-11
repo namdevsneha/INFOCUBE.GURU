@@ -93,7 +93,7 @@ export default function OldFeedback(){
                 // Important
                 newData.push({name:userData.username,feedback:data[i].feedback,rating:data[i].stars, avatar:userData.avatar, date:data[i].time})
             }catch(error){
-            console.log(error)
+            console.log(error)    
              }}
         }
         
