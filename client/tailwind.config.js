@@ -21,6 +21,7 @@ export default {
       hexPurple: "#9D94FF"
     },
     extend: {
+      
       fontFamily: {
         iceland: ['Iceland', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
@@ -29,6 +30,7 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
+      
     },
 
   },
@@ -47,6 +49,9 @@ export default {
       "grey": "rgba(0, 0, 0, 0.5)",
       'graybutton':"#032127",
       "darkorchid": "#8a31c8",
+      "buttonpurple":"#430071",
+      "searchBarPurple":"#ECE6F0",
+      "searchBarPurpleIcon":"#49454f",
       "gray": {
       "100": "#1e1e1e",
       "200": "rgba(255, 255, 255, 0.3)",
@@ -92,8 +97,18 @@ export default {
       "base": "1rem",
       "lg": "1.125rem",
       "sm": "0.875rem",
-      "inherit": "inherit"
+      "inherit": "inherit",
+      'h1Text':'clamp(32px,3.5vw,60px)',
+        'h2Text':'clamp(28px,3vw,56px)',
+        'h3Text':'clamp(24px,2.5vw,52px)',
+        'h4Text':'clamp(20px,2vw,48px)',
+        'h5Text':'clamp(16px,1.5vw,44px)',
+        'h6Text':'clamp(14px,1.25vw,24px)',
+        'mediumText': 'clamp(12px, 1.2vw, 20px)',
+        'regularText': 'clamp(12px, 1vw, 18px)',
+        'smallText': 'clamp(10px, .875vw, 16px)',
       }
+      
       },
 }
 
