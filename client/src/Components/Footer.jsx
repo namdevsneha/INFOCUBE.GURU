@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <>
   {/* NEW FOOTER */}
-      <div className=" w-full relative bg-black flex flex-col items-center justify-start pt-[2.068rem] md:pt-[5rem] pb-[1.031rem] md:pb-[2.5rem] pr-[0.956rem] md:pr-[2.312rem] pl-[1.031rem] md:pl-[2.5rem] box-border gap-[1.162rem] md:gap-[2.812rem] text-left text-[0.4rem] md:text-[0.875rem] text-white font-roboto">
+      <div className="mt-0 w-full relative bg-black flex flex-col items-center justify-start pt-[2.068rem] md:pt-[5rem] pb-[1.031rem] md:pb-[2.5rem] pr-[0.956rem] md:pr-[2.312rem] pl-[1.031rem] md:pl-[2.5rem] box-border gap-[1.162rem] md:gap-[2.812rem] text-left text-[0.4rem] md:text-[0.875rem] text-white font-roboto">
       <img className="w-[2.581rem] md:w-[6.45rem] relative h-[0.344rem] md:h-[0.938rem]" alt="" src={Infocube} />
 
       <div className="flex flex-row items-start justify-start gap-1.5 md:gap-[2.837rem]">
