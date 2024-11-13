@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import filmDirectorRoadmap from '../../../Assets/Images/filmDirectorRoadmap.png'
+import filmDirectorRoadmapMobile from '../../../Assets/Images/filmDirectorRoadmapMobile.svg'
 import arrowBackIcon from '../../../Assets/Images/arrowBackIcon.png'
 import lockIcon from '../../../Assets/Images/lockIcon.png'
 import './rightMenu.css'
@@ -33,7 +34,7 @@ export default function FilmDirectorRoadmap() {
         <span className='hidden md:block md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Film Director / Roadmap</span>
     <div className='hidden md:flex  font-roboto flex-row gap-[2vw] '>
       <div className='w-[18.75vw] hidden md:block h-full text-regularText'>
-      <Link to='../Signup'>
+      <Link to='./../../../'>
         <div className='py-[.75vw] flex flex-row cursor-pointer'>
           <h6 className='relative  font-bold text-h6Text'>Home</h6>
           <img className='ml-auto h-[1.5vw] w-auto  ' onClick={()=>{}} src={arrowBackIcon} alt='Arrow Back Icon' />
@@ -75,6 +76,7 @@ export default function FilmDirectorRoadmap() {
         <div className='w-full  relative flex flex-col  items-center'>
         <img id='image' className='h-[100vw] relative w-auto' src={filmDirectorRoadmap} alt='Film Director Roadmap' />
         {/* Buttons for overlays  */}
+        <div className='absolute top-0 right-0 h-full w-full'></div>
         <button id="FilmDirector" className='w-[8vw] h-[3.5vw]  top-[7vw] left-[22.5vw] absolute' onClick={toggleMenu}/>
         <button id="Education" className=' leading-16  narrowed-diamond top-[12.2vw] left-[21.8vw] rounded-lg absolute' onClick={toggleMenu}/>
 
@@ -127,9 +129,20 @@ export default function FilmDirectorRoadmap() {
         <SideMenu className="h-full" id={id} setIsOpen={setIsOpen} isOpen={isOpen} />
       )}
     </div>
-    <div className='flex flex-col flex-grow 'style={{height:`${innerHeight-192}px`}}>
+    <div className='flex flex-col flex-grow  md:hidden '>
+    <div className='px-[4vh] py-[5vh]'>
     <span className='md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Film Director / Roadmap</span>
-      <h2 className='font-bold my-auto py-auto  text-h4Text text-center'  >Coming Soon for mobile...</h2>
+    
+    <h2 className='text-h2Text font-poppins leading-[140%] font-bold'>
+        Narrowed Roadmap<br/>
+        To Become Film Director
+        </h2>
+        
+        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Film Director in 2024</span>
+        </div>
+    <div className='flex flex-col items-center relative'>
+    <img className='w-[90vw] h-auto' src={filmDirectorRoadmapMobile} />
+    </div>
     </div>
     </div>
 
