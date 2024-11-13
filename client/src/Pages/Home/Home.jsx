@@ -12,7 +12,6 @@ import Form from "./desktop/Form.jsx";
 import Expertise from "./desktop/Expertise.jsx";
 import Check from "./desktop/Check.jsx";
 import Join from "./desktop/Join.jsx";
-import Journey from "./desktop/Journey.jsx";
 import Image from "./desktop/Image.jsx";
 import Team from "./desktop/Team.jsx";
 import Video from './desktop/Video.jsx'
@@ -26,7 +25,6 @@ import FormMobile from "./mobile/Form.jsx"
 import ExpertiseMobile from "./mobile/Expertise.jsx";
 import CheckMobile from "./mobile/Check.jsx";
 import JoinMobile from "./mobile/Join.jsx";
-import JourneyMobile from "./mobile/Journey.jsx";
 import ImageMobile from "./mobile/Image.jsx";
 import TeamMobile from "./mobile/Team.jsx";
 import VideoMobile from "./mobile/Video.jsx";
@@ -47,8 +45,6 @@ export function Mobile() {
             <ExpertiseMobile/>
             <CheckMobile/>
             <JoinMobile/>
-            {/* <TeamMobile/> */}
-            {/* <JourneyMobile/> */}
             <ImageMobile/>
             <TestimonialMobile/>
     </div>
@@ -68,8 +64,6 @@ export function Desktop() {
             <Expertise/>
             <Check/>
             <Join/>
-            {/* <Team/> */}
-            {/* <Journey/> */}
             <Image/>
             <Testimonial/>
             </Suspense>

@@ -99,7 +99,7 @@ function App() {
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
       </Routes>
 
-    {showHeader?<Footer/>:""}
+    {showHeader?<Footer   />:""}
     </BrowserRouter>
     </div>)
   }
