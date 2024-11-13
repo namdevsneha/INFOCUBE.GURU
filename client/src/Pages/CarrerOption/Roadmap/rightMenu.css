@@ -15,4 +15,37 @@
     right: 0; /* Slide in from the right */
   }
   
- 
+  .narrowed-diamond {
+    width: 9.2vw;
+    height: 3.7vw;
+    background-color: transparent; /* Color of the diamond */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Narrowed diamond shape */
+    position: absolute;
+    top: 2vw; /* Adjust the position as needed */
+  }
+  
+  .diamond {
+    width: 5.6vw;
+    height: 3.7vw;
+    background-color: transparent; /* Color of the diamond */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Narrowed diamond shape */
+    position: absolute;
+    top: 2vw; /* Adjust the position as needed */
+  }
+  
+  .list-lower-roman {
+    list-style-type: lower-roman;
+  }
+  .list-upper-roman {
+    list-style-type: upper-roman;
+  }
+
+  .list-roman-left {
+    list-style-type: decimal; /* or upper-roman for uppercase numerals */
+    padding-left: 1.5vw; /* Adjust as needed for alignment */
+    margin-left: 0;
+  }
+  .list-roman-left li {
+    padding-left: 0.15vw; /* Adjust to align text with numerals */
+  }
+  
