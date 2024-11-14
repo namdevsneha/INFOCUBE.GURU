@@ -120,7 +120,7 @@ export const filmDirectorData={
             </span>
     },
     'JMIEE':{
-        'title':" Asian Academy of Film and Television (AAFT)",
+        'title':" Jamia Millia Islamia (JMI)",
         'description':<span>
             Jamia Millia Islamia (JMI) offers a range of courses in film, media, and communication through its A.J.K. Mass Communication Research Centre (AJKMCRC). For students interested in becoming film directors, Jamia offers a highly regarded M.A. in Mass Communication program, as well as specialized courses in film production, directing, and related fields. Here are details about the entrance process and course specifics:
             <br/>
@@ -205,7 +205,7 @@ export const filmDirectorData={
             </span>
     },
     'WHISTLING':{
-        'title':" Asian Academy of Film and Television (AAFT)",
+        'title':" Whistling Woods International (AAFT)",
         'description':<span>
             Whistling Woods International (WWI) is one of India's leading film, media, and entertainment institutes, offering various undergraduate and postgraduate programs in fields such as Film Direction, Cinematography, Editing, Sound Engineering, Animation, Acting, and more. WWI conducts its own entrance test for admission to its various programs. Here's an overview of the entrance test details:<br/>
             <ul className="space-y-[.1vw] list-roman-left list-upper-roman">

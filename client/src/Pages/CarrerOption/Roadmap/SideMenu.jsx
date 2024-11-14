@@ -1,10 +1,9 @@
-import { filmDirectorData } from "./Data/FilmDirectorData";
 import { useEffect, useState } from "react";
 import close from "../../../Assets/Images/close.png";
 
-export const SideMenu=({isOpen,setIsOpen,id})=>{
+export const SideMenu=({isOpen,setIsOpen,id,pageData})=>{
 
-    const data=filmDirectorData[id]
+    const data=pageData[id]
   
     useEffect(() => {
       // Disable scroll
@@ -52,7 +51,7 @@ export const SideMenu=({isOpen,setIsOpen,id})=>{
             
               </div>
               </div>
-            <div className='fixed inset-0 z-30 bg-gray-900 bg-opacity-70 w-[10vw]' onClick={closeDialog}/>  
+            <div className='fixed inset-0 z-30 bg-gray-900 bg-opacity-70 w-[10vw] md:w-[70vw]' onClick={closeDialog}/>  
           </div>
           
           
