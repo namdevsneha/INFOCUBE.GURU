@@ -163,8 +163,8 @@ export default function Nav  (){
         <div id='comment-box' className={`dropdown-menu drop-shadow-4xl drop-shadown-blur-2xl   absolute  bg-gray-300  w-[9rem] top-[3rem]
           rounded-[5px] py-[2px] px-[10px]  text-black ${isOpen?'active':'inactive'}`} style={{right:`${0.038 * innerWidth + 21.5239}px`}}>
               <ul>
-                <Link   className='' to='/#About' spy={true}
-                  smooth={true} duration={1000} offset={10} >
+                <Link   className='' to='/#About' 
+                   duration={1000} offset={10} >
                 <li className='dropdownItem  items-center font-roboto  w-full text-[.75rem] flex my-[10px] '>
                 ABOUT
                 </li>
@@ -285,8 +285,6 @@ const Navlink = () => {
             key={index}
             onClick={handleLinkClick}
             to={link.to}
-            spy={true}
-            smooth={true}
             duration={link.duration}
             offset={link.offset}
             className="navlink hover:bg-transparent"
