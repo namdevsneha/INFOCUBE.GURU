@@ -46,7 +46,7 @@
 .slider-two .slick-center + .slick-slide {
 filter: blur(2px);
 
-  z-index: 6;
+  z-index: 8;
 }
 
 

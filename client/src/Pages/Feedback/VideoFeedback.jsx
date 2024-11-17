@@ -131,7 +131,7 @@ export default function VideoFeedback() {
               </Slider>
 
             </div>
-            <div className=" w-[100vw]   slider-two md:w-[42vw]  overflow-hidden h-[305px]    ">
+            <div className=" w-[100vw]   slider-two md:w-[42vw]  overflow-hidden h-[305px] md:h-auto    ">
               <Slider className="flex flex-row    items-center justify-center" {...settingsText}>
                 {testimonials.map((testimonial, index) => {
 
