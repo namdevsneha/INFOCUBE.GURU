@@ -1,0 +1,174 @@
+
+import React,{useState} from "react";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { format } from 'date-fns';
+
+import starColoured from "../../Assets/Images/StarColoured.webp";
+import starUncoloured from "../../Assets/Images/StarUncoloured.webp";
+
+const reviewTitle={
+    '1':"Poor",
+    '2':"Fair",
+    '3':"Good",
+    '4':"Very Good",
+    '5':"Awesome"
+  }
+
+const testimonials = [{
+    avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/1727684266904Expertise.png?alt=media&token=3411aac7-fa5a-448d-9322-033a9b138a0f",
+    date : "2024-09-29T16:43:43.778Z",
+    feedback : "well done great job",
+    name : "Utkarsh Saxena",
+    rating : "3"   
+},
+    {
+    avatar: "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/1726812254434snapedit_1726731692866.jpeg.png?alt=media&token=f6e453cf-2fb1-4543-b917-292f0be85359",
+    date: "2024-09-20T06:05:59.106Z",
+    feedback: "Earlier, I was very tense about my college and counselling process, but when I met Infocube, they made my life easy by helping at every level with personal guidance of 24 hours and also helped me in my career level guidance as well. Their call support helped me a lot during counselling rounds, and they were with me till the last of my counselling when I got the best college. ",
+    name: "Ansh Gupta ",
+    rating: "3"
+    }, 
+    {
+    avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622",
+    date: "2024-09-20T05:51:07.497Z",
+    feedback: "Had a great experience with all the team members they helped me a lot in my counselling to get the best college ",
+    name: "Tanish ",
+    rating: "3"},
+    {
+    avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622",
+    date: "2024-09-20T05:51:07.497Z",
+    feedback: "Had a great experience with all the team members they helped me a lot in my counselling to get the best college ",
+    name: "Tanish ",
+    rating: "3"
+},
+]
+export default function VideoFeedback() {
+    const [centerIndex, setCenterIndex] = useState(0);
+
+    const settings3 = {
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 3,
+        infinity:true,
+        autoplay:true,
+        pauseOnHover: false,
+        arrows: false, 
+        speed: 500,
+        afterChange: (current) => {
+          const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
+          setCenterIndex(newCenterIndex);
+        },
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint:767,
+            settings:{
+              slidesToShow:1,
+            }
+          },
+        ]
+      };   
+      
+      const settingsText = {
+        centerMode: true,
+        slidesToShow: 3,
+        infinity:true,
+        centerPadding: '0px',
+        autoplay:true,
+        pauseOnHover: false,
+        vertical:true,
+        arrows: false, 
+        
+        speed: 500,
+        afterChange: (current) => {
+          const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
+          setCenterIndex(newCenterIndex);
+        },
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint:767,
+            settings:{
+              slidesToShow:3,
+              centerPadding:"465px"
+            }
+          },
+        ]
+      }; 
+    return (
+        <div>
+            <h1 className="  text-center items-center text-h1Text font-poppins font-bold">
+          Testimonial
+          </h1>
+          <div className="w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center gap-[2vw]">
+            <div className={`w-[92vw] md:w-[45vw]  h-[60vh] max-h-[643px] md:h-[45vw]  ${innerWidth>767?"slider-two":"slider-three"} items-center  flex flex-col justify-center   `}>
+
+              <Slider className="w-[92vw] md:w-full   " {...settings3}>
+                {testimonials.map((testimonial, index) => {
+
+                  return(
+                <div key={index} className=" my-[2vw]  md:scale-[1.1] rounded-[3vw] p-[2vw] h-[60vh] max-h-[643px] w-[92vw] md:w-[16.4vw] md:h-[32.625vw] border-black border-[1px] bg-white ">
+                  
+                  <p className="overflow-hidden text-clip text-regularText ">{testimonial.feedback}</p>
+                </div>
+                    
+                  )
+
+
+                })}
+              </Slider>
+
+            </div>
+            <div className=" w-[100vw]   slider-two md:w-[42vw]  overflow-hidden h-[305px]    ">
+              <Slider className="flex flex-row    items-center justify-center" {...settingsText}>
+                {testimonials.map((testimonial, index) => {
+
+                  const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
+                  const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
+                  const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
+                  return(
+                    <div key={index} className=" px-auto scale-[1] mt-[-30px]  md:my-[-4vw]" >
+            
+            <div className="  md:scale-[1] w-[90vw]  bg-white z-[0] shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.25)] mx-auto font-inter  h-[172.8px] md:w-[27vw]  md:h-[18vw] p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw]">
+              <div className="flex  flex-row">
+                
+                
+              {stars.map((_, index) => ( <img key={index} className="h-[12.2px] w-[12.2px] md:h-[1.24vw] md:w-[1.24vw]" src={starColoured} alt={`star-${index}`}/> ))}
+               {nostars.map((_,index)=>( <img key={index} className="h-[12.2px] w-[12.2px] md:h-[1.24vw] md:w-[1.24vw]" src={starUncoloured}/>))} 
+                
+              </div>
+              <div className="my-[12px] md:my-[1vw] lg:my-[1.5vw]"  >
+              <h5 className="text-h5Text  font-bold " >{reviewTitle[testimonial.rating]}</h5>
+              <p className=" overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
+              </div>
+
+              <div className="flex flex-row items-center justify-start text-left md:gap-[.8vw]">
+                <img className="relative rounded-[100%]  object-center object-cover h-[24px] w-[24px] md:h-[2.5vw] md:w-[2.5vw]"   alt="" src={testimonial.avatar} />
+                <div className="flex flex-col items-start justify-start">
+                <div className="relative leading-[140%] text-regularText font-semibold " >{testimonial.name}</div>
+                <div className="relative leading-[140%] text-regularText" >{formattedDate}</div>
+                </div>
+              </div>
+            </div>
+            </div>
+                  )
+                }
+                  )}
+              </Slider>
+            </div>
+          </div>
+        </div>
+    )
+}
