@@ -20,6 +20,7 @@ import star2 from "../../Assets/Images/Star2.png";
 import close from "../../Assets/Images/close.png";
 import avatar from "../../Assets/Images/avatar.svg";
 import "./feedback.css";
+import VideoFeedback from "./VideoFeedback";
 
 
 
@@ -141,28 +142,99 @@ export default function OldFeedback(){
           },
         },
       ]
-    };    
+    };   
+    const settings3 = {
+      centerMode: true,
+      centerPadding: '0px',
+      slidesToShow: 3,
+      infinity:true,
+      autoplay:true,
+      pauseOnHover: false,
+      speed: 500,
+      afterChange: (current) => {
+        const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
+        setCenterIndex(newCenterIndex);
+      },
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint:767,
+          settings:{
+            slidesToShow:3,
+            centerPadding:`${0.3704 *innerWidth-194.61}px`
+          }
+        },
+        {
+          breakpoint: 525,
+          settings: {
+            slidesToShow: 1,
+            centerPadding:`${0.4667*innerWidth-75.125}px`
+          },
+        },
+      ]
+    };   
+    
+    const settings2 = {
+      centerMode: true,
+      slidesToShow: 3,
+      infinity:true,
+      centerPadding: '0px',
+      autoplay:true,
+      pauseOnHover: false,
+      vertical:true,
+      
+      speed: 500,
+      afterChange: (current) => {
+        const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
+        setCenterIndex(newCenterIndex);
+      },
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint:767,
+          settings:{
+            slidesToShow:3,
+            centerPadding:`${0.3704 *innerWidth-194.61}px`
+          }
+        },
+        {
+          breakpoint: 525,
+          settings: {
+            slidesToShow: 1,
+            centerPadding:`${0.4667*innerWidth-75.125}px`
+          },
+        },
+      ]
+    }; 
     return (
       <div>
     <section className="mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem] ">
         
         
         <section className=" my-[60px] md:my-[100px] h-[100%]"  >
-            <div className="flex justify-center items-center grid grid-cols-1 md:grid-cols-2 gap-[40px] h-full " style={{gap:`${0.0377*innerWidth+1.294}px`}}>
+            <div className=" justify-center items-center grid grid-cols-1 md:grid-cols-2 gap-[40px] h-full " style={{gap:`${0.0377*innerWidth+1.294}px`}}>
                 <div className="col-span-1" style={{ marginLeft: `${0.0733*innerWidth+14.566}px`  }}>
                     {innerWidth>768?<img style={{ marginLeft: `-${0.0262*innerWidth+3.084}px`, height:`${0.0314*innerWidth+8}px` }} src={comma}/>:<></>}
-                    <h2 className="font-poppins font-bold" style={{ fontSize: innerWidth>768?`${0.0251*innerWidth+6.49}px`:`${0.04071*innerWidth+12.71}px` }}>What Students Say{innerWidth>768?<br/>:<></>} About Their Career{innerWidth>768?<br/>:<></>} Journey</h2>
-                    <span className="font-roboto font-bold text-feedbackgray" style={{ fontSize: innerWidth>768?`${0.00476*innerWidth+6.8608}px`:`${0.00763*innerWidth+6.146}px` }}>Your Feedback Helps Us to Improve Our Services</span>
+                    <h2 className="text-h2Text font-poppins font-bold">What <span className="text-darkorchid">Students</span> Say{innerWidth>768?<br/>:<></>} About Their <span className="text-darkorchid">Career</span>{innerWidth>768?<br/>:<></>} <span className="text-darkorchid">Journey</span></h2>
+                    <span className="font-roboto font-bold text-regularText text-feedbackgray" >Your Feedback Helps Us to Improve Our Services</span>
                     <div className="font-roboto relative " style={innerWidth>768?{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.2465*innerWidth+26.33}px` }:{ marginTop: `${0.01256*innerWidth+3.075}px`, width:`${0.30534*innerWidth+145.498}px` }}>
-                    <div className="absolute  items-center font-normal w-full ">
-                        <input onClick={openDialog} id="review" className="input w-full  px-5 pr-12 
+                    <div className="relative items-center font-normal w-full   h-[10vw] md:h-[4.125vw]  ">
+                        <input onClick={openDialog} id="review" className="input w-full h-full   px-5 pr-12 
                           leading-[150%] font-feedbackgray border-black border-[1px] rounded-full 
-                        transition duration-300 ease-in-out" style={innerWidth>768?{paddingTop:`${0.0136*innerWidth-1.928}px`,paddingBottom:`${0.0136*innerWidth-1.928}px`, fontSize: `${0.00476*innerWidth+6.8608}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }:
-                        {paddingTop:`${0.01018*innerWidth+6.182}px`,paddingBottom:`${0.01018*innerWidth+6.182}px`, fontSize: `${12}px`,boxShadow: 'inset 1px 2px 10px rgba(0, 0, 0, 0.25)' }} type="text"  placeholder="Write a review"/>                     
+                        transition duration-300 ease-in-out text-regularText shadow-[inset_1px_2px_10px_0px_rgba(0,_0,_0,_0.25)] "  type="text"  placeholder="Write a review"/>                     
                     </div>
-                    <div className="  mr-[0px] mx-auto absolute flex justify-center rounded-[104px]  bg-darkslategray   relative " style={{width:`${0.05089*innerWidth+60.112}px`}}>
-                            <button onClick={openDialog} className="text-white font-normal " style={innerWidth>768?{paddingTop:`${0.0127*innerWidth+.5}px`,paddingBottom:`${0.0127*innerWidth+.5}px`,fontSize:`${0.00524*innerWidth+9.6148}px`}:
-                          {paddingTop:`${0.01018*innerWidth+8.182}px`,paddingBottom:`${0.01018*innerWidth+8.182}px`,fontSize:`${12.5}px`}}>Review</button>
+                    <div className=" flex text-regularText  rounded-[104px] h-full  bg-darkslategray w-[25vw] md:w-[10vw] top-0 right-0 absolute " >
+                            <button onClick={openDialog} className="text-white mx-auto my-  font-normal " >Review</button>
                         </div>  
                     </div>
                     
@@ -175,12 +247,12 @@ export default function OldFeedback(){
             </div>
         </section>
 
-        <section className="my-[40px] " style={{marginLeft:innerWidth>1023?`${0}px`:`${0}px`, 
+        <section className="my-[40px] slider-one" style={{marginLeft:innerWidth>1023?`${0}px`:`${0}px`, 
         marginRight:innerWidth>1023?`${0}px`:`${0}px` }}>
 
-          <h2 className=" flex flex-row justify-center items-center font-poppins font-bold" style={{ fontSize: innerWidth>768?`${0.0246*innerWidth+16.768}px`:`${0.04071*innerWidth+12.71}px`  }}>
+          <h1 className="text-h1Text flex flex-row justify-center items-center font-poppins font-bold" >
             See What They Say
-          </h2>
+          </h1>
 
           {innerWidth<768?
           <Slider {...settings}>
@@ -194,24 +266,24 @@ export default function OldFeedback(){
             return(
             <div key={index} className="flex flex-row items-center justify-center px-[26px] py-[80px] " >
             
-            <div className="shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[6px] " style={{width:`${135}px`, padding:`${13}px`}}>
+            <div className="shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[6px] w-[135px] p-[13px] ">
               <div className="flex flex-row">
                 
                 
-              {stars.map((_, index) => ( <img key={index} className="h-auto" style={{ width: `${11}px` }} src={starColoured} alt={`star-${index}`}/> ))}
-               {nostars.map((_,index)=>( <img key={index} className="h-auto" style={{width:`${11}px`}} src={starUncoloured}/>))} 
+              {stars.map((_, index) => ( <img key={index} className="h-auto w-[11px]"  src={starColoured} alt={`star-${index}`}/> ))}
+               {nostars.map((_,index)=>( <img key={index} className="h-auto w-[11px]"  src={starUncoloured}/>))} 
                 
               </div>
-              <div  style={{paddingTop:`${13}px`,paddingBottom:`${13}px`}}>
-              <h3 className="text-[18px] mb-[10px] font-bold " style={{fontSize:`${13}px`}}>{reviewTitle[testimonial.rating]}</h3>
-              <p className=" overflow-hidden  text-ellipsis"style={{height:`${85}px`, fontSize: `${9}px` }}>{testimonial.feedback}</p>
+              <div className="py-[13px]">
+              <h3 className="text-[13px] mb-[10px] font-bold  " >{reviewTitle[testimonial.rating]}</h3>
+              <p className=" overflow-hidden  text-ellipsis text-[9px] h-[85px]">{testimonial.feedback}</p>
               </div>
 
-              <div className="flex flex-row items-center justify-start text-left "style={{gap:`${6}px`}}>
-                <img className="relative rounded-[100%]  object-center object-cover" style={{width:`${22}px`,height:`${22}px`}}  alt="" src={testimonial.avatar} />
+              <div className="flex flex-row items-center justify-start text-left gap-[6px] ">
+                <img className="relative rounded-[100%]  object-center object-cover w-[22px] h-[22px]"   alt="avatar" src={testimonial.avatar} />
                 <div className="flex flex-col items-start justify-start">
-                <div className="relative leading-[140%] font-semibold " style={{ fontSize: `${9}px` }}>{testimonial.name}</div>
-                <div className="relative leading-[140%] "style={{ fontSize: `${9}px` }} >{formattedDate}</div>
+                <div className="relative leading-[140%] font-semibold text-[9px] " >{testimonial.name}</div>
+                <div className="relative leading-[140%] text-[9px]" >{formattedDate}</div>
                 </div>
               </div>
             </div>
@@ -227,9 +299,9 @@ export default function OldFeedback(){
             
            
             return(
-            <div key={index} className={`px-[32px] py-[120px]`} >
+            <div key={index} className={` px-[32px] py-[120px]`} >
             
-            <div className="shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[9px] " style={{width:innerWidth>1023?`${0.1256*innerWidth+30.912}px`:"180px", padding:`${0.01255*innerWidth+3.145}px`}}>
+            <div className=" shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[9px] p-[1.75vw]" style={{width:innerWidth>1023?`${0.1256*innerWidth+30.912}px`:"180px"}}>
               <div className="flex flex-row">
                 
                 
@@ -238,15 +310,15 @@ export default function OldFeedback(){
                 
               </div>
               <div  style={{paddingTop:`${0.01674*innerWidth-5.1612}px`,paddingBottom:`${0.01674*innerWidth-5.1612}px`}}>
-              <h3 className="text-[18px] mb-[10px] font-bold " style={{fontSize:`${0.01047*innerWidth+7.2454}px`}}>{reviewTitle[testimonial.rating]}</h3>
-              <p className=" overflow-hidden  text-ellipsis"style={{height:innerWidth>1023?`${150}px`:`${0.07874*innerWidth+19.5}px`, fontSize: `${0.00628*innerWidth+5.5664}px` }}>{testimonial.feedback}</p>
+              <h5 className="text-h5Text mb-[10px] font-bold " >{reviewTitle[testimonial.rating]}</h5>
+              <p className=" overflow-hidden text-regularText  text-ellipsis"style={{height:innerWidth>1023?`${150}px`:`${0.07874*innerWidth+19.5}px`}}>{testimonial.feedback}</p>
               </div>
 
               <div className="flex flex-row items-center justify-start text-left "style={{gap:`${0.00836*innerWidth+3.4472}px`}}>
                 <img className="relative rounded-[100%]  object-center object-cover" style={{width:`${0.01465*innerWidth+16.933}px`,height:`${0.01465*innerWidth+16.933}px`}}  alt="" src={testimonial.avatar} />
                 <div className="flex flex-col items-start justify-start">
-                <div className="relative leading-[140%] font-semibold " style={{ fontSize: `${0.00628*innerWidth+5.5664}px` }}>{testimonial.name}</div>
-                <div className="relative leading-[140%] "style={{ fontSize: `${0.00628*innerWidth+5.5664}px` }} >{formattedDate}</div>
+                <div className="relative leading-[140%] text-regularText font-semibold " >{testimonial.name}</div>
+                <div className="relative leading-[140%] text-regularText" >{formattedDate}</div>
                 </div>
               </div>
             </div>
@@ -256,20 +328,10 @@ export default function OldFeedback(){
           }
           
         </section>
-        {/* <section className="mb-[100px]">
-          <h2 className="flex flex-row justify-center items-center text-[64px] font-poppins font-bold">
-          Testimonial
-          </h2>
-          <div className="grid grid-cols-2 mx-[56px]">
-            
-            <div className=" justify-center items-center col-span-1 ">
-              
-            </div>
-            <div className="flex justify-center items-center col-span-1">
-
-            </div>
-          </div>
-        </section> */}
+        <section className="  md:mx-[4vw]">
+          <VideoFeedback/>
+        
+        </section>
         
 
     </section>
@@ -380,3 +442,24 @@ const FeedbackDialog=({isOpen,setIsOpen})=>{
         
   )
 }
+
+
+{/* <div key={index} className=" bg-gray-500   flex flex-col ">
+                      <div className="flex flex-row mb-[1.875vw] ">
+                      {stars.map((_, index) => ( <img key={index} className="h-[1.55vw] w-[1.55vw]"  src={starColoured} alt={`star-${index}`}/> ))}
+                        {nostars.map((_,index)=>( <img key={index} className="h-[1.55vw] w-[1.55vw]" src={starUncoloured}/>))} 
+                      </div>
+                      <div className="mb-[1.875vw]">
+                        <h5 className="text-h5Text leading-[120%] font-bold " >{reviewTitle[testimonial.rating]}</h5>
+                        <p className=" overflow-hidden text-mediumText  text-ellipsis h-[7.1vw]">{testimonial.feedback}</p>
+                        </div>
+                     
+                        <div className="flex flex-row items-center justify-start text-left gap-[1vw]">
+                          <img className="relative rounded-[100%]  object-center object-cover h-[3.125vw] w-[3.125vw]"  alt="" src={testimonial.avatar} />
+                          <div className="flex flex-col items-start justify-start">
+                          <div className="relative leading-[140%] text-regularText font-semibold " >{testimonial.name}</div>
+                          <div className="relative leading-[140%] text-regularText" >{formattedDate}</div>
+                          </div>
+                        </div>
+                      
+                    </div> */}
