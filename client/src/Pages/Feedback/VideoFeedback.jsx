@@ -51,7 +51,7 @@ export default function VideoFeedback() {
         centerMode: true,
         centerPadding: '0px',
         slidesToShow: 3,
-        infinity:true,
+        infinity:false,
         autoplay:true,
         pauseOnHover: false,
         arrows: false, 
