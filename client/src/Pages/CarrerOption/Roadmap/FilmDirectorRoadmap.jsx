@@ -1,13 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import {Link} from 'react-router-dom'
-import filmDirectorRoadmap from '../../../Assets/Images/filmDirectorRoadmap.png'
+
 import arrowBackIcon from '../../../Assets/Images/arrowBackIcon.png'
 import lockIcon from '../../../Assets/Images/lockIcon.png'
 import './rightMenu.css'
 
 import { FilmDirectorMobileSvg } from './svgFile/FilmDirectorSvg';
-import { SideMenu } from './SideMenu';
-import { filmDirectorData } from './Data/FilmDirectorData';
+
 
 export default function FilmDirectorRoadmap() {
   const [isOpen, setIsOpen] = useState(false);
