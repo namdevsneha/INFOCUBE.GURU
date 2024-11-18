@@ -64,7 +64,7 @@ export default function VideoFeedback() {
           <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center gap-[2vw]">
          
 
-            <div className={`w-[92vw] md:w-[45vw]  h-[60vh] max-h-[643px] md:h-[45vw]  block md:flex md:flex-col justify-center   `}>
+            <div className={`w-[92vw] md:w-[45vw]  h-[60vh] md:max-h-full max-h-[643px] md:h-[47vw]  block md:flex md:flex-col justify-center   `}>
               <VideoTestimonialSlider/>
 
             </div>
@@ -80,7 +80,7 @@ export default function VideoFeedback() {
 const TextTestimonialSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="w-full mt-[.5vw] relative   mx-auto h-[350px] md:mt-[0vw] md:h-[45vw] lg:h-[40vw] xl:h-[36vw] p-4">
+    <div className="w-full mt-[.5vw] relative   mx-auto h-[350px] md:mt-[0vw] md:h-[45vw] lg:h-[40vw] xl:h-[36vw] py-4 md:p-4">
 
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
@@ -95,6 +95,10 @@ const TextTestimonialSlider = () => {
         initialSlide={3} 
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
         onSwiper={(swiper) => setActiveIndex(swiper.realIndex)} // Initialize active index
+        touchMove={false} // Disable touch swipe
+      mousewheel={false} 
+      allowTouchMove={false}
+
         className=" testimonial-slider h-[330px] md:mt-[6vw] lg:mt-[4vw] xl:mt-[3vw]  md:h-[450px] lg:h-[500px] xl:h-[36vw]"
         breakpoints={
           {
@@ -126,7 +130,7 @@ const TextTestimonialSlider = () => {
             <div
               className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[18vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-transform duration-300 ease-in-out ${
                 index === centerIndex
-                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
+                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
                   : "blur-[2px] border-[1px] border-black "
               }`}
               
@@ -165,7 +169,7 @@ const TextTestimonialSlider = () => {
 const VideoTestimonialSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="w-full h-[60vh] md:h-[40vw] md:p-4">
+    <div className="w-full h-[60vh] md:h-full  md:p-4">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
@@ -178,7 +182,11 @@ const VideoTestimonialSlider = () => {
         initialSlide={3} 
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
         onSwiper={(swiper) => setActiveIndex(swiper.realIndex)} // Initialize active index
-        className=" testimonial-slider md:mr-[-10vw] lg:mr-[-5vw] h-[60vh] md:h-[40vw]  "
+        className=" testimonial-slider md:mr-[-10vw] lg:mr-[-5vw] h-[60vh] md:h-[47vw]  "
+        touchMove={false} // Disable touch swipe
+      mousewheel={false} 
+      allowTouchMove={false}
+
         breakpoints={
           {
             1200:{
