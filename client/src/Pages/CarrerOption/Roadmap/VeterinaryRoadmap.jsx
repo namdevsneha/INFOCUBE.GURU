@@ -5,10 +5,10 @@ import arrowBackIcon from '../../../Assets/Images/arrowBackIcon.png'
 import lockIcon from '../../../Assets/Images/lockIcon.png'
 import './rightMenu.css'
 
-import { FilmDirectorMobileSvg } from './svgFile/FilmDirectorSvg';
+import { VeterinarySVG } from './svgFile/VeterinarySVG.jsx'
 
 
-export default function FilmDirectorRoadmap() {
+export default function VeterinaryRoadmap() {
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState('');
   const toggleMenu = (event) => {
@@ -19,8 +19,8 @@ export default function FilmDirectorRoadmap() {
   
   return (
     <div id='mainsection' className='  mt-[20px] md:mt-[3vw] py-[7vw] mx-[2vw] md:mx-[1vw]'>
-        <span className='hidden md:block md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Film Director / Roadmap</span>
-    <div className='hidden md:flex  font-roboto flex-row gap-[2vw] '>
+        <span className='hidden md:block md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Veterinary / Roadmap</span>
+    <div className='hidden md:flex  font-roboto flex-row gap-[4vw] '>
       <div className='w-[18.75vw] hidden md:block h-full text-regularText'>
       <Link to='./../../../'>
         <div className='py-[.75vw] flex flex-row cursor-pointer'>
@@ -44,7 +44,7 @@ export default function FilmDirectorRoadmap() {
         </div>
 
         <div className='py-[.75vw] flex flex-row'>
-          <span className='relative   '>Institutes For Filmaking</span>
+          <span className='relative   '>Institutes For Veterinary</span>
           <img className='ml-auto h-[1.5vw] w-auto ' src={lockIcon} alt='Arrow Back Icon' />
         </div>
 
@@ -57,12 +57,12 @@ export default function FilmDirectorRoadmap() {
       <div className='md:w-auto w-full   font-bold flex flex-col gap-[1.5vw] '>
         <h2 className='text-h2Text '>
         Narrowed Roadmap<br/>
-        To Become Film Director
+        To Become Veterinary
         </h2>
         
-        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Film Director in 2024</span>
+        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
         <div className='w-[60vw] h-auto  relative   items-center'>
-        <FilmDirectorMobileSvg/>
+        <VeterinarySVG/>
         </div>
       </div>
       <div className='w-[18.75vw] hidden md:block h-full '>
@@ -72,18 +72,18 @@ export default function FilmDirectorRoadmap() {
     </div>
     <div className='flex flex-col flex-grow  md:hidden '>
     <div className='px-[4vh] py-[5vh]'>
-    <span className='md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Film Director / Roadmap</span>
+    <span className='md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Veterinary / Roadmap</span>
     
     <h2 className='text-h2Text font-poppins leading-[140%] font-bold'>
         Narrowed Roadmap<br/>
-        To Become Film Director
+        To Become Veterinary
         </h2>
         
-        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Film Director in 2024</span>
+        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
         </div>
     <div className='flex flex-col items-center relative'>
     <div className='w-[90vw] h-auto relative'>
-    <FilmDirectorMobileSvg/>
+    <VeterinarySVG/>
     </div>
 
 

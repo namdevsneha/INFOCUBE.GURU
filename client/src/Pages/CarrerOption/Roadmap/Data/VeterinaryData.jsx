@@ -1,4 +1,4 @@
-export const filmDirectorData={
+export const veterinaryrData={
     'FilmDirector':{
         'title':"Film Director",
         'description':"A film director shapes a film's artistic and dramatic vision, transforming a screenplay into a compelling visual story. They guide actors and crew members, making creative and technical decisions to ensure every scene aligns with the film's mood, style, and narrative. With a blend of creativity and leadership, directors bring stories to life on screen, orchestrating each element to create an unforgettable cinematic experience.",

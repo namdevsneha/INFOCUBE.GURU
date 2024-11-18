@@ -22,6 +22,7 @@ import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
 import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/FilmDirectorRoadmap.jsx';
+import VeterinaryRoadmap from './Pages/CarrerOption/Roadmap/VeterinaryRoadmap.jsx';
 //CarrerOption
 import Lawyer from './Pages/CarrerOption/Career/Lawyer.jsx';
 
@@ -80,7 +81,6 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/SignUpForm' element={<SignupForm/>}/>
       <Route path='/ChangePassword' element={<ChangePassword/>}/>
-      <Route path='/CareerPath/FilmDirector/Roadmap' element={<FilmDirectorRoadmap />}/>
       <Route element={<ForgotPasswordPrivateRoute/>}>
       <Route path='/ForgotPassVerification' element={<Verification/>}/>
       </Route>
@@ -97,6 +97,9 @@ function App() {
 
 
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
+      <Route path='/CareerPath/FilmDirector/Roadmap' element={<FilmDirectorRoadmap />}/>
+      <Route path='/CareerPath/Veterinary/Roadmap' element={< VeterinaryRoadmap/>}/>
+
       </Routes>
 
     {showHeader?<Footer   />:""}

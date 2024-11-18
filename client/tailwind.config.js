@@ -98,7 +98,7 @@ export default {
       "lg": "1.125rem",
       "sm": "0.875rem",
       "inherit": "inherit",
-      'h1Text':'clamp(32px,3.5vw,60px)',
+      'h1Text':'clamp(32px,3.5vw,64px)',
         'h2Text':'clamp(28px,3vw,56px)',
         'h3Text':'clamp(24px,2.5vw,52px)',
         'h4Text':'clamp(20px,2vw,48px)',
