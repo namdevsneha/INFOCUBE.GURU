@@ -1,5 +1,5 @@
 //Importing Library
-import React,{setState,useEffect,useState} from "react";
+import React,{useRef,useEffect,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { feedbackSaveFailure, feedbackSaveStart, feedbackSaveSuccess } from "../../Redux/userSlice/userSlice";
 import axios from "axios";
@@ -21,7 +21,6 @@ import close from "../../Assets/Images/close.png";
 import avatar from "../../Assets/Images/avatar.svg";
 import "./feedback.css";
 import VideoFeedback from "./VideoFeedback";
-
 
 
 
@@ -143,79 +142,7 @@ export default function OldFeedback(){
         },
       ]
     };   
-    const settings3 = {
-      centerMode: true,
-      centerPadding: '0px',
-      slidesToShow: 3,
-      infinity:true,
-      autoplay:true,
-      pauseOnHover: false,
-      speed: 500,
-      afterChange: (current) => {
-        const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
-        setCenterIndex(newCenterIndex);
-      },
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-          },
-        },
-        {
-          breakpoint:767,
-          settings:{
-            slidesToShow:3,
-            centerPadding:`${0.3704 *innerWidth-194.61}px`
-          }
-        },
-        {
-          breakpoint: 525,
-          settings: {
-            slidesToShow: 1,
-            centerPadding:`${0.4667*innerWidth-75.125}px`
-          },
-        },
-      ]
-    };   
-    
-    const settings2 = {
-      centerMode: true,
-      slidesToShow: 3,
-      infinity:true,
-      centerPadding: '0px',
-      autoplay:true,
-      pauseOnHover: false,
-      vertical:true,
-      
-      speed: 500,
-      afterChange: (current) => {
-        const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
-        setCenterIndex(newCenterIndex);
-      },
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-          },
-        },
-        {
-          breakpoint:767,
-          settings:{
-            slidesToShow:3,
-            centerPadding:`${0.3704 *innerWidth-194.61}px`
-          }
-        },
-        {
-          breakpoint: 525,
-          settings: {
-            slidesToShow: 1,
-            centerPadding:`${0.4667*innerWidth-75.125}px`
-          },
-        },
-      ]
-    }; 
+  
     return (
       <div>
     <section className="mt-[2.3rem] md:mt-[3rem] lg:mt-[3rem] ">
@@ -330,7 +257,6 @@ export default function OldFeedback(){
         </section>
         <section className="  md:mx-[4vw]">
           <VideoFeedback/>
-        
         </section>
         
 
@@ -443,23 +369,3 @@ const FeedbackDialog=({isOpen,setIsOpen})=>{
   )
 }
 
-
-{/* <div key={index} className=" bg-gray-500   flex flex-col ">
-                      <div className="flex flex-row mb-[1.875vw] ">
-                      {stars.map((_, index) => ( <img key={index} className="h-[1.55vw] w-[1.55vw]"  src={starColoured} alt={`star-${index}`}/> ))}
-                        {nostars.map((_,index)=>( <img key={index} className="h-[1.55vw] w-[1.55vw]" src={starUncoloured}/>))} 
-                      </div>
-                      <div className="mb-[1.875vw]">
-                        <h5 className="text-h5Text leading-[120%] font-bold " >{reviewTitle[testimonial.rating]}</h5>
-                        <p className=" overflow-hidden text-mediumText  text-ellipsis h-[7.1vw]">{testimonial.feedback}</p>
-                        </div>
-                     
-                        <div className="flex flex-row items-center justify-start text-left gap-[1vw]">
-                          <img className="relative rounded-[100%]  object-center object-cover h-[3.125vw] w-[3.125vw]"  alt="" src={testimonial.avatar} />
-                          <div className="flex flex-col items-start justify-start">
-                          <div className="relative leading-[140%] text-regularText font-semibold " >{testimonial.name}</div>
-                          <div className="relative leading-[140%] text-regularText" >{formattedDate}</div>
-                          </div>
-                        </div>
-                      
-                    </div> */}

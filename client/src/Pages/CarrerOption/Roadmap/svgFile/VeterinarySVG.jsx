@@ -1,4 +1,4 @@
-import { filmDirectorData } from "../Data/VeterinaryData";
+import { veterinaryrData } from "../Data/VeterinaryData";
 import { SideMenu } from "../SideMenu"
 import { useState } from "react"
 export const VeterinarySVG=()=>{

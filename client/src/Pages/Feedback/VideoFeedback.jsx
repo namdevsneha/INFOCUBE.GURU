@@ -8,6 +8,13 @@ import { format } from 'date-fns';
 import starColoured from "../../Assets/Images/StarColoured.webp";
 import starUncoloured from "../../Assets/Images/StarUncoloured.webp";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay,Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+
 const reviewTitle={
     '1':"Poor",
     '2':"Fair",
@@ -15,6 +22,8 @@ const reviewTitle={
     '4':"Very Good",
     '5':"Awesome"
   }
+
+
 
 const testimonials = [{
     avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/1727684266904Expertise.png?alt=media&token=3411aac7-fa5a-448d-9322-033a9b138a0f",
@@ -45,103 +54,86 @@ const testimonials = [{
 },
 ]
 export default function VideoFeedback() {
-    const [centerIndex, setCenterIndex] = useState(0);
 
-    const settings3 = {
-        centerMode: true,
-        centerPadding: '0px',
-        slidesToShow: 3,
-        infinity:false,
-        autoplay:true,
-        pauseOnHover: false,
-        arrows: false, 
-        speed: 500,
-        afterChange: (current) => {
-          const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
-          setCenterIndex(newCenterIndex);
-        },
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint:767,
-            settings:{
-              slidesToShow:1,
-            }
-          },
-        ]
-      };   
       
-      const settingsText = {
-        centerMode: true,
-        slidesToShow: 3,
-        infinity:true,
-        centerPadding: '0px',
-        autoplay:true,
-        pauseOnHover: false,
-        vertical:true,
-        arrows: false, 
-        
-        speed: 500,
-        afterChange: (current) => {
-          const newCenterIndex = (current) % testimonials.length; // Adjust based on how many slides you have visible
-          setCenterIndex(newCenterIndex);
-        },
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint:767,
-            settings:{
-              slidesToShow:3,
-              centerPadding:"465px"
-            }
-          },
-        ]
-      }; 
     return (
-        <div>
-            <h1 className="  text-center items-center text-h1Text font-poppins font-bold">
+        <div className=" ">
+            <h1 className=" text-center items-center text-h1Text font-poppins font-bold">
           Testimonial
           </h1>
-          <div className="w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center gap-[2vw]">
-            <div className={`w-[92vw] md:w-[45vw]  h-[60vh] max-h-[643px] md:h-[45vw]  ${innerWidth>767?"slider-two":"slider-three"} items-center  flex flex-col justify-center   `}>
+          <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center gap-[2vw]">
+         
 
-              <Slider className="w-[92vw] md:w-full   " {...settings3}>
-                {testimonials.map((testimonial, index) => {
-
-                  return(
-                <div key={index} className=" my-[2vw]  md:scale-[1.1] rounded-[3vw] p-[2vw] h-[60vh] max-h-[643px] w-[92vw] md:w-[16.4vw] md:h-[32.625vw] border-black border-[1px] bg-white ">
-                  
-                  <p className="overflow-hidden text-clip text-regularText ">{testimonial.feedback}</p>
-                </div>
-                    
-                  )
-
-
-                })}
-              </Slider>
+            <div className={`w-[92vw] md:w-[45vw]  h-[60vh] max-h-[643px] md:h-[45vw]  block md:flex md:flex-col justify-center   `}>
+              <VideoTestimonialSlider/>
 
             </div>
-            <div className=" w-[100vw]   slider-two md:w-[42vw]  overflow-hidden h-[305px] md:h-auto    ">
-              <Slider className="flex flex-row    items-center justify-center" {...settingsText}>
-                {testimonials.map((testimonial, index) => {
+            <div className=" w-[100vw]  md:w-[42vw]     ">
+              <TextTestimonialSlider/>
+            </div>
+          </div>
+        </div>
+    )
+}
 
-                  const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
-                  const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
-                  const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
-                  return(
-                    <div key={index} className=" px-auto scale-[1] mt-[-30px]  md:my-[-4vw]" >
-            
-            <div className="  md:scale-[1] w-[90vw]  bg-white z-[0] shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.25)] mx-auto font-inter  h-[172.8px] md:w-[27vw]  md:h-[18vw] p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw]">
+
+const TextTestimonialSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  return (
+    <div className="w-full mt-[.5vw] relative   mx-auto h-[350px] md:mt-[0vw] md:h-[45vw] lg:h-[40vw] xl:h-[36vw] p-4">
+
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        slidesPerView={3} 
+        spaceBetween={-300}
+        direction={"vertical"}
+        loop={true}
+        initialSlide={3} 
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
+        onSwiper={(swiper) => setActiveIndex(swiper.realIndex)} // Initialize active index
+        className=" testimonial-slider h-[330px] md:mt-[6vw] lg:mt-[4vw] xl:mt-[3vw]  md:h-[450px] lg:h-[500px] xl:h-[36vw]"
+        breakpoints={
+          {
+            768:{
+              slidesPerView:3,
+              spaceBetween:-300
+            },
+            320:{
+              spaceBetween:-200,
+              slidesPerView:2,
+            }
+          }
+        }
+      >
+        {testimonials.map((testimonial, index) => {
+          // Calculate the center slide (middle one of the 3 visible slides)
+          
+          const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
+          const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
+          const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
+          var centerIndex=0;
+          if(innerWidth>767){  
+          centerIndex = (activeIndex + 1) % testimonials.length;
+          }else{
+          centerIndex = (activeIndex) % testimonials.length;
+          }
+          return(
+          <SwiperSlide className={`mt-[6px] relative md:mt-[0px] block ${index===(centerIndex)?"z-[99]":"z-[1] "}  `} key={index}>
+            <div
+              className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[18vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-transform duration-300 ease-in-out ${
+                index === centerIndex
+                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
+                  : "blur-[2px] border-[1px] border-black "
+              }`}
+              
+              style={{
+                transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
+              }}
+            >
               <div className="flex  flex-row">
                 
                 
@@ -150,7 +142,7 @@ export default function VideoFeedback() {
                 
               </div>
               <div className="my-[12px] md:my-[1vw] lg:my-[1.5vw]"  >
-              <h5 className="text-h5Text  font-bold " >{reviewTitle[testimonial.rating]}</h5>
+              <h5 className="text-h5Text  font-bold " >{reviewTitle[testimonial.rating] }</h5>
               <p className=" overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
               </div>
 
@@ -162,13 +154,83 @@ export default function VideoFeedback() {
                 </div>
               </div>
             </div>
+          </SwiperSlide>
+          )
+})}
+      </Swiper>
+    </div>
+  );
+};
+
+const VideoTestimonialSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  return (
+    <div className="w-full h-[60vh] md:h-[40vw] md:p-4">
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        slidesPerView={3}
+        spaceBetween={-300}
+        loop={true}
+        initialSlide={3} 
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
+        onSwiper={(swiper) => setActiveIndex(swiper.realIndex)} // Initialize active index
+        className=" testimonial-slider md:mr-[-10vw] lg:mr-[-5vw] h-[60vh] md:h-[40vw]  "
+        breakpoints={
+          {
+            1200:{
+              slidesPerView:3,
+              spaceBetween:-300
+            },
+            768:{
+              slidesPerView:3,
+              spaceBetween:-200
+            },
+            320:{
+              spaceBetween:0,
+              slidesPerView:1,
+            }
+          }
+        }
+      >
+        {testimonials.map((testimonial, index) => {
+          // Calculate the center slide (middle one of the 3 visible slides)
+          
+          const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
+          const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
+          const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
+          var centerIndex=0;
+          if(innerWidth>767){  
+          centerIndex = (activeIndex + 1) % testimonials.length;
+          }else{
+          centerIndex = (activeIndex) % testimonials.length;
+          }
+          console.log(testimonials.length);
+          return(
+          <SwiperSlide className={`  flex flex-row  items-center md:mt-[0px] ${index===(centerIndex)?"z-[99]":"z-[2] "}  `} key={index}>
+            <div
+              className={` bg-white w-full  h-[60vh] md:w-[22.5vw]  md:h-[32.625vw]  p-[14.4px] md:p-[2vw] rounded-[3vw] transition-transform duration-300 ease-in-out ${
+                index === centerIndex
+                  ? "md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
+                  : "blur-[2px] border-[1px] border-black "
+              }`}
+              
+              style={innerWidth>768?{
+                transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
+              }:{}}
+            >
+              <p className=" overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
+              
+
+              
             </div>
-                  )
-                }
-                  )}
-              </Slider>
-            </div>
-          </div>
-        </div>
-    )
-}
+          </SwiperSlide>
+          )
+})}
+      </Swiper>
+    </div>
+  );
+};
