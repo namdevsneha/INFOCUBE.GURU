@@ -98,7 +98,7 @@ const TextTestimonialSlider = () => {
         touchMove={false} // Disable touch swipe
       mousewheel={false} 
       allowTouchMove={false}
-
+ 
         className=" testimonial-slider h-[330px] md:mt-[6vw] lg:mt-[4vw] xl:mt-[3vw]  md:h-[450px] lg:h-[500px] xl:h-[36vw]"
         breakpoints={
           {
@@ -120,19 +120,25 @@ const TextTestimonialSlider = () => {
           const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
           const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
           var centerIndex=0;
+          var name='';
           if(innerWidth>767){  
           centerIndex = (activeIndex + 1) % testimonials.length;
+          name=(index===(centerIndex-2+testimonials.length)%testimonials.length)?"opacity-0":"opacity-100 "
           }else{
           centerIndex = (activeIndex) % testimonials.length;
+          name=(index===(centerIndex+testimonials.length)%testimonials.length)||(index===(centerIndex+1+testimonials.length)%testimonials.length)?"opacity-100":"opacity-0 "
           }
+
+          
           return(
           <SwiperSlide className={`mt-[6px] relative md:mt-[0px] block ${index===(centerIndex)?"z-[99]":"z-[1] "}  `} key={index}>
             <div
-              className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[18vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-transform duration-300 ease-in-out ${
+              className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[18vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-all duration-500 ease-in-out ${
                 index === centerIndex
                   ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
                   : "blur-[2px] border-[1px] border-black "
-              }`}
+              } ${name} 
+              `}
               
               style={{
                 transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
@@ -220,11 +226,12 @@ const VideoTestimonialSlider = () => {
           return(
           <SwiperSlide className={`  flex flex-row  items-center md:mt-[0px] ${index===(centerIndex)?"z-[99]":"z-[2] "}  `} key={index}>
             <div
-              className={` bg-white w-full  h-[60vh] md:w-[22.5vw]  md:h-[32.625vw]  p-[14.4px] md:p-[2vw] rounded-[3vw] transition-transform duration-300 ease-in-out ${
+              className={` bg-white w-full  h-[60vh] md:w-[22.5vw]  md:h-[32.625vw]  p-[14.4px] md:p-[2vw] rounded-[3vw] transition-transform duration-500 ease-out ${
                 index === centerIndex
                   ? "md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
                   : "blur-[2px] border-[1px] border-black "
-              }`}
+              }
+              ${ index===(centerIndex-2+testimonials.length)%testimonials.length?"hidden":"block "} `}
               
               style={innerWidth>768?{
                 transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
