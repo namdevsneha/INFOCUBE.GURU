@@ -44,7 +44,7 @@ export const veterinaryData={
         </span>
     },
     'Tips':{
-        'title':"Tips to Become a Film Director",
+        'title':"Tips to Become a Veterinarians",
         'description':"For aspiring veterinarians, a strong foundation in biology and medical sciences is essential. Develop patience and empathy, as dealing with animals requires a gentle approach. Keep learning and stay updated with advancements in veterinary medicine, as new treatments and technologies are always emerging. Hands-on experience through internships or volunteering at animal clinics or shelters can be incredibly valuable. Building good relationships with pet owners and other veterinary professionals will also enhance your career."
     },
     '11-12':{
@@ -256,15 +256,57 @@ export const veterinaryData={
         "title":"Course Options in Diploma",
         'description':<span>
             <ul className="space-y-[.1vw] list-roman-left list-upper-roman">
-            <li><strong>Diploma in Film Direction:</strong> Covers essential directing skills, including script interpretation, visual storytelling, and directing actors.</li>
-            <li><strong>Diploma in Filmmaking:</strong> Provides an overall foundation in all aspects of film production, including directing, cinematography, and editing.</li>
-            <li><strong>Diploma in Cinematography and Direction</strong> Focuses on both camera work and directing, teaching how to craft a film's visual style alongside storytelling.</li>
-            <li><strong>Diploma in Screenwriting and Direction:</strong> Combines writing and directing skills, essential for those who want to be both writers and directors.</li>
-            <li><strong>Advanced Diploma in Film and Television Production:</strong> Offers a more in-depth study of directing and other production elements like lighting, sound, and post-production.</li>
-            <li><strong>Diploma in Documentary Filmmaking:</strong> Focuses on directing documentaries, teaching skills specific to real-life storytelling.</li>
+            You can have diploma in following courses:
+            <li></li>
         </ul>
         </span>
     },
+
+    'VS':{
+        "title":"Diploma in Veterinary Science",
+        'description':<span>
+            <ul>
+            Duration: 2-3 years.
+            </ul>
+            <ul>Focus: Basics of animal healthcare, disease management, and treatment.</ul>
+            <ul>Job Roles: Veterinary Assistant, Animal Care Technician.</ul>
+        </span>
+    },
+    'AH':{
+        "title":"Diploma in Animal Husbandry",
+        'description':<span>
+            <ul>
+            Duration: 2-3 years.
+            </ul>
+            <ul>Focus: Animal breeding, livestock health, and nutrition.</ul>
+            <ul>Job Roles: Livestock Supervisor, Farm Manager.</ul>
+        </span>
+    },
+
+    'VP':{
+        "title":"Diploma in Veterinary Pharmacy",
+        'description':<span>
+            <ul>
+            Duration: 1-2 years.
+            </ul>
+            <ul>Focus: Veterinary medications, dosage, and pharmaceutical practices.</ul>
+            <ul>Job Roles: Veterinary Pharmacist, Veterinary Sales Representative.</ul>
+        </span>
+    },
+
+    'VT':{
+        "title":"Diploma in Veterinary Technology",
+        'description':<span>
+            <ul>
+            Duration: 2-3 years.
+            </ul>
+            <ul>Focus: Veterinary support skills like assisting in diagnostics, lab procedures, and treatments.
+            </ul>
+            <ul>Job Roles: Veterinary Technician, Laboratory Assistant.
+            </ul>
+        </span>
+    },
+
     'India':{
         "title":"Scope in India",
         "description":<span>
