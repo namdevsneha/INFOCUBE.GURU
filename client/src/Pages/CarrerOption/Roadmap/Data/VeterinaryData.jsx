@@ -1,16 +1,29 @@
-export const veterinaryrData={
-    'FilmDirector':{
-        'title':"Film Director",
-        'description':"A film director shapes a film's artistic and dramatic vision, transforming a screenplay into a compelling visual story. They guide actors and crew members, making creative and technical decisions to ensure every scene aligns with the film's mood, style, and narrative. With a blend of creativity and leadership, directors bring stories to life on screen, orchestrating each element to create an unforgettable cinematic experience.",
+export const veterinaryData={
+    'Veterinarian':{
+        'title':"Veterinary",
+        'description':"Veterinarians are medical professionals who care for animals by diagnosing illnesses, providing treatment, and performing surgeries. They also offer preventive care to ensure animals stay healthy. Their work is vital to animal welfare and helps prevent the spread of diseases to humans. Veterinarians play a key role in both animal and public health.",
     },
     'Education':{
         'title':"Education",
-        'description':<span>A Bachelor’s degree in Film, Media, or a related field is typically the minimum requirement to become a Film Director, though some directors start with diplomas or certificates. Many hold degrees like a BFA or BA in Film, which provides essential skills in directing, cinematography, and screenwriting. However, formal education isn’t always necessary—many directors gain entry through experience, starting with internships, entry-level roles, or creating independent projects. Building a portfolio and hands-on experience are often just as valuable as a degree in this industry.<br/>
+        'description':<span>A Doctor of Veterinary Medicine (DVM) degree is required to become a licensed veterinarian. In addition, students must complete coursework in animal sciences, biology, and chemistry before applying to veterinary school. Many also undertake internships or volunteer work with animals during their studies to gain practical experience.<br/>
         <ol className=" space-y-[.1vw] list-roman-left list-upper-roman ">
-            <li>Basic 10th.</li>
-            <li>10+2 in any stream.</li>
-            <li>Either go for diploma certification courses or undergraduation in film making related courses like Bachelor of Arts in Journalism and Mass Communication (Film Making), Bachelor of Science in Cinematography, Bachelor of Science in Sound Editing, etc.</li>
-            <li>Post graduation for specialization.</li>
+            <li><strong>Basic Education:</strong> Complete 10th grade.</li>
+            <li><strong>10+2 with Science:</strong> Take subjects like Biology, Chemistry, and Physics.</li>
+            <li><strong>Bachelor’s Degree:</strong> Pursue an undergraduate degree in animal sciences, zoology, or pre-veterinary medicine.
+            </li>
+            <li><strong>Doctor of Veterinary Medicine (DVM):</strong> Attend a veterinary college to obtain a DVM degree.
+            </li>
+            <li><strong>Optional Postgraduate Specialization:</strong> Pursue further specialization in fields like surgery, pathology, or animal behavior.
+            </li>
+            <li><strong>Get Licensed</strong>
+                <ul >Register with the Veterinary Council of India (VCI): After your BVSc & AH, you need to register to practice as a veterinarian.
+                </ul>
+                <ul>State Registration: You might also need to register with your state’s veterinary council.
+                </ul>
+            </li>
+            <li><strong>Take internships:</strong>
+            Hands-on experience through internships or volunteering at animal clinics or shelters can be incredibly valuable
+</li>
         </ol>
         </span>,
     },
@@ -18,19 +31,21 @@ export const veterinaryrData={
         'title':"Skills Required",
         'description':<span>
             <ol className=" space-y-[.1vw] list-roman-left list-upper-roman ">
-                <li> <strong>Storytelling and Vision:</strong> Ability to interpret scripts and create a cohesive narrative and visual style.</li>
-            <li> <strong>Leadership and Collaboration:</strong> Skill in directing and uniting a diverse team, from actors to crew members.
+                <li> <strong>Animal Care and Medical Knowledge:</strong> Strong understanding of animal biology, anatomy, and medical conditions across different species.</li>
+            <li> <strong>Diagnostic and Problem-Solving Skills:</strong>  Ability to assess symptoms, conduct tests, and make accurate diagnoses for effective treatments.
+
             </li>
-            <li><strong>Technical Knowledge:</strong> Understanding of camera work, lighting, sound, and editing to enhance storytelling.
+            <li><strong>Communication and Compassion: </strong>Skill in explaining complex medical information to pet owners while showing empathy and care for both animals and their owners.
+
             </li>
-            <li><strong>Communication and Problem-Solving:</strong> Strong communication for clear guidance and flexibility to handle challenges.</li>
-            <li><strong>Creativity and Attention to Detail:</strong> Bringing originality and refining details for a consistent, high-quality film.</li>
+            <li><strong>Technical Expertise:</strong>  Proficiency in using medical equipment and performing surgical procedures safely and effectively.</li>
+            <li><strong>Attention to Detail and Patience:</strong> Observing small changes in animal behavior or condition and demonstrating patience with fearful or anxious animals.</li>
         </ol>
         </span>
     },
     'Tips':{
         'title':"Tips to Become a Film Director",
-        'description':"For aspiring Film Directors, it’s crucial to have a clear vision and communicate effectively with your team. Understand the technical aspects of filmmaking and pay attention to details for consistency. Build strong relationships with cast and crew, stay flexible to adapt to challenges, and always keep learning and experimenting to improve your craft. Trust your team’s expertise and collaborate to bring your vision to life."
+        'description':"For aspiring veterinarians, a strong foundation in biology and medical sciences is essential. Develop patience and empathy, as dealing with animals requires a gentle approach. Keep learning and stay updated with advancements in veterinary medicine, as new treatments and technologies are always emerging. Hands-on experience through internships or volunteering at animal clinics or shelters can be incredibly valuable. Building good relationships with pet owners and other veterinary professionals will also enhance your career."
     },
     '11-12':{
         'title':<h3 className="leading-[110%] ">Class 11-12 Path for Aspiring Film Directors</h3>,
