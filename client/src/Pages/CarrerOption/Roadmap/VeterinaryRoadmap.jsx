@@ -5,7 +5,7 @@ import arrowBackIcon from '../../../Assets/Images/arrowBackIcon.png'
 import lockIcon from '../../../Assets/Images/lockIcon.png'
 import './rightMenu.css'
 
-import { VeterinarySVG } from './svgFile/VeterinarySVG.jsx';
+import { VeterinarySVG } from './svgFile/VeterinarySVG.jsx'
 
 
 export default function VeterinaryRoadmap() {
