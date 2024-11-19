@@ -28,27 +28,27 @@ const reviewTitle={
 const testimonials = [{
     avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/1727684266904Expertise.png?alt=media&token=3411aac7-fa5a-448d-9322-033a9b138a0f",
     date : "2024-09-29T16:43:43.778Z",
-    feedback : "well done great job",
+    feedback : "Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torqu...",
     name : "Utkarsh Saxena",
     rating : "3"   
 },
     {
     avatar: "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/1726812254434snapedit_1726731692866.jpeg.png?alt=media&token=f6e453cf-2fb1-4543-b917-292f0be85359",
     date: "2024-09-20T06:05:59.106Z",
-    feedback: "Earlier, I was very tense about my college and counselling process, but when I met Infocube, they made my life easy by helping at every level with personal guidance of 24 hours and also helped me in my career level guidance as well. Their call support helped me a lot during counselling rounds, and they were with me till the last of my counselling when I got the best college. ",
+    feedback: "Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torqu... ",
     name: "Ansh Gupta ",
     rating: "3"
     }, 
     {
     avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622",
     date: "2024-09-20T05:51:07.497Z",
-    feedback: "Had a great experience with all the team members they helped me a lot in my counselling to get the best college ",
+    feedback: "Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torqu...",
     name: "Tanish ",
     rating: "3"},
     {
     avatar : "https://firebasestorage.googleapis.com/v0/b/infocube007.appspot.com/o/avatar.webp?alt=media&token=df235cd7-f248-4bd7-bb19-39e464b37622",
     date: "2024-09-20T05:51:07.497Z",
-    feedback: "Had a great experience with all the team members they helped me a lot in my counselling to get the best college ",
+    feedback: "Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torqu...",
     name: "Tanish ",
     rating: "3"
 },
@@ -61,14 +61,14 @@ export default function VideoFeedback() {
             <h1 className=" text-center items-center text-h1Text font-poppins font-bold">
           Testimonial
           </h1>
-          <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center gap-[2vw]">
+          <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center ">
          
 
             <div className={`w-[92vw] md:w-[45vw]  h-[60vh] md:max-h-full max-h-[643px] md:h-[47vw]  block md:flex md:flex-col justify-center   `}>
               <VideoTestimonialSlider/>
 
             </div>
-            <div className=" w-[100vw]  md:w-[42vw]     ">
+            <div className=" w-[100vw]  md:w-[46vw]     ">
               <TextTestimonialSlider/>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function VideoFeedback() {
 const TextTestimonialSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="w-full mt-[.5vw] relative   mx-auto h-[350px] md:mt-[0vw] md:h-[45vw] lg:h-[40vw] xl:h-[36vw] py-4 md:p-4">
+    <div className="w-full  mt-[.5vw] relative   mx-auto h-[350px] md:mt-[0vw] md:h-[45vw] lg:h-[40vw] xl:h-[36vw] py-4 md:p-4">
 
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
@@ -133,15 +133,15 @@ const TextTestimonialSlider = () => {
           return(
           <SwiperSlide className={`mt-[6px] relative md:mt-[0px] block ${index===(centerIndex)?"z-[99]":"z-[1] "}  `} key={index}>
             <div
-              className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[18vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-all duration-500 ease-in-out ${
+              className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[16vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-all duration-500 ease-in-out ${
                 index === centerIndex
-                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
-                  : "blur-[2px] border-[1px] border-black "
+                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] blur-[0px] border-black z-[90]"
+                  : "blur-[2px]    border-black "
               } ${name} 
               `}
               
               style={{
-                transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
+                transform: centerIndex === index ? "scale(1.3) " : "scale(1)",
               }}
             >
               <div className="flex  flex-row">
@@ -153,7 +153,7 @@ const TextTestimonialSlider = () => {
               </div>
               <div className="my-[12px] md:my-[1vw] lg:my-[1.5vw]"  >
               <h5 className="text-h5Text  font-bold " >{reviewTitle[testimonial.rating] }</h5>
-              <p className=" overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
+              <p className=" overflow-hidden h-[54.4px] md:h-[4.3vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
               </div>
 
               <div className="flex flex-row items-center justify-start text-left md:gap-[.8vw]">
