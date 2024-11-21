@@ -55,12 +55,12 @@ export default function VeterinaryRoadmap() {
         
       </div>
       <div className='md:w-auto w-full   font-bold flex flex-col gap-[1.5vw] '>
-        <h2 className='text-h2Text '>
-        Narrowed Roadmap<br/>
-        To Become Veterinary
+      <h2 className='text-h2Text font-poppins leading-[120%] font-bold '>
+        Narrowed <span className='text-darkorchid'>Roadmap</span><br/>
+        To Become <span className='text-darkorchid'>Veterinary</span>
         </h2>
         
-        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
+        <span className='font-roboto font-normal leading-[150%] text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
         <div className='w-[60vw] h-auto  relative   items-center'>
         <VeterinarySVG/>
         </div>
@@ -74,12 +74,12 @@ export default function VeterinaryRoadmap() {
     <div className='px-[4vh] py-[5vh]'>
     <span className='md:ml-[20vw] text-blue-800 cursor-pointer text-smallText'><Link to='./../../../'>Home</Link> / <Link to='./../../'>Career Paths</Link> / Veterinary / Roadmap</span>
     
-    <h2 className='text-h2Text font-poppins leading-[140%] font-bold'>
-        Narrowed Roadmap<br/>
-        To Become Veterinary
+    <h2 className='text-h2Text font-poppins leading-[120%] font-semibold'>
+    Narrowed <span className='text-darkorchid'>Roadmap</span><br/>
+    To Become <span className='text-darkorchid'>Veterinary</span>
         </h2>
         
-        <span className='font-roboto font-normal text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
+        <span className='font-roboto font-normal leading-[150%] text-mediumText'>Step by step guide to become a Veterinary in 2024</span>
         </div>
     <div className='flex flex-col items-center relative'>
     <div className='w-[90vw] h-auto relative'>

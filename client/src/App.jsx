@@ -23,6 +23,8 @@ import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
 import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/FilmDirectorRoadmap.jsx';
 import VeterinaryRoadmap from './Pages/CarrerOption/Roadmap/VeterinaryRoadmap.jsx';
+import Subscription from './Pages/Services/Subscription.jsx';
+
 //CarrerOption
 import Lawyer from './Pages/CarrerOption/Career/Lawyer.jsx';
 
@@ -97,6 +99,7 @@ function App() {
 
 
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
+      <Route path='/Program' element={<Subscription/>}/>
       <Route path='/CareerPath/FilmDirector/Roadmap' element={<FilmDirectorRoadmap />}/>
       <Route path='/CareerPath/Veterinary/Roadmap' element={< VeterinaryRoadmap/>}/>
 
