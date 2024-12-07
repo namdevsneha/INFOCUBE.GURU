@@ -58,7 +58,7 @@ export default function Subscription() {
                             <div className='h-full flex flex-col justify-between relative ml-auto'>
                                 <h2 className='ml-auto font-bold leading-[100%] text-h1Text'><span className='text-h7Text'>₹</span> 599</h2>
                                 <button className=' font-bold text-white text-regularText leading-[150%] text-center rounded-[1.5vw] w-[11vw] px-[1.5vw] py-[.75vw] bg-graybutton'>
-                                    Explore
+                                    Book Now
                                 </button>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ export default function Subscription() {
                             <div className='h-full flex flex-col justify-between relative ml-auto'>
                                 <h2 className='ml-auto font-bold leading-[100%] text-h1Text'><span className='text-h7Text'>₹</span> 1299</h2>
                                 <button className=' font-bold text-white text-regularText leading-[150%] text-center rounded-[1.5vw] w-[11vw] px-[1.5vw] py-[.75vw] bg-graybutton'>
-                                    Explore
+                                    Book Now
                                 </button>
                             </div>
                         </div>
@@ -120,13 +120,13 @@ export default function Subscription() {
                             <div className='h-full flex flex-col justify-between relative ml-auto'>
                                 <h2 className='ml-auto font-bold leading-[100%] text-h1Text'><span className='text-h7Text'>₹</span> 1999</h2>
                                 <button className=' font-bold text-white text-regularText leading-[150%] text-center rounded-[1.5vw] w-[11vw] px-[1.5vw] py-[.75vw] bg-graybutton'>
-                                    Explore
+                                    Book Now        
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div className='relative bg-darkorchid px-[2.92vw] flex flex-col justify-center rounded-[1.5625vw] w-[28.84vw] h-[55.73vw] shadow-[0px_.21vw_.84vw_0px_rgba(0,_0,_0,_1)]' style={{ boxShadow: '0px 4px 16px 0px #000' }}>
-                        <img className='absolute top-[3.85vw] w-[2.6vw] h-auto' src={callProgram}/>
+                        {/* <img className='absolute top-[3.85vw] w-[2.6vw] h-auto' src={callProgram}/>  */}
                         <div className='text-white  flex flex-col gap-[1.67vw]'>
                             <h3 className='text-h4Text font-bold text-center leading-[120%]'>
                                 Get a free briefing session with us.

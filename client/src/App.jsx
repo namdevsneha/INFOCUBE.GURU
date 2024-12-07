@@ -21,8 +21,6 @@ import SignupForm from './Pages/Auth/SignUpForm.jsx';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx';
 import ChangePassword from './Pages/ForgotPassword/ChangePassword.jsx';
 import CarrerOptions from './Pages/CarrerOption/CarrerOptions.jsx';
-import FilmDirectorRoadmap from './Pages/CarrerOption/Roadmap/FilmDirectorRoadmap.jsx';
-import VeterinaryRoadmap from './Pages/CarrerOption/Roadmap/VeterinaryRoadmap.jsx';
 import Subscription from './Pages/Services/Subscription.jsx';
 
 //CarrerOption
@@ -35,7 +33,10 @@ import ScrollToElement from './Components/ScrollToElement.jsx';
 import { closeDropDown } from './Redux/userSlice/navDropDown.js';
 import { closeNav } from './Redux/IsOpenSlice.js';
 import FeedbackPrivateRoute from './Components/privateRoute/FeedbackRoute.jsx';
+import RoadmapURL from './Components/privateRoute/RoadmapURL.jsx';
 // import { Router } from 'express';
+
+
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -100,8 +101,7 @@ function App() {
 
       <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
       <Route path='/Program' element={<Subscription/>}/>
-      <Route path='/CareerPath/FilmDirector/Roadmap' element={<FilmDirectorRoadmap />}/>
-      <Route path='/CareerPath/Veterinary/Roadmap' element={< VeterinaryRoadmap/>}/>
+      <Route path='/CareerPath/:career/Roadmap' element={<RoadmapURL />}/>
 
       </Routes>
 
