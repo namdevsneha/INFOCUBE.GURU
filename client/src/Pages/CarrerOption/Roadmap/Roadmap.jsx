@@ -19,7 +19,7 @@ export default function Roadmap({title}) {
   
   const roadmapComponents = {
     "Film Director":<FilmDirectorSvg/>,
-    "Veterinary": <VeterinarySVG/>,
+    "Veterinarian": <VeterinarySVG/>,
     "Animator": <AnimatorSvg/>,
     "Actuary": <ActuarySVG/>
   } 

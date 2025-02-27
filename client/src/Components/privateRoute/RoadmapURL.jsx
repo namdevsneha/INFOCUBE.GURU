@@ -7,7 +7,7 @@ export default function RoadmapURL () {
   
     const roadmapComponents = {
       FilmDirector: <Roadmap title={"Film Director"} />,
-      veterinary: <Roadmap title={"Veterinary"} />,
+      Veterinarian: <Roadmap title={"Veterinarian"} />,
       Animator: <Roadmap title={"Animator"} />,
       Actuary:<Roadmap title={"Actuary"} />,
       // Add more mappings as needed

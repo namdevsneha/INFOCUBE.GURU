@@ -40,13 +40,13 @@ export const SideMenu=({isOpen,setIsOpen,id,pageData})=>{
   
           <div className="fixed inset-0 flex z-[100]  justify-end bg-white bg-opacity-0 " >  
             <div className="bg-white font-poppins  ml-auto sticky w-[90vw] md:w-[30vw] px-[1.5vh] md:px-[1.5vw] overflow-y-auto"   style={{paddingTop:scrollY<55?`${64-scrollY}px`:"1vw"}} >
-              <div className='  flex flex-row items-center'>
-              <h3 className='text-h4Text uppercase font-bold leading-[140%]'>{data.title}</h3>
-                <img onClick={closeDialog} className='w-auto mb-auto mt-[.5vw] h-[12px] ml-auto cursor-pointer' src={close}/>
+              <div className='  flex flex-row '>
+              <h3 className='text-h4.5Text uppercase font-bold leading-[140%]'>{data.title}</h3>
+                <img onClick={closeDialog} className='w-auto mt-[.75vw] mb-auto h-[12px] ml-auto cursor-pointer' src={close}/>
               </div>
               <div className='flex flex-col gap-[.5vw]'>
               
-              <p className='pt-[.5vw] text-regularText font-roboto leading-[150%] text-gray-700'>{data.description}</p> 
+              <p className='pt-[.5vw] font-normal text-regularText font-roboto leading-[150%] text-gray-700'>{data.description}</p> 
               <div className='text-green-600 mb-[.5vw] font-roboto mx-auto w-[22.5vw] overflow-hidden text-center'>__________________________________________________________________________________________</div>
             
               </div>

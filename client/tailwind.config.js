@@ -103,6 +103,7 @@ export default {
         'h2Text':'clamp(28px,3vw,56px)',
         'h3Text':'clamp(24px,2.5vw,52px)',
         'h4Text':'clamp(20px,2.5vw,48px)',
+        'h4.5Text':'clamp(20px,2vw,48px)',
         'h3Program':'clamp(16px,1.72vw,33px)',
         'h4Program':'clamp(16px,1.458vw,28px)',
         'h5Text':'clamp(16px,1.5vw,44px)',

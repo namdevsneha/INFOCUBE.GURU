@@ -24,11 +24,11 @@ export default function FAQ(){
                             </div> 
                         <div className={selected==i ?"content show mx-[86px] text-[1.3rem]":" text-[1.3rem] content mx-[86px]"}>
                         <div className='flex flex-row'>
-    <span>•</span>
-    <div className='flex flex-row'>{item.answer}</div>
-    
-    </div>
-    </div>
+                        <span>•</span>
+                        <div className='flex flex-row'>{item.answer}</div>
+                        
+                        </div>
+                        </div>
 
                     </div>
                 ))}
