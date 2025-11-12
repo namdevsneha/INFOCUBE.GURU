@@ -15,7 +15,7 @@ export default function ActionAreaCard({category, image, title, description,care
           component="img"
           height="140"
           image={image}
-          className='h-[200px]'
+          className='max-h-[400px]'
           alt={title}
         />
           <div className='font-roboto mt-[12px] md:mt-[24px] mb-[8px] md:mb-[12px] mx-[8px] flex flex-col gap-[8px]'>
