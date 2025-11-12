@@ -8,13 +8,14 @@ import { Navigate } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 export default function ActionAreaCard({category, image, title, description,career }) {
   return (
-    <Link to={career}>
+    <Link to={`${career}`}>
     <Card sx={{ maxWidth:innerWidth>768? 416:300,borderRadius: innerWidth>768? '16px':'8px' }} elevation={10}>
       <CardActionArea onClick={Navigate}> 
         <CardMedia
           component="img"
           height="140"
           image={image}
+          className='h-[200px]'
           alt={title}
         />
           <div className='font-roboto mt-[12px] md:mt-[24px] mb-[8px] md:mb-[12px] mx-[8px] flex flex-col gap-[8px]'>

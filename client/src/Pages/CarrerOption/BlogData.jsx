@@ -1,33 +1,11 @@
-import placeholder from '../../Assets/Images/placeholder.png'
+import filmDirectorRoadmap from '../../Assets/Images/filmDirectorRoadmap.png'
+import veterinaryRoadmap from '../../Assets/Images/VeterinaryMobile.svg'
 export const blogData =[
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+    {image:filmDirectorRoadmap, title:"Film Director Roadmap", category:"Common opportunities", career:"FilmDirector/Roadmap",
+      description:"A film director shapes a film's artistic and dramatic vision, transforming a screenplay into a compelling visual story. They guide actors and crew members, making creative and technical decisions to ensure every scene aligns with the film's mood, style, and narrative. With a blend of creativity and leadership, directors bring stories to life on screen, orchestrating each element to create an unforgettable cinematic experience.",
     },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCB", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"Commerce", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"Arts", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    },
-    {image:placeholder, title:"Blog title heading will go here", category:"PCM", career:"Lawyer", 
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-    }
+    {image:veterinaryRoadmap, title:"Veterinary Roadmap", category:"Common opportunities", career:"Veterinary/Roadmap",
+      description:"A veterinarian is a medical professional who specializes in the care and treatment of animals. They diagnose and treat various animal health issues, providing preventive care, surgery, and medical care to ensure animals maintain good health and well-being. Veterinarians work in private practices, clinics, animal shelters, zoos, and research facilities, making significant contributions to animal welfare and public health.",
+    },    
+    
   ]
