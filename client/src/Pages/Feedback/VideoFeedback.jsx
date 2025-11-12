@@ -61,7 +61,7 @@ export default function VideoFeedback() {
             <h1 className=" text-center items-center text-h1Text font-poppins font-bold">
           Testimonial
           </h1>
-          <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] mt-[32px] mb-[48px]  md:mt-[2vw] md:mb-[6vw]  items-center   justify-center ">
+          <div className="relative w-full  flex flex-col  md:flex-row  md:mx-[0px] pt-[32px] pb-[48px]  md:pt-[4vw] md:pb-[6vw]  items-center   justify-center ">
          
 
             <div className={`w-[92vw] md:w-[45vw]  h-[60vh] md:max-h-full max-h-[643px] md:h-[47vw]  block md:flex md:flex-col justify-center   `}>
@@ -135,8 +135,8 @@ const TextTestimonialSlider = () => {
             <div
               className={`w-[75vw] h-[186px] md:w-[27vw] mx-auto bg-white md:h-[16vw]  p-[14.4px] md:p-[1.5vw] rounded-[6px] md:rounded-[.5vw] transition-all duration-500 ease-in-out ${
                 index === centerIndex
-                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] blur-[0px] border-black z-[90]"
-                  : "blur-[2px]    border-black "
+                  ? "shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.15)] md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] blur-[0px] border-[.5px] border-gray-400 z-[90]"
+                  : "blur-[1px]  border-[.5px]  border-gray-400 "
               } ${name} 
               `}
               
@@ -226,7 +226,7 @@ const VideoTestimonialSlider = () => {
           return(
           <SwiperSlide className={`  flex flex-row  items-center md:mt-[0px] ${index===(centerIndex)?"z-[99]":"z-[2] "}  `} key={index}>
             <div
-              className={` bg-white w-full  h-[60vh] md:w-[22.5vw]  md:h-[32.625vw]  p-[14.4px] md:p-[2vw] rounded-[3vw] transition-transform duration-500 ease-out ${
+              className={`relative bg-gradient-to-br from-gray-800 to-gray-900 w-full  h-[60vh] md:w-[22.5vw]  md:h-[32.625vw]  p-[14.4px] md:p-[2vw] rounded-[3vw] transition-transform duration-500 ease-out overflow-hidden ${
                 index === centerIndex
                   ? "md:shadow-[0px_.25vw_3vw_rgba(0,_0,_0,_0.3)] border-[1px] border-black z-[90]"
                   : "blur-[2px] border-[1px] border-black "
@@ -237,10 +237,19 @@ const VideoTestimonialSlider = () => {
                 transform: centerIndex === index ? "scale(1.2) " : "scale(1)",
               }:{}}
             >
-              <p className=" overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText  text-ellipsis">{testimonial.feedback}</p>
+              {/* Video placeholder play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[60px] h-[60px] md:w-[4vw] md:h-[4vw] bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30">
+                  <svg className="w-[30px] h-[30px] md:w-[2vw] md:h-[2vw] text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
               
-
-              
+              {/* Text overlay at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-[14.4px] md:p-[2vw]">
+                <p className="text-white overflow-hidden h-[54.4px] md:h-[5.68vw] text-regularText text-ellipsis">{testimonial.feedback}</p>
+              </div>
             </div>
           </SwiperSlide>
           )

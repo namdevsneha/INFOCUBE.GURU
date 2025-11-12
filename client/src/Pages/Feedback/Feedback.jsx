@@ -108,7 +108,6 @@ export default function OldFeedback(){
     console.log(testimonials)
       //Testimonial Slick Slider settings
     const settings = {
-      centerMode: true,
       centerPadding: '0px',
       slidesToShow: 5,
       infinity:true,
@@ -226,9 +225,9 @@ export default function OldFeedback(){
             
            
             return(
-            <div key={index} className={` px-[32px] py-[120px]`} >
+            <div key={index} className={`px-[32px] py-[120px] ${index === (centerIndex + 2) % testimonials.length ? "isCenter" : "notCenter"}`} >
             
-            <div className=" shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[9px] p-[1.75vw]" style={{width:innerWidth>1023?`${0.1256*innerWidth+30.912}px`:"180px"}}>
+            <div className=" shadow-[0px_4px_49.3px_rgba(0,_0,_0,_0.25)] font-inter rounded-[9px] p-[1.75vw] " style={{width:innerWidth>1023?`${0.1256*innerWidth+30.912}px`:"180px"}}>
               <div className="flex flex-row">
                 
                 
