@@ -6,6 +6,7 @@ import signupRouter from "./routes/auth.route.js"
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import feedbackRouter from "./routes/feedback.route.js"
+import assessmentRouter from "./routes/assessment.route.js"
 import cors from 'cors';
 
 dotenv.config();
@@ -41,6 +42,7 @@ app.listen(3000,()=>{
 app.use('/api/user',userRouter);
 app.use('/api/auth',signupRouter);
 app.use('/api/feedback',feedbackRouter);
+app.use('/api/assessment',assessmentRouter);
 
 
 app.use(express.static(path.join(__dirname,'/client/dist')));

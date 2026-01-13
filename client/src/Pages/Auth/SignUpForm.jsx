@@ -137,7 +137,7 @@ export default function SignupForm(){
         dispatch(signInSuccess(data))
 
 
-        navigate('/');
+    navigate('/CareerAssessment');
 
         } catch (error) {
          dispatch(signInFailure(error.message));

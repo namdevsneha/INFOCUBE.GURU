@@ -1,6 +1,5 @@
 
-import React,{useState} from "react";
-import Slider from 'react-slick';
+import {useState} from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { format } from 'date-fns';
@@ -213,9 +212,9 @@ const VideoTestimonialSlider = () => {
         {testimonials.map((testimonial, index) => {
           // Calculate the center slide (middle one of the 3 visible slides)
           
-          const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
-          const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
-          const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
+          // const stars = Array(parseInt(testimonial.rating,10)).fill(null); 
+          // const nostars = Array(5-parseInt(testimonial.rating,10)).fill(null);
+          // const formattedDate = format(new Date(testimonial.date), 'dd-MM-yyyy');
           var centerIndex=0;
           if(innerWidth>767){  
           centerIndex = (activeIndex + 1) % testimonials.length;

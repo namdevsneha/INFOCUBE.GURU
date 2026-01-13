@@ -66,6 +66,10 @@ const userSchema=new mongoose.Schema({
     stream:{
         type:String,
         default:"--Enter--"
+    },
+    hasTakenAssessment:{
+        type:Boolean,
+        default:false
     }
     // field:{
     //     type:Array<String>(5),

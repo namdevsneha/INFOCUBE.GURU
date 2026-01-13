@@ -211,7 +211,7 @@ export default function Signup(){
             return;
           
         }
-        navigate('/Login');
+        navigate('/CareerAssessment');
         dispatch(signUpSuccess())
 
         } catch (error) {
